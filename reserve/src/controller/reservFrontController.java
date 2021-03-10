@@ -75,7 +75,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		//흥기
+		//흥기 vdfdfdfdd
 		else if(command.equals("/loginProcess.mem")) {
 			action = new JoinProAction();
 			try {
