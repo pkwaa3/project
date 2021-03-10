@@ -85,6 +85,8 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		
+		//asdf
+		
 		if(forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
