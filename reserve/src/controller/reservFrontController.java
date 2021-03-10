@@ -15,7 +15,7 @@ import vo.ActionForward;
 /**
  * Servlet implementation class reservFrontController
  */
-@WebServlet(urlPatterns = {"*.mem","*.own","*.log"})
+@WebServlet(urlPatterns = {"*.mem","*.own","*.com"})
 public class reservFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
