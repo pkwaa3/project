@@ -85,7 +85,15 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		
-		//asdf
+		//ㅈㅇ우
+		else if(command.equals("/loginProcess.mem")) {
+		action = new JoinProAction();
+		try {
+			forward = action.execute(request, response);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {
