@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/index/login.jsp">로그인</a>
+
 </body>
 </html>
