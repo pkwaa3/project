@@ -21,7 +21,7 @@
 			<td> <input type="password" name="mem_pw" id="mem_pw"></td>
 		</tr>
 		<tr>
-			<td cospan="2"> <a href="javascript:loginform.submit()">로그인</a></td>
+			<td cospan="2"> <a href="javascript:loginform.submit()">로그인dddd</a></td>
 		</tr>
 	</table>
 </form>
