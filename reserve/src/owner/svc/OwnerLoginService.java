@@ -8,7 +8,7 @@ import java.sql.Connection;
 import dao.OwnerDAO;
 public class OwnerLoginService {
 
-	public static boolean login(Owner owner) {
+	public boolean login(Owner owner) {
 		Connection con = getConnection();
 		OwnerDAO ownerDAO = OwnerDAO.getInstance();
 		ownerDAO.setConnection(con);
