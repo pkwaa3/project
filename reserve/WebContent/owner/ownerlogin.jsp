@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="ownerLogin" action="../ownerLogin.ow" method="post">
+<form name="ownerLogin" action="../ownerLogin.own" method="post">
 <table border="0">
 	<tr>
 		<td>아아디 : </td>

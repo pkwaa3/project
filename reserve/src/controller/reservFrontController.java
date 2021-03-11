@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import owner.action.ownerLoginAction;
 import vo.ActionForward;
 
 /**
@@ -55,39 +56,39 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/member/loginForm.jsp");
 		}
-		else if(command.equals("/loginProcess.log")) {
-			action = new LoginAction();
-			try {
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else if(command.equals("/joinForm.mem")) {
-			forward = new ActionForward();
-			forward.setPath("/member/joinForm.jsp");
-		} 
-		else if(command.equals("/joinProcess.mem")) {
-			action = new JoinProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+//		else if(command.equals("/loginProcess.log")) {
+//			action = new LoginAction();
+//			try {
+//				forward = action.execute(request, response);
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		else if(command.equals("/joinForm.mem")) {
+//			forward = new ActionForward();
+//			forward.setPath("/member/joinForm.jsp");
+//		} 
+//		else if(command.equals("/joinProcess.mem")) {
+//			action = new JoinProAction();
+//			try {
+//				forward = action.execute(request, response);
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 		//흥기 vdfdfdfdd
-		else if(command.equals("/loginProcess.mem")) {
-			action = new JoinProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+//		else if(command.equals("/loginProcess.mem")) {
+//			action = new JoinProAction();
+//			try {
+//				forward = action.execute(request, response);
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
 		//ㅈㅇ우
-		else if(command.equals("/loginProcess.mem")) {
-		action = new JoinProAction();
+		else if(command.equals("/ownerLogin.own")) {
+		action = new ownerLoginAction();
 		try {
 			forward = action.execute(request, response);
 		} catch(Exception e) {
