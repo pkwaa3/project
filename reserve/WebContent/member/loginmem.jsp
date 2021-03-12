@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="loginProccess.mem" method="post">
+<form name="memberLoginForm" action="../memberLoginProccess.mem" method="post">
 	<table>
 		<tr>
 			<td colspan="2"> 로그인 페이지 </td>
@@ -21,7 +21,8 @@
 			<td> <input type="password" name="mem_pw" id="mem_pw"></td>
 		</tr>
 		<tr>
-			<td cospan="2"> <a href="javascript:loginform.submit()">로그인dddd</a></td>
+			<td cospan="2"> <a href="javascript:memberLoginForm.submit()">로그인</a>&nbsp;&nbsp;
+							<a href="../memberJoinForm.mem">회원가입</a></td>
 		</tr>
 	</table>
 </form>

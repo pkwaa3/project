@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import member.action.MemberJoinProAction;
+import member.action.MemberLoginAction;
 import vo.ActionForward;
 
 /**
@@ -55,29 +57,24 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/member/loginForm.jsp");
 		}
-		else if(command.equals("/loginProcess.log")) {
-			action = new LoginAction();
+		
+		//멤버 로그인 프로세스
+		else if(command.equals("/memberLoginProccess.mem")) {
+			action = new MemberLoginAction();
 			try {
 				forward = action.execute(request, response);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/joinForm.mem")) {
+		//멤버 회원가입 폼
+		else if(command.equals("/memberJoinForm.mem")) {
 			forward = new ActionForward();
-			forward.setPath("/member/joinForm.jsp");
-		} 
-		else if(command.equals("/joinProcess.mem")) {
-			action = new JoinProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
+			forward.setPath("/member/memberJoinForm.jsp");
 		}
-		//흥기 vdfdfdfdd
-		else if(command.equals("/loginProcess.mem")) {
-			action = new JoinProAction();
+		//멤버 회원가입 프로세스
+		else if(command.equals("/memberJoinProccess.mem")) {
+			action = new MemberJoinProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch(Exception e) {
@@ -85,7 +82,6 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		
-		//asdf
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {
