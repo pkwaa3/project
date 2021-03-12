@@ -13,40 +13,46 @@ import action.Action;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
 import company.action.companyLoginAction;
+import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import vo.ActionForward;
 
 /**
  * Servlet implementation class reservFrontController
  */
-@WebServlet(urlPatterns = {"*.mem","*.own","*.com"})
+@WebServlet(urlPatterns = { "*.mem", "*.own", "*.com" })
 public class reservFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public reservFrontController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public reservFrontController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doProcess(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doProcess(request, response);
 	}
 
-	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-	
+	private void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+
 		request.setCharacterEncoding("utf-8");
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
@@ -54,61 +60,77 @@ public class reservFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		System.out.println(command);
-		
-		if(command.equals("/loginForm.log")) {
+
+		if (command.equals("/loginForm.log")) {
 			forward = new ActionForward();
 			forward.setPath("/member/loginForm.jsp");
 		}
 
-		
-		//멤버 로그인 프로세스
-		else if(command.equals("/memberLoginProccess.mem")) {
+		// 멤버 로그인 프로세스
+		else if (command.equals("/memberLoginProccess.mem")) {
 			action = new MemberLoginAction();
 			try {
 				forward = action.execute(request, response);
-			} catch(Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		//멤버 회원가입 폼
-		else if(command.equals("/memberJoinForm.mem")) {
+		// 멤버 회원가입 폼
+		else if (command.equals("/memberJoinForm.mem")) {
 			forward = new ActionForward();
 			forward.setPath("/member/memberJoinForm.jsp");
 		}
-		//멤버 회원가입 프로세스
-		else if(command.equals("/memberJoinProccess.mem")) {
+		// 멤버 회원가입 프로세스
+		else if (command.equals("/memberJoinProccess.mem")) {
 			action = new MemberJoinProAction();
 			try {
 				forward = action.execute(request, response);
-			} catch(Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		//ㅈㅇ우
-		else if(command.equals("/ownerLogin.own")) {
-		action = new ownerLoginAction();
-		try {
-			forward = action.execute(request, response);
-		} catch(Exception e) {
-			e.printStackTrace();
+		// ㅈㅇ우
+		// 오너로그인폼
+		else if (command.equals("/ownerLoginForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("/owner/ownerlogin.jsp");
 		}
-	}else if(command.equals("/companyLogin.com")) {
-		action = new companyLoginAction();
-		try {
-			forward = action.execute(request, response);
-		} catch(Exception e) {
-			e.printStackTrace();
+		// 오너 로그인 액션
+		else if (command.equals("/ownerLogin.own")) {
+			action = new ownerLoginAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/ownerLogin.own")) { //오너 회원가입
+			action = new ownerJoinAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-	}
-		
-		
-		
-		
-		if(forward != null) {
-			if(forward.isRedirect()) {
+		//컴퍼니 로그인폼
+			else if(command.equals("/companyLoginForm.com")) {
+			forward = new ActionForward();
+			forward.setPath("/company/companylogin.jsp");
+		}
+		//컴퍼니 로그인 액션	
+		 else if (command.equals("/companyLogin.com")) {
+			action = new companyLoginAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (forward != null) {
+			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
-			}else {
+			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
