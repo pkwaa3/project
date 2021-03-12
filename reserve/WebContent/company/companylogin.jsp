@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="ownerLogin" action="../ownerLogin.ow" method="post">
+<form name="companyLogin" action="../companyLogin.com" method="post">
 <table border="0">
 	<tr>
 		<td>아아디 : </td>
-		<td><input type="text" id="owner_id" name="owner_id" /></td>
+		<td><input type="text" id="com_id" name="com_id" /></td>
 	</tr>
 	<tr>
 		<td>비밀번호 : </td>
-		<td><input type="password" id="owner_pw" name="owner_pw" /></td>
+		<td><input type="password" id="com_pw" name="com_pw" /></td>
 	</tr>
 	<tr>
 		<td><input type="submit" value="로그인"></td>

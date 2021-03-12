@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
+import company.action.companyLoginAction;
+import owner.action.ownerLoginAction;
 import vo.ActionForward;
 
 /**
@@ -57,6 +59,7 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/member/loginForm.jsp");
 		}
+
 		
 		//멤버 로그인 프로세스
 		else if(command.equals("/memberLoginProccess.mem")) {
@@ -81,6 +84,25 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+
+		//ㅈㅇ우
+		else if(command.equals("/ownerLogin.own")) {
+		action = new ownerLoginAction();
+		try {
+			forward = action.execute(request, response);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}else if(command.equals("/companyLogin.com")) {
+		action = new companyLoginAction();
+		try {
+			forward = action.execute(request, response);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+		
+		
 		
 		
 		if(forward != null) {
