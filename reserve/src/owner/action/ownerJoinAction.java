@@ -20,7 +20,7 @@ public class ownerJoinAction implements Action {
    		owner.setOwner_id(request.getParameter("owner_id"));
    		owner.setOwner_pw(request.getParameter("owner_pw"));
    		owner.setOwner_name(request.getParameter("owner_name"));
-   		owner.setOwner_age(Integer.parseInt(request.getParameter("owner_age")));
+   		owner.setOwner_age(request.getParameter("owner_age"s));
    		owner.setOwner_gender(request.getParameter("owner_gender"));
    		owner.setOwner_number(Integer.parseInt(request.getParameter("owner_number")));
    		owner.setOwner_eamil(request.getParameter("owner_email"));
