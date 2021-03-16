@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="memberLoginForm" action="../memberLoginProccess.mem" method="post">
+<form name="memberLoginForm" action="memberLoginProccess.mem" method="post">
 	<table>
 		<tr>
-			<td colspan="2"> 로그인 페이지 </td>
+			<td colspan="2">  로그인 페이지 </td>
 		</tr>	
 		<tr>
 			<td><label for="id">아이디 : </label></td>
@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<td cospan="2"> <a href="javascript:memberLoginForm.submit()">로그인</a>&nbsp;&nbsp;
-							<a href="../memberJoinForm.mem">회원가입</a></td>
+							<a href="memberJoinForm.mem">회원가입</a></td>
 		</tr>
 	</table>
 </form>
