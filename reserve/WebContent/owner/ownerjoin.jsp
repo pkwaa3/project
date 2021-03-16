@@ -19,8 +19,8 @@
 			f.pass.focus();
 			return false;
 			}
-		if(f.owner_pw.value.length < 5 || f.owner_pw.value.length >10){
-			alert("비밀번호는 5~10자로 설정하세요");
+		if(f.owner_pw.value.length < 4 || f.owner_pw.value.length >10){
+			alert("비밀번호는 4~10자로 설정하세요");
 			f.pass.value="";
 			f.pass.focus();
 			return false;
@@ -45,7 +45,7 @@
 </script>
 </head>
 <body>
-<form name="ownerjoin" action="../ownerjoin.own" method="post">
+<form name="ownerjoin" action="../ownerJoin.own" method="post">
 	<table>
 		 <tr>
 		 	<td colspan="2">회원가입</td>

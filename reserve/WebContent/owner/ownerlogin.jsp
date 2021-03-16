@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="ownerLogin" action="../ownerLogin.own" method="post">
-<table border="0">
+<form name="ownerLoginForm" action="../ownerLogin.own" method="post">
+<table>
 	<tr>
 		<td>아아디 : </td>
 		<td><input type="text" id="owner_id" name="owner_id" /></td>
@@ -18,7 +18,7 @@
 		<td><input type="password" id="owner_pw" name="owner_pw" /></td>
 	</tr>
 	<tr>
-		<td><input type="submit" value="로그인"></td>
+		<td><a href="javascript:ownerLoginForm.submit()">로그인</a></td>
 		<td><a href="ownerjoin.own" >회원가입</a></td>
 	</tr>
 </table>

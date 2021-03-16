@@ -91,11 +91,6 @@ public class reservFrontController extends HttpServlet {
 		}
 
 		// ㅈㅇ우
-		// 오너로그인폼
-		else if (command.equals("/ownerLoginForm.own")) {
-			forward = new ActionForward();
-			forward.setPath("/owner/ownerlogin.jsp");
-		}
 		// 오너 로그인 액션
 		else if (command.equals("/ownerLogin.own")) {
 			action = new ownerLoginAction();
@@ -104,18 +99,15 @@ public class reservFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/ownerLogin.own")) { //오너 회원가입
+		}
+		//오너 회원가입
+		else if (command.equals("/ownerJoin.own")) { 
 			action = new ownerJoinAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-		//컴퍼니 로그인폼
-			else if(command.equals("/companyLoginForm.com")) {
-			forward = new ActionForward();
-			forward.setPath("/company/companylogin.jsp");
 		}
 		//컴퍼니 로그인 액션	
 		 else if (command.equals("/companyLogin.com")) {
@@ -125,7 +117,8 @@ public class reservFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+			//오너 조인액션
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
@@ -137,4 +130,4 @@ public class reservFrontController extends HttpServlet {
 		}
 	}
 
-}
+	}}

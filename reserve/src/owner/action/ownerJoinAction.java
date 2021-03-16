@@ -6,9 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import member.svc.MemberJoinService;
+import owner.svc.OwnerJoinService;
 import vo.ActionForward;
-import vo.MemberBean;
 import vo.Owner;
 
 public class ownerJoinAction implements Action {
@@ -23,10 +22,11 @@ public class ownerJoinAction implements Action {
    		owner.setOwner_name(request.getParameter("owner_name"));
    		owner.setOwner_age(Integer.parseInt(request.getParameter("owner_age")));
    		owner.setOwner_gender(request.getParameter("owner_gender"));
+   		owner.setOwner_number(Integer.parseInt(request.getParameter("owner_number")));
    		owner.setOwner_eamil(request.getParameter("owner_email"));
    		
-   		MemberJoinService memberJoinService = new MemberJoinService();
-   		joinResult=memberJoinService.joinMember(member);
+   		OwnerJoinService ownerJoinService = new OwnerJoinService();
+   		joinResult=ownerJoinService.joinMember(owner);
    		
    		ActionForward forward = null;
    		if(joinResult==false){
@@ -40,7 +40,7 @@ public class ownerJoinAction implements Action {
    		else{
    	    forward = new ActionForward();
    		forward.setRedirect(true);
-   		forward.setPath("./memberLogin.me");
+   		forward.setPath("/owner/ownerlogin.jsp");
    		}
    		return forward;
 }
