@@ -33,7 +33,7 @@ public class MemberDAO {
 		Member member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from member where id=?";
+		String sql = "select * from member where member_id=?";
 		
 		try {
 			
@@ -49,7 +49,7 @@ public class MemberDAO {
 				member.setMember_age(rs.getInt("age"));
 				member.setMember_gender(rs.getString("gender"));
 				member.setMember_number(rs.getInt("number"));
-				member.setMember_email(rs.getString("member_email"));
+				member.setMember_email(rs.getString("email"));
 				
 			}
 			
@@ -67,7 +67,7 @@ public class MemberDAO {
 
 		int insertCount = 0;
 		PreparedStatement pstmt = null;
-		String sql = "insert into member values(?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into member(member_id, member_pw, member_name, member_age, member_gender, member_number, member_email) values(?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			
@@ -76,9 +76,12 @@ public class MemberDAO {
 			pstmt.setString(2,  member.getMember_pw());
 			pstmt.setString(3,  member.getMember_name());
 			pstmt.setInt(4,  member.getMember_age());
-			pstmt.setInt(5,  member.getMember_number());
-			pstmt.setString(6,  member.getMember_email());
+			pstmt.setString(5,  member.getMember_gender());
+			pstmt.setInt(6,  member.getMember_number());
+			pstmt.setString(7,  member.getMember_email());
 			
+			
+			insertCount = pstmt.executeUpdate();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

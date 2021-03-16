@@ -31,13 +31,32 @@
 			f.name.focus();
 			return false;
 			}
+		if(f.age.value.trim()==""){
+			alert("나이를 입력하세요!");
+			f.age.value="";
+			f.age.focus();
+			return false;
+			}
 		if(isNaN(f.age.value)){
 			alert("숫자만 입력하세요!");
 			f.age.value="";
 			f.age.focus();
 			return false;
 			}
-		joinform.submit();
+		if(f.number.value.trim()==""){
+			alert("전화번호를 입력하세요!");
+			f.number.value="";
+			f.number.focus();
+			return false;
+			}
+		if(f.email.value.trim()==""){
+			alert("이메일을 입력하세요!");
+			f.email.value="";
+			f.email.focus();
+			return false;
+			}
+		
+		memberJoinForm.submit();
 		
 		
 		
@@ -45,7 +64,7 @@
 </script>
 </head>
 <body>
-<form name="memberJoinForm" action="../memberJoinProccess.mem" method="post">
+<form name="memberJoinForm" action="memberJoinProccess.mem" method="post">
 	<table>
 		 <tr>
 		 	<td colspan="2">회원가입</td>
@@ -68,7 +87,7 @@
 		 </tr>
 		  <tr>
 		 	<td><label for="gender">성별 :</label></td>
-		 	<td><input type="radio" name="gender" id="gender1" value="남">남자
+		 	<td><input type="radio" name="gender" id="gender1" value="남" checked >남자
 		 		<input type="radio" name="gender" id="gender2" value="여">여자</td>
 		 </tr>
 		 <tr>
