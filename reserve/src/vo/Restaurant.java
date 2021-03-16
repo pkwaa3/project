@@ -6,9 +6,9 @@ public class Restaurant {
 	private String kind;
 	private String address;
 	private String local;
-	private int max_head;
-	private int open;
-	private int close;
+	private String max_head;
+	private String open;
+	private String close;
 	
 	public int getRest_no() {
 		return rest_no;
@@ -40,22 +40,22 @@ public class Restaurant {
 	public void setLocal(String local) {
 		this.local = local;
 	}
-	public int getMax_head() {
+	public String getMax_head() {
 		return max_head;
 	}
-	public void setMax_head(int max_head) {
+	public void setMax_head(String max_head) {
 		this.max_head = max_head;
 	}
-	public int getOpen() {
+	public String getOpen() {
 		return open;
 	}
-	public void setOpen(int open) {
+	public void setOpen(String open) {
 		this.open = open;
 	}
-	public int getClose() {
+	public String getClose() {
 		return close;
 	}
-	public void setClose(int close) {
+	public void setClose(String close) {
 		this.close = close;
 	}
 	

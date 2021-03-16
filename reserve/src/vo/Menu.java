@@ -4,7 +4,7 @@ public class Menu {
 	private int menu_no;
 	private int rest_no;
 	private String menu_name;
-	private int menu_price;
+	private String menu_price;
 	private String menu_img;
 	
 	public int getMenu_no() {
@@ -25,10 +25,10 @@ public class Menu {
 	public void setMenu_name(String menu_name) {
 		this.menu_name = menu_name;
 	}
-	public int getMenu_price() {
+	public String getMenu_price() {
 		return menu_price;
 	}
-	public void setMenu_price(int menu_price) {
+	public void setMenu_price(String menu_price) {
 		this.menu_price = menu_price;
 	}
 	public String getMenu_img() {

@@ -4,9 +4,9 @@ public class Owner {
 	private String owner_id;
 	private String owner_pw;
 	private String owner_name;
-	private int owner_age;
+	private String owner_age;
 	private String owner_gender;
-	private int owner_number;
+	private String owner_number;
 	private String owner_eamil;
 	private int owner_no;
 	
@@ -28,10 +28,10 @@ public class Owner {
 	public void setOwner_name(String owner_name) {
 		this.owner_name = owner_name;
 	}
-	public int getOwner_age() {
+	public String getOwner_age() {
 		return owner_age;
 	}
-	public void setOwner_age(int owner_age) {
+	public void setOwner_age(String owner_age) {
 		this.owner_age = owner_age;
 	}
 	public String getOwner_gender() {
@@ -40,10 +40,10 @@ public class Owner {
 	public void setOwner_gender(String owner_gender) {
 		this.owner_gender = owner_gender;
 	}
-	public int getOwner_number() {
+	public String getOwner_number() {
 		return owner_number;
 	}
-	public void setOwner_number(int owner_number) {
+	public void setOwner_number(String owner_number) {
 		this.owner_number = owner_number;
 	}
 	public String getOwner_eamil() {

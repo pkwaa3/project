@@ -6,8 +6,8 @@ public class Reserv_info {
 	private int reserv_info_no;
 	private int rest_no;
 	private Date date;
-	private int time;
-	private int rest_head;
+	private String time;
+	private String rest_head;
 	
 	public int getReserv_info_no() {
 		return reserv_info_no;
@@ -27,16 +27,16 @@ public class Reserv_info {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public int getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
-	public int getRest_head() {
+	public String getRest_head() {
 		return rest_head;
 	}
-	public void setRest_head(int rest_head) {
+	public void setRest_head(String rest_head) {
 		this.rest_head = rest_head;
 	}
 	
