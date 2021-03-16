@@ -60,9 +60,9 @@ public class OwnerDAO {
 			pstmt.setString(1, owner.getOwner_id());
 			pstmt.setString(2, owner.getOwner_pw());
 			pstmt.setString(3, owner.getOwner_name());
-			pstmt.setInt(4, owner.getOwner_age());
+			pstmt.setString(4, owner.getOwner_age());
 			pstmt.setString(5, owner.getOwner_gender());
-			pstmt.setInt(6, owner.getOwner_number());
+			pstmt.setString(6, owner.getOwner_number());
 			pstmt.setString(7, owner.getOwner_eamil());
 			
 			insert=pstmt.executeUpdate();
