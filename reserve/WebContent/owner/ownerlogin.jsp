@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td><a href="javascript:ownerLoginForm.submit()">로그인</a></td>
-		<td><a href="ownerjoin.own" >회원가입</a></td>
+		<td><a href="ownerJoinForm.own" >회원가입</a></td>
 	</tr>
 </table>
 </form>
