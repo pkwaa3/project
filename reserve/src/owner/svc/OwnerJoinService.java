@@ -10,13 +10,14 @@ public class OwnerJoinService {
 	public boolean joinMember(Owner owner) {
 		boolean joinSuccess = false;
 		OwnerDAO ownerDAO = OwnerDAO.getInstance();
-		Connection con = null;
+		Connection con = getConnection();
 		ownerDAO.setConnection(con);
 		
 		int insert = ownerDAO.insertOwner(owner);
 		if(insert > 0 ) {
 			joinSuccess =true;
 			commit(con);
+			
 		} else {
 			rollback(con);
 			

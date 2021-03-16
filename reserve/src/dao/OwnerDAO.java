@@ -53,7 +53,7 @@ public class OwnerDAO {
 	//오너 회원가입
 	public int insertOwner(Owner owner) {
 		int insert = 0;
-		String sql="insert into owner(owner_id,owner_pw,owner_name,owner_age,owner_gender,owner_number,owner_email values(?,?,?,?,?,?,?)";
+		String sql="insert into owner(owner_id,owner_pw,owner_name,owner_age,owner_gender,owner_number,owner_email) values(?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -71,6 +71,9 @@ public class OwnerDAO {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+		close(pstmt);
+		
 		}
 		
 		return insert;

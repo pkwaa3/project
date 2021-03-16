@@ -39,8 +39,14 @@ public class ownerJoinAction implements Action {
 	   	}
    		else{
    	    forward = new ActionForward();
-   		forward.setRedirect(true);
-   		forward.setPath("/owner/ownerlogin.jsp");
+   		response.setContentType("text/html;charset=utf-8");
+		
+   		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("alert('회원가입하였습니다.');");
+		out.println("location.herf='ownerLoginForm.own'");
+		out.println("</script>");
    		}
    		return forward;
 }

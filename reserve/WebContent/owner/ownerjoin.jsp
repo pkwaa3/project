@@ -45,7 +45,7 @@
 </script>
 </head>
 <body>
-<form name="ownerjoin" action="../ownerJoin.own" method="post">
+<form name="ownerjoin" action="ownerJoin.own" method="post">
 	<table>
 		 <tr>
 		 	<td colspan="2">회원가입</td>
@@ -73,7 +73,7 @@
 		 </tr>
 		 <tr>
 		 	<td><label for="owner_number">전화번호 :</label></td>
-		 	<td><input type="text" name="owner_nember" id="owner_number" /></td>
+		 	<td><input type="text" name="owner_number" id="owner_number" /></td>
 		 </tr>
 		 <tr>
 		 	<td><label for="owner_email">이메일 :</label></td>
