@@ -4,9 +4,9 @@ public class Member {
 	private String member_id;
 	private String member_pw;
 	private String member_name;
-	private int member_age;
+	private String member_age;
 	private String member_gender;
-	private int member_number;
+	private String member_number;
 	private String member_email;
 	private int member_no;
 	
@@ -28,10 +28,10 @@ public class Member {
 	public void setMember_name(String member_name) {
 		this.member_name = member_name;
 	}
-	public int getMember_age() {
+	public String getMember_age() {
 		return member_age;
 	}
-	public void setMember_age(int member_age) {
+	public void setMember_age(String member_age) {
 		this.member_age = member_age;
 	}
 	public String getMember_gender() {
@@ -40,10 +40,10 @@ public class Member {
 	public void setMember_gender(String member_gender) {
 		this.member_gender = member_gender;
 	}
-	public int getMember_number() {
+	public String getMember_number() {
 		return member_number;
 	}
-	public void setMember_number(int member_number) {
+	public void setMember_number(String member_number) {
 		this.member_number = member_number;
 	}
 	public String getMember_email() {

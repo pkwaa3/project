@@ -92,7 +92,7 @@
 		 </tr>
 		 <tr>
 		 	<td><label for="number">전화번호 :</label></td>
-		 	<td><input type="text" name="nember" id="number" /></td>
+		 	<td><input type="text" name="number" id="number" /></td>
 		 </tr>
 		 <tr>
 		 	<td><label for="email">이메일 :</label></td>

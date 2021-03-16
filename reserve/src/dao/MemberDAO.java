@@ -40,16 +40,16 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,  id);
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				member = new Member();
 				member.setMember_id(id);
-				member.setMember_pw(rs.getString("password"));
-				member.setMember_name(rs.getString("name"));
-				member.setMember_age(rs.getInt("age"));
-				member.setMember_gender(rs.getString("gender"));
-				member.setMember_number(rs.getInt("number"));
-				member.setMember_email(rs.getString("email"));
+				member.setMember_pw(rs.getString("member_pw"));
+				member.setMember_name(rs.getString("member_name"));
+				member.setMember_age(rs.getString("member_age"));
+				member.setMember_gender(rs.getString("member_gender"));
+				member.setMember_number(rs.getString("member_number"));
+				member.setMember_email(rs.getString("member_email"));
 				
 			}
 			
@@ -75,9 +75,9 @@ public class MemberDAO {
 			pstmt.setString(1,  member.getMember_id());
 			pstmt.setString(2,  member.getMember_pw());
 			pstmt.setString(3,  member.getMember_name());
-			pstmt.setInt(4,  member.getMember_age());
+			pstmt.setString(4,  member.getMember_age());
 			pstmt.setString(5,  member.getMember_gender());
-			pstmt.setInt(6,  member.getMember_number());
+			pstmt.setString(6,  member.getMember_number());
 			pstmt.setString(7,  member.getMember_email());
 			
 			

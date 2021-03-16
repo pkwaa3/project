@@ -21,10 +21,9 @@ public class MemberJoinProAction implements Action {
 		member.setMember_id(request.getParameter("id"));
 		member.setMember_pw(request.getParameter("pass"));
 		member.setMember_name(request.getParameter("name"));
-		member.setMember_age(Integer.parseInt((request.getParameter("age") == null
-												|| request.getParameter("age").contentEquals(""))
-												? request.getParameter("age"):"0"));
+		member.setMember_age(request.getParameter("age"));
 		member.setMember_gender(request.getParameter("gender"));
+		member.setMember_number(request.getParameter("number"));
 		member.setMember_email(request.getParameter("email"));
 		
 		MemberJoinProSvc joinProSvc = new MemberJoinProSvc();

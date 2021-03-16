@@ -25,17 +25,27 @@ public class MemberLoginAction implements Action {
 		Member member = loginSvc.getMember(id);
 		
 		if(member != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("id", id);
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("main.jsp");
+			
+			if(member.getMember_pw().equals(pass)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("id", id);
+				forward = new ActionForward();
+				forward.setRedirect(true);
+				forward.setPath("main.jsp");
+			} else {
+				response.setContentType("text/html;charset=utf-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그인 실패');");
+				out.println("history.back()");
+				out.println("</script>");
+			}
 		} else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('로그인 실패');");
-			out.println("history.back()");
+			out.println("alert('로그인 실패')");
+			out.println("history.back();");
 			out.println("</script>");
 		}
 		
