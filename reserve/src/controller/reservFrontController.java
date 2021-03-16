@@ -65,6 +65,11 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/member/loginForm.jsp");
 		}
+		//멤버 로그인 폼
+		else if (command.equals("/memberLoginForm.mem")) {
+			forward = new ActionForward();
+			forward.setPath("/member/memberLoginForm.jsp");
+		}
 
 		// 멤버 로그인 프로세스
 		else if (command.equals("/memberLoginProccess.mem")) {

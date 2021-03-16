@@ -34,7 +34,7 @@ public class MemberJoinProAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('회원가입하였습니다.');");
-			out.println("location.herf='loginForm.mem'");
+			out.println("location.href='memberLoginForm.mem'");
 			out.println("</script>");
 			
 		} else {
