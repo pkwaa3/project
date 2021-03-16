@@ -38,14 +38,14 @@ public class ownerJoinAction implements Action {
    			out.println("</script>");
 	   	}
    		else{
-   	    forward = new ActionForward();
+   	    
    		response.setContentType("text/html;charset=utf-8");
 		
    		PrintWriter out = response.getWriter();
 		
 		out.println("<script>");
 		out.println("alert('회원가입하였습니다.');");
-		out.println("location.herf='ownerLoginForm.own'");
+		out.println("location.href='ownerLoginForm.own'");
 		out.println("</script>");
    		}
    		return forward;
