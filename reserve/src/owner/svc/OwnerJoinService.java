@@ -14,6 +14,7 @@ public class OwnerJoinService {
 		ownerDAO.setConnection(con);
 		
 		int insert = ownerDAO.insertOwner(owner);
+		
 		if(insert > 0 ) {
 			joinSuccess =true;
 			commit(con);
