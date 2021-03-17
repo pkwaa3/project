@@ -5,8 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+table{
+	border:1px solid gray;
+	margin:auto;
+}
+</style>
 </head>
-<body>
+<body align:"center">
 <form name="ownerLoginForm" action="../ownerLogin.own" method="post">
 <table>
 	<tr>

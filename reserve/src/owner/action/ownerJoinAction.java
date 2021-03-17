@@ -16,6 +16,7 @@ public class ownerJoinAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Owner owner=new Owner();
    		boolean joinResult=false;
+   		ActionForward forward = null;
    		
    		owner.setOwner_id(request.getParameter("owner_id"));
    		owner.setOwner_pw(request.getParameter("owner_pw"));
@@ -28,7 +29,6 @@ public class ownerJoinAction implements Action {
    		OwnerJoinService ownerJoinService = new OwnerJoinService();
    		joinResult=ownerJoinService.joinMember(owner);
    		
-   		ActionForward forward = null;
    		if(joinResult==false){
    			response.setContentType("text/html;charset=UTF-8");
    			PrintWriter out = response.getWriter();
@@ -38,15 +38,16 @@ public class ownerJoinAction implements Action {
    			out.println("</script>");
 	   	}
    		else{
-   	    forward = new ActionForward();
-   		response.setContentType("text/html;charset=utf-8");
+   			response.setContentType("text/html;charset=UTF-8");
+   			PrintWriter out = response.getWriter();
+   			out.println("<script>");
+   			out.println("alert('회원등록성공')");
+   			out.println("location.href='ownerLoginForm.own'");
+   			out.println("</script>");
+   	    //forward = new ActionForward();
+   	    //forward.setRedirect(true);
+		//forward.setPath("owner/ownerlogin.jsp");
 		
-   		PrintWriter out = response.getWriter();
-		
-		out.println("<script>");
-		out.println("alert('회원가입하였습니다.');");
-		out.println("location.herf='ownerLoginForm.own'");
-		out.println("</script>");
    		}
    		return forward;
 }

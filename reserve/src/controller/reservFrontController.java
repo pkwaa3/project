@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
+import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
@@ -133,6 +134,28 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		//컴퍼니 로그인 폼
+		else if (command.equals("/companyLoginForm.com")) {
+			forward = new ActionForward();
+			forward.setPath("company/companylogin.jsp");
+		}
+		// 컴퍼니 회원가입 
+		else if (command.equals("/companyJoin.com")) {
+			action = new companyJoinAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//컴퍼니 회원가입 폼
+		else if (command.equals("/companyJoinForm.com")) {
+			forward = new ActionForward();
+			forward.setPath("company/companyjoin.jsp");
+		}
+		
+		
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
