@@ -38,6 +38,7 @@ public class ownerJoinAction implements Action {
    			out.println("</script>");
 	   	}
    		else{
+
    			response.setContentType("text/html;charset=UTF-8");
    			PrintWriter out = response.getWriter();
    			out.println("<script>");
@@ -47,7 +48,10 @@ public class ownerJoinAction implements Action {
    	    //forward = new ActionForward();
    	    //forward.setRedirect(true);
 		//forward.setPath("owner/ownerlogin.jsp");
-		
+
+   	    
+   		
+
    		}
    		return forward;
 }
