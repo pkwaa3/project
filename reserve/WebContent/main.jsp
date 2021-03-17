@@ -5,6 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>	
+	function okseoul(f) {
+		document.getElementById("where").value=f.seoul.value;
+		}
+	function okdaegu(f) {
+		document.getElementById("where").value=f.daegu.value;
+		}
+	function okbusan(f) {
+		document.getElementById("where").value=f.busan.value;
+		}
+	function okhansik(f) {
+		document.getElementById("menu").value=f.hansik.value;
+		}
+	function okjoongsik(f) {
+		document.getElementById("menu").value=f.joongsik.value;
+		}
+	function okyangsik(f) {
+		document.getElementById("menu").value=f.yangsik.value;
+		}
+</script>
 <style>
 
 /*목록*/
@@ -47,9 +67,33 @@
   background: #73AD21;
   padding: 20px; 
   width: 200px;
-  height: 150px;  
+  height: 100px;  
   font-size:30px;
   display: inline-block;
+}
+/*인풋 */
+input {
+	outline: none;
+}
+/*드롭다운*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  border-radius: 25px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 /*본문*/
@@ -116,13 +160,34 @@ body {
 <p>Resize the browser window to see the responsive effect.</p>
 
 <div class="header">
-  <h2>Header<p>
+  <h2>Header</h2><p>
   		<form>
-  		
-  			<div id="rcorners1" ><i style="font-size:50%;">지역 검색</i></div>
-  			<div id="rcorners1" >메뉴 종류<br><i style="font-size:50%;">뭐 먹고 싶어?</i></div>
+  			<div class="dropdown">
+  				<span> 
+  					<div id="rcorners1">지역<br><i style="font-size:50%;">어디 갈래?</i>
+  					<input type="text" name="where" id="where" size="10" readonly/>
+  					</div>
+  				</span>
+  					<div class="dropdown-content">
+  						<p><input type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
+  						<p><input type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
+  						<p><input type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
+  					</div>
+  			</div>
+  			<div class="dropdown">
+  				<span>
+  				  	<div id="rcorners1" >메뉴<br><i style="font-size:50%;">뭐 먹고 싶어?</i>
+  				  	<input type="text" name="menu" id="menu" size="10" readonly/>
+  				  	</div>
+  				  </span>
+  				  	<div class="dropdown-content">
+  						<p><input type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
+  						<p><input type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
+  						<p><input type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
+  					</div>
   		</form>
-  </h2>
+  		
+  
 </div>
 
 <div class="row">
