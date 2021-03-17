@@ -6,17 +6,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-table{
-	border:1px solid gray;
-	margin:auto;
+#wrap{
+	margin-top:20%;
+	margin-bottom:20%;
+	margin-right:10%;
+	margin-left:10%;
 }
+table{
+	background:skyblue;
+	text-align:center;
+	
+}
+.td{
+	font-size:3em;
+	
+}
+
 </style>
 </head>
 <body align:"center">
+<div id="wrap">
 <form name="ownerLoginForm" action="../ownerLogin.own" method="post">
 <table>
 	<tr>
-		<td>아아디 : </td>
+		<td>아이디 : </td>
 		<td><input type="text" id="owner_id" name="owner_id" /></td>
 	</tr>
 	<tr>
@@ -29,5 +42,6 @@ table{
 	</tr>
 </table>
 </form>
+</div>
 </body>
 </html>

@@ -119,7 +119,7 @@ body {
   <h2>Header<p>
   		<form>
   		
-  			<div id="rcorners1" ><i style="font-size:50%;">지역 검색</i></div>
+  			<div id="rcorners1" >메뉴 종류<i style="font-size:50%;">지역 검색</i></div>
   			<div id="rcorners1" >메뉴 종류<br><i style="font-size:50%;">뭐 먹고 싶어?</i></div>
   		</form>
   </h2>
