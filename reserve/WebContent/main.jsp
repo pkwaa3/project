@@ -70,11 +70,28 @@
   height: 100px;  
   font-size:30px;
   display: inline-block;
+  cursor:pointer;
 }
 /*인풋 */
-input {
-	outline: none;
+.intext {
+	border: none; 
+	background-color: white; 
+	text-align:center;
 }
+.button {
+  background-color: white; 
+  color: black; 
+  border-radius: 10px;
+  border: 2px solid #4CAF50;
+  font-size:15px;
+ 
+}
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
 /*드롭다운*/
 .dropdown {
   position: relative;
@@ -92,7 +109,11 @@ input {
   z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:active  .dropdown-content {
+  display: block;
+}
+
+.dropdown:visited  .dropdown-content {
   display: block;
 }
 
@@ -148,8 +169,6 @@ body {
 <body>
 <ul class="nav">
   <li><a class="active" href="main.jsp">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
   <li style="float:right"><a href="index/login.jsp">로그인</a></li>
   <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
 </ul>
@@ -168,13 +187,13 @@ body {
   			<div class="dropdown">
   				<span> 
   					<div id="rcorners1">지역<br><i style="font-size:50%;">어디 갈래?</i>
-  					<input type="text" name="where" id="where" size="10" readonly/>
+  					<input class="intext" type="text" name="where" id="where" size="10" readonly/>
   					</div>
   				</span>
   					<div class="dropdown-content">
-  						<p><input type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
-  						<p><input type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
-  						<p><input type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
+  						<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
+  						<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
+  						<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
   					</div>
   			</div>
   			<div class="dropdown">
