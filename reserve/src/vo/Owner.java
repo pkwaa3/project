@@ -46,11 +46,11 @@ public class Owner {
 	public void setOwner_number(String owner_number) {
 		this.owner_number = owner_number;
 	}
-	public String getOwner_eamil() {
+	public String getOwner_email() {
 		return owner_email;
 	}
-	public void setOwner_eamil(String owner_eamil) {
-		this.owner_email = owner_eamil;
+	public void setOwner_email(String owner_email) {
+		this.owner_email = owner_email;
 	}
 	public int getOwner_no() {
 		return owner_no;

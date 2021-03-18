@@ -10,11 +10,13 @@ import action.Action;
 import member.svc.MemberLoginSvc;
 import vo.ActionForward;
 import vo.Member;
+import vo.Owner;
 
 public class MemberLoginAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		
 		ActionForward forward = null;
 		
@@ -29,8 +31,9 @@ public class MemberLoginAction implements Action {
 			if(member.getMember_pw().equals(pass)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("id", id);
+				session.setAttribute("pass", pass);
 				forward = new ActionForward();
-				forward.setRedirect(true);
+				//forward.setRedirect(true);
 				forward.setPath("member/memberlist.jsp");
 			} else {
 				response.setContentType("text/html;charset=utf-8");

@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.OwnerModInfoProAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
 import member.action.MemberModAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.OwnerModInfoFormAction;
+import owner.action.OwnerModInfoProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import vo.ActionForward;

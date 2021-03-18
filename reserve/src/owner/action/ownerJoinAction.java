@@ -24,7 +24,7 @@ public class ownerJoinAction implements Action {
    		owner.setOwner_age(request.getParameter("owner_age"));
    		owner.setOwner_gender(request.getParameter("owner_gender"));
    		owner.setOwner_number(request.getParameter("owner_number"));
-   		owner.setOwner_eamil(request.getParameter("owner_email"));
+   		owner.setOwner_email(request.getParameter("owner_email"));
    		
    		OwnerJoinService ownerJoinService = new OwnerJoinService();
    		joinResult=ownerJoinService.joinMember(owner);

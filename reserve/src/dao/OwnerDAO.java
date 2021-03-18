@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import static db.JdbcUtil.*;
 import javax.sql.DataSource;
-
-import vo.Member;
 import vo.Owner;
 
 public class OwnerDAO {
@@ -73,7 +71,7 @@ public class OwnerDAO {
 			pstmt.setString(4, owner.getOwner_age());
 			pstmt.setString(5, owner.getOwner_gender());
 			pstmt.setString(6, owner.getOwner_number());
-			pstmt.setString(7, owner.getOwner_eamil());
+			pstmt.setString(7, owner.getOwner_email());
 			
 			insert=pstmt.executeUpdate();
 			
@@ -110,7 +108,7 @@ public class OwnerDAO {
 				owner.setOwner_age(rs.getString("owner_age"));
 				owner.setOwner_gender(rs.getString("owner_gender"));
 				owner.setOwner_number(rs.getString("owner_number"));
-				owner.setOwner_eamil(rs.getString("owner_email"));
+				owner.setOwner_email(rs.getString("owner_email"));
 			}
 			
 			
@@ -122,6 +120,33 @@ public class OwnerDAO {
 		}
 		
 		return owner;
+	}
+
+	public int updateOwner(Owner owner) {
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update owner set owner_pw=?, owner_name=?, owner_age=?, owner_gender=?, owner_number=?, owner_email=? where owner_id=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, owner.getOwner_pw());
+			pstmt.setString(2, owner.getOwner_name());
+			pstmt.setString(3, owner.getOwner_age());
+			pstmt.setString(4, owner.getOwner_gender());
+			pstmt.setString(5, owner.getOwner_number());
+			pstmt.setString(6, owner.getOwner_email());
+			pstmt.setString(7, owner.getOwner_id());
+		
+			updateCount = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return updateCount;
 	}
 
 	

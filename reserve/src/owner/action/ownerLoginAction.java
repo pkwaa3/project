@@ -19,6 +19,7 @@ public class ownerLoginAction implements Action {
 		HttpSession session = request.getSession();
 		Owner owner = new Owner();
 		
+		
 		owner.setOwner_id(request.getParameter("owner_id"));
 		owner.setOwner_pw(request.getParameter("owner_pw"));
 		
@@ -35,7 +36,7 @@ public class ownerLoginAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('로그인실패');");
-			out.println("'location.href='./ownerLogin.ow';");
+			out.println("'location.href='./ownerLogin.own';");
 			out.println("</script>");
 		}
 		return forward;
