@@ -11,7 +11,7 @@
 		height:800px;
 		margin:0 auto;
 		color:#fff;
-		font-size:40px;
+		font-size:20px;
 		text-align:center;
 	}
 	#header{
@@ -21,31 +21,12 @@
 		background:#2e7d32;
 	}
 	
-	#side{
+	#aside{
 		float:left;
 		width:300px;
 		height:600x;
 		line-height:600px;
 		background:#43a047;
-	}
-	#side .ul{
-		list-style-type:none;
-		margin:10px;
-		padding:10px;
-		overflow:hedden;
-	}
-	#side .li{
-		border:1px solid white;
-	}
-	#side .li a{
-		display:block;
-		color:white;
-		text-align:center;
-		padding:10px 10px;
-		text-decoration:none;
-	} 
-	#side .li a:hover{
-		background-color:yellow;
 	}
 	#contents{
 		float:left;
@@ -68,16 +49,16 @@
 <body>
 	<div id="wrap">
 		<div id="header">예약하는홈페이지</div>		
-		<div id="side">
-			<ul>
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-			</ul>
-		</div>
+		<div id="aside"></div>
 		<div id="contents"></div>
 		<div id="footer"></div>
+			<ul>
+				<li><a href="">내글목록</a></li>
+				<li><a href="">예약내역</a></li>
+				<li><a href="">찜목록</a></li>
+				<li><a href="">회원정보수정</a></li>
+				<li><a href="">회원탈퇴</a></li>
+			</ul>
 	</div>
 </body>
 </html>

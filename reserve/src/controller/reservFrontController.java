@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
+import member.action.MemberModAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.ownerJoinAction;
@@ -89,6 +90,15 @@ public class reservFrontController extends HttpServlet {
 		// 멤버 회원가입 프로세스
 		else if (command.equals("/memberJoinProccess.mem")) {
 			action = new MemberJoinProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//멤버 정보수정
+		else if (command.equals("/memberMod.mem")) {
+			action = new MemberModAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

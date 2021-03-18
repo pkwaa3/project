@@ -16,7 +16,7 @@ public class MemberDAO {
 	ResultSet rs;
 	DataSource ds;
 	
-	private MemberDAO() {}
+	public MemberDAO() {}
 	
 	public static MemberDAO getInstance(){
 		if(instance == null){
@@ -90,5 +90,31 @@ public class MemberDAO {
 		}
 		
 		return insertCount;
+	}
+	//정보수정
+	public int updateMember(Member member) {
+		int updateCount = 0;
+		PreparedStatement pstmt=null;
+		String sql="update member set member_pw = ? , member_name=?,member_age=?,member_gender=?,member_number=?,member_email=? where member_id =?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, member.getMember_pw());
+			pstmt.setString(2, member.getMember_name());
+			pstmt.setString(3, member.getMember_age());
+			pstmt.setString(4, member.getMember_gender());
+			pstmt.setString(5, member.getMember_number());
+			pstmt.setString(6, member.getMember_email());
+			pstmt.setString(7, member.getMember_id());
+			updateCount = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			
+		}
+
+		return updateCount;
 	}
 }

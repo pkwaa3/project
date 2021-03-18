@@ -21,7 +21,7 @@
 			<td> <input type="password" name="pass" id="pass"></td>
 		</tr>
 		<tr>
-			<td cospan="2"> <a href="javascript:memberLoginForm.submit()">로그인</a>&nbsp;&nbsp;
+			<td colspan="2"> <a href="javascript:memberLoginForm.submit()">로그인</a>&nbsp;&nbsp;
 							<a href="memberJoinForm.mem">회원가입</a></td>
 		</tr>
 	</table>
