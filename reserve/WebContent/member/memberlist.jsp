@@ -8,7 +8,7 @@
 </head>
 <body>
 아이디 : <%=request.getParameter("id") %>
-비밀번호 :<%=request.getParameter("pw") %>
+비밀번호 :<%=request.getParameter("pass") %>
 
 </body>
 </html>

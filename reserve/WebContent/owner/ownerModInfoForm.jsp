@@ -44,7 +44,7 @@
 		</tr>
 		<tr>
 			<td><label for="email">이메일 주소 : </label></td>
-			<td><input type="text" name="email" id="email" value='<%=owner.getOwner_eamil()%>'/></td>
+			<td><input type="text" name="email" id="email" value='<%=owner.getOwner_email()%>'/></td>
 		</tr>
 		<tr>
 			<td colspan="2"><a href="javascript:ownerModInfoForm.submit();">수정</a> &nbsp;&nbsp;
