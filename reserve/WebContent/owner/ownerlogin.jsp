@@ -26,7 +26,7 @@ table{
 </head>
 <body align:"center">
 <div id="wrap">
-<form name="ownerLoginForm" action="../ownerLogin.own" method="post">
+<form name="ownerLoginForm" action="ownerLogin.own" method="post">
 <table>
 	<tr>
 		<td>아이디 : </td>
