@@ -25,7 +25,7 @@ public class ownerLoginAction implements Action {
 		OwnerLoginService ownerLoginService = new OwnerLoginService();
 		boolean loginResult = ownerLoginService.login(owner);
 		ActionForward forward=null;
-		if(loginResult) {
+		if(loginResult =true) {
 			forward=new ActionForward();
 			session.setAttribute("id",owner.getOwner_id());
 			forward.setPath("owner/ownerlist.jsp");
@@ -35,7 +35,7 @@ public class ownerLoginAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('로그인실패');");
-			out.println("'location.href='./ownerLogin.ow';");
+			out.println("'location.href='ownerLogin.own';");
 			out.println("</script>");
 		}
 		return forward;

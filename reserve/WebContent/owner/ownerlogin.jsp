@@ -24,7 +24,7 @@ table{
 
 </style>
 </head>
-<body align:"center">
+<body align="center">
 <div id="wrap">
 <form name="ownerLoginForm" action="ownerLogin.own" method="post">
 <table>

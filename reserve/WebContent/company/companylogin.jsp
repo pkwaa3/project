@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="companyLogin" action="../companyLogin.com" method="post">
+<form name="companyLogin" action="companyLogin.com" method="post">
 <table border="0">
 	<tr>
 		<td>아아디 : </td>
