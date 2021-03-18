@@ -15,19 +15,19 @@
 	<table border=1>
 		<tr>
 			<td>아이디 : </td>
-			<td colspan="2"><%=request.getParameter("id") %><input type="hidden" name="member_id" id="member_id" value="<%=request.getParameter("id") %>" /></td>
+			<td colspan="2">${member.member_id }<input type="hidden" name="member_id" id="member_id" value='${member.member_id }' /></td>
 		</tr>
-	<tr>
+		<tr>
 			<td>비밀번호 : </td>
-			<td colspan="2"><input type="password" name="member_pw" id="member_pw" value="<%=request.getParameter("member_pw") %>" ></td>
+			<td colspan="2"><input type="password" name="member_pw" id="member_pw" value="<%=member.getMember_pw() %>"  /></td>
 		</tr>
 		<tr>
 			<td>이름 :</td>
-			<td colspan="2"><input type="text" name="member_name" id="member_name" value="<%=request.getParameter("member_name") %>" ></td>
+			<td colspan="2"><input type="text" name="member_name" id="member_name" value="<%=member.getMember_name() %>" ></td>
 		</tr>
 		<tr>
 			<td>나이 :</td>
-			<td colspan="2"><input type="text" name="member_age" id="member_age" value="<%=request.getParameter("member_age") %>" ></td>
+			<td colspan="2"><input type="text" name="member_age" id="member_age" value="<%=member.getMember_age() %>" ></td>
 		</tr>
 		<tr>
 			<td>성별 :</td>
@@ -37,11 +37,11 @@
 		</tr>
 		<tr>
 			<td>전화번호 :</td>
-			<td colspan="2"><input type="text" name="member_number" id="member_number" value="<%=request.getParameter("number") %>" ></td>
+			<td colspan="2"><input type="text" name="member_number" id="member_number" value="<%=member.getMember_number() %>" ></td>
 		</tr>
 		<tr>
 			<td>이메일 주소 :</td>
-			<td colspan="2"><input type="text" name="member_email" id="member_email" value="<%=request.getParameter("email") %>"></td>
+			<td colspan="2"><input type="text" name="member_email" id="member_email" value="<%=member.getMember_email() %>"></td>
 		</tr>
 		<tr>
 			<td><a href="javascript:memberModForm.submit()">수정</a></td>
