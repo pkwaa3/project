@@ -32,9 +32,11 @@ public class MemberLoginAction implements Action {
 				HttpSession session = request.getSession();
 				session.setAttribute("id", id);
 				session.setAttribute("pass", pass);
+				
 				forward = new ActionForward();
 				//forward.setRedirect(true);
 				forward.setPath("member/memberlist.jsp");
+			
 			} else {
 				response.setContentType("text/html;charset=utf-8");
 				PrintWriter out = response.getWriter();

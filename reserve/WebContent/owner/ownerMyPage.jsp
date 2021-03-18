@@ -10,7 +10,7 @@
 <body>
 아이디 : <%=request.getParameter("owner_id") %>
 비밀번호 :<%=request.getParameter("owner_pw") %>
-<input type="button" id>
+
 
 <table>
 	<tr>

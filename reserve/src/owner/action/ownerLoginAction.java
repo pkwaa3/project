@@ -31,7 +31,7 @@ public class ownerLoginAction implements Action {
 
 			forward=new ActionForward();
 			session.setAttribute("id",owner.getOwner_id());
-			forward.setPath("owner/ownerlist.jsp");
+			forward.setPath("ownerMyPage.own");
 			
 		}  else {
 			forward=new ActionForward();

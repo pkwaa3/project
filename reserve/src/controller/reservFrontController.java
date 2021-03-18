@@ -122,14 +122,19 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		// 오너 회원 정보 수정 프로 
-				else if (command.equals("/ownerModInfoPro.own")) {
-					action = new OwnerModInfoProAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
+		else if (command.equals("/ownerModInfoPro.own")) {
+			action = new OwnerModInfoProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 오너 마이페이지 폼
+		else if (command.equals("/ownerMyPage.own")) {
+			forward = new ActionForward();
+			forward.setPath("/owner/ownerMyPage.jsp");
+		}
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
