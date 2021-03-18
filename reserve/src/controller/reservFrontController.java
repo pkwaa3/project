@@ -13,6 +13,7 @@ import action.Action;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
 import member.action.MemberModAction;
+import member.action.MemberModInfoFormAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.OwnerModInfoFormAction;
@@ -98,20 +99,6 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		//멤버 정보수정
-		else if (command.equals("/memberMod.mem")) {
-			action = new MemberModAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		//멤버 정보수정 폼
-		else if (command.equals("/memberModForm.mem")) {
-			forward = new ActionForward();
-			forward.setPath("/member/MemberModifyForm.jsp");
-		}
 		// 오너 회원 정보 수정 폼 
 		else if (command.equals("/ownerModInfoForm.own")) {
 			action = new OwnerModInfoFormAction();
@@ -192,6 +179,29 @@ public class reservFrontController extends HttpServlet {
 		else if (command.equals("/companyJoinForm.com")) {
 			forward = new ActionForward();
 			forward.setPath("company/companyjoin.jsp");
+		}
+		//멤버 정보수정
+		else if (command.equals("/memberMod.mem")) {
+			action = new MemberModAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//멤버 정보수정 폼
+		else if (command.equals("/memberModForm.mem")) {
+			forward = new ActionForward();
+			forward.setPath("/member/MemberModifyForm.jsp");
+		}
+		//맴버 인포 폼
+		else if (command.equals("/memberModInfoForm.mem")) {
+			action = new MemberModInfoFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
