@@ -7,7 +7,7 @@ public class Owner {
 	private String owner_age;
 	private String owner_gender;
 	private String owner_number;
-	private String owner_eamil;
+	private String owner_email;
 	private int owner_no;
 	
 	public String getOwner_id() {
@@ -47,10 +47,10 @@ public class Owner {
 		this.owner_number = owner_number;
 	}
 	public String getOwner_eamil() {
-		return owner_eamil;
+		return owner_email;
 	}
 	public void setOwner_eamil(String owner_eamil) {
-		this.owner_eamil = owner_eamil;
+		this.owner_email = owner_eamil;
 	}
 	public int getOwner_no() {
 		return owner_no;

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import static db.JdbcUtil.*;
 import javax.sql.DataSource;
 
+import vo.Member;
 import vo.Owner;
 
 public class OwnerDAO {
@@ -89,5 +90,40 @@ public class OwnerDAO {
 		
 		return insert;
 	}
+
+	public Owner selectModOwner(String id) {
+		
+		Owner owner = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from owner where owner_id=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				owner = new Owner();
+				owner.setOwner_id(id);
+				owner.setOwner_pw(rs.getString("owner_pw"));
+				owner.setOwner_name(rs.getString("owner_name"));
+				owner.setOwner_age(rs.getString("owner_age"));
+				owner.setOwner_gender(rs.getString("owner_gender"));
+				owner.setOwner_number(rs.getString("owner_number"));
+				owner.setOwner_eamil(rs.getString("owner_email"));
+			}
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return owner;
+	}
+
+	
 
 }

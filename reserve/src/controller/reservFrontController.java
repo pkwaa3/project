@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.OwnerModInfoProAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLoginAction;
 import member.action.MemberModAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
+import owner.action.OwnerModInfoFormAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import vo.ActionForward;
@@ -105,6 +107,24 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		// 오너 회원 정보 수정 폼 
+		else if (command.equals("/ownerModInfoForm.own")) {
+			action = new OwnerModInfoFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 오너 회원 정보 수정 프로 
+				else if (command.equals("/ownerModInfoPro.own")) {
+					action = new OwnerModInfoProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
