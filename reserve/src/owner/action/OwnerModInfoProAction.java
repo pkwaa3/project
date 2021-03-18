@@ -20,28 +20,33 @@ public class OwnerModInfoProAction implements Action {
 		
 		
 			Owner owner = new Owner();
-			
-			owner.setOwner_id(request.getParameter("id"));
-			owner.setOwner_pw(request.getParameter("pass"));
-			owner.setOwner_name(request.getParameter("name"));
-			owner.setOwner_age(request.getParameter("age"));
-			owner.setOwner_gender(request.getParameter("gender"));
-			owner.setOwner_number(request.getParameter("number"));
-			owner.setOwner_email(request.getParameter("email"));
-	    	
+			System.out.println(request.getParameter("owner_id"));
+			owner.setOwner_id(request.getParameter("owner_id"));
+			owner.setOwner_pw(request.getParameter("owner_pw"));
+			owner.setOwner_name(request.getParameter("owner_name"));
+			owner.setOwner_age(request.getParameter("owner_age"));
+			owner.setOwner_gender(request.getParameter("owner_gender"));
+			owner.setOwner_number(request.getParameter("owner_number"));
+			owner.setOwner_email(request.getParameter("owner_email"));
+	    
 	    	OwnerModInfoProSvc ownerModInfoProSvc = new OwnerModInfoProSvc();
 	    	boolean isModifySuccess = ownerModInfoProSvc.modifyOwnerInfo(owner);
 	    	
 	    	if(isModifySuccess) {
-	    		forward = new ActionForward();
-	    		forward.setPath("memberInfo.mem?id="+owner.getOwner_id());
-	    		forward.setRedirect(true);
 	    		response.setContentType("text/html;charset=utf-8");
 	    		PrintWriter out = response.getWriter();
 	    		out.println("<script>");
 	    		out.println("alert('수정되었습니다.');");
 	    		out.println("history.back();");
 	    		out.println("</script>");
+	    		
+	    		session.setAttribute("owner_id", owner.getOwner_id());
+				session.setAttribute("owner_pw", owner.getOwner_pw());
+				
+	    		forward = new ActionForward();
+	    		forward.setPath("ownerMyPage.own?owner_id="+owner.getOwner_id());
+	    		
+	    		
 	    	} else {
 	    		response.setContentType("text/html;charset=utf-8");
 	    		PrintWriter out = response.getWriter();

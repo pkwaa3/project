@@ -88,7 +88,7 @@ public class OwnerDAO {
 		
 		return insert;
 	}
-
+	//오너 회원 정보수정에서 회원 맞는지 검사
 	public Owner selectModOwner(String id) {
 		
 		Owner owner = null;
@@ -121,7 +121,7 @@ public class OwnerDAO {
 		
 		return owner;
 	}
-
+	//오너 회원 정보 수정
 	public int updateOwner(Owner owner) {
 		int updateCount = 0;
 		PreparedStatement pstmt = null;
