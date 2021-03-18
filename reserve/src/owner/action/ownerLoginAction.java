@@ -25,18 +25,18 @@ public class ownerLoginAction implements Action {
 		OwnerLoginService ownerLoginService = new OwnerLoginService();
 		boolean loginResult = ownerLoginService.login(owner);
 		ActionForward forward=null;
-		if(loginResult =true) {
-			forward=new ActionForward();
-			session.setAttribute("id",owner.getOwner_id());
-			forward.setPath("owner/ownerlist.jsp");
-			
-		} else {
+		if(loginResult ==false) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('로그인실패');");
 			out.println("'location.href='ownerLogin.own';");
 			out.println("</script>");
+			
+		} else {
+			forward=new ActionForward();
+			session.setAttribute("id",owner.getOwner_id());
+			forward.setPath("owner/ownerlist.jsp");
 		}
 		return forward;
 	}
