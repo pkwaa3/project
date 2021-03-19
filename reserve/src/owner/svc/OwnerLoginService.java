@@ -8,21 +8,23 @@ import java.sql.Connection;
 import dao.OwnerDAO;
 public class OwnerLoginService {
 
-	public boolean login(Owner owner) {
-		Connection con = getConnection();
-		OwnerDAO ownerDAO = OwnerDAO.getInstance();
-		ownerDAO.setConnection(con);
-		
-		boolean loginResult = false;
-		
-		String loginId=ownerDAO.selectLoginId(owner);
-		if(loginId != null) {
-			loginResult = true;
+	public Owner getOwner(String id) {
+		Owner owner= null;
+		Connection con = null;
+		try {
+			con = getConnection();
+			OwnerDAO ownerDAO = OwnerDAO.getInstance();
+			ownerDAO.setConnection(con);
+			
+			owner = ownerDAO.selectOwner(id);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con);
 		}
-		
-		close(con);
-		
-		return loginResult;
+				
+		return owner;
 	}
 
 }

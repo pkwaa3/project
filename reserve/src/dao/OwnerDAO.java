@@ -29,27 +29,38 @@ public class OwnerDAO {
 	}
 
 	// 로그인아이디 조회
-	public String selectLoginId(Owner owner) {
-		String loginId = null;
-		String sql = "select owner_id from owner where owner_id =? and owner_pw=?";
-
+	public Owner selectOwner(String id) {
+		Owner owner = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from owner where owner_id = ?";
+		
 		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, owner.getOwner_id());
-			pstmt.setString(2, owner.getOwner_pw());
-			rs = pstmt.executeQuery();
-
-			if (rs.next())
-				loginId = rs.getString("owner_id");
-
-		} catch (Exception e) {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				owner = new Owner();
+				owner.setOwner_id(id);
+				owner.setOwner_pw(rs.getString("owner_pw"));
+				owner.setOwner_name(rs.getString("owner_name"));
+				owner.setOwner_age(rs.getString("owner_age"));
+				owner.setOwner_gender(rs.getString("owner_gender"));
+				owner.setOwner_number(rs.getString("owner_number"));
+				owner.setOwner_email(rs.getString("owner_email"));
+				
+			}
+			
+			
+		}catch(Exception e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			close(rs);
 			close(pstmt);
 		}
-
-		return loginId;
+		
+		return owner;
 	}
 
 	// 오너 회원가입
@@ -148,6 +159,8 @@ public class OwnerDAO {
 		
 		return updateCount;
 	}
+
+	
 
 	
 

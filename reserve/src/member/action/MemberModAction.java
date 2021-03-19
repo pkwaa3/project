@@ -20,6 +20,7 @@ public class MemberModAction implements Action {
 		
 		if(session.getAttribute("member_id") != null) {
 			Member member = new Member();
+			System.out.println(request.getParameter("member_id"));
 			member.setMember_id(request.getParameter("member_id"));
 			member.setMember_pw(request.getParameter("member_pw"));
 			member.setMember_name(request.getParameter("member_name"));
@@ -34,7 +35,7 @@ public class MemberModAction implements Action {
 			if(isModifySuccess) {
 				forward = new ActionForward();
 				forward.setRedirect(true);
-				forward.setPath("");
+				forward.setPath("/member/MemberModifyForm.jsp");
 			}
 			else {
 				response.setContentType("text/html;charset=utf-8");

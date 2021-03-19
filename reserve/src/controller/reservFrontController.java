@@ -18,6 +18,7 @@ import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.OwnerModInfoFormAction;
 import owner.action.OwnerModInfoProAction;
+import owner.action.OwnerRegiMarketProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import vo.ActionForward;
@@ -122,6 +123,21 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/owner/ownerMyPage.jsp");
 		}
+		//오너 가게 정보 폼
+		else if (command.equals("/ownerRegiMarketForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("/owner/ownerRegiMarketForm.jsp");
+		}
+		// 오너 가게 정보 프로
+				else if (command.equals("/ownerRegiMarketPro.own")) {
+					action = new OwnerRegiMarketProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
@@ -189,11 +205,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		//멤버 정보수정 폼
-		else if (command.equals("/memberModForm.mem")) {
-			forward = new ActionForward();
-			forward.setPath("/member/MemberModifyForm.jsp");
-		}
+		
 		//맴버 인포 폼
 		else if (command.equals("/memberModInfoForm.mem")) {
 			action = new MemberModInfoFormAction();
