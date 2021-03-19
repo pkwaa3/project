@@ -15,7 +15,7 @@
 	<table border=1>
 		<tr>
 			<td>아이디 : </td>
-			<td colspan="2">${member.member_id }<input type="hidden" name="member_id" id="member_id" value='${member.member_id }' /></td>
+			<td colspan="2"><input type="text" name="member_id" id="member_id" value="<%=member.getMember_id() %>" /></td>
 		</tr>
 		<tr>
 			<td>비밀번호 : </td>

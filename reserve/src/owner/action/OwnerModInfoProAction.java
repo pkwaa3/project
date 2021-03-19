@@ -37,7 +37,6 @@ public class OwnerModInfoProAction implements Action {
 	    		PrintWriter out = response.getWriter();
 	    		out.println("<script>");
 	    		out.println("alert('수정되었습니다.');");
-	    		out.println("history.back();");
 	    		out.println("</script>");
 	    		
 	    		session.setAttribute("owner_id", owner.getOwner_id());
