@@ -33,6 +33,7 @@ public class MemberLoginAction implements Action {
 				session.setAttribute("id", id);
 				session.setAttribute("pass", pass);
 				
+				
 				forward = new ActionForward();
 				//forward.setRedirect(true);
 				forward.setPath("member/memberlist.jsp");
