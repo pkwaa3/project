@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="memberMod.mem" name="memberModForm" method="post">
+<form action="/memberMod.mem" name="memberModForm" method="post">
 	<table border=1>
 		<tr>
 			<td>아이디 : </td>

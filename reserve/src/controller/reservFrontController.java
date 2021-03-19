@@ -189,11 +189,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		//멤버 정보수정 폼
-		else if (command.equals("/memberModForm.mem")) {
-			forward = new ActionForward();
-			forward.setPath("/member/MemberModifyForm.jsp");
-		}
+		
 		//맴버 인포 폼
 		else if (command.equals("/memberModInfoForm.mem")) {
 			action = new MemberModInfoFormAction();

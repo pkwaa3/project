@@ -17,28 +17,44 @@ public class ownerLoginAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		HttpSession session = request.getSession();
-		Owner owner = new Owner();
-		
-		
-		owner.setOwner_id(request.getParameter("owner_id"));
-		owner.setOwner_pw(request.getParameter("owner_pw"));
-		
-		OwnerLoginService ownerLoginService = new OwnerLoginService();
-		boolean loginResult = ownerLoginService.login(owner);
 		ActionForward forward=null;
 
-		if(loginResult ==false) {
+		String id= request.getParameter("owner_id");
+		String pw= request.getParameter("owner_pw");
+		
+		
+		OwnerLoginService ownerLoginService = new OwnerLoginService();
+		Owner owner = ownerLoginService.getOwner(id);
 
-			forward=new ActionForward();
-			session.setAttribute("id",owner.getOwner_id());
-			forward.setPath("ownerMyPage.own");
-			
+		if(owner !=null) {
+			if(owner.getOwner_pw().equals(pw)) {
+				session = request.getSession();
+				session.setAttribute("id", id);
+				session.setAttribute("pw", pw);
+				
+				forward = new ActionForward();
+				//forward.setRedirect(true);
+				forward.setPath("ownerMyPage.own");
+			}else {
+				response.setContentType("text/html;charset=utf-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그인 실패1');");
+				out.println("history.back()");
+				out.println("</script>");
+			}
 		}  else {
-			forward=new ActionForward();
-			session.setAttribute("id",owner.getOwner_id());
-			forward.setPath("owner/ownerlist.jsp");
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('로그인 실패2');");
+			out.println("history.back()");
+			out.println("</script>");
 		}
 		return forward;
 	}
-
+	
 }
+
+
+			
