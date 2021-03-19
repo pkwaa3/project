@@ -23,7 +23,6 @@ public class MemberModService {
 				isModifySuccess =true;
 			}else {
 				rollback(con);
-				isModifySuccess=false;
 			}
 			
 		}catch(Exception e) {
