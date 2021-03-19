@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
+import member.action.MemberLogOutAction;
 import member.action.MemberLoginAction;
 import member.action.MemberModAction;
 import member.action.MemberModInfoFormAction;
@@ -19,6 +20,7 @@ import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.OwnerModInfoFormAction;
 import owner.action.OwnerModInfoProAction;
+import owner.action.OwnerRegiMarketProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import vo.ActionForward;
@@ -124,6 +126,21 @@ public class reservFrontController extends HttpServlet {
 			forward.setPath("/owner/ownerMyPage.jsp");
 		}
 
+		// 오너 가게 정보 폼
+		else if (command.equals("/ownerRegiMarketForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("/owner/ownerRegiMarketForm.jsp");
+		}
+		// 오너 가게 정보 프로
+		else if (command.equals("/ownerRegiMarketPro.own")) {
+			action = new OwnerRegiMarketProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		// ㅈㅇ우
 		// 오너 로그인 액션
 		else if (command.equals("/ownerLogin.own")) {
@@ -217,10 +234,18 @@ public class reservFrontController extends HttpServlet {
 		// 멤버 회원 탈퇴 폼
 		else if (command.equals("/main.com")) {
 			forward = new ActionForward();
-			forward.setPath("main.jsp");
+			forward.setPath("/main.jsp");
+		}
+		// 멤버 로그아웃
+		else if (command.equals("/memberLogout.mem")) {
+			action = new MemberLogOutAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
-		
 		if (forward != null) {
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());

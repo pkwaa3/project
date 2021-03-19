@@ -44,12 +44,15 @@ public class ownerLoginAction implements Action {
 				out.println("</script>");
 			}
 		}  else {
+
+
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('로그인 실패2');");
 			out.println("history.back()");
 			out.println("</script>");
+
 		}
 		return forward;
 	}

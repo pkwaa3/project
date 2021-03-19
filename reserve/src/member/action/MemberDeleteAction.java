@@ -19,6 +19,7 @@ public class MemberDeleteAction implements Action {
 		
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
+		
 		System.out.println(id);
 		System.out.println(pass);
 		MemberDeleteService memberDeleteService = new MemberDeleteService();

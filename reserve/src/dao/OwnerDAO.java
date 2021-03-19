@@ -49,6 +49,7 @@ public class OwnerDAO {
 				owner.setOwner_gender(rs.getString("owner_gender"));
 				owner.setOwner_number(rs.getString("owner_number"));
 				owner.setOwner_email(rs.getString("owner_email"));
+				owner.setOwner_no(rs.getInt("owner_no"));
 				
 			}
 			

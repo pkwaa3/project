@@ -3,12 +3,14 @@ package vo;
 public class Restaurant {
 	private int rest_no;
 	private int owner_no;
+	private String name;
 	private String kind;
 	private String address;
 	private String local;
 	private String max_head;
 	private String open;
 	private String close;
+	private String tell;
 	
 	public int getRest_no() {
 		return rest_no;
@@ -21,6 +23,13 @@ public class Restaurant {
 	}
 	public void setOwner_no(int owner_no) {
 		this.owner_no = owner_no;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getKind() {
 		return kind;
@@ -58,6 +67,13 @@ public class Restaurant {
 	public void setClose(String close) {
 		this.close = close;
 	}
+	public String getTell() {
+		return tell;
+	}
+	public void setTell(String tell) {
+		this.tell = tell;
+	}
+	
 	
 	
 }
