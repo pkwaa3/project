@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	body{
+        font-family:"맑은 고딕", "고딕", "굴림";
+    }
 	#wrap{
 		width:1000px;
 		height:800px;
@@ -24,10 +27,31 @@
 	#aside{
 		float:left;
 		width:300px;
-		height:600x;
+		height:600px;
 		line-height:600px;
 		background:#43a047;
 	}
+	#aside ul{
+  		list-style-type: none;
+	}
+	#aside li {
+    border-bottom:1px solid white;
+    display: inline;
+   	float: center;	
+    font-weight:bold;
+}
+	#aside li:last-child {
+ 		 border-right: none;
+	}
+	#aside li a{
+		display:block;
+		color : white;
+		text-align:center;
+		padding:0 auto;
+		text-decoration:none;
+	}
+	
+	
 	#contents{
 		float:left;
 		width:700px;
@@ -49,9 +73,7 @@
 <body>
 	<div id="wrap">
 		<div id="header">예약하는홈페이지</div>		
-		<div id="aside"></div>
-		<div id="contents"></div>
-		<div id="footer"></div>
+		<div id="aside">
 			<ul>
 				<li><a href="">내글목록</a></li>
 				<li><a href="">예약내역</a></li>
@@ -59,6 +81,9 @@
 				<li><a href="">회원정보수정</a></li>
 				<li><a href="">회원탈퇴</a></li>
 			</ul>
+		</div>
+		<div id="contents"></div>
+		<div id="footer"></div>
 	</div>
 </body>
 </html>
