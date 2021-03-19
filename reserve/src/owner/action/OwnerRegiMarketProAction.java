@@ -28,6 +28,8 @@ public class OwnerRegiMarketProAction implements Action {
 		restaurant.setMax_head(request.getParameter("max_head"));
 		restaurant.setOpen(request.getParameter("open"));
 		restaurant.setClose(request.getParameter("close"));
+		restaurant.setOwner_no(Integer.parseInt(request.getParameter("owner_no")));
+		
 		
 		RestaurantRegiProSvc restaurantRegiProSvc = new RestaurantRegiProSvc();
 		boolean isRegiSuccess = restaurantRegiProSvc.regiRestaurant(restaurant);

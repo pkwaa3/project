@@ -10,6 +10,8 @@
 <body>
 아이디 : <%=request.getParameter("owner_id") %>
 비밀번호 :<%=request.getParameter("owner_pw") %>
+번호 :<%=request.getParameter("owner_no") %>
+번호 :<%=session.getAttribute("owner_no") %>
 
 
 <table>

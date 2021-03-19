@@ -91,7 +91,7 @@ button:hover {
     <h1>가게 정보</h1>
     <p>빈칸을 채워 주세요.</p>
     <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>" />
+	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no") %>" />
 	
 	
     <label for="name"><b>가게 이름</b></label>
