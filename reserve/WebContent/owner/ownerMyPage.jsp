@@ -17,7 +17,7 @@
 		<td><a href="ownerModInfoForm.own?id=<%=request.getParameter("owner_id") %>">회원 정보 수정</a></td>
 	</tr>
 	<tr>
-		<td><a href="ownerModInfoForm.own?id=<%=request.getParameter("owner_id") %>">가게 정보 등록</a></td>
+		<td><a href="ownerRegiMarketForm.own?id=<%=request.getParameter("owner_id") %>">가게 정보 등록</a></td>
 	</tr>
 </table>
 </body>
