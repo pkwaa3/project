@@ -1,6 +1,8 @@
 package dao;
 
 import static db.JdbcUtil.*;
+
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -116,5 +118,39 @@ public class MemberDAO {
 		}
 
 		return updateCount;
+	}
+
+	public int deleteMember(String id, String pass) {
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from member where member_id=? and member_pw=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pass);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+			 String sqlD="delete from member where member_id=?";
+			 pstmt=con.prepareStatement(sqlD);
+			 pstmt.setString(1, id);
+			 deleteCount=pstmt.executeUpdate();
+				
+			}else {
+				System.out.println("<script>");
+				System.out.println("alert('비밀번호불일치');");
+				System.out.println("history.back();");
+				System.out.println("</script>");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			
+		}
+		return deleteCount;
 	}
 }
