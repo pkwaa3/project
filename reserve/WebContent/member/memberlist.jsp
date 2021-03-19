@@ -15,7 +15,7 @@
 		<a href="memberModInfoForm.mem?id=<%=request.getParameter("id") %>"> 회원정보수정하기 </a><br>
 		<a href="memberDeleteForm.mem?id=<%=request.getParameter("id") %>">회원 탈퇴하기</a><br>
 		<a href="memberLogout.mem?id=<%=request.getParameter("id") %>">로그아웃</a>
-
+		<a href="main.com">메인가기</a>
 </form>
 </body>
 </html>

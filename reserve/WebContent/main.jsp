@@ -169,10 +169,20 @@ body {
 <body>
 <ul class="nav">
   <li><a class="active" href="main.jsp">Home</a></li>
+<%
+	request.setCharacterEncoding("utf-8");
+	if(session.getAttribute("id") == null){
+%>
   <li style="float:right"><a href="index/login.jsp">로그인</a></li>
   <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
 </ul>
-
+<%
+	} else{
+%>
+		<li style="float:right"><a href="memberLogout.mem">로그아웃</a></li>
+<%
+	}
+%>
 
 <h2>CSS Template using Float</h2>
 <p>In this example, we have created a header, three equal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>

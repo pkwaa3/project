@@ -16,6 +16,9 @@ public class MemberLogOutAction implements Action {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
+		forward=new ActionForward();
+		forward.setPath("/main.com");
+		
 		
 		
 		return forward;
