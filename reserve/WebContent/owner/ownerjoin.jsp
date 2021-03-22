@@ -128,7 +128,8 @@ button:hover {
     <hr>
 
     <label for="owner_id"><b>아이디</b></label>
-    <input type="text" placeholder="Enter Id" name="owner_id" id="owner_id" required>
+    <input type="text" placeholder="Enter Id" name="owner_id" id="owner_id" readonly required>
+     <input type="button" name="idSearch" id="idsearch" value="검색" onclick="window.open('ownerIdCheck.own','','width=500, height=300')"/>
 
     <label for="owner_pw"><b>비밀번호</b></label>
     <input type="password" placeholder="Enter Password" name="owner_pw" id="owner_pw" required>
@@ -150,7 +151,7 @@ button:hover {
     <input type="text" placeholder="Enter Email" name="owner_email" id="owner_email"required>
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">취소</button>
+      <button type="button" class="cancelbtn" onclick="history.back()">뒤로 가기</button>
       <button type="submit" class="signupbtn">회원가입</button>
     </div>
   </div>

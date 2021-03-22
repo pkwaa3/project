@@ -26,8 +26,11 @@ public class MemberJoinProAction implements Action {
 		member.setMember_number(request.getParameter("number"));
 		member.setMember_email(request.getParameter("email"));
 		
+		
 		MemberJoinProSvc joinProSvc = new MemberJoinProSvc();
 		boolean isJoinSuccess = joinProSvc.joinMember(member);
+		
+		
 		if(isJoinSuccess) {
 			
 			response.setContentType("text/html;charset=utf-8");

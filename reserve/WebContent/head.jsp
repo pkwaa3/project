@@ -43,7 +43,7 @@ nav .active {
 <body>
 	<nav>
 	<ul>
-  		<li><a class="active" href="../main.jsp">Home</a></li>
+  		<li><a class="active" href="main.com">Home</a></li>
   		<li style="float:right"><a href="../index/login.jsp">로그인</a></li>
   		<li style="float:right"><a href="../index/login.jsp">회원가입</a></li>
 	</ul>

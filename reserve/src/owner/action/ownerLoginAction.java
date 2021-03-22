@@ -30,15 +30,15 @@ public class ownerLoginAction implements Action {
 		if(owner !=null) {
 			if(owner.getOwner_pw().equals(pw)) {
 				session = request.getSession();
-				session.setAttribute("id", id);
-				session.setAttribute("pw", pw);
+				session.setAttribute("owner_id", id);
+				session.setAttribute("owner_pw", pw);
 				
 				session.setAttribute("owner_no", owner.getOwner_no());
 				
 				
 				forward = new ActionForward();
 				//forward.setRedirect(true);
-				forward.setPath("ownerMyPage.own");
+				forward.setPath("mainLoginOwner.com");
 			}else {
 				response.setContentType("text/html;charset=utf-8");
 				PrintWriter out = response.getWriter();

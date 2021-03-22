@@ -10,7 +10,7 @@ import action.Action;
 import member.svc.MemberLoginSvc;
 import vo.ActionForward;
 import vo.Member;
-import vo.Owner;
+
 
 public class MemberLoginAction implements Action {
 
@@ -36,7 +36,7 @@ public class MemberLoginAction implements Action {
 				
 				forward = new ActionForward();
 				//forward.setRedirect(true);
-				forward.setPath("member/memberlist.jsp");
+				forward.setPath("main.com");
 			
 			} else {
 				response.setContentType("text/html;charset=utf-8");

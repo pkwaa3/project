@@ -18,6 +18,8 @@ import member.action.MemberModAction;
 import member.action.MemberModInfoFormAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
+import owner.action.OwnerDeleteAction;
+import owner.action.OwnerLogOutAction;
 import owner.action.OwnerModInfoFormAction;
 import owner.action.OwnerModInfoProAction;
 import owner.action.OwnerRegiMarketProAction;
@@ -140,6 +142,56 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		// 오너 로그아웃
+		else if (command.equals("/ownerLogout.own")) {
+			action = new OwnerLogOutAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 오너 회원 탈퇴 폼
+				else if (command.equals("/ownerDeleteForm.own")) {
+					forward = new ActionForward();
+					forward.setPath("owner/ownerDeleteForm.jsp");
+				}
+		// 오너 회원탈퇴 액션
+				else if (command.equals("/ownerDelete.own")) {
+					action = new OwnerDeleteAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 멤버 마이페이지 폼
+				else if (command.equals("/memberMyPage.mem")) {
+					forward = new ActionForward();
+					forward.setPath("member/memberMyPage.jsp");
+				}
+		// 오너 마이페이지 폼
+				else if (command.equals("/ownerMyPage.own")) {
+					forward = new ActionForward();
+					forward.setPath("owner/ownerMyPage.jsp");
+				}
+		// 오너 로그인 메인 폼
+				else if (command.equals("/mainLoginOwner.com")) {
+					forward = new ActionForward();
+					forward.setPath("/mainLoginOwner.jsp");
+				}
+		// 멤버 회원가입 아이디 조회
+				else if (command.equals("/memberIdCheck.mem")) {
+					forward = new ActionForward();
+					forward.setPath("member/memberIdCheck.jsp");
+				}
+		// 오너 회원가입 아이디 조회
+				else if (command.equals("/ownerIdCheck.own")) {
+					forward = new ActionForward();
+					forward.setPath("owner/ownerIdCheck.jsp");
+				}
+		
+		
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
@@ -231,7 +283,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 멤버 회원 탈퇴 폼
+		// 메인 폼
 		else if (command.equals("/main.com")) {
 			forward = new ActionForward();
 			forward.setPath("/main.jsp");

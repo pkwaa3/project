@@ -117,7 +117,8 @@ public class MemberDAO {
 
 		return updateCount;
 	}
-
+	
+	//멤버 회원 탈퇴
 	public int deleteMember(String id, String pass) {
 		int deleteCount = 0;
 		PreparedStatement pstmt = null;
@@ -151,4 +152,5 @@ public class MemberDAO {
 		}
 		return deleteCount;
 	}
+
 }

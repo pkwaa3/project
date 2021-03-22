@@ -160,6 +160,43 @@ public class OwnerDAO {
 		
 		return updateCount;
 	}
+	
+	//오너 회원탈퇴
+	public int deleteOwner(String owner_id, String owner_pw) {
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from owner where owner_id=? and owner_pw=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, owner_id);
+			pstmt.setString(2, owner_pw);
+			System.out.println(owner_id);
+			System.out.println(owner_pw);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+			 String sqlD="delete from owner where owner_id=?";
+			 pstmt=con.prepareStatement(sqlD);
+			 pstmt.setString(1, owner_id);
+			 deleteCount=pstmt.executeUpdate();
+				
+			}else {
+				System.out.println("<script>");
+				System.out.println("alert('비밀번호불일치');");
+				System.out.println("history.back();");
+				System.out.println("</script>");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			
+		}
+		return deleteCount;
+	}
 
 	
 

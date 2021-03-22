@@ -1,4 +1,4 @@
-package member.action;
+package owner.action;
 
 import java.io.PrintWriter;
 
@@ -8,22 +8,22 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import member.svc.MemberDeleteService;
+import owner.svc.OwnerDeleteService;
 import vo.ActionForward;
 
-public class MemberDeleteAction implements Action {
+public class OwnerDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward =null;
 		HttpSession session = request.getSession();
 		
-		String id=request.getParameter("id");
-		String pass=request.getParameter("pass");
+		String owner_id = request.getParameter("owner_id");
+		String owner_pw = request.getParameter("owner_pw");
+		System.out.println(owner_id);
 		
-		System.out.println(id);
-		System.out.println(pass);
-		MemberDeleteService memberDeleteService = new MemberDeleteService();
-		boolean isDeleteSuccess = memberDeleteService.deleteMember(id,pass);
+		OwnerDeleteService ownerDeleteService = new OwnerDeleteService();
+		boolean isDeleteSuccess = ownerDeleteService.deleteOwner(owner_id, owner_pw);
 		
 		if(isDeleteSuccess) {
 			
@@ -39,8 +39,6 @@ public class MemberDeleteAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}
-	
-		
 		return forward;
 	}
 

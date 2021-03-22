@@ -70,18 +70,18 @@ span.psw {
  
 
     <div class="container">
-      <label for="id"><b>ID</b></label>
-      <input type="text" placeholder="Enter ID" name="owner_id" id="owner_id"required>
+      <label for="id"><b>아이디</b></label>
+      <input type="text" placeholder="Enter ID" name="owner_id" id="owner_id"  required>
 
-      <label for="owner_pw"><b>Password</b></label>
+      <label for="owner_pw"><b>비밀번호</b></label>
       <input type="password" placeholder="Enter Password" name="owner_pw" id="owner_pw" required>
         
-      <button type="submit">Login</button>
+      <button type="submit">로그인</button>
      
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <button type="button" onclick="history.back()" class="cancelbtn">뒤로 가기</button>
       <span class="psw"> <a href="ownerJoinForm.own">회원가입</a></span>
     </div>
   </form>

@@ -109,7 +109,7 @@
   z-index: 1;
 }
 
-.dropdown:hover  .dropdown-content {
+.dropdown:active  .dropdown-content {
   display: block;
 }
 
@@ -171,7 +171,7 @@ body {
   <li><a class="active" href="main.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
-	if(session.getAttribute("id") == null){
+	if(session.getAttribute("owner_id") == null){
 %>
   <li style="float:right"><a href="index/login.jsp">로그인</a></li>
   <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
@@ -179,8 +179,8 @@ body {
 <%
 	} else{
 %>
-		<li style="float:right"><a href="memberMyPage.mem"><%=request.getParameter("id") %>님 환영합니다.</a></li>
-		<li style="float:right"><a href="memberLogout.mem">로그아웃</a></li>
+		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=request.getParameter("owner_id") %>"><%=request.getParameter("owner_id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
 		</ul>
 <%
 	}
@@ -193,13 +193,10 @@ body {
 <div class="header">
   <h2>Header</h2><p>
   		<form>
-
-  		
-  			
   			<div class="dropdown">
   				<span> 
   					<div id="rcorners1">지역<br><i style="font-size:50%;">어디 갈래?</i>
-  					<input type="text" name="where" id="where" size="10" readonly/>
+  					<input class="intext" type="text" name="where" id="where" size="10" readonly/>
   					</div>
   				</span>
   					<div class="dropdown-content">

@@ -146,7 +146,8 @@ button:hover {
     <hr>
 
     <label for="id"><b>아이디</b></label>
-    <input type="text" placeholder="Enter Id" name="id" id="id" required>
+    <input type="text" placeholder="Enter Id" name="id" id="id"  readonly required>
+    <input type="button" name="idSearch" id="idsearch" value="검색" onclick="window.open('memberIdCheck.mem','','width=500, height=300')"/>
 
     <label for="pass"><b>비밀번호</b></label>
     <input type="password" placeholder="Enter Password" name="pass" id="pass" required>
@@ -168,7 +169,7 @@ button:hover {
     <input type="text" placeholder="Enter Email" name="email" id="email"required>
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">취소</button>
+      <button type="button" class="cancelbtn" onclick="history.back()">취소</button>
       <button type="submit" class="signupbtn">회원가입</button>
     </div>
   </div>
