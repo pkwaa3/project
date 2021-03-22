@@ -13,7 +13,7 @@
 번호 :<%=request.getParameter("owner_no") %>
 번호 :<%=session.getAttribute("owner_no") %>
 
-
+<a href="boardRegForm.bo?id=<%=request.getParameter("owner_id") %>">가게 등록</a>
 <table>
 	<tr>
 		<td><a href="ownerModInfoForm.own?id=<%=request.getParameter("owner_id") %>">회원 정보 수정</a></td>

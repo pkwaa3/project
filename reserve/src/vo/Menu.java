@@ -3,6 +3,7 @@ package vo;
 public class Menu {
 	private int menu_no;
 	private int rest_no;
+	private int board_no;
 	private String menu_name;
 	private String menu_price;
 	private String menu_img;
@@ -37,6 +38,13 @@ public class Menu {
 	public void setMenu_img(String menu_img) {
 		this.menu_img = menu_img;
 	}
+	public int getBoard_no() {
+		return board_no;
+	}
+	public void setBoard_no(int board_no) {
+		this.board_no = board_no;
+	}
+	
 	
 	
 }

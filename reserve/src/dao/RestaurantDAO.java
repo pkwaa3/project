@@ -69,4 +69,28 @@ public class RestaurantDAO {
 		} 
 		return insert;
 	}
+
+	public Restaurant RestInfo(int owner_no) {
+		Restaurant rest = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql= "select * from restaurant where owner_no = ?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, owner_no);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				rest=new Restaurant();
+				rest.setRest_no(rs.getInt("rest_no"));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return null;
+	}
 }

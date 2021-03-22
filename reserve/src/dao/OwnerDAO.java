@@ -121,6 +121,7 @@ public class OwnerDAO {
 				owner.setOwner_gender(rs.getString("owner_gender"));
 				owner.setOwner_number(rs.getString("owner_number"));
 				owner.setOwner_email(rs.getString("owner_email"));
+				owner.setOwner_no(Integer.parseInt(rs.getString("owner_no")));
 			}
 			
 			
@@ -160,6 +161,8 @@ public class OwnerDAO {
 		
 		return updateCount;
 	}
+
+	
 
 	
 

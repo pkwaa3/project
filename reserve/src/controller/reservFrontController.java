@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import board.action.BoardRegAction;
+import board.action.BoardRegFormAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -28,7 +30,7 @@ import vo.ActionForward;
 /**
  * Servlet implementation class reservFrontController
  */
-@WebServlet(urlPatterns = { "*.mem", "*.own", "*.com" })
+@WebServlet(urlPatterns = { "*.mem", "*.own", "*.com", "*.bo" })
 public class reservFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -244,6 +246,29 @@ public class reservFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		// 리스트 글 등록액션 
+		else if (command.equals("/boardReg.bo")) {
+			action = new BoardRegAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 리스트 글인포 폼
+		else if (command.equals("/boardRegInfoFrom.bo")) {
+			action = new BoardRegFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 리스트 글등록 폼
+		else if (command.equals("/boardRegForm.bo")) {
+			forward = new ActionForward();
+			forward.setPath("board/boardReg.jsp");
 		}
 
 		if (forward != null) {
