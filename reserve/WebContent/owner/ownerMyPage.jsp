@@ -44,22 +44,29 @@
   background-color: #4CAF50;
 }
 
-/*탑 목록*/
+/*콘텐트 목록*/
 #contentList {
 
 }
 #contentList ul {
 	background-color: #333;
+	margin: 0;
+ 	 padding: 0;
+  	overflow: hidden;
+  	
 }
 #contentList ul li {
 
 }
 #contentList li a {
-	display: block;
+  display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+#contentList li a:hover:not(.active) {
+  background-color: #111;
 }
 
 /*헤더*/
@@ -84,30 +91,9 @@
 </style>
 </head>
 <body>
-
-아이디(세션) : <%= session.getAttribute("owner_id") %>
-비밀번호(세션) : <%= session.getAttribute("owner_pw") %>
-레스토랑 번호(세션) :<%=session.getAttribute("owner_no") %>
-
-<a href="boardRegForm.bo?id=<%=request.getParameter("owner_id") %>">가게 등록</a>
-<table>
-	<tr>
-		<td><a href="ownerModInfoForm.own?id=<%=request.getParameter("owner_id") %>">회원 정보 수정</a></td>
-	</tr>
-	<tr>
-		<td><a href="ownerRegiMarketForm.own?id=<%=request.getParameter("owner_id") %>">가게 정보 등록</a></td>
-	</tr>
-	<tr>
-		<td><a href="ownerLogout.own?id=<%=request.getParameter("owner_id") %>">로그아웃</a></td>
-	</tr>
-	<tr>
-		<td><a href="ownerDeleteForm.own?owner_id=<%=request.getParameter("owner_id") %>">회원탈퇴</a></td>
-	</tr>
-</table>
-
 <nav id="topmenu">
 <ul >
-  <li><a class="active" href="main.com">Home</a></li>
+  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("owner_id") == null){
@@ -118,7 +104,7 @@
 <%
 	} else{
 %>
-		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=request.getParameter("owner_id") %>"><%=request.getParameter("owner_id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
 		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
 		</ul>
 <%
@@ -133,8 +119,12 @@
   <div class="column" style="background-color:#aaa;">
   	<nav id="contentList">
   		<ul>
-  			<li>d</li>
-  			<li>d</li>
+  			<li><a href="ownerModInfoForm.own?owner_id=<%=session.getAttribute("owner_id") %>">회원 정보 수정</a></li>
+  			<li><a href="ownerRegiMarketForm.own?owner_id=<%=session.getAttribute("owner_id") %>">가게 정보 등록</a></li>
+  			<li><a href="boardRegForm.bo?owner_id=<%=session.getAttribute("owner_id") %>">가게 등록</a></li>
+  			<li><a href="">예약 내역</a></li>
+  			<li><a href="ownerDeleteForm.own?owner_id=<%=session.getAttribute("owner_id") %>">회원탈퇴</a></li>
+  			
   		</ul>
   	</nav>
   </div>

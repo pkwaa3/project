@@ -17,9 +17,9 @@ public class OwnerModInfoFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		
+		HttpSession session = request.getSession();
 		
-		
-		String id = request.getParameter("id");
+		String id = (String) session.getAttribute("owner_id");
 		
 		OwnerInfoSvc ownerInfoSvc = new OwnerInfoSvc();
 		Owner owner = ownerInfoSvc.getOwner(id);

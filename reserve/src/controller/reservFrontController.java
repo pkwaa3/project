@@ -320,7 +320,7 @@ public class reservFrontController extends HttpServlet {
 		// 리스트 글등록 폼
 		else if (command.equals("/boardRegForm.bo")) {
 			forward = new ActionForward();
-			forward.setPath("board/boardReg.jsp");
+			forward.setPath("owner/boardReg.jsp");
 		}
 
 		if (forward != null) {
