@@ -89,7 +89,7 @@
 비밀번호(세션) : <%= session.getAttribute("owner_pw") %>
 레스토랑 번호(세션) :<%=session.getAttribute("owner_no") %>
 
-
+<a href="boardRegForm.bo?id=<%=request.getParameter("owner_id") %>">가게 등록</a>
 <table>
 	<tr>
 		<td><a href="ownerModInfoForm.own?id=<%=request.getParameter("owner_id") %>">회원 정보 수정</a></td>
