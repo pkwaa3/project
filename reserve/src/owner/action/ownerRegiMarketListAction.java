@@ -27,7 +27,6 @@ public class ownerRegiMarketListAction implements Action {
 		
 		request.setAttribute("restList", restList);
 		for(int i=0; i<restList.size(); i++) {
-		System.out.println(restList.get(1).getRest_no());
 		}
 		
 		ActionForward forward = new ActionForward();

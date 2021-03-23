@@ -35,6 +35,7 @@ public class BoardRegAction implements Action {
 		board.setBoard_content(multi.getParameter("board_content"));
 		board.setOwner_no(Integer.parseInt(multi.getParameter("owner_no")));
 		board.setRest_no(Integer.parseInt(multi.getParameter("rest_no")));
+		
 		for(int i = 0; i<list.size();i++) {
 			Menu menu = new Menu();
 			menu.setMenu_name(multi.getParameter("menu_name"));
@@ -50,6 +51,8 @@ public class BoardRegAction implements Action {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("ownerlist.own");
+		}else {
+			
 		}
 		
 		

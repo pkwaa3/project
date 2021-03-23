@@ -131,6 +131,7 @@ button:hover {
 </script>
 </head>
 <body>
+
 <form class="modal-content" name="boardRegForm" action="boardReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
 	<input type="hidden" name="owner_no" id="owner_no" value="<%=request.getAttribute("owner_no")%>"/>
 	<input type="hidden" name="rest_no" id="rest_no" value="<%=request.getAttribute("rest_no") %>" />
@@ -167,6 +168,8 @@ button:hover {
      <br><br>
     <label for="board_content"><b>가게 설명</b></label><br>
     <textarea rows="30" cols="100" name="board_content" id="board_content" ></textarea>
+    <%=session.getAttribute("owner_no") %>
+<%=session.getAttribute("rest_no") %>
     
     
     <div class="clearfix">

@@ -318,8 +318,8 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 리스트 글인포 폼
-		else if (command.equals("/boardRegInfoFrom.bo")) {
+		// 리스트 글등록 인포 폼
+		else if (command.equals("/boardRegInfoForm.bo")) {
 			action = new BoardRegFormAction();
 			try {
 				forward = action.execute(request, response);
