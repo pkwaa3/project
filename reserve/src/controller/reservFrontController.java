@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
+import board.action.MarketSerchAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -201,6 +202,26 @@ public class reservFrontController extends HttpServlet {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
+				}
+		// 가게등록 리스트 폼
+				else if (command.equals("/ownerRegiMarketListForm.own")) {
+					forward = new ActionForward();
+					forward.setPath("/owner/ownerRegiMarketList.jsp");
+				}
+		
+		// 마켓 서치 리스트 액션
+				else if (command.equals("/marketSerch.bo")) {
+					action = new MarketSerchAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 마켓 서치 리스트 폼
+				else if (command.equals("/marketSerchForm.bo")) {
+					forward = new ActionForward();
+					forward.setPath("/board/marketSerchForm.jsp");
 				}
 		
 		

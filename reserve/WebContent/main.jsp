@@ -192,7 +192,7 @@ body {
 
 <div class="header">
   <h2>Header</h2><p>
-  		<form>
+  		<form name="marketSerch" action="marketSerch.bo" method="post">
 
   		
   			
@@ -218,6 +218,9 @@ body {
   						<p><input type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
   						<p><input type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
   						<p><input type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
+  					</div>
+  					<div id="rcorners1">
+  						<button type="submit"> 검색 </button>
   					</div>
 
   		</form>
