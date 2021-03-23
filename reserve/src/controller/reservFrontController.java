@@ -27,6 +27,7 @@ import owner.action.OwnerModInfoProAction;
 import owner.action.OwnerRegiMarketProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
+import owner.action.ownerRegiMarketListAction;
 import vo.ActionForward;
 
 /**
@@ -191,6 +192,15 @@ public class reservFrontController extends HttpServlet {
 				else if (command.equals("/ownerIdCheck.own")) {
 					forward = new ActionForward();
 					forward.setPath("owner/ownerIdCheck.jsp");
+				}
+		// 가게등록 리스트 액션
+				else if (command.equals("/ownerRegiMarketList.own")) {
+					action = new ownerRegiMarketListAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 		
 		
