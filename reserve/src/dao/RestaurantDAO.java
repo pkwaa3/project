@@ -5,6 +5,8 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
 import javax.sql.DataSource;
 import vo.Restaurant;
 
@@ -92,5 +94,41 @@ public class RestaurantDAO {
 			close(pstmt);
 		}
 		return null;
+	}
+
+	public ArrayList<Restaurant> selectRestaurant(int owner_no) {
+		ArrayList<Restaurant> restList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from restaurant where owner_no= ?";
+		
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, owner_no);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Restaurant restaurant = new Restaurant();
+				restaurant.setRest_no(rs.getInt("rest_no"));
+				restaurant.setName(rs.getString("name"));
+				restaurant.setKind(rs.getString("kind"));
+				restaurant.setAddress(rs.getString("address"));
+				restaurant.setLocal(rs.getString("local"));
+				restaurant.setMax_head(rs.getString("max_head"));
+				restaurant.setOpen(rs.getString("open"));
+				restaurant.setClose(rs.getString("close"));
+				restaurant.setTell(rs.getString("tell"));
+				
+				restList.add(restaurant);
+			}
+		} catch(Exception e) {
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return restList;
 	}
 }
