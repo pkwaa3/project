@@ -21,6 +21,7 @@ public class BoardRegFormService {
 			OwnerDAO ownerDAO = OwnerDAO.getInstance();
 			ownerDAO.setConnection(con);
 			owner = ownerDAO.selectModOwner(id);
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -38,6 +39,7 @@ public class BoardRegFormService {
 			RestaurantDAO restDAO = RestaurantDAO.getInstance();
 			restDAO.setConnection(con);
 			rest = restDAO.RestInfo(owner_no);
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

@@ -1,6 +1,14 @@
+<%@page import="vo.Restaurant"%>
+<%@page import="vo.Owner"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	Owner owner= (Owner)request.getAttribute("owner");
+	Restaurant rest = (Restaurant)request.getAttribute("rest");
+	
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -245,8 +253,10 @@ button:hover {
   </div>
   <div class="" style="background-color:#ccc;">
   	<form class="modal-content" name="boardRegForm" action="boardReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=request.getAttribute("owner_no")%>"/>
-	<input type="hidden" name="rest_no" id="rest_no" value="<%=request.getAttribute("rest_no") %>" />
+	
+	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no")%>"/><%=session.getAttribute("owner_no")%><br>
+	<!-- <input type="hidden" name="rest_no" id="rest_no" value="<%=rest.getRest_no() %>" /><%=rest.getRest_no() %><br> -->
+	
 	 <div class="container">
     <h1>가게 정보</h1>
     <p>빈칸을 채워 주세요.</p>
@@ -280,6 +290,8 @@ button:hover {
      <br><br>
     <label for="board_content"><b>가게 설명</b></label><br>
     <textarea rows="30" cols="100" name="board_content" id="board_content" ></textarea>
+    <%=session.getAttribute("owner_no") %>
+	<%=session.getAttribute("rest_no") %>
     
     
     <div class="clearfix">

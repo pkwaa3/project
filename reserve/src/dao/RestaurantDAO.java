@@ -74,7 +74,7 @@ public class RestaurantDAO {
 		Restaurant rest = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql= "select * from restaurant where owner_no = ?";
+		String sql= "select * from restaurant where owner_no =?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
