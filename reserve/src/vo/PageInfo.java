@@ -1,6 +1,6 @@
 package vo;
 
-public class page_info {
+public class PageInfo {
 	private int page;
 	private int max_page;
 	private int start_page;

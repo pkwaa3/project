@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
-import board.action.MarketSerchAction;
+import board.action.MarketSearchAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -211,7 +211,7 @@ public class reservFrontController extends HttpServlet {
 		
 		// 마켓 서치 리스트 액션
 				else if (command.equals("/marketSerch.bo")) {
-					action = new MarketSerchAction();
+					action = new MarketSearchAction();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {
