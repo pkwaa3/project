@@ -1,10 +1,12 @@
 package board.action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -19,6 +21,8 @@ public class BoardRegAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		String id= (String) session.getAttribute("owner_id");
 		ActionForward forward = null;
 		Board board = null;
 		ArrayList<Menu> list = new ArrayList<Menu>();
@@ -39,21 +43,30 @@ public class BoardRegAction implements Action {
 		for(int i = 0; i<list.size();i++) {
 			Menu menu = new Menu();
 			menu.setMenu_name(multi.getParameter("menu_name"));
-			menu.setMenu_price(multi.getParameter("menu_price"));
+			menu.setMenu_price(Integer.parseInt(multi.getParameter("menu_price")));
 			menu.setMenu_img(multi.getParameter("menu_img"));
 			menu.setRest_no(Integer.parseInt(multi.getParameter("rest_no")));
+			
 			list.add(menu);
 		}
 		
 		BoardRegService boardRegService = new BoardRegService();
-		boolean isRegSuccess = boardRegService.registArticle(board,list);
-		if(isRegSuccess) {
+		boolean isBoRegSuccess = boardRegService.registArticle(board);
+		boolean isMeRegSuccess = boardRegService.registArticle(list);
+		if(isBoRegSuccess && isMeRegSuccess) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("ownerlist.own");
+			forward.setPath("ownerMyPage.own?owner_id="+id);
 		}else {
-			
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('글쓰기 실패');");
+			out.println("history.back();");
+			out.println("</script>");
 		}
+			
+		
 		
 		
 		

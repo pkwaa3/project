@@ -72,20 +72,24 @@ public class RestaurantDAO {
 		return insert;
 	}
 
-	public Restaurant RestInfo(int owner_no) {
-		Restaurant rest = null;
+	public ArrayList<Restaurant> RestInfo(int owner_no) {
+		ArrayList<Restaurant> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql= "select * from restaurant where owner_no =?";
+		String sql= "select name,rest_no from restaurant where owner_no =?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, owner_no);
 			rs=pstmt.executeQuery();
 			
-			if(rs.next()) {
-				rest=new Restaurant();
-				rest.setRest_no(rs.getInt("rest_no"));
+			while(rs.next()) {
+				Restaurant restaurant = new Restaurant();
+				restaurant.setName(rs.getString("name"));
+				restaurant.setRest_no(rs.getInt("rest_no"));
+				
+				
+				list.add(restaurant);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -93,7 +97,7 @@ public class RestaurantDAO {
 			close(rs);
 			close(pstmt);
 		}
-		return null;
+		return list;
 	}
 
 	public ArrayList<Restaurant> selectRestaurant(int owner_no) {
