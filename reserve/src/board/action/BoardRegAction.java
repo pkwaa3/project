@@ -14,7 +14,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import board.svc.BoardRegService;
+
+
+
 import board.svc.RestSearchService;
+
 import vo.ActionForward;
 import vo.Board;
 import vo.Menu;
@@ -25,8 +29,10 @@ public class BoardRegAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		String id= (String) session.getAttribute("owner_id");
+
 		//int rest_no = Integer.parseInt(request.getParameter("rest_no"));
 		//int rest_no = (int) session.getAttribute("rest_no");
+
 		
 		ActionForward forward = null;
 		Board board = null;

@@ -1,8 +1,7 @@
 package dao;
 
-
-import java.io.PrintWriter;
 import java.sql.Connection;
+
 import static db.JdbcUtil.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import vo.Board;
-import vo.Menu;
+
 
 public class BoardDAO {
 	public static BoardDAO instance;
@@ -148,6 +147,7 @@ public class BoardDAO {
 		
 		return searchList;
 	}
+
 
 	public int findRestNo(String board1) {
 		PreparedStatement pstmt = null;
