@@ -53,6 +53,7 @@ public class BoardRegAction implements Action {
 		BoardRegService boardRegService = new BoardRegService();
 		boolean isBoRegSuccess = boardRegService.registArticle(board);
 		boolean isMeRegSuccess = boardRegService.registArticle(list);
+		
 		if(isBoRegSuccess && isMeRegSuccess) {
 			forward = new ActionForward();
 			forward.setRedirect(true);

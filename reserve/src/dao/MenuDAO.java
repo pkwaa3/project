@@ -31,7 +31,8 @@ public class MenuDAO {
 	public void setConnection(Connection con) {
 		this.con = con;
 	}
-
+	
+	
 	public int insertArticle(ArrayList<Menu> list) {
 		PreparedStatement pstmt = null;
 		String sql="";
@@ -41,6 +42,7 @@ public class MenuDAO {
 		try {
 			sql="select board_no from board where rest_no =? ";
 			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, list.get(0).getRest_no());
 			rs=pstmt.executeQuery();
 			
 			int num=rs.getInt("board_no");

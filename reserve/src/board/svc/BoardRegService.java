@@ -16,6 +16,7 @@ public class BoardRegService {
 		Connection con = null;
 		
 		try {
+		con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
 		int insertBoCount = boardDAO.insertArticle(board);
@@ -39,6 +40,7 @@ public class BoardRegService {
 		boolean isMeRegSuccess =false;
 		Connection con = null;
 		try {
+			con = getConnection();
 			MenuDAO menuDAO = MenuDAO.getInstance();
 			menuDAO.setConnection(con);
 			int insertMeCount = menuDAO.insertArticle(list);

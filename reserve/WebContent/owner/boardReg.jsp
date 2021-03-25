@@ -272,7 +272,7 @@ button:hover {
 		for(int i=0; i<list.size();i++){
 %>
    <input type="radio" name="board_subject" id="board_subject" value="<%=list.get(i).getName() %>" /><%=list.get(i).getName() %>&nbsp;
-   <input type="hidden" name="rest_no" id="rest_no" value="<%=list.get(i).getRest_no() %>" />1
+   <input type="hidden" name="rest_no" id="rest_no" value="<%=list.get(i).getRest_no() %>" /><%=list.get(i).getRest_no() %>
 
 
 <%		
