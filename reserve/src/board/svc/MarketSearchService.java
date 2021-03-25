@@ -7,19 +7,16 @@ import java.util.ArrayList;
 import dao.BoardDAO;
 import vo.Board;
 
-
-import vo.Restaurant;
-
 public class MarketSearchService {
 
-	public int getListCount() {
+	public int getListCount(String local, String kind) {
 		int listCount = 0;
 		Connection con = null;
 		try {
 			con = getConnection();
 			BoardDAO boardDAO = BoardDAO.getInstance();
 			boardDAO.setConnection(con);
-			listCount = boardDAO.selectListCount();
+			listCount = boardDAO.selectListCount(local, kind);
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

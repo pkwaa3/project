@@ -54,7 +54,7 @@
 				</a>
 			</td>
 			<td><%=searchList.get(i).getOwner_no() %></td>
-			<td><%=searchList.get(i).getDate() %></td>
+			<td><%=searchList.get(i).getBoard_date() %></td>
 			<td><%=searchList.get(i).getBoard_readcount() %></td>
 		</tr>
 		<%} %>
