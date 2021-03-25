@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="vo.Restaurant"%>
 <%@page import="vo.Owner"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,7 +6,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	Owner owner= (Owner)request.getAttribute("owner");
-	Restaurant rest = (Restaurant)request.getAttribute("rest");
+ArrayList<Restaurant> list = (ArrayList<Restaurant>)request.getAttribute("list");
 	
 %>
 
@@ -165,7 +166,7 @@ button:hover {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 70%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
   padding:5px;
 }
 </style>
@@ -252,23 +253,38 @@ button:hover {
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
+  	
   	<form class="modal-content" name="boardRegForm" action="boardReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
 	
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no")%>"/><%=session.getAttribute("owner_no")%><br>
-	<!-- <input type="hidden" name="rest_no" id="rest_no" value="<%=rest.getRest_no() %>" /><%=rest.getRest_no() %><br> -->
+	
 	
 	 <div class="container">
     <h1>가게 정보</h1>
     <p>빈칸을 채워 주세요.</p>
     <hr>
+	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  />
 	
 	
+    <label for="board_subject"><b>가게선택</b></label><br>
+<%
+	if(list != null){
+		
+		for(int i=0; i<list.size();i++){
+%>
+   <input type="radio" name="board_subject" id="board_subject" value="<%=list.get(i).getName() %>" /><%=list.get(i).getName() %>&nbsp;
+   <input type="hidden" name="rest_no" id="rest_no" value="<%=list.get(i).getRest_no() %>" />1
+
+
+<%		
+	}} else{
+%>
+	<input type="text" name="board_subject" id="board_subject" />
+<%
+	}
+%>
 	
-    <label for="board_subject"><b>가게이름</b></label>
-    <input type="text" placeholder="가게이름을 적어주세요" name="board_subject" id="board_subject" required>
 	
-	
-	<label for="kind"><b>메뉴 종류</b> </label><P> 	
+	<br><br><label for="kind"><b>메뉴 종류</b> </label><P> 	
     <span  style="background-color:#f1f1f1; width: 100%; padding: 15px; margin: 5px 0 22px 0;">
     			
     			<input type="checkbox" name="kind" id="hansik" value="한식" checked >한식
@@ -276,7 +292,7 @@ button:hover {
 		 		<input type="checkbox" name="kind" id="joongsik" value="중식">중식
 		 		<input type="checkbox" name="kind" id="ilsik" value="일식">일식<p></p></span>
 
-	<label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
+	<br><br><label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
 			onClick="insRow()" value="메뉴 추가">
     <table id="addTable">
     	<tr>		
@@ -290,8 +306,7 @@ button:hover {
      <br><br>
     <label for="board_content"><b>가게 설명</b></label><br>
     <textarea rows="30" cols="100" name="board_content" id="board_content" ></textarea>
-    <%=session.getAttribute("owner_no") %>
-	<%=session.getAttribute("rest_no") %>
+    
     
     
     <div class="clearfix">

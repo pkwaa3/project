@@ -5,6 +5,7 @@ import vo.Restaurant;
 import static db.JdbcUtil.*;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import dao.OwnerDAO;
 import dao.RestaurantDAO;
@@ -30,22 +31,23 @@ public class BoardRegFormService {
 		return owner;
 	}
 
-	public Restaurant getRestInfo(int owner_no) {
-		Restaurant rest  =null;
+	public ArrayList<Restaurant> getRestInfo(int owner_no) {
+		ArrayList<Restaurant> list =null;
 		Connection con = null;
 		
 		try {
 			con = getConnection();
 			RestaurantDAO restDAO = RestaurantDAO.getInstance();
 			restDAO.setConnection(con);
-			rest = restDAO.RestInfo(owner_no);
+			
+			list = restDAO.RestInfo(owner_no);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			close(con);
 		}
-		return rest;
+		return list;
 	}
 
 }

@@ -1,7 +1,9 @@
 package dao;
 
-import static db.JdbcUtil.*;
+
+import java.io.PrintWriter;
 import java.sql.Connection;
+import static db.JdbcUtil.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,17 +31,56 @@ public class BoardDAO {
 	public void setConnection(Connection con) {
 		this.con=con;
 	}
+	
 	//글등록
-	public int insertArticle(Board board, ArrayList<Menu> list) {
+	public int insertArticle(Board board) {
 		PreparedStatement pstmt= null;
 		ResultSet rs=null;
 		int num = 0;
-		String sql="";
-		int insertCount =0;
+		int insertBoCount =0;
+		String sql1="select max(board_no) from board";
+		
+		
+		try {
+			pstmt = con.prepareStatement(sql1);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				num=rs.getInt(1)+1;
+			}else { 
+				num =1;
+			}
+			
+			String sql="insert into board(board_no,owner_no,rest_no,kind,board_subject,board_content,"
+					+ "board_readcount,board_re_ref,board_re_lev,board_re_seq,board_date) values(?,?,?,?,?,?,?,?,?,?,now())";
+			
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setInt(2, board.getOwner_no());
+			pstmt.setInt(3, board.getRest_no());
+			pstmt.setString(4, board.getKind());
+			pstmt.setString(5, board.getBoard_subject());
+			pstmt.setString(6, board.getBoard_content());
+			pstmt.setInt(7,0);
+			pstmt.setInt(8,num);
+			pstmt.setInt(9, 0);
+			pstmt.setInt(10, 0);
+			
+			insertBoCount=pstmt.executeUpdate();
+			
+				
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
 		
 		
 		
-		return insertCount;
+		return insertBoCount;
 	}
 	//페이지
 	public int selectListCount(String local, String kind) {
@@ -93,7 +134,7 @@ public class BoardDAO {
 				board.setBoard_date(rs.getDate("board_date"));
 				board.setBoard_re_ref(rs.getInt("board_re_ref"));
 				board.setBoard_re_lev(rs.getInt("board_re_lev"));
-				board.setBoard_re_seq(rs.getInt("BOARD_RE_SEQ"));
+				board.setBoard_re_seq(rs.getInt("board_re_seq"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
 				
 				searchList.add(board);

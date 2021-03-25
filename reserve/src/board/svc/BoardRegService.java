@@ -4,23 +4,26 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import static db.JdbcUtil.*;
 import dao.BoardDAO;
+import dao.MenuDAO;
 import vo.Board;
 import vo.Menu;
 
 public class BoardRegService {
 
-	public boolean registArticle(Board board, ArrayList<Menu> list) {
-		boolean isRegSuccess =false;
+	public boolean registArticle(Board board) {
+		boolean isBoRegSuccess =false;
+		
 		Connection con = null;
 		
 		try {
+			con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		int insertCount = boardDAO.insertArticle(board,list);
+		int insertBoCount = boardDAO.insertArticle(board);
 		
-		if(insertCount>0) {
+		if(insertBoCount>0) {
 			commit(con);
-			isRegSuccess=true;
+			isBoRegSuccess=true;
 		}else {
 			rollback(con);
 		}
@@ -30,7 +33,29 @@ public class BoardRegService {
 			close(con);
 		}
 		
-		return isRegSuccess;
+		return isBoRegSuccess;
+	}
+
+	public boolean registArticle(ArrayList<Menu> list, int rest_no) {
+		boolean isMeRegSuccess =false;
+		Connection con = null;
+		try {
+			con = getConnection();
+			MenuDAO menuDAO = MenuDAO.getInstance();
+			menuDAO.setConnection(con);
+			int insertMeCount = menuDAO.insertArticle(list, rest_no);
+			if(insertMeCount>0) {
+				commit(con);
+				isMeRegSuccess=true;
+			}else {
+				rollback(con);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con);
+		}
+		return isMeRegSuccess;
 	}
 
 }

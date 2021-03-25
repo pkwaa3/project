@@ -1,6 +1,7 @@
 package board.action;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,35 +28,29 @@ public class BoardRegFormAction implements Action {
 		request.setAttribute("owner",owner);
 		
 		
-			
-		Restaurant rest = boardRegFormService.getRestInfo(owner.getOwner_no());
-		request.setAttribute("rest", rest);
+		if(owner != null) {	
+		ArrayList<Restaurant> list = new ArrayList<>();
+		list= boardRegFormService.getRestInfo(owner.getOwner_no());
 		
-	
-		System.out.println("2"+owner.getOwner_no());
-		System.out.println("3"+rest.getRest_no());
+		request.setAttribute("list", list);
+		for(int i=0; i<list.size();i++) {
 			
-			
-			
-//			if(rest != null) {
-//				request.setAttribute("rest", rest);
-//				int rest_no = rest.getRest_no();
-//				forward = new ActionForward();
-//				forward.setPath("boardRegForm.bo?owner_id="+id);
-//				
-//				System.out.println(rest_no);
-//				System.out.println(rest);
-//			}
-			
-//		else {
-//			response.setContentType("text/html;charset=utf-8");
-//			PrintWriter out = response.getWriter();
-//			out.println("<script>");
-//			out.println("alert('오류');");
-//			out.println("<location.href=main.com>");
-//			out.println("<script>");
-//		}
+		}
 		
+		if(list != null) {
+			
+			forward = new ActionForward();
+			forward.setPath("boardRegForm.bo?owner_id="+id);
+		}
+		} else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('오류');");
+			out.println("<location.href=main.com>");
+			out.println("<script>");
+		}
+			
 		
 		
 		
