@@ -30,6 +30,7 @@ public class BoardRegService {
 			isBoRegSuccess=true;
 		}else {
 			rollback(con);
+			System.out.println("11");
 		}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -54,6 +55,7 @@ public class BoardRegService {
 				isMeRegSuccess=true;
 			}else {
 				rollback(con);
+				System.out.println("22");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

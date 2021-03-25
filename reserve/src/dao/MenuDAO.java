@@ -54,16 +54,17 @@ public class MenuDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next())
 			num = rs.getInt("board_no");
-
+			System.out.println("board_no"+num);
+			
 			for (int i = 0; i < list.size(); i++) {
-				String sql1 = "insert into menu(rest_no,board_no,menu_name,menu_price,menu_img) valeus(?,?,?,?,?)";
+				String sql1 = "insert into menu(rest_no,board_no,menu_name,menu_price,menu_img) values(?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql1);
-				pstmt.setInt(1, list.get(i).getRest_no());
+				pstmt.setInt(1, rest_no);
 				pstmt.setInt(2, num);
 				pstmt.setString(3, list.get(i).getMenu_name());
 				pstmt.setInt(4, list.get(i).getMenu_price());
 				pstmt.setString(5, list.get(i).getMenu_img());
-
+				
 				insertMeCount = pstmt.executeUpdate();
 			}
 		} catch (Exception e) {

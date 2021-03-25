@@ -65,7 +65,7 @@ public class BoardRegAction implements Action {
 			
 			list.add(menu);
 		}
-		
+		System.out.println(list.get(1).getMenu_name());
 		BoardRegService boardRegService = new BoardRegService();
 		boolean isBoRegSuccess = boardRegService.registArticle(board);
 
