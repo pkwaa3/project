@@ -36,7 +36,6 @@ public class MenuDAO {
 
 	public int insertArticle(ArrayList<Menu> list, int rest_no) {
 //		public int insertArticle(ArrayList<Menu> list) {
-
 		PreparedStatement pstmt = null;
 		String sql = "";
 		ResultSet rs = null;
@@ -46,24 +45,29 @@ public class MenuDAO {
 		try {
 			sql = "select board_no from board where rest_no =? ";
 			pstmt = con.prepareStatement(sql);
-
 			pstmt.setInt(1, rest_no);
 
-			//pstmt.setInt(1, list.get(0).getRest_no());
-			
+
 			rs = pstmt.executeQuery();
 			if(rs.next())
-			num = rs.getInt("board_no");
+				num = rs.getInt("board_no");
+			else
+				num = 1;
+			//pstmt.setInt(1, list.get(0).getRest_no());
+			
 
 			for (int i = 0; i < list.size(); i++) {
-				String sql1 = "insert into menu(rest_no,board_no,menu_name,menu_price,menu_img) valeus(?,?,?,?,?)";
+				String sql1 = "insert into menu(rest_no,board_no,menu_name,menu_price,menu_img) values(?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql1);
-				pstmt.setInt(1, list.get(i).getRest_no());
+				pstmt.setInt(1, rest_no);
 				pstmt.setInt(2, num);
 				pstmt.setString(3, list.get(i).getMenu_name());
 				pstmt.setInt(4, list.get(i).getMenu_price());
 				pstmt.setString(5, list.get(i).getMenu_img());
-
+				
+				System.out.println(list.get(i).getMenu_img());
+				System.out.println(list.get(i).getMenu_price());
+				System.out.println(list.get(i).getMenu_name());
 				insertMeCount = pstmt.executeUpdate();
 			}
 		} catch (Exception e) {
