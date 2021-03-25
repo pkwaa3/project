@@ -9,7 +9,7 @@ public class Board {
 	private String board_content;
 	private String kind;
 	private String board_subject;
-	private Date date;
+	private Date board_date;
 	private int board_readcount;
 	private int board_re_ref;
 	private int board_re_lev;
@@ -47,12 +47,14 @@ public class Board {
 		this.board_subject = board_subject;
 	}
 
-	public Date getDate() {
-		return date;
+	
+
+	public Date getBoard_date() {
+		return board_date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setBoard_date(Date board_date) {
+		this.board_date = board_date;
 	}
 
 	public int getBoard_readcount() {

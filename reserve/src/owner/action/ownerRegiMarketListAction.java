@@ -30,7 +30,7 @@ public class ownerRegiMarketListAction implements Action {
 		}
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/owner/ownerRegiMarketList.jsp");
+		forward.setPath("ownerRegiMarketListForm.own");
 		return forward;
 	}
 

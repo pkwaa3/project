@@ -12,7 +12,7 @@ public class BoardRegService {
 
 	public boolean registArticle(Board board) {
 		boolean isBoRegSuccess =false;
-		boolean isMeRegSuccess =false;
+		
 		Connection con = null;
 		
 		try {
@@ -36,16 +36,24 @@ public class BoardRegService {
 	}
 
 	public boolean registArticle(ArrayList<Menu> list) {
+		boolean isMeRegSuccess =false;
+		Connection con = null;
 		try {
 			MenuDAO menuDAO = MenuDAO.getInstance();
 			menuDAO.setConnection(con);
 			int insertMeCount = menuDAO.insertArticle(list);
+			if(insertMeCount>0) {
+				commit(con);
+				isMeRegSuccess=true;
+			}else {
+				rollback(con);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			close(con);
 		}
-		return false;
+		return isMeRegSuccess;
 	}
 
 }

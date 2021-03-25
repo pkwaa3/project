@@ -109,7 +109,7 @@
   z-index: 1;
 }
 
-.dropdown:active  .dropdown-content {
+.dropdown:hover  .dropdown-content {
   display: block;
 }
 
@@ -192,7 +192,7 @@ body {
 
 <div class="header">
   <h2>Header</h2><p>
-  		<form>
+  		<form name="marketSerch" action="marketSerch.bo" method="post">
   			<div class="dropdown">
   				<span> 
   					<div id="rcorners1">지역<br><i style="font-size:50%;">어디 갈래?</i>
@@ -215,6 +215,9 @@ body {
   						<p><input type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
   						<p><input type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
   						<p><input type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
+  					</div>
+  					<div id="rcorners1">
+  						<button type="submit"> 검색 </button>
   					</div>
 
   		</form>
