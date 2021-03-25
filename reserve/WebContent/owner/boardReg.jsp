@@ -263,7 +263,8 @@ button:hover {
     <p>빈칸을 채워 주세요.</p>
     <hr>
 	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  />
-	
+
+
 	
     <label for="board_subject"><b>가게선택</b></label><br>
 <%
@@ -281,6 +282,7 @@ button:hover {
 	<input type="text" name="board_subject" id="board_subject" />
 <%
 	}
+
 %>
 	
 	

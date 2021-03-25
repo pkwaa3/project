@@ -46,9 +46,7 @@ public class Board {
 	public void setBoard_subject(String board_subject) {
 		this.board_subject = board_subject;
 	}
-
 	
-
 	public Date getBoard_date() {
 		return board_date;
 	}

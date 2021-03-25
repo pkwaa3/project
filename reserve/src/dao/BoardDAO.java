@@ -54,6 +54,7 @@ public class BoardDAO {
 			String sql="insert into board(board_no,owner_no,rest_no,kind,board_subject,board_content,"
 					+ "board_readcount,board_re_ref,board_re_lev,board_re_seq,board_date) values(?,?,?,?,?,?,?,?,?,?,now())";
 			
+			
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setInt(2, board.getOwner_no());
@@ -82,14 +83,17 @@ public class BoardDAO {
 		return insertBoCount;
 	}
 	//페이지
-	public int selectListCount() {
+	public int selectListCount(String local, String kind) {
 		int listCount = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String sql = "select count(*) from restaurant where local=? and kind=?";
 		
 		try {
-			pstmt = con.prepareStatement("select count(*) from restaurant where local=? and kind=?");
-			rs= pstmt.executeQuery();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, local);
+			pstmt.setString(2, kind);
+			rs = pstmt.executeQuery();
 			
 			if(rs.next()) listCount = rs.getInt(1);
 		} catch(Exception e) {
@@ -112,34 +116,60 @@ public class BoardDAO {
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startrow);
-			pstmt.setInt(2, limit);
+			pstmt.setString(1, local);
+			pstmt.setString(2, kind);
+			pstmt.setInt(3, startrow);
+			pstmt.setInt(4, limit);
+			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				Board board = new Board();
 				board.setBoard_no(rs.getInt("board_no"));
 				board.setOwner_no(rs.getInt("owner_no"));
-				board.setRest_no(rs.getInt("res_no"));
+				board.setRest_no(rs.getInt("rest_no"));
 				board.setBoard_content(rs.getString("board_content"));
 				board.setKind(rs.getString("kind"));
 				board.setBoard_subject(rs.getString("board_subject"));
-				board.setBoard_date(rs.getDate("date"));
+				board.setBoard_date(rs.getDate("board_date"));
 				board.setBoard_re_ref(rs.getInt("board_re_ref"));
 				board.setBoard_re_lev(rs.getInt("board_re_lev"));
-				board.setBoard_re_seq(rs.getInt("BOARD_RE_SEQ"));
+				board.setBoard_re_seq(rs.getInt("board_re_seq"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
 				
 				searchList.add(board);
 			}
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
 		
 		return searchList;
+	}
+
+	public int findRestNo(String board1) {
+		PreparedStatement pstmt = null;
+		String sql = null;
+		ResultSet rs = null;
+		int rest_no =0;
+		try {
+			sql= "select rest_no from restaurant where name =?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, board1);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) rest_no = rs.getInt("rest_no"); 
+				
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return rest_no;
 	}
 	
 }

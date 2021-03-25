@@ -13,6 +13,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import board.svc.BoardRegService;
+import board.svc.RestSearchService;
 import vo.ActionForward;
 import vo.Board;
 import vo.Menu;
@@ -23,6 +24,9 @@ public class BoardRegAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		String id= (String) session.getAttribute("owner_id");
+		//int rest_no = Integer.parseInt(request.getParameter("rest_no"));
+		//int rest_no = (int) session.getAttribute("rest_no");
+		
 		ActionForward forward = null;
 		Board board = null;
 		ArrayList<Menu> list = new ArrayList<Menu>();
@@ -32,6 +36,12 @@ public class BoardRegAction implements Action {
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);
 		MultipartRequest multi=new MultipartRequest(request,realFolder,fileSize,"utf-8",new DefaultFileRenamePolicy());
+		
+		String board1= multi.getParameter("board_subject");
+		System.out.println(board1);
+		RestSearchService restsvc = new RestSearchService();
+		int rest_no = restsvc.findRestNo(board1);
+		System.out.println(rest_no);
 		
 		board = new Board();
 		board.setBoard_subject(multi.getParameter("board_subject"));
@@ -52,8 +62,13 @@ public class BoardRegAction implements Action {
 		
 		BoardRegService boardRegService = new BoardRegService();
 		boolean isBoRegSuccess = boardRegService.registArticle(board);
-		boolean isMeRegSuccess = boardRegService.registArticle(list);
+
+		//boolean isMeRegSuccess = boardRegService.registArticle(list);
 		
+
+		
+		boolean isMeRegSuccess = boardRegService.registArticle(list, rest_no);
+
 		if(isBoRegSuccess && isMeRegSuccess) {
 			forward = new ActionForward();
 			forward.setRedirect(true);

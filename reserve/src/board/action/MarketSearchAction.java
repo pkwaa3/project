@@ -26,7 +26,7 @@ public class MarketSearchAction implements Action {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		MarketSearchService marketSearchService = new MarketSearchService();
-		int listCount = marketSearchService.getListCount();
+		int listCount = marketSearchService.getListCount(local, kind);
 		int maxPage = (int)((double)listCount/limit + 0.95);
 		int startPage = (((int)((double)page / limitPage + 0.9)) -1) * limitPage + 1;
 		int endPage = startPage + limitPage -1;
