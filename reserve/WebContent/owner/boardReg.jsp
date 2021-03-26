@@ -188,7 +188,7 @@ button:hover {
 		//삽입될 폼 태그
 		var frmTag1 = "<tr><td><label for='menu_name'> 상품명 : </label><input type='text' name='menu_name' id='menu_name' style='width:200px;height:10px;'/></td>";
 		var frmTag2 = "<td><label for='menu_price'>가격 : </label><input type='text' name='menu_price' id='menu_price' style='width:200px;height:10px;' />원</td>";
-		var frmTag3 = "<td><input type='file' name='menu_img'id='menu_img'> </td>";
+		var frmTag3 = "<td>사진 등록 : <input type='file' name='menu_img'id='menu_img'> </td>";
 		frmTag3 += "<input type=button value='삭제' onClick='removeRow()' style='cursor:hand'> ";
 		
 		oCell1.innerHTML = frmTag1;
@@ -254,7 +254,7 @@ button:hover {
   </div>
   <div class="" style="background-color:#ccc;">
   	
-  	<form class="modal-content" name="boardRegForm" action="boardReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
+  	<form class="modal-content" name="boardRegForm"  action="boardMenuReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
 	
 	
 	
@@ -262,7 +262,7 @@ button:hover {
     <h1>가게 정보</h1>
     <p>빈칸을 채워 주세요.</p>
     <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  />
+	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  /><%=owner.getOwner_no() %>
 
 
 	
@@ -274,7 +274,7 @@ button:hover {
 %>
    <input type="radio" name="board_subject" id="board_subject" value="<%=list.get(i).getName() %>" /><%=list.get(i).getName() %>&nbsp;
 
-   <input type="hidden" name="rest_no" id="rest_no" value="<%=list.get(i).getRest_no() %>" /><%=list.get(i).getRest_no() %>
+   <input type="hidden" name="rest_no" id="rest_no" value="<%=list.get(i).getRest_no() %>" />
 
 
 

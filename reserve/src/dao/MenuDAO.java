@@ -76,5 +76,35 @@ public class MenuDAO {
 
 		return insertMeCount;
 	}
+	//메뉴 등록
+	public int insertMenu(ArrayList<Menu> menuList) {
+		int insertMenuCount = 0;
+		PreparedStatement pstmt = null;
+		String sql = "insert into menu(board_no, rest_no, menu_name, menu_price, menu_img ) values(?, ?, ?, ?, ?)";
+		
+		try {
+			for(int i=0; i<menuList.size(); i++) {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,  menuList.get(i).getBoard_no());
+			pstmt.setInt(2,  menuList.get(i).getRest_no());
+			pstmt.setString(3,  menuList.get(i).getMenu_name());
+			pstmt.setInt(4,  menuList.get(i).getMenu_price());
+			pstmt.setString(5,  menuList.get(i).getMenu_img());
+			
+			}
+			
+			
+			
+			insertMenuCount = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return insertMenuCount;
+	
+	}
 
 }

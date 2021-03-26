@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import board.action.BoardMenuRegAction;
 import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.MarketSearchAction;
@@ -223,6 +224,15 @@ public class reservFrontController extends HttpServlet {
 					forward = new ActionForward();
 					forward.setPath("/board/marketSerchForm.jsp");
 				}
+		//보드 메뉴 등록
+				else if (command.equals("/boardMenuReg.bo")) {
+					action = new BoardMenuRegAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 		
 		
 
@@ -330,7 +340,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 리스트 글 등록액션 
+		// 리스트 글 등록액션 이거 하던거
 		else if (command.equals("/boardReg.bo")) {
 			action = new BoardRegAction();
 			try {

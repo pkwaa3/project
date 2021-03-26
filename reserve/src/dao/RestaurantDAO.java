@@ -135,4 +135,28 @@ public class RestaurantDAO {
 		
 		return restList;
 	}
+	//rest_no 찾기
+	public int searchRestNo(String board_subject) {
+		PreparedStatement pstmt = null;
+		String sql = null;
+		ResultSet rs = null;
+		int rest_no =0;
+		try {
+			sql= "select rest_no from restaurant where name =?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, board_subject);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) rest_no = rs.getInt("rest_no"); 
+				
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return rest_no;
+	}
+	
 }
