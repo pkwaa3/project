@@ -2,6 +2,7 @@ package board.action;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,7 @@ public class BoardRegAction implements Action {
 		realFolder=context.getRealPath(saveFolder);
 		MultipartRequest multi=new MultipartRequest(request,realFolder,fileSize,"utf-8",new DefaultFileRenamePolicy());
 		
+		
 		String board1= multi.getParameter("board_subject");
 		System.out.println(board1);
 		RestSearchService restsvc = new RestSearchService();
@@ -54,18 +56,38 @@ public class BoardRegAction implements Action {
 		board.setKind(multi.getParameter("kind"));
 		board.setBoard_content(multi.getParameter("board_content"));
 		board.setOwner_no(Integer.parseInt(multi.getParameter("owner_no")));
-		board.setRest_no(Integer.parseInt(multi.getParameter("rest_no")));
+		board.setRest_no(rest_no);
 		
-		for(int i = 0; i<list.size();i++) {
-			Menu menu = new Menu();
-			menu.setMenu_name(multi.getParameter("menu_name"));
-			menu.setMenu_price(Integer.parseInt(multi.getParameter("menu_price")));
-			menu.setMenu_img(multi.getParameter("menu_img"));
-			menu.setRest_no(Integer.parseInt(multi.getParameter("rest_no")));
+		
+			String[] menuName= multi.getParameterValues("menu_name");
+			String[] menuPrice = multi.getParameterValues("menu_price");
+			//String[] menuImg =multi.getParameterValues("menu_img");
 			
-			list.add(menu);
+			Enumeration files=multi.getParameterNames("menu_img");
+			
+			Menu menu = new Menu();
+			for(int i=0; i<menuName.length; i++) {
+				menu.setMenu_name(menuName[i]);
+				menu.setMenu_price(Integer.parseInt(menuPrice[i]));
+				menu.setMenu_img(menuImg[i]);
+				list.add(menu);
+			}
+			
+			//menu.setMenu_price(Integer.parseInt(multi.getParameter("menu_price")));
+			//menu.setMenu_img(multi.getParameter("menu_img"));
+					
+	
+		for(int j=0; j<list.size();j++) {
+			System.out.println(list.get(j).getMenu_name());
+			System.out.println(list.get(j).getMenu_price());
+			System.out.println(list.get(j).getMenu_img());
 		}
+
 		System.out.println(list.get(1).getMenu_name());
+
+		
+		
+
 		BoardRegService boardRegService = new BoardRegService();
 		boolean isBoRegSuccess = boardRegService.registArticle(board);
 

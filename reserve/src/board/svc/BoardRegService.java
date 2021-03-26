@@ -50,10 +50,12 @@ public class BoardRegService {
 			MenuDAO menuDAO = MenuDAO.getInstance();
 			menuDAO.setConnection(con);
 			int insertMeCount = menuDAO.insertArticle(list,rest_no);
+			
 			if(insertMeCount>0) {
 				commit(con);
 				isMeRegSuccess=true;
 			}else {
+				System.out.println("메뉴글쓰기 오류");
 				rollback(con);
 				System.out.println("22");
 			}
