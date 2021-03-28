@@ -13,6 +13,7 @@ import action.Action;
 import board.action.BoardMenuRegAction;
 import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
+import board.action.BoardViewAction;
 import board.action.MarketSearchAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
@@ -157,84 +158,82 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		// 오너 회원 탈퇴 폼
-				else if (command.equals("/ownerDeleteForm.own")) {
-					forward = new ActionForward();
-					forward.setPath("owner/ownerDeleteForm.jsp");
-				}
+		else if (command.equals("/ownerDeleteForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("owner/ownerDeleteForm.jsp");
+		}
 		// 오너 회원탈퇴 액션
-				else if (command.equals("/ownerDelete.own")) {
-					action = new OwnerDeleteAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
+		else if (command.equals("/ownerDelete.own")) {
+			action = new OwnerDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		// 멤버 마이페이지 폼
-				else if (command.equals("/memberMyPage.mem")) {
-					forward = new ActionForward();
-					forward.setPath("member/memberMyPage.jsp");
-				}
+		else if (command.equals("/memberMyPage.mem")) {
+			forward = new ActionForward();
+			forward.setPath("member/memberMyPage.jsp");
+		}
 		// 오너 마이페이지 폼
-				else if (command.equals("/ownerMyPage.own")) {
-					forward = new ActionForward();
-					forward.setPath("owner/ownerMyPage.jsp");
-				}
+		else if (command.equals("/ownerMyPage.own")) {
+			forward = new ActionForward();
+			forward.setPath("owner/ownerMyPage.jsp");
+		}
 		// 오너 로그인 메인 폼
-				else if (command.equals("/mainLoginOwner.com")) {
-					forward = new ActionForward();
-					forward.setPath("/mainLoginOwner.jsp");
-				}
+		else if (command.equals("/mainLoginOwner.com")) {
+			forward = new ActionForward();
+			forward.setPath("/mainLoginOwner.jsp");
+		}
 		// 멤버 회원가입 아이디 조회
-				else if (command.equals("/memberIdCheck.mem")) {
-					forward = new ActionForward();
-					forward.setPath("member/memberIdCheck.jsp");
-				}
+		else if (command.equals("/memberIdCheck.mem")) {
+			forward = new ActionForward();
+			forward.setPath("member/memberIdCheck.jsp");
+		}
 		// 오너 회원가입 아이디 조회
-				else if (command.equals("/ownerIdCheck.own")) {
-					forward = new ActionForward();
-					forward.setPath("owner/ownerIdCheck.jsp");
-				}
+		else if (command.equals("/ownerIdCheck.own")) {
+			forward = new ActionForward();
+			forward.setPath("owner/ownerIdCheck.jsp");
+		}
 		// 가게등록 리스트 액션
-				else if (command.equals("/ownerRegiMarketList.own")) {
-					action = new ownerRegiMarketListAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
+		else if (command.equals("/ownerRegiMarketList.own")) {
+			action = new ownerRegiMarketListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		// 가게등록 리스트 폼
-				else if (command.equals("/ownerRegiMarketListForm.own")) {
-					forward = new ActionForward();
-					forward.setPath("/owner/ownerRegiMarketList.jsp");
-				}
-		
+		else if (command.equals("/ownerRegiMarketListForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("/owner/ownerRegiMarketList.jsp");
+		}
+
 		// 마켓 서치 리스트 액션
-				else if (command.equals("/marketSerch.bo")) {
-					action = new MarketSearchAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
+		else if (command.equals("/marketSerch.bo")) {
+			action = new MarketSearchAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		// 마켓 서치 리스트 폼
-				else if (command.equals("/marketSerchForm.bo")) {
-					forward = new ActionForward();
-					forward.setPath("/board/marketSerchForm.jsp");
-				}
-		//보드 메뉴 등록
-				else if (command.equals("/boardMenuReg.bo")) {
-					action = new BoardMenuRegAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-		
-		
+		else if (command.equals("/marketSerchForm.bo")) {
+			forward = new ActionForward();
+			forward.setPath("/board/marketSerchForm.jsp");
+		}
+		// 보드 메뉴 등록
+		else if (command.equals("/boardMenuReg.bo")) {
+			action = new BoardMenuRegAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
@@ -362,6 +361,20 @@ public class reservFrontController extends HttpServlet {
 		else if (command.equals("/boardRegForm.bo")) {
 			forward = new ActionForward();
 			forward.setPath("owner/boardReg.jsp");
+		}
+		// 뷰페이지액션
+		else if (command.equals("/boardView.bo")) {
+			action = new BoardViewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 뷰페이지
+		else if (command.equals("/boardViewInfo.bo")) {
+			forward = new ActionForward();
+			forward.setPath("board/boardView.jsp");
 		}
 
 		if (forward != null) {

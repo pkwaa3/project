@@ -106,5 +106,39 @@ public class MenuDAO {
 		return insertMenuCount;
 	
 	}
+	//글조회
+	public ArrayList<Menu> selectMenu(int board_no) {
+		ArrayList<Menu> list = new ArrayList<Menu>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from menu where board_no=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Menu menu = new Menu();
+				menu.setBoard_no(rs.getInt("board_no"));
+				menu.setMenu_no(rs.getInt("menu_no"));
+				menu.setRest_no(rs.getInt("rest_no"));
+				menu.setMenu_name(rs.getString("menu_name"));
+				menu.setMenu_price(rs.getInt("menu_price"));
+				menu.setMenu_img(rs.getString("menu_img"));
+				
+				list.add(menu);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return list;
+	}
 
 }
