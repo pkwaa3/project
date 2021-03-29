@@ -3,6 +3,7 @@ package board.action;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -46,10 +47,10 @@ public class BoardRegAction implements Action {
 		
 		
 		String board1= multi.getParameter("board_subject");
-		System.out.println(board1);
+		//System.out.println(board1);
 		RestSearchService restsvc = new RestSearchService();
 		int rest_no = restsvc.findRestNo(board1);
-		System.out.println(rest_no);
+		//System.out.println(rest_no);
 		
 		board = new Board();
 		board.setBoard_subject(multi.getParameter("board_subject"));
@@ -60,30 +61,40 @@ public class BoardRegAction implements Action {
 		
 		
 			String[] menuName= multi.getParameterValues("menu_name");
-			String[] menuPrice = multi.getParameterValues("menu_price");
+			String[] menuPrice=multi.getParameterValues("menu_price");
 			//String[] menuImg =multi.getParameterValues("menu_img");
 			
-			Enumeration files=multi.getParameterNames("menu_img");
+			int i=0;
 			
-			Menu menu = new Menu();
-			for(int i=0; i<menuName.length; i++) {
+			Enumeration files=multi.getFileNames();
+			
+			while(files.hasMoreElements()) {
+				System.out.println(menuName.length);
+				Menu menu = new Menu();
 				menu.setMenu_name(menuName[i]);
 				menu.setMenu_price(Integer.parseInt(menuPrice[i]));
-				menu.setMenu_img(menuImg[i]);
+				String file=(String)files.nextElement();
+				menu.setMenu_org_img(multi.getOriginalFileName(file));
+				menu.setMenu_sys_img(multi.getFilesystemName(file));
+				
 				list.add(menu);
+				i++;
 			}
+			System.out.println(list.size());
+			for(int j=0; j<list.size();j++) {
+				System.out.println(list.get(j).getMenu_name());
+				System.out.println(list.get(j).getMenu_price());
+				System.out.println(list.get(j).getMenu_org_img());
+				System.out.println(list.get(j).getMenu_sys_img());
+			}
+			
 			
 			//menu.setMenu_price(Integer.parseInt(multi.getParameter("menu_price")));
 			//menu.setMenu_img(multi.getParameter("menu_img"));
 					
 	
-		for(int j=0; j<list.size();j++) {
-			System.out.println(list.get(j).getMenu_name());
-			System.out.println(list.get(j).getMenu_price());
-			System.out.println(list.get(j).getMenu_img());
-		}
 
-		System.out.println(list.get(1).getMenu_name());
+		
 
 		
 		

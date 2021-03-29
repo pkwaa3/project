@@ -55,7 +55,7 @@ h2{
 <%
 	for(int i=0; i<list.size(); i++){
 %>
-		<%=list.get(i).getMenu_img() %>
+		<img src="upload/<%=list.get(i).getMenu_sys_img() %>"/>
 		이름 : <%=list.get(i).getMenu_name() %>가격 : <%=list.get(i).getMenu_price() %>
 <%		
 	}
