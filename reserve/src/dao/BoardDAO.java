@@ -178,7 +178,7 @@ public class BoardDAO {
 	public int insertBoard(Board board) {
 		int insertCount = 0;
 		PreparedStatement pstmt = null;
-		String sql = "insert into board(owner_no, rest_no, board_content, board_subject, kind, board_date) values(?, ?, ?, ?, ?, now())";
+		String sql = "insert into board(owner_no, rest_no, board_content, board_subject, board_date) values(?, ?, ?, ?, now())";
 		
 		try {
 			
@@ -187,7 +187,7 @@ public class BoardDAO {
 			pstmt.setInt(2,  board.getRest_no());
 			pstmt.setString(3,  board.getBoard_content());
 			pstmt.setString(4,  board.getBoard_subject());
-			pstmt.setString(5,  board.getKind());
+			
 			
 			
 			
@@ -244,7 +244,7 @@ public class BoardDAO {
 				board.setBoard_re_seq(rs.getInt("board_re_seq"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
 				board.setBoard_date(rs.getDate("board_date"));
-				board.setKind(rs.getString("kind"));
+				
 				board.setOwner_no(rs.getInt("owner_no"));
 				board.setRest_no(rs.getInt("rest_no"));
 				
