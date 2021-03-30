@@ -171,6 +171,7 @@ public class BoardDAO {
 		}
 		return rest_no;
 	}
+
 	//board 등록
 	public int insertBoard(Board board) {
 		int insertCount = 0;
@@ -255,5 +256,6 @@ public class BoardDAO {
 	
 		return board;
 	}
+
 	
 }

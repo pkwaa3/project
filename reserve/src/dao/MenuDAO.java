@@ -78,6 +78,7 @@ public class MenuDAO {
 		return insertMeCount;
 	}
 
+
 	//글조회
 	public ArrayList<Menu> selectMenu(int board_no) {
 		ArrayList<Menu> list = new ArrayList<Menu>();
@@ -113,5 +114,6 @@ public class MenuDAO {
 		
 		return list;
 	}
+
 
 }

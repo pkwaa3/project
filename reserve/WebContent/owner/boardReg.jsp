@@ -172,9 +172,11 @@ button:hover {
 </style>
 <script>
 	var cnt = 1;
+	var i = 1;
 	var oTbl;
 	//row추가
 	function insRow() {
+		i++;
 		cnt++;
 		oTbl = document.getElementById("addTable");
 		var oRow = oTbl.insertRow();
@@ -189,6 +191,7 @@ button:hover {
 		var frmTag1 = "<tr><td><label for='menu_name'> 상품명 : </label><input type='text' name='menu_name' id='menu_name' style='width:200px;height:10px;'/></td>";
 		var frmTag2 = "<td><label for='menu_price'>가격 : </label><input type='text' name='menu_price' id='menu_price' style='width:200px;height:10px;' />원</td>";
 		var frmTag3 = "<td>사진 등록 : <input type='file' name='menu_img"+cnt+"' id='menu_img"+cnt+"'> </td>";
+
 		frmTag3 += "<input type=button value='삭제' onClick='removeRow()' style='cursor:hand'> ";
 		
 		oCell1.innerHTML = frmTag1;
@@ -299,10 +302,11 @@ button:hover {
 	<br><br><label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
 			onClick="insRow()" value="메뉴 추가">
     <table id="addTable">
+    		
     	<tr>		
     		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;"/></td>
     		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" />원</td>
-    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img" id="menu_img" /> <br> </td>
+    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img1" id="menu_img1" /> <br> </td>
 		</tr>    		
     	
     </table>

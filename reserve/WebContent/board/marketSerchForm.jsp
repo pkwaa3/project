@@ -59,6 +59,8 @@
 		</tr>
 		<%} %>
 	</table>
+	
+	
 </section>
 <section id="pageList">
 	<%if(nowPage<=1) { %>
