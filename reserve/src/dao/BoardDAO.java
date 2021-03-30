@@ -50,21 +50,23 @@ public class BoardDAO {
 				num =1;
 			}
 			
-			String sql="insert into board(board_no,owner_no,rest_no,kind,board_subject,board_content,"
-					+ "board_readcount,board_re_ref,board_re_lev,board_re_seq,board_date) values(?,?,?,?,?,?,?,?,?,?,now())";
+			String sql="insert into board(board_no,owner_no,rest_no,addr,main_org_img,main_sys_img,board_subject,board_content,"
+					+ "board_readcount,board_re_ref,board_re_lev,board_re_seq,board_date) values(?,?,?,?,?,?,?,?,?,?,?,?,now())";
 			
 			
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setInt(2, board.getOwner_no());
 			pstmt.setInt(3, board.getRest_no());
-			pstmt.setString(4, board.getKind());
-			pstmt.setString(5, board.getBoard_subject());
-			pstmt.setString(6, board.getBoard_content());
-			pstmt.setInt(7,0);
-			pstmt.setInt(8,num);
-			pstmt.setInt(9, 0);
-			pstmt.setInt(10, 0);
+			pstmt.setString(4, board.getAddr());
+			pstmt.setString(5, board.getMain_org_img());
+			pstmt.setString(6, board.getMain_sys_img());
+			pstmt.setString(7, board.getBoard_subject());
+			pstmt.setString(8, board.getBoard_content());
+			pstmt.setInt(9,0);
+			pstmt.setInt(10,num);
+			pstmt.setInt(11, 0);
+			pstmt.setInt(12, 0);
 			
 			insertBoCount=pstmt.executeUpdate();
 			
@@ -128,7 +130,7 @@ public class BoardDAO {
 				board.setOwner_no(rs.getInt("owner_no"));
 				board.setRest_no(rs.getInt("rest_no"));
 				board.setBoard_content(rs.getString("board_content"));
-				board.setKind(rs.getString("kind"));
+				
 				board.setBoard_subject(rs.getString("board_subject"));
 				board.setBoard_date(rs.getDate("board_date"));
 				board.setBoard_re_ref(rs.getInt("board_re_ref"));

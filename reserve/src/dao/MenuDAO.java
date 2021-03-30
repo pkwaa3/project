@@ -56,7 +56,7 @@ public class MenuDAO {
 			num = rs.getInt("board_no");
 			System.out.println("board_no"+num);
 			
-			for (int i = 0; i < list.size(); i++) {
+			for (int i = 1; i < list.size(); i++) {
 				String sql1 = "insert into menu(rest_no,board_no,menu_name,menu_price,menu_org_img,menu_sys_img) values(?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setInt(1, rest_no);

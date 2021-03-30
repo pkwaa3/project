@@ -51,12 +51,8 @@ h2{
 	<section id="articleForm">
 	<h2>글 내용 상세보기</h2>
 		<section id="basicInfoArea">
-			제목 : <%=board.getBoard_subject() %>1<br><br>
-<br><%=application.getContextPath()%><br>
-<br><br><%=request.getSession().getServletContext().getRealPath("/") %><br>
-<%=application.getRealPath("/uplode") %><br>
-<%=application.getRealPath("/uplode") %><br>
-<%=application.getRealPath("/uplode") %><br>
+			제목 : <%=board.getBoard_subject() %>
+
 <%
 	for(int i=0; i<list.size(); i++){
 %>
