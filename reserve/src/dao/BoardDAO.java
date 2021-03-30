@@ -113,7 +113,7 @@ public class BoardDAO {
 		ArrayList<Board> searchList = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from board b left join restaurant r on b.rest_no=r.rest_no where r.local = ? and b.kind = ? order by BOARD_RE_REF desc, BOARD_RE_SEQ asc limit ?, ?";
+		String sql = "select * from board b left join restaurant r on b.rest_no=r.rest_no where r.local = ? and r.kind = ? order by BOARD_RE_REF desc, BOARD_RE_SEQ asc limit ?, ?";
 		int startrow = (page - 1) * limit;
 		
 		try {
@@ -132,7 +132,6 @@ public class BoardDAO {
 				board.setOwner_no(rs.getInt("owner_no"));
 				board.setRest_no(rs.getInt("rest_no"));
 				board.setBoard_content(rs.getString("board_content"));
-				
 				board.setBoard_subject(rs.getString("board_subject"));
 				board.setBoard_date(rs.getDate("board_date"));
 				board.setBoard_re_ref(rs.getInt("board_re_ref"));
@@ -191,7 +190,7 @@ public class BoardDAO {
 			pstmt.setInt(2,  board.getRest_no());
 			pstmt.setString(3,  board.getBoard_content());
 			pstmt.setString(4,  board.getBoard_subject());
-			pstmt.setString(5,  board.getKind());
+			
 			
 			
 			
@@ -248,7 +247,6 @@ public class BoardDAO {
 				board.setBoard_re_seq(rs.getInt("board_re_seq"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
 				board.setBoard_date(rs.getDate("board_date"));
-				board.setKind(rs.getString("kind"));
 				board.setOwner_no(rs.getInt("owner_no"));
 				board.setRest_no(rs.getInt("rest_no"));
 				
