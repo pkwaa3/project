@@ -9,6 +9,7 @@ import action.Action;
 import board.svc.MarketSearchService;
 import vo.ActionForward;
 import vo.Board;
+import vo.Menu;
 import vo.PageInfo;
 
 
@@ -42,8 +43,12 @@ public class MarketSearchAction implements Action {
 		ArrayList<Board> searchList = new ArrayList<>();
 		searchList = marketSearchService.getSeletSearch(page, limit, local, kind);
 		
+		ArrayList<Menu> menuSearchList = new ArrayList<>();
+		menuSearchList = marketSearchService.getSelectMenuSearch(searchList);
+		
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("searchList", searchList);
+		request.setAttribute("menuSearchList", menuSearchList);
 		ActionForward forward = new ActionForward();
 		forward.setPath("/marketSerchForm.bo");
 		

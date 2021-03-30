@@ -5,7 +5,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.BoardDAO;
+import dao.MenuDAO;
 import vo.Board;
+import vo.Menu;
 
 public class MarketSearchService {
 
@@ -40,6 +42,22 @@ public class MarketSearchService {
 		}
 		
 		return searchList;
+	}
+
+	public ArrayList<Menu> getSelectMenuSearch(ArrayList<Board> searchList) {
+		ArrayList<Menu> searchMenuList = null;
+		Connection con = null;
+		try {
+			con = getConnection();
+			MenuDAO menuDao = MenuDAO.getInstance();
+			menuDao.setConnection(con);
+			searchMenuList = menuDao.selectMenuSearch(searchList);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		return searchMenuList;
 	}
 
 }

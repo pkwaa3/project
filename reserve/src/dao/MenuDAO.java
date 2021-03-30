@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import vo.Board;
 import vo.Menu;
 
 public class MenuDAO {
@@ -114,6 +115,45 @@ public class MenuDAO {
 		
 		return list;
 	}
-
+	
+	//검색 결과 메뉴 이미지 가져오기
+	public ArrayList<Menu> selectMenuSearch(ArrayList<Board> searchList) {
+		
+		ArrayList<Menu> list = new ArrayList<Menu>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from menu where board_no=?";
+		
+		
+		try {
+			for(int i=0; i<searchList.size(); i++) {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, searchList.get(i).getBoard_no());
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Menu menu = new Menu();
+				menu.setBoard_no(rs.getInt("board_no"));
+				menu.setMenu_no(rs.getInt("menu_no"));
+				menu.setRest_no(rs.getInt("rest_no"));
+				menu.setMenu_name(rs.getString("menu_name"));
+				menu.setMenu_price(rs.getInt("menu_price"));
+				menu.setMenu_org_img(rs.getString("menu_org_img"));
+				menu.setMenu_sys_img(rs.getString("menu_sys_img"));
+				
+				list.add(menu);
+			}
+		}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return list;
+	}
 
 }
