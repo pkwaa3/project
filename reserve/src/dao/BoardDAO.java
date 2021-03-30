@@ -171,6 +171,91 @@ public class BoardDAO {
 		}
 		return rest_no;
 	}
+
+	//board 등록
+	public int insertBoard(Board board) {
+		int insertCount = 0;
+		PreparedStatement pstmt = null;
+		String sql = "insert into board(owner_no, rest_no, board_content, board_subject, kind, board_date) values(?, ?, ?, ?, ?, now())";
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,  board.getOwner_no());
+			pstmt.setInt(2,  board.getRest_no());
+			pstmt.setString(3,  board.getBoard_content());
+			pstmt.setString(4,  board.getBoard_subject());
+			pstmt.setString(5,  board.getKind());
+			
+			
+			
+			
+			insertCount = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return insertCount;
+	}
+	//조회수
+	public int readCount(int board_no) {
+		int readCount =0;
+		PreparedStatement pstmt= null;
+		
+		String sql = "update board set board_readcount = board_readcount +1 where board_no =?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			readCount = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return readCount;
+	}
+	//글내용
+	public Board selectBoard(int board_no) {
+		Board board = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from board where board_no=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				board = new Board();
+				board.setBoard_no(rs.getInt("board_no"));
+				board.setBoard_subject(rs.getString("board_subject"));
+				board.setBoard_content(rs.getString("board_content"));
+				board.setBoard_re_ref(rs.getInt("board_re_ref"));
+				board.setBoard_re_lev(rs.getInt("board_re_lev"));
+				board.setBoard_re_seq(rs.getInt("board_re_seq"));
+				board.setBoard_readcount(rs.getInt("board_readcount"));
+				board.setBoard_date(rs.getDate("board_date"));
+				board.setKind(rs.getString("kind"));
+				board.setOwner_no(rs.getInt("owner_no"));
+				board.setRest_no(rs.getInt("rest_no"));
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
 	
+		return board;
+	}
+
 	
 }

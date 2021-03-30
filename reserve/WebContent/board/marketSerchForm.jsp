@@ -49,7 +49,7 @@
 				&nbsp;
 				<%} %> ▶
 				<% } else{ %> ▶ <% } %>
-				<a href="boardDetail.bo?board_num=<%=searchList.get(i).getBoard_no() %>&page=<%=nowPage %>">
+				<a href="boardView.bo?board_no=<%=searchList.get(i).getBoard_no() %>&page=<%=nowPage %>">
 				<%=searchList.get(i).getBoard_subject() %>
 				</a>
 			</td>
@@ -59,6 +59,8 @@
 		</tr>
 		<%} %>
 	</table>
+	
+	
 </section>
 <section id="pageList">
 	<%if(nowPage<=1) { %>

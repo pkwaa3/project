@@ -190,7 +190,8 @@ button:hover {
 		//삽입될 폼 태그
 		var frmTag1 = "<tr><td><label for='menu_name'> 상품명 : </label><input type='text' name='menu_name' id='menu_name' style='width:200px;height:10px;'/></td>";
 		var frmTag2 = "<td><label for='menu_price'>가격 : </label><input type='text' name='menu_price' id='menu_price' style='width:200px;height:10px;' />원</td>";
-		var frmTag3 = "<td>사진 등록 : <input type='file' name='menu_img"+i+"' id='menu_img"+i+"'></td>";
+		var frmTag3 = "<td>사진 등록 : <input type='file' name='menu_img"+cnt+"' id='menu_img"+cnt+"'> </td>";
+
 		frmTag3 += "<input type=button value='삭제' onClick='removeRow()' style='cursor:hand'> ";
 		
 		oCell1.innerHTML = frmTag1;
@@ -256,7 +257,7 @@ button:hover {
   </div>
   <div class="" style="background-color:#ccc;">
   	
-  	<form class="modal-content" name="boardRegForm"  action="boardMenuReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
+  	<form class="modal-content" name="boardRegForm"  action="boardReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
 	
 	
 	
