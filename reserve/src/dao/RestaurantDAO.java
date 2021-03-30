@@ -76,7 +76,7 @@ public class RestaurantDAO {
 		ArrayList<Restaurant> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql= "select name,rest_no from restaurant where owner_no =?";
+		String sql= "select name,rest_no,address from restaurant where owner_no =?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -87,6 +87,7 @@ public class RestaurantDAO {
 				Restaurant restaurant = new Restaurant();
 				restaurant.setName(rs.getString("name"));
 				restaurant.setRest_no(rs.getInt("rest_no"));
+				restaurant.setAddress(rs.getString("address"));
 				
 				
 				list.add(restaurant);

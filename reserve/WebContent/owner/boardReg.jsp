@@ -265,7 +265,7 @@ button:hover {
     <h1>가게 정보</h1>
     <p>빈칸을 채워 주세요.</p>
     <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  /><%=owner.getOwner_no() %>
+	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  />
 
 
 	
@@ -291,19 +291,22 @@ button:hover {
 %>
 	
 	
-	<br><br><label for="kind"><b>메뉴 종류</b> </label><P> 	
-    <span  style="background-color:#f1f1f1; width: 100%; padding: 15px; margin: 5px 0 22px 0;">
-    			
-    			<input type="checkbox" name="kind" id="hansik" value="한식" checked >한식
-		 		<input type="checkbox" name="kind" id="yangsik" value="양식">양식
-		 		<input type="checkbox" name="kind" id="joongsik" value="중식">중식
-		 		<input type="checkbox" name="kind" id="ilsik" value="일식">일식<p></p></span>
+	<br><br><label for="kind"><b>가게주소</b> </label><P> 	
 
+    	<input type="text" name="addr" id="addr" value="<%=list.get(0).getAddress() %>" />
+		
+	<br> 가게 메인이미지 등록 
+		<input type="file"  name="main_img" id="main_img" />
+		<input type="hidden" name="menu_name" id="menu_name" value="a"/>
+    	<input type="hidden" name="menu_price" id="menu_price" value="1" />
+		
 	<br><br><label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
 			onClick="insRow()" value="메뉴 추가">
     <table id="addTable">
     		
+    	
     	<tr>		
+
     		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;"/></td>
     		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" />원</td>
     		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img1" id="menu_img1" /> <br> </td>

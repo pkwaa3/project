@@ -7,7 +7,9 @@ public class Board {
 	private int owner_no;
 	private int rest_no;
 	private String board_content;
-	private String kind;
+	private String main_org_img;
+	private String main_sys_img;
+	private String addr;
 	private String board_subject;
 	private Date board_date;
 	private int board_readcount;
@@ -87,12 +89,32 @@ public class Board {
 		this.board_re_seq = board_re_seq;
 	}
 
-	public String getKind() {
-		return kind;
+	
+
+	
+
+	public String getMain_org_img() {
+		return main_org_img;
 	}
 
-	public void setKind(String kind) {
-		this.kind = kind;
+	public void setMain_org_img(String main_org_img) {
+		this.main_org_img = main_org_img;
+	}
+
+	public String getMain_sys_img() {
+		return main_sys_img;
+	}
+
+	public void setMain_sys_img(String main_sys_img) {
+		this.main_sys_img = main_sys_img;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public String getBoard_content() {
