@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import board.action.BoardMenuRegAction;
+
 import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
@@ -225,15 +225,7 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
-		// 보드 메뉴 등록
-		else if (command.equals("/boardMenuReg.bo")) {
-			action = new BoardMenuRegAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
