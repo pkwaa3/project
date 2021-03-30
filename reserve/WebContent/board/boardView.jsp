@@ -32,7 +32,7 @@ h2{
 	text-align:center;
 }
 #articleContentArea{
-	background:orange;
+	background:;
 	margin-top:20px;
 	height:350px;
 	text-align:center;
@@ -51,7 +51,12 @@ h2{
 	<section id="articleForm">
 	<h2>글 내용 상세보기</h2>
 		<section id="basicInfoArea">
-			제목 : <%=board.getBoard_subject() %>
+			제목 : <%=board.getBoard_subject() %>1<br><br>
+<br><%=application.getContextPath()%><br>
+<br><br><%=request.getSession().getServletContext().getRealPath("/") %><br>
+<%=application.getRealPath("/uplode") %><br>
+<%=application.getRealPath("/uplode") %><br>
+<%=application.getRealPath("/uplode") %><br>
 <%
 	for(int i=0; i<list.size(); i++){
 %>
@@ -62,7 +67,7 @@ h2{
 %>
 	</section>
 	<section id="articleContentArea">
-			<%=board.getBoard_content() %>
+			<br><br><br><br><br><br><%=board.getBoard_content() %>
 		</section>	
 	</section>
 	<section id="commandList">

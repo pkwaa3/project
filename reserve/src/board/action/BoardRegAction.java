@@ -38,6 +38,7 @@ public class BoardRegAction implements Action {
 		ActionForward forward = null;
 		Board board = null;
 		ArrayList<Menu> list = new ArrayList<Menu>();
+		String path=request.getRealPath("/upload");
 		String realFolder="";
 		String saveFolder="/upload";
 		int fileSize=20*1024*1024;
