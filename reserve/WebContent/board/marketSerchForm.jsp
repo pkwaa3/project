@@ -22,8 +22,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Insert title here</title>
 <style>
+/* 카드*/
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
 
 /*목록*/
  ul {
@@ -221,27 +243,47 @@ body {
 			<td><%=searchList.get(i).getOwner_no() %></td>
 			<td><%=searchList.get(i).getBoard_date() %></td>
 			<td><%=searchList.get(i).getBoard_readcount() %></td>
+			<td><img src="upload/<%=searchList.get(i).getMain_org_img() %>" width=50px height=50px> </td>
 			<td><%=menuSearchList.get(i).getMenu_sys_img() %></td>
-			<img src="upload/<%=menuSearchList.get(i).getMenu_sys_img() %>" />
 		</tr>
 		<%} %>
 	</table>
 </section>
 
 
-
-<section>
 	<c:if test="${searchList != null }">
-	<h2>가게 목록  </h2>
+	
 	<table>
 		<tr>
-			<c:forEach var="searchList" items="${searchList }" varStatus="status">
+			<c:forEach var="result" items="${searchList }" varStatus="status">
 			<td>
-			
 				
-				</a>
-				가게명 : ${board.getBoard_subject } <br>
-				 
+				<!-- 
+					<div class="card">
+					<div class="cardImg">
+						<img src="upload/${result.main_org_img }" id="mainImg" width=200px height=200px /><br>
+					</div>
+					<div class="cardSubject">
+					 	${result.board_subject } <br>
+				 	</div>
+				 </div>
+				  -->
+				 <div class="w3-container">
+  						<div class="w3-card-4" style="width:200px" "height=100px">
+   							 <img src="upload/${result.main_org_img }" id="mainImg"  alt="Alps" style="width:100%">
+   								 <div class="w3-container w3-center">
+      								<p>${result.board_subject }</p>
+   						 		</div>
+ 						 </div>
+				</div>
+				
+				<div class="gallery">
+  					<a target="_blank" href="upload/${result.main_org_img }">
+   						 <img src="upload/${result.main_org_img }" alt="Cinque Terre" width="600" height="400">
+ 					 </a>
+  					<div class="desc">${result.board_subject }</div>
+				</div>
+				
 			</td>
 			<c:if test="${((status.index+1) mod 4) == 0 }">
 		</tr>
@@ -252,12 +294,12 @@ body {
 	</table>
 	</c:if>
 	<c:if test="${searchList == null }">
-		<div>
-			검색 결과가 일치한 가게 목록이 없습니다.
+		<div class="div_empty">
+			검색 결과가 없습니다.
 		</div>
 	</c:if>
 
-</section>
+
 
 
 

@@ -67,10 +67,10 @@
 /*검색*/
 #rcorners1 {
   border-radius: 25px;
-  background: #73AD21;
+  background: #333;
   padding: 20px; 
-  width: 1000px;
-  height: 100px;  
+  width: 800px;
+  height: 90px;  
   font-size:30px;
   display: inline-block;
   cursor:pointer;
@@ -85,12 +85,22 @@
   background-color: white; 
   color: black; 
   border-radius: 10px;
-  border: 2px solid #4CAF50;
+  border: 2px solid #333;
   font-size:15px;
   text-align:center;
   width : 300px;
   height : 50px;
 
+}
+.searchButton {
+  background-color: white; 
+  color: black; 
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size:15px;
+  text-align:center;
+  width : 50px;
+  height : 50px;
 }
 .button {
   background-color: white; 
@@ -209,7 +219,7 @@ body {
 
 <div class="header">
   
-  		<form name="marketSerch" action="marketSerch.bo" method="post">
+  		<form name="marketSerch" action="marketSearch.bo" method="post">
 
   		
   			<div id="rcorners1">
@@ -239,7 +249,7 @@ body {
   			</div>
   				
   					<div class="dropdown">
-  						<button  class="button" type="submit">   <i class="glyphicon glyphicon-search"></i></button>
+  						<button  class="searchButton" type="submit">   <i class="glyphicon glyphicon-search"></i></button>
   						
   					</div>
 		</div>
