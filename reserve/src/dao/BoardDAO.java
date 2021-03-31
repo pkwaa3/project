@@ -138,6 +138,7 @@ public class BoardDAO {
 				board.setBoard_re_lev(rs.getInt("board_re_lev"));
 				board.setBoard_re_seq(rs.getInt("board_re_seq"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
+				board.setMain_org_img(rs.getString("main_org_img"));
 				
 				
 				searchList.add(board);

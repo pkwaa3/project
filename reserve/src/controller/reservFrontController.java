@@ -213,7 +213,7 @@ public class reservFrontController extends HttpServlet {
 		}
 
 		// 마켓 서치 리스트 액션
-		else if (command.equals("/marketSerch.bo")) {
+		else if (command.equals("/marketSearch.bo")) {
 			action = new MarketSearchAction();
 			try {
 				forward = action.execute(request, response);

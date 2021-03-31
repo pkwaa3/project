@@ -22,8 +22,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 <style>
+/* 카드*/
+div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+div.container {
+  padding: 10px;
+}
+
 
 /*목록*/
  ul {
@@ -114,6 +126,12 @@
 .dropdown:visited  .dropdown-content {
   display: block;
 }
+/* 페이지 */
+#pageList {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
 
 /*본문*/
 
@@ -188,10 +206,10 @@ body {
 <!-- 게시판 리스트 -->
 <section id="listForm">
 	<h2>
-		글 목록&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="boardWriteForm.bo">게시판 글쓰기</a>
+		<%=request.getAttribute("local") %>&nbsp;&nbsp;
+		<%=request.getAttribute("kind") %>&nbsp;&nbsp;맛집 정보입니다.
 	</h2>
-	<table>
+	<!-- <table>
 		<%
 			if(searchList != null && listCount > 0) {				
 		%>	
@@ -221,26 +239,32 @@ body {
 			<td><%=searchList.get(i).getOwner_no() %></td>
 			<td><%=searchList.get(i).getBoard_date() %></td>
 			<td><%=searchList.get(i).getBoard_readcount() %></td>
+			<td><img src="upload/<%=searchList.get(i).getMain_org_img() %>" width=50px height=50px> </td>
 			<td><%=menuSearchList.get(i).getMenu_sys_img() %></td>
-			<img src="upload/<%=menuSearchList.get(i).getMenu_sys_img() %>" />
 		</tr>
 		<%} %>
 	</table>
+	 -->
 </section>
 
 
-
-<section>
 	<c:if test="${searchList != null }">
-	<h2>가게 목록  </h2>
+	
 	<table>
 		<tr>
-			<c:forEach var="searchList" items="${searchList }" varStatus="status">
+			<c:forEach var="result" items="${searchList }" varStatus="status">
 			<td>
-			
-				
-				</a>
-				가게명 : ${board.getBoard_subject } <br>
+	
+				 
+ 				
+ 				<div class="polaroid" style="width:50%">
+ 					 <a  href="boardView.bo?board_no=${result.board_no }&page=<%=nowPage %>">
+  						<img src="upload/${result.main_org_img }" id="mainImg" alt="Norway" style="width:100%">
+  					</a>
+				  	<div class="container">
+    						<p>${result.board_subject }</p>
+  					</div>
+				</div>
 				 
 			</td>
 			<c:if test="${((status.index+1) mod 4) == 0 }">
@@ -252,12 +276,12 @@ body {
 	</table>
 	</c:if>
 	<c:if test="${searchList == null }">
-		<div>
-			검색 결과가 일치한 가게 목록이 없습니다.
+		<div class="div_empty">
+			검색 결과가 없습니다.
 		</div>
 	</c:if>
 
-</section>
+<p>
 
 
 

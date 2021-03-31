@@ -46,6 +46,8 @@ public class MarketSearchAction implements Action {
 		ArrayList<Menu> menuSearchList = new ArrayList<>();
 		menuSearchList = marketSearchService.getSelectMenuSearch(searchList);
 		
+		request.setAttribute("local", local);
+		request.setAttribute("kind", kind);
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("searchList", searchList);
 		request.setAttribute("menuSearchList", menuSearchList);
