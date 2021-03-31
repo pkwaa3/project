@@ -223,36 +223,36 @@ body {
 
   		
   			<div id="rcorners1">
-  			<div class="dropdown">
-  				<span> 
-  					<div >
-  						<input class="searchInput" type="text" name="where" id="where" size="10" placeholder="지역 선택" readonly/>
-  					</div>
-  				</span>
-  					<div class="dropdown-content">
-  						<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
-  						<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
-  						<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
-  					</div>
-  			</div>
-  			<div class="dropdown">
-  				<span>
-  				  	<div  >
-  				  		<input class="searchInput" type="text" name="menu" id="menu" size="10" placeholder="메뉴 선택" readonly/>
-  				  	</div>
-  				  </span>
+  				<div class="dropdown">
+  					<span> 
+  						<div>
+  							<input class="searchInput" type="text" name="where" id="where" size="10" placeholder="지역 선택" readonly/>
+  						</div>
+  					</span>
+  						<div class="dropdown-content">
+  							<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
+  							<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
+  							<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
+  						</div>
+  				</div>
+  				<div class="dropdown">
+  					<span>
+  				  		<div>
+  				  			<input class="searchInput" type="text" name="menu" id="menu" size="10" placeholder="메뉴 선택" readonly/>
+  				  		</div>
+  				  	</span>
   				  	<div class="dropdown-content">
   						<p><input class="button" type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
   						<p><input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
   						<p><input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
   					</div>
-  			</div>
+  				</div>
   				
   					<div class="dropdown">
   						<button  class="searchButton" type="submit">   <i class="glyphicon glyphicon-search"></i></button>
   						
   					</div>
-		</div>
+			</div>
   		</form>
   		
   

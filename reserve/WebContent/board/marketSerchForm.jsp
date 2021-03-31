@@ -10,7 +10,7 @@
     
     <%
         	ArrayList<Board> searchList = (ArrayList<Board>)request.getAttribute("searchList");
-    		ArrayList<Menu> menuSearchList = (ArrayList<Menu>)request.getAttribute("menuSearchList");
+    	
                     	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                     	int listCount = pageInfo.getList_count();
                     	int nowPage = pageInfo.getPage();
@@ -30,6 +30,7 @@ div.polaroid {
   width: 250px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+  margin:auto;
 }
 
 div.container {
@@ -200,9 +201,11 @@ body {
 <%
 	}
 %>
-<h2>CSS Template using Float</h2>
-<p>In this example, we have created a header, three equal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
-<p>Resize the browser window to see the responsive effect.</p>
+
+
+  		<a href="marketSearch1.bo?where=서울&menu=중식">중식</a>
+  		<a href="marketSearch1.bo?where=서울&menu=한식">한식</a>
+  			
 <!-- 게시판 리스트 -->
 <section id="listForm">
 	<h2>
@@ -219,7 +222,7 @@ body {
 			<td>작성자</td>
 			<td>날짜</td>
 			<td>조회수</td>
-			<td>사진</td>
+			
 		</tr>
 		<%
 			for(int i=0; i<searchList.size(); i++) {
@@ -240,7 +243,7 @@ body {
 			<td><%=searchList.get(i).getBoard_date() %></td>
 			<td><%=searchList.get(i).getBoard_readcount() %></td>
 			<td><img src="upload/<%=searchList.get(i).getMain_org_img() %>" width=50px height=50px> </td>
-			<td><%=menuSearchList.get(i).getMenu_sys_img() %></td>
+			
 		</tr>
 		<%} %>
 	</table>
@@ -259,7 +262,7 @@ body {
  				
  				<div class="polaroid" style="width:50%">
  					 <a  href="boardView.bo?board_no=${result.board_no }&page=<%=nowPage %>">
-  						<img src="upload/${result.main_org_img }" id="mainImg" alt="Norway" style="width:100%">
+  						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:100%">
   					</a>
 				  	<div class="container">
     						<p>${result.board_subject }</p>
@@ -275,7 +278,8 @@ body {
 		</tr>
 	</table>
 	</c:if>
-	<c:if test="${searchList == null }">
+
+	<c:if test="${searchList eq null }">
 		<div class="div_empty">
 			검색 결과가 없습니다.
 		</div>
@@ -289,21 +293,21 @@ body {
 	<%if(nowPage<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a href="boardList.bo?page=<%=nowPage-1 %>">[이전]</a>&nbsp;
+		<a href="marketSearch.bo?page=<%=nowPage-1 %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
 		if(a==nowPage) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a href="boardList.bo?page=<%=a %>">[<%=a %>]
+			<a href="marketSearch.bo?page=<%=a %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
 	<%if(nowPage>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="boardList.bo?page=<%=nowPage+1 %>">[다음]</a>
+		<a href="marketSearch.bo?page=<%=nowPage+1 %>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>
