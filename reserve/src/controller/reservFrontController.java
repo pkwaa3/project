@@ -15,6 +15,7 @@ import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.MarketSearchAction;
+import board.action.ReservationAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -225,7 +226,6 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
-		
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
@@ -367,6 +367,15 @@ public class reservFrontController extends HttpServlet {
 		else if (command.equals("/boardViewInfo.bo")) {
 			forward = new ActionForward();
 			forward.setPath("board/boardView.jsp");
+		}
+		// 예약하기 액션
+		else if (command.equals("/reservation.bo")) {
+			action = new ReservationAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		if (forward != null) {

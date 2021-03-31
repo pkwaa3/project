@@ -52,6 +52,7 @@ h2{
 	<h2>글 내용 상세보기</h2>
 		<section id="basicInfoArea">
 			제목 : <%=board.getBoard_subject() %>
+			<img src="upload/<%=board.getMain_org_img() %>"/>
 
 <%
 	for(int i=0; i<list.size(); i++){
