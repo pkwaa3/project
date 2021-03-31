@@ -22,30 +22,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <title>Insert title here</title>
 <style>
 /* 카드*/
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
+div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
+
+div.container {
+  padding: 10px;
+}
+
 
 /*목록*/
  ul {
@@ -136,6 +126,12 @@ div.desc {
 .dropdown:visited  .dropdown-content {
   display: block;
 }
+/* 페이지 */
+#pageList {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
 
 /*본문*/
 
@@ -210,10 +206,10 @@ body {
 <!-- 게시판 리스트 -->
 <section id="listForm">
 	<h2>
-		글 목록&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="boardWriteForm.bo">게시판 글쓰기</a>
+		<%=request.getAttribute("local") %>&nbsp;&nbsp;
+		<%=request.getAttribute("kind") %>&nbsp;&nbsp;맛집 정보입니다.
 	</h2>
-	<table>
+	<!-- <table>
 		<%
 			if(searchList != null && listCount > 0) {				
 		%>	
@@ -248,6 +244,7 @@ body {
 		</tr>
 		<%} %>
 	</table>
+	 -->
 </section>
 
 
@@ -257,33 +254,18 @@ body {
 		<tr>
 			<c:forEach var="result" items="${searchList }" varStatus="status">
 			<td>
-				
-				<!-- 
-					<div class="card">
-					<div class="cardImg">
-						<img src="upload/${result.main_org_img }" id="mainImg" width=200px height=200px /><br>
-					</div>
-					<div class="cardSubject">
-					 	${result.board_subject } <br>
-				 	</div>
-				 </div>
-				  -->
-				 <div class="w3-container">
-  						<div class="w3-card-4" style="width:200px" "height=100px">
-   							 <img src="upload/${result.main_org_img }" id="mainImg"  alt="Alps" style="width:100%">
-   								 <div class="w3-container w3-center">
-      								<p>${result.board_subject }</p>
-   						 		</div>
- 						 </div>
+	
+				 
+ 				
+ 				<div class="polaroid" style="width:50%">
+ 					 <a  href="boardView.bo?board_no=${result.board_no }&page=<%=nowPage %>">
+  						<img src="upload/${result.main_org_img }" id="mainImg" alt="Norway" style="width:100%">
+  					</a>
+				  	<div class="container">
+    						<p>${result.board_subject }</p>
+  					</div>
 				</div>
-				
-				<div class="gallery">
-  					<a target="_blank" href="upload/${result.main_org_img }">
-   						 <img src="upload/${result.main_org_img }" alt="Cinque Terre" width="600" height="400">
- 					 </a>
-  					<div class="desc">${result.board_subject }</div>
-				</div>
-				
+				 
 			</td>
 			<c:if test="${((status.index+1) mod 4) == 0 }">
 		</tr>
@@ -299,7 +281,7 @@ body {
 		</div>
 	</c:if>
 
-
+<p>
 
 
 
