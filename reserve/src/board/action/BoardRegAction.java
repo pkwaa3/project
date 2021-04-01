@@ -85,13 +85,13 @@ public class BoardRegAction implements Action {
 			list.add(menu);
 			i++;
 		}
-		System.out.println(list.size());
-		for (int j = 1; j < list.size(); j++) {
-			System.out.println(list.get(j).getMenu_name());
-			System.out.println(list.get(j).getMenu_price());
-			System.out.println(list.get(j).getMenu_org_img());
-			System.out.println(list.get(j).getMenu_sys_img());
-		}
+//		System.out.println(list.size());
+//		for (int j = 1; j < list.size(); j++) {
+//			System.out.println(list.get(j).getMenu_name());
+//			System.out.println(list.get(j).getMenu_price());
+//			System.out.println(list.get(j).getMenu_org_img());
+//			System.out.println(list.get(j).getMenu_sys_img());
+//		}
 
 		// menu.setMenu_price(Integer.parseInt(multi.getParameter("menu_price")));
 		// menu.setMenu_img(multi.getParameter("menu_img"));

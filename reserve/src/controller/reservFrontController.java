@@ -366,7 +366,7 @@ public class reservFrontController extends HttpServlet {
 		// 뷰페이지
 		else if (command.equals("/boardViewInfo.bo")) {
 			forward = new ActionForward();
-			forward.setPath("board/boardView.jsp");
+			forward.setPath("board/boardView1.jsp");
 		}
 		// 예약하기 액션
 		else if (command.equals("/reservation.bo")) {

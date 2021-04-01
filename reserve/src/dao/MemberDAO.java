@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.sql.DataSource;
+import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
+
 import vo.Member;
 
 public class MemberDAO {
@@ -151,6 +153,30 @@ public class MemberDAO {
 			
 		}
 		return deleteCount;
+	}
+	//멤버 번호 찾기
+	public int serchMemberNO(String id) {
+		int memberNo=0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		String sql="select member_no from member where member_id=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) 
+				memberNo = rs.getInt("member_no");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return memberNo;
 	}
 
 }

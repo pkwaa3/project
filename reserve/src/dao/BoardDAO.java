@@ -246,6 +246,8 @@ public class BoardDAO {
 				board.setBoard_re_ref(rs.getInt("board_re_ref"));
 				board.setBoard_re_lev(rs.getInt("board_re_lev"));
 				board.setBoard_re_seq(rs.getInt("board_re_seq"));
+				board.setMain_org_img(rs.getString("main_org_img"));
+				board.setMain_sys_img(rs.getString("main_sys_img"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
 				board.setBoard_date(rs.getDate("board_date"));
 

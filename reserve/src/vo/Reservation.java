@@ -7,8 +7,8 @@ public class Reservation {
 	private int member_no;
 	private int rest_no;
 	private Date date;
-	private String time;
-	private String head;
+	private int time;
+	private int head;
 	
 	public int getReserv_no() {
 		return reserv_no;
@@ -34,18 +34,19 @@ public class Reservation {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getTime() {
+	public int getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(int time) {
 		this.time = time;
 	}
-	public String getHead() {
+	public int getHead() {
 		return head;
 	}
-	public void setHead(String head) {
+	public void setHead(int head) {
 		this.head = head;
 	}
+	
 	
 	
 }

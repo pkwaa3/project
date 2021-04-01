@@ -44,9 +44,25 @@ nav .active {
 	<nav>
 	<ul>
   		<li><a class="active" href="main.com">Home</a></li>
-  		<li style="float:right"><a href="../index/login.jsp">로그인</a></li>
-  		<li style="float:right"><a href="../index/login.jsp">회원가입</a></li>
-	</ul>
+  
+  <%
+	request.setCharacterEncoding("utf-8");
+	if(session.getAttribute("owner_id") == null){
+%>
+  <li style="float:right"><a href="index/login.jsp">로그인</a></li>
+  <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
+</ul>
+<%
+	} else{
+%>
+		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
+		</ul>
+<%
+	}
+%>
+
+
 	</nav>
 </body>
 </html>
