@@ -18,6 +18,8 @@ public class ReservationService {
 			ReservationDAO reservDAO = ReservationDAO.getInstance();
 			reservDAO.setConnection(con);
 			
+			reserv=reservDAO.reservation(reservation);
+			
 			
 		}catch(Exception e) {
 		e.printStackTrace();	
