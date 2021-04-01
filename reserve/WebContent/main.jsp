@@ -206,7 +206,7 @@ body {
 <%
 	} else{
 %>
-		<li style="float:right"><a href="memberMyPage.mem"><%=request.getParameter("id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="memberMyPage.mem"><%=session.getAttribute("id") %>님 환영합니다.</a></li>
 		<li style="float:right"><a href="memberLogout.mem">로그아웃</a></li>
 		</ul>
 <%
@@ -219,7 +219,7 @@ body {
 
 <div class="header">
   
-  		<form name="marketSerch" action="marketSearch.bo" method="post">
+  		<form name="marketSerch" action="marketSearchMember.bo" method="post">
 
   		
   			<div id="rcorners1">

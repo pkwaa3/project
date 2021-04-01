@@ -15,6 +15,7 @@ import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.MarketSearchAction;
+import board.action.MarketSearchMemberAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -233,6 +234,20 @@ public class reservFrontController extends HttpServlet {
 		else if (command.equals("/marketSerchForm.bo")) {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
+		}
+		// 마켓 서치 리스트 액션 멤버
+				else if (command.equals("/marketSearchMember.bo")) {
+					action = new MarketSearchMemberAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 마켓 서치 리스트 폼 멤버로
+		else if (command.equals("/marketSerchFormMember.bo")) {
+			forward = new ActionForward();
+			forward.setPath("/board/marketSerchFormMember.jsp");
 		}
 		
 
