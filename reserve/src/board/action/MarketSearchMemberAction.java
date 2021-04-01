@@ -12,7 +12,7 @@ import vo.Board;
 import vo.PageInfo;
 
 
-public class MarketSearchAction implements Action {
+public class MarketSearchMemberAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -55,7 +55,7 @@ public class MarketSearchAction implements Action {
 		request.setAttribute("searchList", searchList);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/marketSerchForm.bo");
+		forward.setPath("/marketSerchFormMember.bo");
 		
 		return forward;
 	}

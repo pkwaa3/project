@@ -15,7 +15,11 @@ import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.MarketSearchAction;
+<<<<<<< HEAD
 import board.action.ReservationAction;
+=======
+import board.action.MarketSearchMemberAction;
+>>>>>>> branch 'master' of https://github.com/pkwaa3/project
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -221,11 +225,38 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		// 마켓 서치 리스트 상단바 액션 
+		else if (command.equals("/marketSearch1.bo")) {
+			action = new MarketSearchAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		// 마켓 서치 리스트 폼
 		else if (command.equals("/marketSerchForm.bo")) {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
+<<<<<<< HEAD
+=======
+		// 마켓 서치 리스트 액션 멤버
+				else if (command.equals("/marketSearchMember.bo")) {
+					action = new MarketSearchMemberAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 마켓 서치 리스트 폼 멤버로
+		else if (command.equals("/marketSerchFormMember.bo")) {
+			forward = new ActionForward();
+			forward.setPath("/board/marketSerchFormMember.jsp");
+		}
+		
+>>>>>>> branch 'master' of https://github.com/pkwaa3/project
 
 		// ㅈㅇ우
 		// 오너 로그인 액션

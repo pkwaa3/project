@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>	
 	function okseoul(f) {
 		document.getElementById("where").value=f.seoul.value;
@@ -64,10 +67,10 @@
 /*검색*/
 #rcorners1 {
   border-radius: 25px;
-  background: #73AD21;
+  background: #333;
   padding: 20px; 
-  width: 200px;
-  height: 100px;  
+  width: 800px;
+  height: 90px;  
   font-size:30px;
   display: inline-block;
   cursor:pointer;
@@ -78,12 +81,36 @@
 	background-color: white; 
 	text-align:center;
 }
+.searchInput {
+  background-color: white; 
+  color: black; 
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size:15px;
+  text-align:center;
+  width : 300px;
+  height : 50px;
+
+}
+.searchButton {
+  background-color: white; 
+  color: black; 
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size:15px;
+  text-align:center;
+  width : 50px;
+  height : 50px;
+}
 .button {
   background-color: white; 
   color: black; 
   border-radius: 10px;
   border: 2px solid #4CAF50;
   font-size:15px;
+  text-align:center;
+  
+  
  
 }
 .button:hover {
@@ -168,7 +195,7 @@ body {
 </head>
 <body>
 <ul class="nav">
-  <li><a class="active" href="main.com">Home</a></li>
+  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("owner_id") == null){
@@ -191,35 +218,41 @@ body {
 <p>Resize the browser window to see the responsive effect.</p>
 
 <div class="header">
-  <h2>Header</h2><p>
-  		<form name="marketSerch" action="marketSerch.bo" method="post">
-  			<div class="dropdown">
-  				<span> 
-  					<div id="rcorners1">지역<br><i style="font-size:50%;">어디 갈래?</i>
-  					<input class="intext" type="text" name="where" id="where" size="10" readonly/>
-  					</div>
-  				</span>
-  					<div class="dropdown-content">
-  						<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
-  						<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
-  						<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
-  					</div>
-  			</div>
-  			<div class="dropdown">
-  				<span>
-  				  	<div id="rcorners1" >메뉴<br><i style="font-size:50%;">뭐 먹고 싶어?</i>
-  				  	<input type="text" name="menu" id="menu" size="10" readonly/>
-  				  	</div>
-  				  </span>
-  				  	<div class="dropdown-content">
-  						<p><input type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
-  						<p><input type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
-  						<p><input type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
-  					</div>
-  					<div id="rcorners1">
-  						<button type="submit"> 검색 </button>
-  					</div>
+  
+  	<form name="marketSerch" action="marketSearch.bo" method="post">
 
+  		
+  			<div id="rcorners1">
+  				<div class="dropdown">
+  					<span> 
+  						<div>
+  							<input class="searchInput" type="text" name="where" id="where" size="10" placeholder="지역 선택" readonly/>
+  						</div>
+  					</span>
+  						<div class="dropdown-content">
+  							<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
+  							<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
+  							<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
+  						</div>
+  				</div>
+  				<div class="dropdown">
+  					<span>
+  				  		<div>
+  				  			<input class="searchInput" type="text" name="menu" id="menu" size="10" placeholder="메뉴 선택" readonly/>
+  				  		</div>
+  				  	</span>
+  				  	<div class="dropdown-content">
+  						<p><input class="button" type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
+  						<p><input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
+  						<p><input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
+  					</div>
+  				</div>
+  				
+  					<div class="dropdown">
+  						<button  class="searchButton" type="submit">   <i class="glyphicon glyphicon-search"></i></button>
+  						
+  					</div>
+			</div>
   		</form>
   		
   
