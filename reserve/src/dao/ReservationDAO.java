@@ -32,6 +32,17 @@ public class ReservationDAO {
 		boolean reserv =  false;
 		Connection con = null;
 		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		try {
+			String sql="insert into reservation values()";
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
 		
 		
 		
