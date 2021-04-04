@@ -159,5 +159,31 @@ public class RestaurantDAO {
 		}
 		return rest_no;
 	}
+
+	public int selectRestNo(String board_no) {
+		int restNo = 0;
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try {
+			sql="select rest_no from board where board_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,board_no);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				restNo=rs.getInt("rest_No");
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return restNo;
+	}
 	
 }

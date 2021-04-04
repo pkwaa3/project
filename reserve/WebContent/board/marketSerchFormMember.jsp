@@ -1,3 +1,4 @@
+<%@page import="vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@page import="vo.PageInfo" %>
@@ -10,7 +11,7 @@
     
     <%
         	ArrayList<Board> searchList = (ArrayList<Board>)request.getAttribute("searchList");
-    	
+    		Member member = (Member)request.getAttribute("member");
                     	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                     	int listCount = pageInfo.getList_count();
                     	int nowPage = pageInfo.getPage();
@@ -308,7 +309,7 @@ body {
 	</table>
 	 -->
 </section>
-
+	
 
 	<c:if test="${searchList != null }">
 	
@@ -320,7 +321,7 @@ body {
 				 
  				
  				<div class="polaroid" style="width:50%">
- 					 <a  href="boardView.bo?board_no=${result.board_no }&page=<%=nowPage %>">
+ 					 <a  href="boardViewMem.bo?board_no=${result.board_no }&page=<%=nowPage %>&id=${id }">
   						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:100%">
   					</a>
 				  	<div class="container">

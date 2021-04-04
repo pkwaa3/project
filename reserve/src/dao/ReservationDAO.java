@@ -28,14 +28,22 @@ public class ReservationDAO {
 		this.con=con;
 	}
 	//예약액션
-	public boolean reservation(Reservation reservation) {
-		boolean reserv =  false;
-		Connection con = null;
+	
+	public int reservation(Reservation reservation) {
+		int insertRe =  0;
 		PreparedStatement pstmt= null;
 		ResultSet rs = null;
 		try {
-			String sql="insert into reservation values()";
+			String sql="insert into reservation(member_no,rest_no,date,time,head) values(?,?,now(),?,?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,reservation.getMember_no());
+			pstmt.setInt(2,reservation.getRest_no());
+			//pstmt.setInt(3,);
+			pstmt.setString(3,reservation.getTime());
+			pstmt.setString(4,reservation.getHead());
 			
+			
+			insertRe=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -46,7 +54,7 @@ public class ReservationDAO {
 		
 		
 		
-		return reserv;
+		return insertRe;
 	}
 	
 	
