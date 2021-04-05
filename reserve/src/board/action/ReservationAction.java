@@ -53,7 +53,7 @@ public class ReservationAction implements Action {
 		int restNo = restNoService.getRestNo(board_no);
 				
 		Reservation reservation = new Reservation();
-		//reservation.setDate(date);
+		reservation.setDate(date);
 		reservation.setMember_no(memberNo);
 		reservation.setTime(time);
 		reservation.setHead(head);

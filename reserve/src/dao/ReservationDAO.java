@@ -34,13 +34,13 @@ public class ReservationDAO {
 		PreparedStatement pstmt= null;
 		ResultSet rs = null;
 		try {
-			String sql="insert into reservation(member_no,rest_no,date,time,head) values(?,?,now(),?,?)";
+			String sql="insert into reservation(member_no,rest_no,date,time,head) values(?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1,reservation.getMember_no());
 			pstmt.setInt(2,reservation.getRest_no());
-			//pstmt.setInt(3,);
-			pstmt.setString(3,reservation.getTime());
-			pstmt.setString(4,reservation.getHead());
+			pstmt.setString(3,reservation.getDate());
+			pstmt.setString(4,reservation.getTime());
+			pstmt.setString(5,reservation.getHead());
 			
 			
 			insertRe=pstmt.executeUpdate();

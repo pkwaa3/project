@@ -6,7 +6,7 @@ public class Reservation {
 	private int reserv_no;
 	private int member_no;
 	private int rest_no;
-	private Date date;
+	private String date;
 	private String time;
 	private String head;
 	
@@ -28,10 +28,11 @@ public class Reservation {
 	public void setRest_no(int rest_no) {
 		this.rest_no = rest_no;
 	}
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getTime() {

@@ -87,7 +87,7 @@
       </div>
       <!-- /.col-lg-8 -->
       <div class="col-lg-5">
-     	<input type="text" name="board_no" id="board_no" value="${board.board_no} " >
+     	<input type="hidden" name="board_no" id="board_no" value="${board.board_no} " >
         <h1 class="font-weight-light">${board.board_subject }</h1><br>
        	<br><input type="date" id="date" name="date" value="now()"><br>
        	<br>시간 선택 <input type="time" name="time" id="time" value="12:00" /> <br>
