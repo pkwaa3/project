@@ -15,11 +15,11 @@ import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.MarketSearchAction;
-<<<<<<< HEAD
+
 import board.action.ReservationAction;
-=======
+
 import board.action.MarketSearchMemberAction;
->>>>>>> branch 'master' of https://github.com/pkwaa3/project
+
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -239,8 +239,6 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
-<<<<<<< HEAD
-=======
 		// 마켓 서치 리스트 액션 멤버
 				else if (command.equals("/marketSearchMember.bo")) {
 					action = new MarketSearchMemberAction();
@@ -256,7 +254,7 @@ public class reservFrontController extends HttpServlet {
 			forward.setPath("/board/marketSerchFormMember.jsp");
 		}
 		
->>>>>>> branch 'master' of https://github.com/pkwaa3/project
+
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
