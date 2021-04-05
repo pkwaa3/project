@@ -14,12 +14,10 @@ import action.Action;
 import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
+import board.action.BoardViewMemAction;
 import board.action.MarketSearchAction;
-
 import board.action.ReservationAction;
-
 import board.action.MarketSearchMemberAction;
-
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -225,7 +223,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 마켓 서치 리스트 상단바 액션 
+		// 마켓 서치 리스트 상단바 액션
 		else if (command.equals("/marketSearch1.bo")) {
 			action = new MarketSearchAction();
 			try {
@@ -239,21 +237,25 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
-		// 마켓 서치 리스트 액션 멤버
-				else if (command.equals("/marketSearchMember.bo")) {
-					action = new MarketSearchMemberAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+		}
+
+	// 마켓 서치 리스트 액션 멤버
+			else if (command.equals("/marketSearchMember.bo")) {
+				action = new MarketSearchMemberAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
+			}
 		// 마켓 서치 리스트 폼 멤버로
 		else if (command.equals("/marketSerchFormMember.bo")) {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchFormMember.jsp");
 		}
+
 		
+
 
 
 		// ㅈㅇ우
@@ -392,29 +394,43 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 뷰페이지
-		else if (command.equals("/boardViewInfo.bo")) {
-			forward = new ActionForward();
-			forward.setPath("board/boardView1.jsp");
-		}
-		// 예약하기 액션
-		else if (command.equals("/reservation.bo")) {
-			action = new ReservationAction();
+		// 뷰페이지멤버액션
+		else if (command.equals("/boardViewMem.bo")) {
+			action = new BoardViewMemAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+			// 뷰페이지
+					else if (command.equals("/boardViewInfo.bo")) {
+						forward = new ActionForward();
+						forward.setPath("board/boardView1.jsp");
+					}
+					// 예약하기 액션
+					else if (command.equals("/reservation.bo")) {
+						action = new ReservationAction();
+						try {
+							forward = action.execute(request, response);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+					// 뷰페이지멤버
+					else if (command.equals("/boardViewInfoMem.bo")) {
+						forward = new ActionForward();
+						forward.setPath("board/boardView2.jsp");
+					}
 
-		if (forward != null) {
-			if (forward.isRedirect()) {
-				response.sendRedirect(forward.getPath());
-			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-				dispatcher.forward(request, response);
-			}
-		}
+					if (forward != null) {
+						if (forward.isRedirect()) {
+							response.sendRedirect(forward.getPath());
+						} else {
+							RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+							dispatcher.forward(request, response);
+						}
+					}
 
-	}
+				}
 }

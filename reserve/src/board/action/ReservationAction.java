@@ -11,6 +11,7 @@ import action.Action;
 import board.svc.ReservationService;
 import member.svc.MemberInfoService;
 import member.svc.MemberNoService;
+import restaurant.svc.RestNoService;
 import vo.ActionForward;
 import vo.Reservation;
 
@@ -20,25 +21,45 @@ public class ReservationAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward= null;
 		HttpSession session = request.getSession();
-		String id= (String) session.getAttribute("member_id");
-		System.out.println(request.getParameter("date"));
-		System.out.println(request.getParameter("time"));
-		System.out.println(request.getParameter("head"));
+		String id= (String) session.getAttribute("id");
+		//String board_no=(String)session.getAttribute("board_no");
+		//String id=request.getParameter("id");
+		String board_no=request.getParameter("board_no");
+		String date = request.getParameter("date");
+		String time = request.getParameter("time");
+		String head = request.getParameter("head");
+		System.out.println(id);
+		System.out.println(board_no+"board_no");
+		System.out.println(request.getParameter("board_no")+"board_no");
+		System.out.println(date+"date");
+		System.out.println(request.getParameter("date")+"date");
+		System.out.println(time+"time");
+		System.out.println(request.getParameter("time")+"time");
+		System.out.println(head+"head");
+		System.out.println(request.getParameter("head")+"head");
+		
+		
+		//System.out.println(date);
 	//	Date date = new Date();
 		
-		int time = Integer.parseInt(request.getParameter("time"));
-		int head = Integer.parseInt(request.getParameter("head"));
 		
 		//멤버 아이디로 번호 조회
 		MemberNoService memberNoService = new MemberNoService();
 		int memberNo= memberNoService.getMember(id);
 		
+		
+		//보드번호로 식당번호 조회
+		RestNoService restNoService= new RestNoService();
+		int restNo = restNoService.getRestNo(board_no);
+				
 		Reservation reservation = new Reservation();
-		//reservation.setDate(date);
+		reservation.setDate(date);
 		reservation.setMember_no(memberNo);
 		reservation.setTime(time);
 		reservation.setHead(head);
-		
+		reservation.setRest_no(restNo);
+		System.out.println(memberNo);
+		System.out.println(restNo);
 		
 		ReservationService reservationService = new ReservationService();
 		boolean reserv = reservationService.reservation(reservation);
@@ -46,7 +67,7 @@ public class ReservationAction implements Action {
 		if(reserv != false) {
 			forward= new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("history.back();");
+			forward.setPath("boardViewMem.bo?board_no="+board_no);
 		} else {
 			response.setContentType("utf-8");
 			PrintWriter out = response.getWriter();

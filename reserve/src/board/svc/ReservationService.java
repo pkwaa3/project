@@ -11,6 +11,7 @@ public class ReservationService {
 	public boolean reservation(Reservation reservation) {
 		boolean reserv = false;
 		Connection con = null;
+		int insertRe = 0;
 		
 		
 		try {
@@ -18,8 +19,14 @@ public class ReservationService {
 			ReservationDAO reservDAO = ReservationDAO.getInstance();
 			reservDAO.setConnection(con);
 			
-			reserv=reservDAO.reservation(reservation);
+			insertRe=reservDAO.reservation(reservation);
 			
+			if(insertRe>0) {
+				commit(con);
+				reserv=true;
+			}else {
+				rollback(con);
+			}
 			
 		}catch(Exception e) {
 		e.printStackTrace();	

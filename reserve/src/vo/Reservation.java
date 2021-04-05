@@ -6,9 +6,9 @@ public class Reservation {
 	private int reserv_no;
 	private int member_no;
 	private int rest_no;
-	private Date date;
-	private int time;
-	private int head;
+	private String date;
+	private String time;
+	private String head;
 	
 	public int getReserv_no() {
 		return reserv_no;
@@ -28,24 +28,26 @@ public class Reservation {
 	public void setRest_no(int rest_no) {
 		this.rest_no = rest_no;
 	}
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
-	public int getHead() {
+	public String getHead() {
 		return head;
 	}
-	public void setHead(int head) {
+	public void setHead(String head) {
 		this.head = head;
 	}
+	
 	
 	
 	
