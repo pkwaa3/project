@@ -32,7 +32,7 @@ public class ReservationDAO {
 	public int reservation(Reservation reservation) {
 		int insertRe =  0;
 		PreparedStatement pstmt= null;
-		ResultSet rs = null;
+		
 		try {
 			String sql="insert into reservation(member_no,rest_no,date,time,head) values(?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class ReservationDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			close(rs);
+			
 			close(pstmt);
 		}
 		
