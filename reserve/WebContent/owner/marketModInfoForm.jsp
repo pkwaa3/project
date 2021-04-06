@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-     <%@ page import="vo.Owner" %>
+      <%@page import="java.util.*" %>
+     <%@ page import="vo.Restaurant" %>
     <%
-    	Owner owner = (Owner)request.getAttribute("owner");
+    	
+    	Restaurant restaurant = (Restaurant)request.getAttribute("restaurant");
     %>
 <!DOCTYPE html>
 <html>
@@ -93,9 +95,8 @@
   height: 500px; /* Should be removed. Only for demonstration */
 }
 
-/*콘텐츠*/
 
-
+/* 콘텐츠*/
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
@@ -167,10 +168,10 @@ button:hover {
   width: 30%; /* Could be more or less, depending on screen size */
   padding:5px;
 }
-
 </style>
 </head>
 <body>
+
 <nav id="topmenu">
 <ul >
   <li><a class="active" href="mainLoginOwner.com">Home</a></li>
@@ -204,30 +205,67 @@ button:hover {
   			<li><a href="boardRegInfoForm.bo?owner_id=<%=session.getAttribute("owner_id") %>">메뉴 등록</a></li>
   			<li><a href="ownerRegiMarketList.own?owner_id=<%=session.getAttribute("owner_id") %>">가게 등록 리스트</a></li>
   			<li><a href="">예약 내역</a></li>
-  			<li><a href="ownerDeleteForm.own?owner_id=<%=request.getParameter("owner_id") %>">회원탈퇴</a></li>
+  			<li><a href="ownerDeleteForm.own?owner_id=<%=session.getAttribute("owner_id") %>">회원탈퇴</a></li>
   			
   		</ul>
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	<form class="modal-content" name="ownerDeleteForm" action="ownerDelete.own" method="post" >
+  
+  	<form class="modal-content" name="marketModInfoForm" action="marketModInfoPro.own" method="post" >
 	
 	
 	 <div class="container">
-    <h1>회원 탈퇴</h1>
-    <p>비밀번호를 입력하세요.</p>
+    <h1>가게 정보 수정</h1>
+    <p>빈칸을 채워 주세요.</p>
     <hr>
+	<label for="rest_no"><b>가게 번호</b></label>
+    <input type="hidden"  name="rest_no" id="rest_no" value="<%=restaurant.getRest_no() %>" required>
+	<label for="owner_no"><b>오너 번호</b></label>
+    <input type="hidden"  name="owner_no" id="owner_no" value="<%=restaurant.getOwner_no() %>" required>
+	
+    <label for="name"><b>가게 이름</b></label>
+    <input type="text"  name="name" id="name" value="<%=restaurant.getName() %>" required>
+	
+	<label for="local"><b>지역</b></label><p>
+    <select name="local" id="local" value="<%=restaurant.getLocal() %>" required>
+			 <option value="서울">서울</option>
+			 <option value="인천">인천</option>
+			 <option value="대전">대전</option>
+    		<option value="대구">대구</option>
+    		<option value="울산">울산</option>
+    		<option value="부산">부산</option>
+    		<option value="광주">광주</option>
+ 	</select>
+	
+	<p>
+    <label for="address"><b>주소</b></label>
+    <input type="text" placeholder="Enter Address" name="address" id="address" value="<%=restaurant.getAddress() %>" required>
 
-    <label for="owner_id"><b>아이디</b></label>
-    <input type="text" placeholder="Enter Id" name="owner_id" id="owner_id" value="<%=session.getAttribute("owner_id") %>" readonly required >
-
-    <label for="owner_pw"><b>비밀번호</b></label>
-    <input type="password" placeholder="Enter Password" name="owner_pw" id="owner_pw" required>
+    <label for="tell"><b>전화번호</b></label>
+    <input type="text" placeholder="Enter Tell Number" name="tell" id="tell" value="<%=restaurant.getTell() %>" required>
     
+    <label for="kind"><b>메뉴 종류</b> </label><P> 	
+    <span  style="background-color:#f1f1f1; width: 100%; padding: 15px; margin: 5px 0 22px 0;">
+    			
+    			<input type="checkbox" name="kind" id="hansik" value="한식" checked >한식
+		 		<input type="checkbox" name="kind" id="yangsik" value="양식">양식
+		 		<input type="checkbox" name="kind" id="joongsik" value="중식">중식
+		 		<input type="checkbox" name="kind" id="ilsik" value="일식">일식<p></p></span>
+   	 
+   	<label for="open"><b>오픈시간</b></label><p>
+    <input type="number" name="open" id="open" value="<%=restaurant.getOpen() %>" required><p>
+    
+    <label for="close"><b>마감시간</b></label><p>
+    <input type="number" name="close" id="close" value="<%=restaurant.getClose() %>" required><p>
+ 
+    
+    <label for="max_head"><b>최대 수용 인원</b></label>
+    <input type="text" placeholder="Enter Tell Number" name="max_head" id="max_head" value="<%=restaurant.getMax_head() %>" required>
 
     <div class="clearfix">
       <button type="button" class="cancelbtn" onclick="history.back()">뒤로 가기</button>
-      <button type="submit" class="signupbtn"> 탈퇴 하기</button>
+      <button type="submit" class="signupbtn">수정 하기</button>
     </div>
   </div>
 </form>

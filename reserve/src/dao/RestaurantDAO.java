@@ -185,5 +185,71 @@ public class RestaurantDAO {
 		
 		return restNo;
 	}
+	//레스토랑 수정 인포 폼
+	public Restaurant selectModRestaurant(String restNo) {
+		Restaurant restaurant = null;
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try {
+			sql="select * from restaurant where rest_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,restNo);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				restaurant = new Restaurant();
+				restaurant.setRest_no(rs.getInt("rest_no"));
+				restaurant.setOwner_no(rs.getInt("owner_no"));
+				restaurant.setName(rs.getString("name"));
+				restaurant.setKind(rs.getString("kind"));
+				restaurant.setAddress(rs.getString("address"));
+				restaurant.setLocal(rs.getString("local"));
+				restaurant.setMax_head(rs.getString("max_head"));
+				restaurant.setOpen(rs.getString("open"));
+				restaurant.setClose(rs.getString("close"));
+				restaurant.setTell(rs.getString("tell"));
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return restaurant;
+	}
+	//레스토랑 수정 업데이트
+	public int updateRestaurant(Restaurant restaurant) {
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update restaurant set name=?, kind=?, address=?, local=?, max_head=?, open=?, close=?, tell=? where rest_no=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, restaurant.getName());
+			pstmt.setString(2, restaurant.getKind());
+			pstmt.setString(3, restaurant.getAddress());
+			pstmt.setString(4, restaurant.getLocal());
+			pstmt.setString(5, restaurant.getMax_head());
+			pstmt.setString(6, restaurant.getOpen());
+			pstmt.setString(7, restaurant.getClose());
+			pstmt.setString(8, restaurant.getTell());
+			pstmt.setInt(9, restaurant.getRest_no());
+		
+			updateCount = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return updateCount;
+	}
 	
 }

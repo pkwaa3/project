@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-     <%@ page import="vo.Owner" %>
+    <%@page import="vo.Restaurant" %>
+    <%@page import="java.util.*" %>
+    <%@page import="java.text.SimpleDateFormat"%>
+    
     <%
-    	Owner owner = (Owner)request.getAttribute("owner");
-    %>
+        	ArrayList<Restaurant> restList = (ArrayList<Restaurant>)request.getAttribute("restList");
+                    	
+        %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,9 +96,8 @@
   height: 500px; /* Should be removed. Only for demonstration */
 }
 
-/*콘텐츠*/
 
-
+/* 콘텐츠*/
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
@@ -168,9 +170,37 @@ button:hover {
   padding:5px;
 }
 
+#registForm {
+		width:500px;
+		height:600px;
+		border:1px solid red;
+		margin:auto;
+	}
+	h2 {
+		text-align:center;
+	}
+	table {
+		margin:auto;
+		width:450px;
+	}
+	#tr_top {
+		background:orange;
+		text-align:center;
+	}
+	#pageList {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
+	#emptyArea {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
 </style>
 </head>
 <body>
+
 <nav id="topmenu">
 <ul >
   <li><a class="active" href="mainLoginOwner.com">Home</a></li>
@@ -204,33 +234,46 @@ button:hover {
   			<li><a href="boardRegInfoForm.bo?owner_id=<%=session.getAttribute("owner_id") %>">메뉴 등록</a></li>
   			<li><a href="ownerRegiMarketList.own?owner_id=<%=session.getAttribute("owner_id") %>">가게 등록 리스트</a></li>
   			<li><a href="">예약 내역</a></li>
-  			<li><a href="ownerDeleteForm.own?owner_id=<%=request.getParameter("owner_id") %>">회원탈퇴</a></li>
+  			<li><a href="ownerDeleteForm.own?owner_id=<%=session.getAttribute("owner_id") %>">회원탈퇴</a></li>
   			
   		</ul>
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	<form class="modal-content" name="ownerDeleteForm" action="ownerDelete.own" method="post" >
+  	
+ <section id="listForm">
+ <table>
+		<%
+			if(restList != null ) {				
+		%>	
+		<tr id="tr_top">
+			<td>순번</td>
+			<td>가게 번호</td>
+			<td>가게 이름</td>
+			<td>지역</td>
+			<td>메뉴 종류</td>
+			
+		</tr>
+		<%
+			for(int i=0; i<restList.size(); i++) {
+		%>
+		<tr>
+			<td><%= i %>
+			<td><%=restList.get(i).getRest_no() %></td>
+			<td><a href="marketModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
+			<td><%=restList.get(i).getLocal() %></td>
+			<td><%=restList.get(i).getKind() %></td>
+			
+		</tr>
+		<%} %>
+	</table>
 	
+</section>
 	
-	 <div class="container">
-    <h1>회원 탈퇴</h1>
-    <p>비밀번호를 입력하세요.</p>
-    <hr>
+	<% } else { %>
+	<section id="emptyArea">등록된 글이 없습니다.</section>
+<%} %> 	
 
-    <label for="owner_id"><b>아이디</b></label>
-    <input type="text" placeholder="Enter Id" name="owner_id" id="owner_id" value="<%=session.getAttribute("owner_id") %>" readonly required >
-
-    <label for="owner_pw"><b>비밀번호</b></label>
-    <input type="password" placeholder="Enter Password" name="owner_pw" id="owner_pw" required>
-    
-
-    <div class="clearfix">
-      <button type="button" class="cancelbtn" onclick="history.back()">뒤로 가기</button>
-      <button type="submit" class="signupbtn"> 탈퇴 하기</button>
-    </div>
-  </div>
-</form>
   </div>
 </div>
 

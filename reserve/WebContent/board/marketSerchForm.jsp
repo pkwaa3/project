@@ -113,20 +113,6 @@ div.container {
 	 
 }
 
-#rcorners2 a:hover, a:active {
-  border-radius: 10px;
-  background: black;
-  padding: 5px; 
-  width: 50px;
-  height: 30px;  
-  font-size:20px;
-  display: inline-block;
-  cursor:pointer;
-  text-align:center;
-  text-decoration: none;
-  
-}
-
 
 /*인풋 */
 .intext {

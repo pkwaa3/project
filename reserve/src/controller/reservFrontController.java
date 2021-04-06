@@ -26,11 +26,13 @@ import member.action.MemberModAction;
 import member.action.MemberModInfoFormAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
+import owner.action.MarketModInfoFormAction;
 import owner.action.OwnerDeleteAction;
 import owner.action.OwnerLogOutAction;
 import owner.action.OwnerModInfoFormAction;
 import owner.action.OwnerModInfoProAction;
 import owner.action.OwnerRegiMarketProAction;
+import owner.action.marketModInfoProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import owner.action.ownerRegiMarketListAction;
@@ -237,7 +239,7 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
-		}
+		
 
 	// 마켓 서치 리스트 액션 멤버
 			else if (command.equals("/marketSearchMember.bo")) {
@@ -253,6 +255,24 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchFormMember.jsp");
 		}
+		// 가게 정보 수정 폼
+				else if (command.equals("/marketModInfoForm.own")) {
+					action = new MarketModInfoFormAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 가게 정보 수정 프로
+				else if (command.equals("/marketModInfoPro.own")) {
+					action = new marketModInfoProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 
 		
 
