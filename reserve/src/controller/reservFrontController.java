@@ -415,7 +415,7 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 뷰페이지멤버123
+		// 뷰페이지멤버12311
 		else if (command.equals("/boardViewInfoMem.bo")) {
 			forward = new ActionForward();
 			forward.setPath("board/boardView2.jsp");
