@@ -188,36 +188,36 @@ public class RestaurantDAO {
 		return restNo;
 	}
 	//가게이름찾기
-	public String[] findName(ArrayList<Reservation> list) {
-		String[] name = null;
-		
-		PreparedStatement pstmt= null;
-		ResultSet rs= null;
-		String sql="";
-		try {
-			sql="select name from restaurant where rest_no =?";
-			for(int i=0; i<list.size();i++) {
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, list.get(i).getRest_no());
-			
-			rs=pstmt.executeQuery();
-			System.out.println(list.get(i).getRest_no());
-			
-			if(rs.next()) {
-				System.out.println(rs.getString("name"));
-				name[i]=rs.getString("name");
-			}
-			System.out.println(name[i]);
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return name;
-	}
+//	public String[] findName(ArrayList<Reservation> list) {
+//		String[] name = null;
+//		
+//		PreparedStatement pstmt= null;
+//		ResultSet rs= null;
+//		String sql="";
+//		try {
+//			sql="select name from restaurant where rest_no =?";
+//			for(int i=0; i<list.size();i++) {
+//			pstmt=con.prepareStatement(sql);
+//			pstmt.setInt(1, list.get(i).getRest_no());
+//			
+//			rs=pstmt.executeQuery();
+//			System.out.println(list.get(i).getRest_no());
+//			
+//			if(rs.next()) {
+//				System.out.println(rs.getString("name"));
+//				name[i]=rs.getString("name");
+//			}
+//			System.out.println(name[i]);
+//			}
+//			
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return name;
+//	}
 	
 }

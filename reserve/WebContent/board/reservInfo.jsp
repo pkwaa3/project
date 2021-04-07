@@ -22,6 +22,7 @@
 	날짜 : ${list.date }<br>
 	인원수 : ${list.head }<br>
 	시간 : ${list.time }<br>
+	가게이름 : ${list.restName }
 	123<br>
 	
 	</c:forEach>

@@ -28,6 +28,7 @@ public class ReservationAction implements Action {
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String head = request.getParameter("head");
+		String restName= request.getParameter("restName");
 		System.out.println(id);
 		System.out.println(board_no+"board_no");
 		System.out.println(request.getParameter("board_no")+"board_no");
@@ -58,6 +59,7 @@ public class ReservationAction implements Action {
 		reservation.setTime(time);
 		reservation.setHead(head);
 		reservation.setRest_no(restNo);
+		reservation.setRestName(restName);
 		System.out.println(memberNo);
 		System.out.println(restNo);
 		

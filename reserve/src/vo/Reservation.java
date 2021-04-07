@@ -6,6 +6,7 @@ public class Reservation {
 	private int reserv_no;
 	private int member_no;
 	private int rest_no;
+	private String restName;
 	private String date;
 	private String time;
 	private String head;
@@ -46,6 +47,12 @@ public class Reservation {
 	}
 	public void setHead(String head) {
 		this.head = head;
+	}
+	public String getRestName() {
+		return restName;
+	}
+	public void setRestName(String restName) {
+		this.restName = restName;
 	}
 	
 	

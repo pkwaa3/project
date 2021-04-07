@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import board.svc.ReservInfoService;
-import board.svc.RestaurantFindService;
+
 import member.svc.MemberNoService;
 import vo.ActionForward;
 import vo.Reservation;
@@ -27,25 +27,25 @@ public class ReservInfoAction implements Action {
 		
 		
 		ReservInfoService reservInfoSvc= new ReservInfoService();
-		System.out.println(memberNo);
+		//System.out.println(memberNo);
 		ArrayList<Reservation> list = new ArrayList<Reservation>();
 		//Reservation reserv=reservInfoSvc.getInfo(memberNo);
 		list=reservInfoSvc.getInfo(memberNo);
 		
 		
 		//가게번호로 식당이름 찾기
-		RestaurantFindService restFindService = new RestaurantFindService();
-		String[] name= restFindService.getName(list);
+//		RestaurantFindService restFindService = new RestaurantFindService();
+//		String[] name= restFindService.getName(list);
 		
-		for(int i=0;i<list.size();i++) {
-			System.out.println(list.get(i).getReserv_no());
-			System.out.println(name[i]);
-		}
+//		for(int i=0;i<list.size();i++) {
+//			System.out.println(list.get(i).getReserv_no());
+//			System.out.println(name[i]);
+//		}
 		
 		if(list!=null) {
 			forward = new ActionForward();
 			request.setAttribute("list", list);
-			request.setAttribute("name", name);
+			
 			//forward.setRedirect(true);
 			forward.setPath("reservInfoForm.mem");
 		}else {

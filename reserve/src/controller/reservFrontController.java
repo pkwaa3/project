@@ -19,6 +19,7 @@ import board.action.MarketSearchAction;
 import board.action.ReservationAction;
 import board.action.MarketSearchMemberAction;
 import board.action.ReservInfoAction;
+import board.action.ReservInfoOwAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
 import member.action.MemberLogOutAction;
@@ -448,10 +449,24 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 예약페이지 폼멤버
+		// 예약내역 폼멤버
 		else if (command.equals("/reservInfoForm.mem")) {
 			forward = new ActionForward();
 			forward.setPath("board/reservInfo.jsp");
+		}
+		// 예약내역 오너 액션
+		else if (command.equals("/reservInfoOw.own")) {
+			action = new ReservInfoOwAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 예약내역 폼멤버
+		else if (command.equals("/reservInfoOwForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("board/reservInfoOwn.jsp");
 		}
 
 		if (forward != null) {
