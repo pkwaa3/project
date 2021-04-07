@@ -262,7 +262,7 @@ button:hover {
 			<td><%=restList.get(i).getRest_no() %></td>
 			<td><a href="marketModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
 			<td><%=restList.get(i).getLocal() %></td>
-			<td><%=restList.get(i).getKind() %></td>
+			<td><a href="menuModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getKind() %></a></td>
 			
 		</tr>
 		<%} %>

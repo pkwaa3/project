@@ -27,6 +27,7 @@ import member.action.MemberModInfoFormAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
 import owner.action.MarketModInfoFormAction;
+import owner.action.MenuModInfoFormAction;
 import owner.action.OwnerDeleteAction;
 import owner.action.OwnerLogOutAction;
 import owner.action.OwnerModInfoFormAction;
@@ -267,6 +268,15 @@ public class reservFrontController extends HttpServlet {
 		// 가게 정보 수정 프로
 				else if (command.equals("/marketModInfoPro.own")) {
 					action = new marketModInfoProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 메뉴 정보 수정 폼
+				else if (command.equals("/menuModInfoForm.own")) {
+					action = new MenuModInfoFormAction();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {

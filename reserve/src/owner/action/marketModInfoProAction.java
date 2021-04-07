@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import owner.svc.MarketModInfoProSvc;
-import owner.svc.OwnerModInfoProSvc;
 import vo.ActionForward;
 import vo.Restaurant;
 
@@ -46,7 +45,7 @@ public class marketModInfoProAction implements Action {
 	    		
 	    	
 	    		forward = new ActionForward();
-	    		forward.setPath("ownerRegiMarketListForm.own?owner_id=" + "owner_id");
+	    		forward.setPath("ownerRegiMarketListForm.own?owner_id=" +owner_id);
 	    		
 	    		
 	    	} else {
