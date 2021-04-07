@@ -187,7 +187,7 @@ public class RestaurantDAO {
 		
 		return restNo;
 	}
-<<<<<<< HEAD
+
 	//레스토랑 수정 인포 폼
 	public Restaurant selectModRestaurant(String restNo) {
 		Restaurant restaurant = null;
@@ -253,7 +253,7 @@ public class RestaurantDAO {
 		
 		
 		return updateCount;
-=======
+	}
 	//가게이름찾기
 	public String[] findName(ArrayList<Reservation> list) {
 		String[] name = null;
@@ -285,7 +285,7 @@ public class RestaurantDAO {
 		}
 		
 		return name;
->>>>>>> branch 'master' of https://github.com/pkwaa3/project.git
+
 	}
 	
 }

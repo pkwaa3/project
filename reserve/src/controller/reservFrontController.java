@@ -18,6 +18,7 @@ import board.action.BoardViewMemAction;
 import board.action.MarketSearchAction;
 import board.action.ReservationAction;
 import board.action.MarketSearchMemberAction;
+import board.action.MenuModInfoProAction;
 import board.action.ReservInfoAction;
 import member.action.MemberDeleteAction;
 import member.action.MemberJoinProAction;
@@ -293,6 +294,15 @@ public class reservFrontController extends HttpServlet {
 		// 메뉴 정보 수정 폼
 				else if (command.equals("/menuModInfoForm.own")) {
 					action = new MenuModInfoFormAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 메뉴 정보 수정 프로
+				else if (command.equals("/menuModInfoPro.own")) {
+					action = new MenuModInfoProAction();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {

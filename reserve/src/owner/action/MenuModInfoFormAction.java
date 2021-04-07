@@ -1,5 +1,7 @@
 package owner.action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,9 +29,11 @@ public class MenuModInfoFormAction implements Action {
 		Board board = boardModInfoSvc.getboardModInfo(restNo);
 		request.setAttribute("board", board);
 		
-		MenuModInfoSvc menuModInfoSvc = new MenuModInfoSvc();
-		Menu menu = menuModInfoSvc.getMenuModInfo(restNo);
-		request.setAttribute("menu", menu);
+		ArrayList<Menu> menuList = new ArrayList<Menu>();
+		
+		BoardModInfoSvc menuModInfoSvc = new BoardModInfoSvc();
+		menuList = menuModInfoSvc.getMenuModInfo(restNo);
+		request.setAttribute("menuList", menuList);
 		
 		
 			

@@ -289,6 +289,7 @@ public class BoardDAO {
 				board.setMain_org_img(rs.getString("main_org_img"));
 				board.setMain_sys_img(rs.getString("main_sys_img"));
 				board.setAddr(rs.getString("addr"));
+				board.setBoard_subject(rs.getString("board_subject"));
 				board.setBoard_date(rs.getDate("board_date"));
 				board.setBoard_readcount(rs.getInt("board_readcount"));
 				board.setBoard_re_ref(rs.getInt("board_re_ref"));
@@ -305,6 +306,28 @@ public class BoardDAO {
 		}
 		
 		return board;
+	}
+	//보드 수정
+	public int updateArticle(Board board) {
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		String sql = "update board set board_content=?, main_org_img=?, main_sys_img=? where rest_no = ?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,  board.getBoard_content());
+			pstmt.setString(2,  board.getMain_org_img());
+			pstmt.setString(3,  board.getMain_sys_img());
+			pstmt.setInt(4,  board.getRest_no());
+			updateCount = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return updateCount;
 	}
 
 	
