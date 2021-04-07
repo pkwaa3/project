@@ -2,6 +2,7 @@ package dao;
 
 import static db.JdbcUtil.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 import javax.sql.*;
 
@@ -32,7 +33,7 @@ public class ReservationDAO {
 	public int reservation(Reservation reservation) {
 		int insertRe =  0;
 		PreparedStatement pstmt= null;
-		ResultSet rs = null;
+		
 		try {
 			String sql="insert into reservation(member_no,rest_no,date,time,head) values(?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
@@ -48,13 +49,52 @@ public class ReservationDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			close(rs);
+			
 			close(pstmt);
 		}
 		
 		
 		
 		return insertRe;
+	}
+
+	public ArrayList<Reservation> getList(int memberNo) {
+		ArrayList<Reservation> list = new ArrayList<>();
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		try {
+			String sql="select * from reservation where member_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rs=pstmt.executeQuery();
+			
+			System.out.println(rs +"뭐임?");
+			
+			while(rs.next()) {
+				Reservation reservation = new Reservation();
+				
+				reservation.setReserv_no(Integer.parseInt(rs.getString("reserv_no")));
+				reservation.setDate(rs.getString("date"));
+				reservation.setRest_no(Integer.parseInt(rs.getString("rest_no")));
+				reservation.setTime(rs.getString("time"));
+				reservation.setHead(rs.getString("head"));
+				
+				list.add(reservation);		
+				
+			}
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+			
+		return list;
 	}
 	
 	
