@@ -1,12 +1,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.Restaurant"%>
+<%@page import="vo.Board"%>
 <%@page import="vo.Owner"%>
+<%@page import="vo.Menu"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Owner owner= (Owner)request.getAttribute("owner");
-ArrayList<Restaurant> list = (ArrayList<Restaurant>)request.getAttribute("list");
+	Board board= (Board)request.getAttribute("board");
+    ArrayList<Menu> menuList = (ArrayList<Menu>)request.getAttribute("menuList");
 	
 %>
 
@@ -257,46 +259,29 @@ button:hover {
   </div>
   <div class="" style="background-color:#ccc;">
   	
-  	<form class="modal-content" name="boardRegForm"  action="boardReg.bo" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
+  	<form class="modal-content" name="menuModInfoForm"  action="menuModInfoPro.own" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
 	
 	
 	
 	 <div class="container">
-    <h1>가게 정보</h1>
+    <h1>메뉴 정보 수정</h1>
     <p>빈칸을 채워 주세요.</p>
     <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  />
-
-
 	
-    <label for="board_subject"><b>가게선택</b></label><br>
-<%
-	if(list != null){
-		
-		for(int i=0; i<list.size();i++){
-%>
-   <input type="radio" name="board_subject" id="board_subject" value="<%=list.get(i).getName() %>" /><%=list.get(i).getName() %>&nbsp;
+	<input type="hidden" name="rest_no" id="rest_no" value="<%=board.getRest_no() %>" readonly />
+	
+    <label for="board_subject"><b>가게 이름</b></label><br>
+	<input type="text" name="board_subject" id="board_subject" value="<%=board.getBoard_subject() %>" readonly />
 
-   <input type="hidden" name="rest_no" id="rest_no" value="<%=list.get(i).getRest_no() %>" />
-
-
-
-<%		
-	}} else{
-%>
-	<input type="text" name="board_subject" id="board_subject" />
-<%
-	}
-
-%>
 	
 	
 	<br><br><label for="kind"><b>가게주소</b> </label><P> 	
 
-    	<input type="text" name="addr" id="addr" value="<%=list.get(0).getAddress() %>" />
+    	<input type="text" name="addr" id="addr" value="<%=board.getAddr() %>" readonly />
 		
 	<br> 가게 메인이미지 등록 
-		<input type="file"  name="main_img" id="main_img" />
+		<input type="file"  name="main_img" id="main_img"  value="<%=board.getMain_org_img() %>"/>
+		<input type="hidden" name="menu_no" id="menu_no" value="1"/>
 		<input type="hidden" name="menu_name" id="menu_name" value="a"/>
     	<input type="hidden" name="menu_price" id="menu_price" value="1" />
 		
@@ -304,25 +289,28 @@ button:hover {
 			onClick="insRow()" value="메뉴 추가">
     <table id="addTable">
     		
+    		<% for(int i=0; i<menuList.size(); i++) { %>
     	
     	<tr>		
-
-    		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;"/></td>
-    		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" />원</td>
-    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img1" id="menu_img1" /> <br> </td>
+			<td>                                       <input type="text" name="menu_no" id="menu_no" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_no() %>"/></td>
+    		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_name() %>"/></td>
+    		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_price() %>"/>원</td>
+    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img1" id="menu_img1" value="<%=menuList.get(0).getMenu_org_img() %>"/> <br> </td>
 		</tr>    		
+		
+		<%} %>
     	
     </table>
     
      <br><br>
     <label for="board_content"><b>가게 설명</b></label><br>
-    <textarea rows="30" cols="100" name="board_content" id="board_content" ></textarea>
+    <textarea rows="30" cols="100" name="board_content" id="board_content" value="<%=board.getBoard_content() %>" ></textarea>
     
     
     
     <div class="clearfix">
       <button type="button" class="cancelbtn">취소</button>
-      <button type="submit" class="signupbtn">등록</button>
+      <button type="submit" class="signupbtn">수정</button>
     </div>
   </div>
 </form>

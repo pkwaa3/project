@@ -52,7 +52,7 @@ public class CartAddAction implements Action {
 		CartAddService cartAddSvc = new CartAddService();
 		int addCart = cartAddSvc.addCart(cart);
 		
-		if(addCart>0) {list.add(cart);	}
+		if(addCart>0)
 		
 		forward= new ActionForward();
 		

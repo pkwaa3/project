@@ -20,6 +20,7 @@ import board.action.MarketSearchAction;
 import board.action.ReservationAction;
 import board.action.reservationListAction;
 import board.action.MarketSearchMemberAction;
+import board.action.MenuModInfoProAction;
 import board.action.ReservInfoAction;
 import board.action.ReservInfoOwAction;
 import member.action.MemberDeleteAction;
@@ -293,6 +294,7 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		// 메뉴 정보 수정 폼
+
 		else if (command.equals("/menuModInfoForm.own")) {
 			action = new MenuModInfoFormAction();
 			try {
@@ -301,6 +303,30 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+
+				else if (command.equals("/menuModInfoForm.own")) {
+					action = new MenuModInfoFormAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 메뉴 정보 수정 프로
+				else if (command.equals("/menuModInfoPro.own")) {
+					action = new MenuModInfoProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+
+		
+
+
+
+
 
 		// ㅈㅇ우
 		// 오너 로그인 액션

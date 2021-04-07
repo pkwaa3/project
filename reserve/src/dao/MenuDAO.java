@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 
 import vo.Board;
 import vo.Menu;
+import vo.Restaurant;
 
 public class MenuDAO {
 
@@ -114,6 +115,67 @@ public class MenuDAO {
 		
 		
 		return list;
+	}
+//메뉴 수정폼
+	public ArrayList<Menu> selectModMenu(String restNo) {
+		ArrayList<Menu> menuList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from menu where rest_no= ?";
+		
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, restNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Menu menu = new Menu();
+				menu.setMenu_no(rs.getInt("menu_no"));
+				menu.setRest_no(rs.getInt("rest_no"));
+				menu.setBoard_no(rs.getInt("board_no"));
+				menu.setMenu_name(rs.getString("menu_name"));
+				menu.setMenu_price(rs.getInt("menu_price"));
+				menu.setMenu_org_img(rs.getString("menu_org_img"));
+				menu.setMenu_sys_img(rs.getString("menu_sys_img"));
+				
+				menuList.add(menu);
+			}
+		} catch(Exception e) {
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return menuList;
+	}
+	//메뉴 수정
+	public int updateArticle(ArrayList<Menu> list) {
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+
+			for(int i = 0; i < list.size(); i++) {
+				String sql = "update menu set menu_name=?, menu_price=?, menu_org_img=?, menu_sys_img=? where menu_no=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, list.get(i).getMenu_name());
+				pstmt.setInt(2, list.get(i).getMenu_price());
+				pstmt.setString(3, list.get(i).getMenu_org_img());
+				pstmt.setString(4, list.get(i).getMenu_sys_img());
+				pstmt.setInt(5, list.get(i).getMenu_no());
+				updateCount = pstmt.executeUpdate();	
+			}
+			System.out.println(updateCount );
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			
+		}
+		return updateCount;
 	}
 	
 
