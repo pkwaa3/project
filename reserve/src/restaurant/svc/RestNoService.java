@@ -8,7 +8,7 @@ import static db.JdbcUtil.*;
 
 public class RestNoService {
 
-	public int getRestNo(String board_no) {
+	public int getRestNo(int board_no) {
 		int restNo = 0;
 		Connection con = null;
 		

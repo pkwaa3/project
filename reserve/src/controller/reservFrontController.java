@@ -15,8 +15,10 @@ import board.action.BoardRegAction;
 import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.BoardViewMemAction;
+import board.action.CartAddAction;
 import board.action.MarketSearchAction;
 import board.action.ReservationAction;
+import board.action.reservationListAction;
 import board.action.MarketSearchMemberAction;
 import board.action.ReservInfoAction;
 import board.action.ReservInfoOwAction;
@@ -28,11 +30,14 @@ import member.action.MemberModAction;
 import member.action.MemberModInfoFormAction;
 import company.action.companyJoinAction;
 import company.action.companyLoginAction;
+import owner.action.MarketModInfoFormAction;
+import owner.action.MenuModInfoFormAction;
 import owner.action.OwnerDeleteAction;
 import owner.action.OwnerLogOutAction;
 import owner.action.OwnerModInfoFormAction;
 import owner.action.OwnerModInfoProAction;
 import owner.action.OwnerRegiMarketProAction;
+import owner.action.marketModInfoProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import owner.action.ownerRegiMarketListAction;
@@ -237,6 +242,7 @@ public class reservFrontController extends HttpServlet {
 		// 마켓 서치 리스트 폼
 		else if (command.equals("/marketSerchForm.bo")) {
 			forward = new ActionForward();
+
 			forward.setPath("/board/marketSerchForm.jsp");
 		}
 
@@ -248,11 +254,52 @@ public class reservFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
+			// forward.setPath("/board/marketSerchForm.jsp");
+		}
+
+		// 마켓 서치 리스트 액션 멤버
+		else if (command.equals("/marketSearchMember.bo")) {
+			action = new MarketSearchMemberAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
 		}
 		// 마켓 서치 리스트 폼 멤버로
 		else if (command.equals("/marketSerchFormMember.bo")) {
 			forward = new ActionForward();
 			forward.setPath("/board/marketSerchFormMember.jsp");
+		}
+
+		// 가게 정보 수정 폼
+		else if (command.equals("/marketModInfoForm.own")) {
+			action = new MarketModInfoFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 가게 정보 수정 프로
+		else if (command.equals("/marketModInfoPro.own")) {
+			action = new marketModInfoProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 메뉴 정보 수정 폼
+		else if (command.equals("/menuModInfoForm.own")) {
+			action = new MenuModInfoFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		// ㅈㅇ우
@@ -454,6 +501,20 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("board/reservInfo.jsp");
 		}
+		// 예약 가게 리스트 오너 액션
+		else if (command.equals("/reservationList.own")) {
+			action = new reservationListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 예약 가게 리스트 오너 폼
+		else if (command.equals("/reservationInfoForm.own")) {
+			forward = new ActionForward();
+			forward.setPath("board/reservationList.jsp");
+		}
 		// 예약내역 오너 액션
 		else if (command.equals("/reservInfoOw.own")) {
 			action = new ReservInfoOwAction();
@@ -463,11 +524,26 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 예약내역 폼멤버
+		// 예약내역 폼오너
 		else if (command.equals("/reservInfoOwForm.own")) {
 			forward = new ActionForward();
-			forward.setPath("board/reservInfoOwn.jsp");
+			forward.setPath("board/reservationInfoOwn.jsp");
 		}
+		// 찜하기 액션
+		else if (command.equals("/cartAdd.bo")) {
+			action = new CartAddAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//찜하기 폼
+		else if (command.equals("/cartList.bo")) {
+			forward = new ActionForward();
+			forward.setPath("board/CartList.jsp");
+		}
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {

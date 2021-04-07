@@ -5,31 +5,31 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import action.Action;
-import board.svc.ReservOwService;
+import owner.svc.OwnerRegiMarketListService;
 import vo.ActionForward;
-import vo.Reservation;
+import vo.Restaurant;
 
-public class ReservInfoOwAction implements Action {
+public class reservationListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
+		HttpSession session = request.getSession();
+		int owner_no = (int)session.getAttribute("owner_no");
 		
-		int rest_no = Integer.parseInt(request.getParameter("rest_no"));
-		System.out.println(rest_no);
+		OwnerRegiMarketListService ownerRegiMarketListService = new OwnerRegiMarketListService();
+		ArrayList<Restaurant> restList = new ArrayList<>();
 		
-		ReservOwService reservOwSvc= new ReservOwService();
-		ArrayList<Reservation> list = new ArrayList<Reservation>();
-		list=reservOwSvc.getInfo(rest_no);
+		restList= ownerRegiMarketListService.getRestList(owner_no);
 		
-		if(list!=null) {
-			forward = new ActionForward();
-			request.setAttribute("list", list);
-			
-			//forward.setRedirect(true);
-			forward.setPath("reservInfoOwForm.own");
+		
+		if(restList != null) {
+			request.setAttribute("restList", restList);
+			forward= new ActionForward();
+			forward.setPath("reservationInfoForm.own");
 		}else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
@@ -38,7 +38,6 @@ public class ReservInfoOwAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}
-		
 		
 		return forward;
 	}

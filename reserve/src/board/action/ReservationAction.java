@@ -24,11 +24,12 @@ public class ReservationAction implements Action {
 		String id= (String) session.getAttribute("id");
 		//String board_no=(String)session.getAttribute("board_no");
 		//String id=request.getParameter("id");
-		String board_no=request.getParameter("board_no");
+		int board_no=Integer.parseInt(request.getParameter("board_no"));
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String head = request.getParameter("head");
 		String restName= request.getParameter("restName");
+		
 		System.out.println(id);
 		System.out.println(board_no+"board_no");
 		System.out.println(request.getParameter("board_no")+"board_no");

@@ -84,16 +84,17 @@
     <div class="row align-items-center my-5">
       <div class="col-lg-7">
         <img class="img-fluid rounded mb-4 mb-lg-0" src="upload/${board.main_org_img } ">
+        <input type="hidden" name="img" id="img" value="upload/${board.main_org_img }">
       </div>
       <!-- /.col-lg-8 -->
       <div class="col-lg-5">
-     	<input type="hidden" name="board_no" id="board_no" value="${board.board_no} " >
+     	<input type="hidden" name="board_no" id="board_no" value="${board.board_no}" >
         <h1 class="font-weight-light">${board.board_subject }</h1><br><input type="hidden" name="restName" id="restName" value="${board.board_subject }" >
        	<br><input type="date" id="date" name="date" value="now()"><br>
        	<br>시간 선택 <input type="time" name="time" id="time" value="12:00" /> <br>
        	<br>인원수 : <input type="text" name="head" id="head" style="width:50px;" /> 명<br> 
        	
-        <br><input type="submit" value="예약하기!">
+        <br><input type="submit" value="예약하기!"> &nbsp;&nbsp; <a href="cartAdd.bo?id=${id }&restName=${board.board_subject}&boardNum=${board.board_no}&img=${board.main_org_img}">찜하기!</a>
       </div>
       <!-- /.col-md-4 -->
     </div>

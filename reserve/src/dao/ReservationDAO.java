@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.sql.*;
 
+import com.mysql.cj.protocol.Resultset;
+
 import vo.Reservation;
 
 public class ReservationDAO {
@@ -96,6 +98,42 @@ public class ReservationDAO {
 		}
 		
 			
+		return list;
+	}
+	//오너 예약 목록
+	public ArrayList<Reservation> getOwList(int rest_no) {
+		ArrayList<Reservation> list = new ArrayList<Reservation>();
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try {
+			sql="select * from reservation where rest_no=? order by date,time";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, rest_no);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Reservation reservation = new Reservation();
+				reservation.setReserv_no(Integer.parseInt(rs.getString("reserv_no")));
+				reservation.setDate(rs.getString("date"));
+				reservation.setRest_no(Integer.parseInt(rs.getString("rest_no")));
+				reservation.setTime(rs.getString("time"));
+				reservation.setHead(rs.getString("head"));
+				reservation.setRestName(rs.getString("restName"));
+				
+				list.add(reservation);		
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
 		return list;
 	}
 	
