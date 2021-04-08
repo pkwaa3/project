@@ -357,5 +357,39 @@ public class BoardDAO {
 
 	}
 
+	public ArrayList<Cart> getList(int memberNo) {
+		ArrayList<Cart> list = new ArrayList<Cart>();
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		String sql="";
+		
+		try {
+			sql="select * from cart where member_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Cart cart = new Cart();
+				cart.setCart_no(rs.getInt("cart_no"));
+				cart.setImg(rs.getString("img"));
+				cart.setMember_no(rs.getInt("member_no"));
+				cart.setRestName(rs.getString("restName"));
+				cart.setRest_no(rs.getInt("rest_no"));
+				
+				list.add(cart);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return list;
+	}
+
 	
 }

@@ -1,13 +1,11 @@
-<Context>       
-      <Resource
-		name="jdbc/MySQL"
-		auth="Container"
-		type="javax.sql.DataSource"
-		username="ip20bch"
-		password="ip20bch"
+ 
+ <Context>
+	<Resource name="jdbc/MySQL" auth="Container"
+		type="javax.sql.DataSource" username="ip20bch" password="ip20bch"
 		driverClassName="com.mysql.cj.jdbc.Driver"
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url="jdbc:mysql://118.131.179.138/ip20b_ch"
-		maxActive="500"
-		/>
+		url="jdbc:mysql://118.131.179.138/ip20b_ch" maxActive="500" />
+
+
+
 </Context>
