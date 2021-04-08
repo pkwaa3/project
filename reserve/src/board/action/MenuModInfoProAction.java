@@ -66,8 +66,8 @@ public class MenuModInfoProAction implements Action {
 		Enumeration files = multi.getFileNames();
 
 		while (files.hasMoreElements()) {
-			//System.out.println(menuName.length);
-			//System.out.println(files.hasMoreElements());
+			System.out.println(menuName.length);
+			System.out.println(files.hasMoreElements());
 			Menu menu = null;
 			if (i < 1) {
 				String file = (String) files.nextElement();

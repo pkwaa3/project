@@ -12,6 +12,21 @@
 	if(nowPage==null) nowPage="1";
 	
 %>
+	<%@page import="vo.Review" %>
+    <%@page import="vo.PageInfo" %>
+    <%@page import="java.util.*" %>
+    <%@page import="java.text.SimpleDateFormat"%>
+    
+    <%
+        	ArrayList<Review> articleList = (ArrayList<Review>)request.getAttribute("articleList");
+                    	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+                    	int listCount = pageInfo.getList_count();
+                    	int nowPage1 = pageInfo.getPage();
+                    	int maxPage = pageInfo.getMax_page();
+                    	int startPage = pageInfo.getStart_page();
+                    	int endPage = pageInfo.getEnd_page();
+        %>
+        
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +73,35 @@
 .active {
   background-color: #4CAF50;
 }
+
+/* 리뷰 스타일*/
+#registForm {
+		width:500px;
+		height:600px;
+		border:1px solid red;
+		margin:auto;
+	}
+	h2 {
+		text-align:center;
+	}
+	table {
+		margin:auto;
+		width:450px;
+	}
+	#tr_top {
+		background:orange;
+		text-align:center;
+	}
+	#pageList {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
+	#emptyArea {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
 
 </style>
 </head>
@@ -130,6 +174,91 @@
 
   </div>
   <!-- /.container -->
+
+<!-- 리뷰  -->
+
+<div>
+
+<section id="listForm">
+	<form action="reviewWritePro.bo" method="post" enctype="multipart/form-data" name="reviewForm">
+		<input type="text" id="review_content" name="review_content">
+		<input type="submit" value="등록">
+	</form>
+	
+	<table>
+		<%
+			if(articleList != null && listCount > 0) {				
+		%>	
+		<tr id="tr_top">
+			<td>번호</td>
+			<td>내용</td>
+			<td>작성자</td>
+			<td>날짜</td>
+		</tr>
+		<%
+			for(int i=0; i<articleList.size(); i++) {
+		%>
+		<tr>
+			<td><%=i %></td>
+			<td>
+				<%if(articleList.get(i).getReview_re_lev() != 0) {%>
+				<%for(int a=0; a<=articleList.get(i).getReview_re_lev()*2; a++) { %>
+				&nbsp;
+				<%} %> ▶
+				<% } else{ %> ▶ <% } %>
+				
+				<%=articleList.get(i).getReview_content() %>
+				
+			</td>
+			<td><%=articleList.get(i).getMember_id() %></td>
+			<td><%=articleList.get(i).getReview_date() %></td>
+			
+		</tr>
+		<%} %>
+	</table>
+	</section>
+	
+	<section id="pageList">
+	<%if(nowPage1<=1) { %>
+		[이전]&nbsp;
+	<% }else { %>
+		<a href="boardList.bo?page=<%=nowPage1-1 %>">[이전]</a>&nbsp;
+	<%} %>
+	
+	<%for(int a=startPage; a<=endPage; a++) {
+		if(a==nowPage1) {%>
+			[<%=a %>]
+		<%}else{ %>
+			<a href="boardList.bo?page=<%=a %>">[<%=a %>]
+			</a>&nbsp;
+		<%} %>
+	<%} %>
+	<%if(nowPage1>=maxPage) { %>
+		[다음]
+	<%}else{ %>
+		<a href="boardList.bo?page=<%=nowPage+1 %>">[다음]</a>
+	<%} %>	
+</section>
+<% } else { %>
+	<section id="emptyArea">등록된 글이 없습니다.</section>
+<%} %>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
