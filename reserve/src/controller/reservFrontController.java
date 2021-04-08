@@ -43,6 +43,8 @@ import owner.action.marketModInfoProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import owner.action.ownerRegiMarketListAction;
+import review.action.ReviewListProAction;
+import review.action.ReviewWriteProAction;
 import vo.ActionForward;
 
 /**
@@ -322,6 +324,24 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		// 리뷰 작성 프로
+				else if (command.equals("/reviewWritePro.own")) {
+					action = new ReviewWriteProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		// 리뷰 리스트 프로
+				else if (command.equals("/reviewListPro.own")) {
+					action = new ReviewListProAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 
 		// ㅈㅇ우
 		// 오너 로그인 액션

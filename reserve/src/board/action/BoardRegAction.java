@@ -3,7 +3,7 @@ package board.action;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

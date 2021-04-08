@@ -32,6 +32,7 @@ public class BoardViewMemAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setPath("boardViewInfoMem.bo");
 		
+		
 		return forward;
 	}
 
