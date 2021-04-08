@@ -1,5 +1,6 @@
 package board.action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +53,21 @@ public class CartAddAction implements Action {
 		CartAddService cartAddSvc = new CartAddService();
 		int addCart = cartAddSvc.addCart(cart);
 		
-		if(addCart>0)
+		if(addCart>0) {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('찜목록에 추가되었습니다.');");
+			//out.println("<location.href=main.com>");
+			out.println("<script>");
+		}else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미 있는 가게입니다.');");
+			//out.println("<location.href=main.com>");
+			out.println("<script>");
+		}
 		
 		forward= new ActionForward();
 		

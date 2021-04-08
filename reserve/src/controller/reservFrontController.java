@@ -16,6 +16,7 @@ import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.BoardViewMemAction;
 import board.action.CartAddAction;
+import board.action.CartListAction;
 import board.action.MarketSearchAction;
 import board.action.ReservationAction;
 import board.action.reservationListAction;
@@ -304,29 +305,23 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 
-				else if (command.equals("/menuModInfoForm.own")) {
-					action = new MenuModInfoFormAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
+		else if (command.equals("/menuModInfoForm.own")) {
+			action = new MenuModInfoFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		// 메뉴 정보 수정 프로
-				else if (command.equals("/menuModInfoPro.own")) {
-					action = new MenuModInfoProAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-
-		
-
-
-
-
+		else if (command.equals("/menuModInfoPro.own")) {
+			action = new MenuModInfoProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
@@ -556,6 +551,20 @@ public class reservFrontController extends HttpServlet {
 			forward.setPath("board/reservationInfoOwn.jsp");
 		}
 		// 찜하기 액션
+//		else if (command.equals("/cartList.bo")) {
+//			action = new CartListAction();
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+		// 찜하기 폼
+		else if (command.equals("/cartList.bo")) {
+			forward = new ActionForward();
+			forward.setPath("board/CartList.jsp");
+		}
+		// 찜하기폼 액션
 		else if (command.equals("/cartAdd.bo")) {
 			action = new CartAddAction();
 			try {
@@ -564,12 +573,6 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		//찜하기 폼
-		else if (command.equals("/cartList.bo")) {
-			forward = new ActionForward();
-			forward.setPath("board/CartList.jsp");
-		}
-		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
