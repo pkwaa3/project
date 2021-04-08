@@ -215,7 +215,7 @@ body {
 </head>
 <body>
 <ul class="nav">
-  <li><a class="active" href="main.com">Home</a></li>
+  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("owner_id") == null){

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import action.Action;
 import board.svc.MarketSearchService;
@@ -16,6 +17,8 @@ public class MarketSearchMemberAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		
 		int page = 1;
 		int limit = 12;
 		int limitPage = 10;

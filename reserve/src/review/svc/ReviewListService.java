@@ -41,4 +41,21 @@ public class ReviewListService {
 		
 		return searchList;
 	}
+
+	public ArrayList<Review> getArticleList(int reviewPage, int limit, int board_no) {
+		ArrayList<Review> searchList = null;
+		Connection con = null;
+		try {
+			con = getConnection();
+			ReviewDAO reviewDAO = ReviewDAO.getInstance();
+			reviewDAO.setConnection(con);
+			searchList = reviewDAO.selectReviewList(reviewPage, limit, board_no);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		
+		return searchList;
+	}
 }

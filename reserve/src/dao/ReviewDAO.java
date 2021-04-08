@@ -124,6 +124,48 @@ public class ReviewDAO {
 		
 		return articleList;
 	}
+
+	public ArrayList<Review> selectReviewList(int reviewPage, int limit, int board_no) {
+		ArrayList<Review> articleList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from review where board_no = ? order by review_re_ref desc, review_re_seq asc limit ?, ?";
+		int startrow = (reviewPage - 1) * limit;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			pstmt.setInt(2, startrow);
+			pstmt.setInt(3, limit);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Review review = new Review();
+				
+				review.setBoard_no(rs.getInt("board_no"));
+				review.setMember_id(rs.getString("member_id"));
+				review.setOwner_id(rs.getString("owner_id"));
+				review.setReview_content(rs.getString("review_content"));
+				review.setReview_date(rs.getDate("review_date"));
+				review.setReview_re_ref(rs.getInt("review_re_ref"));
+				review.setReview_re_lev(rs.getInt("review_re_lev"));
+				review.setReview_re_seq(rs.getInt("review_re_seq"));
+				
+				
+				
+				articleList.add(review);
+				
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return articleList;
+	}
 	
 	
 }

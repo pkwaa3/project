@@ -325,7 +325,7 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 		// 리뷰 작성 프로
-				else if (command.equals("/reviewWritePro.own")) {
+				else if (command.equals("/reviewWritePro.bo")) {
 					action = new ReviewWriteProAction();
 					try {
 						forward = action.execute(request, response);
@@ -334,7 +334,7 @@ public class reservFrontController extends HttpServlet {
 					}
 				}
 		// 리뷰 리스트 프로
-				else if (command.equals("/reviewListPro.own")) {
+				else if (command.equals("/reviewListPro.bo")) {
 					action = new ReviewListProAction();
 					try {
 						forward = action.execute(request, response);
@@ -342,6 +342,11 @@ public class reservFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
+		
+		
+		
+		
+		
 
 		// ㅈㅇ우
 		// 오너 로그인 액션
