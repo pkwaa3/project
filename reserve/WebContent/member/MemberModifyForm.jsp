@@ -1,6 +1,7 @@
 <%@page import="vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	Member member = (Member)request.getAttribute("member");
 %>
@@ -91,13 +92,85 @@
   padding: 10px;
   height: 500px; /* Should be removed. Only for demonstration */
 }
+/* 컨텐츠 */
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  pad	;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+  padding:5px;
+}
+
 </style>
 </head>
 <body>
-
 <nav id="topmenu">
 <ul >
-  <li><a class="active" href="main.com?id=${id }">Home</a></li>
+  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
@@ -108,7 +181,7 @@
 <%
 	} else{
 %>
-		<li style="float:right"><a href="memberMyPage.mem?id=<%=session.getAttribute("id") %>"><%=session.getAttribute("id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="memberMyPage.mem"><%=session.getAttribute("id") %>님 환영합니다.</a></li>
 		<li style="float:right"><a href="memberLogout.mem">로그아웃</a></li>
 		</ul>
 <%
@@ -131,50 +204,48 @@
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	
+  
+  		<form class="modal-content" name="memberModForm" action="memberMod.mem" method="post" >
+	
+	
+	 <div class="container">
+    <h1>회원 정보 수정</h1>
+    <hr>
+	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no") %>" />
+	
+	
+    <label for="id"><b>아이디</b></label>
+    <input type="text" name="member_id" id="member_id" value="<%=member.getMember_id()%>">
+	
+	<label for="id"><b>비밀번호</b></label>
+    <input type="password" name="member_pw" id="member_pw" value="<%=member.getMember_pw()%>">
+	
+	<label for="id"><b>이름</b></label>
+    <input type="text" name="member_name" id="member_name" value="<%=member.getMember_name()%>">
+
+    <label for="tell"><b>나이</b></label>
+   <input type="text" name="member_age" id="member_age" value="<%=member.getMember_age() %>" >
+    
+    <label for="kind"><b>성별</b> </label><P> 	
+    <input type="radio" name="member_gender" value="남" ${member.member_gender eq '남' ? 'checked' : '' } id="gender1" />남자
+			 <input type="radio" name="member_gender" value="여" ${member.member_gender eq '여' ? 'checked' : '' } id="gender2" />여자</P>
+   	
+   	<label for="open"><b>전화번호</b></label><p>
+    <input type="text" name="member_number" id="member_number" value="<%=member.getMember_number() %>" ><p>
+    
+    <label for="close"><b>이메일 주소</b></label><p>
+    <input type="text" name="member_email" id="member_email" value="<%=member.getMember_email() %>"><p>
+ 
+    
+    <div class="clearfix">
+      <button type="button" class="cancelbtn" onclick="history.back()">뒤로 가기</button>
+      <button type="submit" class="signupbtn">수정하기</button>
+    </div>
+  </div>
+</form>
+  
   </div>
 </div>
 
-<form action="memberMod.mem" name="memberModForm" method="post">
-	<table border=1>
-		<tr>
-			<td>아이디 : </td>
-			<td colspan="2"><input type="text" name="member_id" id="member_id" value="<%=member.getMember_id() %>" /></td>
-		</tr>
-		<tr>
-			<td>비밀번호 : </td>
-			<td colspan="2"><input type="password" name="member_pw" id="member_pw" value="<%=member.getMember_pw() %>"  /></td>
-		</tr>
-		<tr>
-			<td>이름 :</td>
-			<td colspan="2"><input type="text" name="member_name" id="member_name" value="<%=member.getMember_name() %>" ></td>
-		</tr>
-		<tr>
-			<td>나이 :</td>
-			<td colspan="2"><input type="text" name="member_age" id="member_age" value="<%=member.getMember_age() %>" ></td>
-		</tr>
-		<tr>
-			<td>성별 :</td>
-			<td colspan="2"><input type="radio" name="member_gender" value="남" ${member.member_gender eq '남' ? 'checked' : '' } id="gender1" />남자
-			 <input type="radio" name="member_gender" value="여" ${member.member_gender eq '여' ? 'checked' : '' } id="gender2" />여자</td>
-			 
-		</tr>
-		<tr>
-			<td>전화번호 :</td>
-			<td colspan="2"><input type="text" name="member_number" id="member_number" value="<%=member.getMember_number() %>" ></td>
-		</tr>
-		<tr>
-			<td>이메일 주소 :</td>
-			<td colspan="2"><input type="text" name="member_email" id="member_email" value="<%=member.getMember_email() %>"></td>
-		</tr>
-		<tr>
-			<td><a href="javascript:memberModForm.submit()">수정</a></td>
-			<td><a href="javascrip:memberModForm.reset()">초기화</a></td>
-			<td><a href="history.back()">뒤로 가기</a></td>
-			
-		</tr>
-		
-	</table>
-	</form>
 </body>
 </html>
