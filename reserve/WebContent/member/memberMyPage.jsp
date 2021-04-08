@@ -122,15 +122,12 @@
   			<li><a href="memberModInfoForm.mem?id=<%=session.getAttribute("id") %>">회원 정보 수정</a></li>
 			<li><a href="reservInfo.mem?member_id=${id }">예약 내역</a></li>
   			<li><a href="memberDeleteForm.mem?member_id=<%=session.getAttribute("id") %>">회원탈퇴</a></li>
-  						
+  			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>	
   		</ul>
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	아이디 : <%=session.getAttribute("owner_id") %>
-  	비밀번호 : <%=session.getAttribute("owner_pw") %>
-  	아이디 번호 : <%=session.getAttribute("owner_no") %>
-  	가게 번호 : <%=session.getAttribute("rest_no") %>123455
+  	
   </div>
 </div>
 

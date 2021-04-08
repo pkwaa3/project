@@ -575,21 +575,21 @@ public class reservFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("board/reservationInfoOwn.jsp");
 		}
-		// 찜하기 액션
-//		else if (command.equals("/cartList.bo")) {
-//			action = new CartListAction();
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-		// 찜하기 폼
+		// 찜폼 액션
 		else if (command.equals("/cartList.bo")) {
+			action = new CartListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 찜폼
+		else if (command.equals("/cartListForm.bo")) {
 			forward = new ActionForward();
 			forward.setPath("board/CartList.jsp");
 		}
-		// 찜하기폼 액션
+		// 찜하기 액션
 		else if (command.equals("/cartAdd.bo")) {
 			action = new CartAddAction();
 			try {

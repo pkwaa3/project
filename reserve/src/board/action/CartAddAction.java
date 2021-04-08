@@ -58,7 +58,9 @@ public class CartAddAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('찜목록에 추가되었습니다.');");
-			//out.println("<location.href=main.com>");
+			forward= new ActionForward();
+			forward.setPath("");
+			//out.println("<location.href=boardViewMem.bo?board_no=24&page=1&id=java1>");
 			out.println("<script>");
 		}else {
 			response.setContentType("text/html;charset=utf-8");
@@ -69,7 +71,6 @@ public class CartAddAction implements Action {
 			out.println("<script>");
 		}
 		
-		forward= new ActionForward();
 		
 		
 		return forward;

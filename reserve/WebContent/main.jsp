@@ -156,7 +156,8 @@ body {
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  margin-top:250px;
+  background-color: #ffffff;
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -213,9 +214,7 @@ body {
 	}
 %>
 
-<h2>CSS Template using Float</h2>
-<p>In this example, we have created a header, three equal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
-<p>Resize the browser window to see the responsive effect.</p>
+
 
 <div class="header">
   
