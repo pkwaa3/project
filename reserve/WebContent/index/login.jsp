@@ -146,6 +146,7 @@ body {
   width: 33.33%;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
+  align:center;
 }
 
 /* Clear floats after the columns */
@@ -165,28 +166,49 @@ body {
   background-color: #f1f1f1;
   padding: 10px;
   width:100%;
-  position:absolute;
-   bottom:0;
+  height:100px;
+  position:fixed;
+  bottom:0;
   text-align: center;
+  margin-top:1000px;
+}
+.column img{
+	width:300px;
+	height:250px;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .column {
     width: 100%;
   }
+  
+  .column img{
+  	width:250px;
+  	height:150px;
+  }
+}@media (max-width: 1440px) {
+  .column {
+    width: 100%;
+  }
+  
+  .column img{
+  	width:500px;
+  	height:300px;
+  }
 }
+
 </style>
 </head>
 <body>
 <ul class="nav">
-  <li><a class="active" href="../main.com">Home <i class="glyphicon glyphicon-home"></i></a></li>
+  <li><a class="active" href="main.com">Home <i class="glyphicon glyphicon-home"></i></a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
 %>
-  <li style="float:right"><a href="index/login.jsp">로그인</a></li>
-  <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
+  <li style="float:right"><a href="login.com">로그인</a></li>
+  <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%
 	} else{
@@ -199,10 +221,11 @@ body {
 %>
 
 <div class="row">
-  <div class="column" style=" margin-left:120px; margin-right:120px; margin-top:250px; text-align:center;"><br><a href="../ownerLoginForm.own"><img src="../img/점장.jpg" width="500px" height="300px"><br>점장님 로그인</a></div>
-  <div class="column" style=" margin-left:120px; margin-right:120px; margin-top:250px; text-align:center;"><a href="../memberLoginForm.mem"><img src="../img/손님.png" width="500px" height="300px"><br>일반회원 로그인</a></div>
+  <div class="column" style=" margin-left:120px; margin-right:120px; margin-top:250px; text-align:center;"><br><a href="ownerLoginForm.own"><img src="img/점장.jpg" id="img"><br>점장 로그인</a></div>
+  <div class="column" style=" margin-left:120px; margin-right:120px; margin-top:250px; text-align:center;"><a href="memberLoginForm.mem"><img src="img/손님.png" id="img"><br>일반회원 로그인</a></div>
   
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div class="footer">
   <p>Footer</p>

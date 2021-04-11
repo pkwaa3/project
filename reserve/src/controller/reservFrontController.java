@@ -598,6 +598,16 @@ public class reservFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		//로그인 폼
+		else if (command.equals("/login.com")) {
+			forward = new ActionForward();
+			forward.setPath("index/login.jsp");
+		}
+		//회원가입 폼
+		else if (command.equals("/join.com")) {
+			forward = new ActionForward();
+			forward.setPath("index/join.jsp");
+		}
 
 		if (forward != null) {
 			if (forward.isRedirect()) {

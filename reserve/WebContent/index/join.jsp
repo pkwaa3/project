@@ -5,29 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script>	
-	function okseoul(f) {
-		document.getElementById("where").value=f.seoul.value;
-		}
-	function okdaegu(f) {
-		document.getElementById("where").value=f.daegu.value;
-		}
-	function okbusan(f) {
-		document.getElementById("where").value=f.busan.value;
-		}
-	function okhansik(f) {
-		document.getElementById("menu").value=f.hansik.value;
-		}
-	function okjoongsik(f) {
-		document.getElementById("menu").value=f.joongsik.value;
-		}
-	function okyangsik(f) {
-		document.getElementById("menu").value=f.yangsik.value;
-		}
-</script>
 <style>
 
 /*목록*/
@@ -169,6 +146,7 @@ body {
   width: 33.33%;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
+  align:center;
 }
 
 /* Clear floats after the columns */
@@ -177,22 +155,50 @@ body {
   display: table;
   clear: both;
 }
-
+.row a{
+	text-decoration:none;
+	color:black;
+	align:right;
+	font-size:1.5em;
+}
 /* Style the footer */
 .footer {
   background-color: #f1f1f1;
   padding: 10px;
+  width:100%;
+  height:100px;
+  position:fixed;
+  bottom:0;
   text-align: center;
+  margin-top:1000px;
+}
+.column img{
+	width:300px;
+	height:250px;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .column {
     width: 100%;
   }
+  
+  .column img{
+  	width:250px;
+  	height:150px;
+  }
+}@media (max-width: 1440px) {
+  .column {
+    width: 100%;
+  }
+  
+  .column img{
+  	width:500px;
+  	height:300px;
+  }
 }
-</style>
 
+</style>
 </head>
 <body>
 <ul class="nav">
@@ -214,58 +220,15 @@ body {
 	}
 %>
 
-
-
-<div class="header">
-  
-  		<form name="marketSerch" action="marketSearchMember.bo" method="post">
-
-  		
-  			<div id="rcorners1">
-  				<div class="dropdown">
-  					<span> 
-  						<div>
-  							<input class="searchInput" type="text" name="where" id="where" size="10" placeholder="지역 선택" readonly/>
-  						</div>
-  					</span>
-  						<div class="dropdown-content">
-  							<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
-  							<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
-  							<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
-  						</div>
-  				</div>
-  				<div class="dropdown">
-  					<span>
-  				  		<div>
-  				  			<input class="searchInput" type="text" name="menu" id="menu" size="10" placeholder="메뉴 선택" readonly/>
-  				  		</div>
-  				  	</span>
-  				  	<div class="dropdown-content">
-  						<p><input class="button" type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
-  						<p><input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
-  						<p><input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
-  					</div>
-  				</div>
-  				
-  					<div class="dropdown">
-  						<button  class="searchButton" type="submit">   <i class="glyphicon glyphicon-search"></i></button>
-  						
-  					</div>
-			</div>
-  		</form>
-  		
-  
-</div>
-
 <div class="row">
-  <div class="column" style="background-color:#aaa;">Column</div>
-  <div class="column" style="background-color:#bbb;">Column</div>
-  <div class="column" style="background-color:#ccc;">Column</div>
+  <div class="column" style=" margin-left:120px; margin-right:120px; margin-top:250px; text-align:center;"><br><a href="ownerJoinForm.own"><img src="img/점장.jpg" id="img"><br>점장 회원가입</a></div>
+  <div class="column" style=" margin-left:120px; margin-right:120px; margin-top:250px; text-align:center;"><a href="memberJoinForm.mem"><img src="img/손님.png" id="img"><br>일반회원 회원가입</a></div>
+  
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div class="footer">
   <p>Footer</p>
 </div>
-
 </body>
 </html>

@@ -173,7 +173,7 @@ button:hover {
 <body>
 <nav id="topmenu">
 <ul >
-  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
+   <li><a class="active" href="main.com?id=${id }">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
@@ -229,8 +229,8 @@ button:hover {
 		</tr>
 <c:forEach var="list" items="${list }" begin="0" end="4">		
 		<tr>
-			<td><img src="upload/${list.img }" ></td>
-			<td>${list.restName }</td>
+			<td><img src="upload/${list.img }" style="width:50px; height:50px;" ></td>
+			<td><!-- a href="boardViewInfoMem.bo?rest_no=${list.rest_no }"></a-->${list.restName }</td>
 			
 			
 		</tr>

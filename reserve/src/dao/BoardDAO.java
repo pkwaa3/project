@@ -364,7 +364,7 @@ public class BoardDAO {
 		String sql="";
 		
 		try {
-			sql="select * from cart where member_no=?";
+			sql="select * from cart where member_no=? order by cart_no desc";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, memberNo);
 			
