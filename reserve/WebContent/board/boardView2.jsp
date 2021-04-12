@@ -211,7 +211,14 @@
 				<%=articleList.get(i).getReview_content() %>
 				
 			</td>
-			<td><%=articleList.get(i).getMember_id() %></td>
+			<td>
+				<%if(articleList.get(i).getOwner_id()!=null) {%>
+					<%=articleList.get(i).getOwner_id() %>
+				<%} else { %>
+					<%=articleList.get(i).getMember_id() %>
+				<%} %>
+			
+			</td>
 			<td><%=articleList.get(i).getReview_date() %></td>
 			
 		</tr>

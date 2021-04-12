@@ -72,6 +72,33 @@
 .active {
   background-color: #4CAF50;
 }
+<!-- 리뷰 -->
+.review table {
+  border-collapse: collapse;
+  width: 100%;
+  margin:auto; 
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+.review {
+	text-align:center;
+	margin:auto;
+	
+}
 
 </style>
 </head>
@@ -167,10 +194,10 @@
 
 <!-- 리뷰  -->
 
-<div>
+<div class="review">
 
 <section id="listForm">
-	<form action="reviewWritePro.bo" method="post" enctype="multipart/form-data" name="reviewForm">
+	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
 		<input type="text" id="review_content" name="review_content">
 		<input type="submit" value="등록">
 	</form>
@@ -179,11 +206,11 @@
 		<%
 			if(articleList != null && listCount > 0) {				
 		%>	
-		<tr id="tr_top">
-			<td>번호</td>
-			<td>내용</td>
-			<td>작성자</td>
-			<td>날짜</td>
+		<tr>
+			<th>번호</th>
+			<th>내용</th>
+			<th>작성자</th>
+			<th>날짜</th>
 		</tr>
 		<%
 			for(int i=0; i<articleList.size(); i++) {
@@ -200,7 +227,16 @@
 				<%=articleList.get(i).getReview_content() %>
 				
 			</td>
-			<td><%=articleList.get(i).getMember_id() %></td>
+			<td>
+				<%if(articleList.get(i).getOwner_id()!=null) {%>
+					<%=articleList.get(i).getOwner_id() %>
+				<%} else { %>
+					<%=articleList.get(i).getMember_id() %>
+				<%} %>
+				
+				
+			
+			</td>
 			<td><%=articleList.get(i).getReview_date() %></td>
 			
 		</tr>
