@@ -18,6 +18,7 @@ import board.action.BoardViewMemAction;
 import board.action.CartAddAction;
 import board.action.CartListAction;
 import board.action.MarketSearchAction;
+import board.action.MarketSearchMemAction;
 import board.action.ReservationAction;
 import board.action.reservationListAction;
 import board.action.MarketSearchMemberAction;
@@ -237,6 +238,15 @@ public class reservFrontController extends HttpServlet {
 		// 마켓 서치 리스트 상단바 액션
 		else if (command.equals("/marketSearch1.bo")) {
 			action = new MarketSearchAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 마켓 서치 리스트멤버 상단바 액션
+		else if (command.equals("/marketSearchMem1.bo")) {
+			action = new MarketSearchMemAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

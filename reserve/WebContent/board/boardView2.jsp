@@ -152,14 +152,15 @@
     </div>
     
 	
+    <div class="row">
 <c:if test="${list != null }" >
 	<c:forEach var="list" items="${list }" varStatus="status" >
     <!-- Content Row -->
-    <div class="row">
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <div class="card-body">
-          <img src="upload/${list.menu_org_img }" style="width:300px; height:350px; cover;" /></div>
+          <div class="card-body" >
+          <img src="upload/${list.menu_org_img }" class="card-img" >
+          </div>
           <div class="card-footer">
             <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }</a>
           </div>

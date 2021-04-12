@@ -43,7 +43,7 @@ public class ownerLoginAction implements Action {
 				response.setContentType("text/html;charset=utf-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('로그인 실패1');");
+				out.println("alert('아이디 혹은 비밀번호가 틀렸습니다.');");
 				out.println("history.back()");
 				out.println("</script>");
 			}
@@ -53,7 +53,7 @@ public class ownerLoginAction implements Action {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('로그인 실패2');");
+			out.println("alert('비밀번호가 틀렸습니다.');");
 			out.println("history.back()");
 			out.println("</script>");
 

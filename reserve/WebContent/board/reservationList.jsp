@@ -214,9 +214,9 @@ button:hover {
 <%
 	} else{
 %>
-		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
-		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
-		</ul>
+		 <li style="float:right"><a href="login.com">로그인</a></li>
+  		 <li style="float:right"><a href="join.com">회원가입</a></li>
+</ul>
 <%
 	}
 %>
