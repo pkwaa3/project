@@ -116,25 +116,8 @@ th {
 
 <body>
 <!-- <jsp:include page="../head.jsp"></jsp:include>-->
-<ul class="nav">
-  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
-<%
-	request.setCharacterEncoding("utf-8");
-	if(session.getAttribute("owner_id") == null){
-%>
-  <li style="float:right"><a href="index/login.jsp">로그인</a></li>
-  <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
-</ul>
-<%
-	} else{
-%>
-		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
-		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
-		</ul>
-<%
-	}
-%>
- 
+
+ <jsp:include page="../headOw.jsp"></jsp:include>
  
   <!-- Page Content -->
 <form action="reservation.bo" method="post">
@@ -198,15 +181,11 @@ th {
 
 <div class="review">
 
-<section id="listForm">
-	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
-		<input type="text" id="review_content" name="review_content">
-		<input type="submit" value="등록">
-	</form>
 	
-	<table>
+	<table align="center">
 		<%
-			if(articleList != null && listCount > 0) {				
+			if(articleList != null && listCount>0) {
+			System.out.println(articleList);
 		%>	
 		<tr>
 			<th>번호</th>
@@ -244,7 +223,6 @@ th {
 		</tr>
 		<%} %>
 	</table>
-	</section>
 	
 	<section id="pageList">
 	<%if(nowPage1<=1) { %>
@@ -271,6 +249,12 @@ th {
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
 
+<section id="listForm">
+	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
+		<input type="text" id="review_content" name="review_content">
+		<input type="submit" value="등록">
+	</form>
+	</section>
 
 
 </div>
