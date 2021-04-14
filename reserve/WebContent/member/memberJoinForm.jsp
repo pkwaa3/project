@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>:::일반회원가입|야먹자:::</title>
 <script>
 	function formCheck(f) {
 		if(f.id.value.trim()==""){

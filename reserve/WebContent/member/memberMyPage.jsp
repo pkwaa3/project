@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::회원마이페이지|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {

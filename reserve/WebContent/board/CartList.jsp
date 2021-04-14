@@ -12,7 +12,7 @@ ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::회원찜목록|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {

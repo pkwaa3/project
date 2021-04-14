@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::야먹자:::</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,6 +43,9 @@
 		}
 	function okyangsik(f) {
 		document.getElementById("menu").value=f.yangsik.value;
+		}
+	function okilsik(f) {
+		document.getElementById("menu").value=f.ilsik.value;
 		}
 	function okbunsik(f) {
 		document.getElementById("menu").value=f.bunsik.value;
@@ -167,14 +170,17 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
   z-index: 1;
+  
 }
 
 .dropdown:hover  .dropdown-content {
   display: block;
+  
 }
 
 .dropdown:visited  .dropdown-content {
   display: block;
+  
 }
 
 /*본문*/
@@ -313,6 +319,7 @@ body {
   						<p><input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
   						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)"></p>
   						<p><input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
+  						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)"></p>
   						<p><input class="button" type="button" name="bunsik" id="bunsik" value="분식" onclick="okbunsik(this.form)"></p>
   						<p><input class="button" type="button" name="jjimtang" id="jjimtang" value="찜탕" onclick="okjjimtang(this.form)"></p>
   						<p><input class="button" type="button" name="cafe" id="cafe" value="카페" onclick="okcafe(this.form)"></p>
@@ -331,7 +338,7 @@ body {
 </div>
 
 <div class="row">
-  <div class="column" style="background-color:#aaa;">
+  <div class="column">
   	<div class="slide">
     <ul>
       <li><img src="img/slider1.PNG" id="img"></li>
@@ -341,7 +348,7 @@ body {
     </ul>
   </div>
   </div>
-  <div class="column" style="background-color:#bbb;">
+  <div class="column">
   
 
 
@@ -359,7 +366,7 @@ body {
   
   
   </div>
-  <div class="column" style="background-color:#ccc;">
+  <div class="column" >
   	<div class="slide">
     <ul>
       <li><img src="img/slider1.PNG" id="img"></li>

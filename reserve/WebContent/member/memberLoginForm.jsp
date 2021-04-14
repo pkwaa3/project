@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::일반회원로그인|야먹자:::</title>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 

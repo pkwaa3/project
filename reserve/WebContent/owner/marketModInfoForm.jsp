@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::점장가게수정|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {
