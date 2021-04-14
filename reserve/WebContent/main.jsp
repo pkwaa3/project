@@ -30,8 +30,11 @@
 </script>
 <style>
 
-/*목록*/
- ul {
+/*탑 목록*/
+#topmenu {
+
+}
+#topmenu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -39,16 +42,16 @@
   background-color: #333;
 }
 
- li {
+#topmenu li {
   float: left;
   border-right:1px solid #bbb;
 }
 
- li:last-child {
+#topmenu li:last-child {
   border-right: none;
 }
 
- li a {
+#topmenu li a {
   display: block;
   color: white;
   text-align: center;
@@ -56,13 +59,14 @@
   text-decoration: none;
 }
 
- li a:hover:not(.active) {
+#topmenu li a:hover:not(.active) {
   background-color: #111;
 }
 
 .active {
   background-color: #4CAF50;
 }
+
 
 /*검색*/
 #rcorners1 {
@@ -195,11 +199,12 @@ body {
 
 </head>
 <body>
-<ul class="nav">
-  <li><a class="active" href="main.com">Home <i class="glyphicon glyphicon-home"></i></a></li>
+<nav id="topmenu">
+<ul >
+  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
-	if(session.getAttribute("id") == null){
+	if(session.getAttribute("owner_id") == null){
 %>
   <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
@@ -213,6 +218,7 @@ body {
 <%
 	}
 %>
+</nav>
 
 
 

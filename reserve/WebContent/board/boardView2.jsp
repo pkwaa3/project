@@ -85,9 +85,26 @@
 		text-align:center;
 	}
 	table {
-		margin:auto;
-		width:450px;
-	}
+  border-collapse: collapse;
+  width: 1200px;
+  margin:auto; 
+}
+
+td {
+  text-align: center;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
 	#tr_top {
 		background:orange;
 		text-align:center;
@@ -102,6 +119,22 @@
 		width:500px;
 		text-align:center;
 	}
+	
+	.review {
+	text-align:center;
+	margin:auto;
+	
+}
+
+/* Full-width input fields */
+input[type=text]{
+  width: 1000px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
 </style>
 </head>
@@ -179,14 +212,14 @@
 
 <!-- 리뷰  -->
 
-<div>
+<div class="review">
 
 <section id="listForm">
 	<form action="reviewWritePro.bo" method="post" enctype="multipart/form-data" name="reviewForm">
-		<input type="text" id="review_content" name="review_content">
+		<input type="text" id="review_content" name="review_content" maxlength='100'>
 		<input type="submit" value="등록">
 	</form>
-	
+	<br>
 	<table>
 		<%
 			if(articleList != null && listCount > 0) {				

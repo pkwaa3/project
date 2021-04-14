@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+`<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@page import="vo.PageInfo" %>
     <%@page import="vo.Board" %>
@@ -38,8 +38,11 @@ div.container {
 }
 
 
-/*목록*/
- ul {
+/*탑 목록*/
+#topmenu {
+
+}
+#topmenu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -47,16 +50,16 @@ div.container {
   background-color: #333;
 }
 
- li {
+#topmenu li {
   float: left;
   border-right:1px solid #bbb;
 }
 
- li:last-child {
+#topmenu li:last-child {
   border-right: none;
 }
 
- li a {
+#topmenu li a {
   display: block;
   color: white;
   text-align: center;
@@ -64,7 +67,7 @@ div.container {
   text-decoration: none;
 }
 
- li a:hover:not(.active) {
+#topmenu li a:hover:not(.active) {
   background-color: #111;
 }
 
@@ -104,12 +107,13 @@ div.container {
   display: inline-block;
 }
 .box {
-	width: 500px;
+	width: 700px;
     height: 70px;
 	text-align:center;
 	margin:0 auto;
 	border: 2px solid black;
 	display: inline-block;
+	border-radius: 25px;
 	 
 }
 
@@ -214,13 +218,14 @@ body {
 </style>
 </head>
 <body>
-<ul class="nav">
+<nav id="topmenu">
+<ul >
   <li><a class="active" href="mainLoginOwner.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("owner_id") == null){
 %>
-   <li style="float:right"><a href="login.com">로그인</a></li>
+  <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%
@@ -232,19 +237,28 @@ body {
 <%
 	}
 %>
+</nav>
 <p>
 	<div style="text-align:center">
 	<div class="box">
 
 		<div id="rcorners2"><a href="marketSearch1.bo?where=서울&menu=<%=request.getAttribute("kind") %>">서울</a></div>
+		<div id="rcorners2"><a href="marketSearch1.bo?where=인천&menu=<%=request.getAttribute("kind") %>">인천</a></div>
+		<div id="rcorners2"><a href="marketSearch1.bo?where=대전&menu=<%=request.getAttribute("kind") %>">대전</a></div>
+		<div id="rcorners2"><a href="marketSearch1.bo?where=광주&menu=<%=request.getAttribute("kind") %>">광주</a></div>
   		<div id="rcorners2"><a href="marketSearch1.bo?where=대구&menu=<%=request.getAttribute("kind") %>">대구</a></div>
+  		<div id="rcorners2"><a href="marketSearch1.bo?where=울산&menu=<%=request.getAttribute("kind") %>">울산</a></div>
   		<div id="rcorners2"><a href="marketSearch1.bo?where=부산&menu=<%=request.getAttribute("kind") %>">부산</a></div>
   	</div>
   	<div class="box">
 
+		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
 		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
-  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
+		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=일식">일식</a></div>
   		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">양식</a></div>
+  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=분식">분식</a></div>
+  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">찜탕</a></div>
+  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=카페디저트">카페</a></div>
   	</div>
   	</div>
   		
@@ -253,9 +267,11 @@ body {
 <section id="listForm">
 <div style="text-align:center">
 	<h2>
+	<br><br>
 		<%=request.getAttribute("local") %>&nbsp;&nbsp;
 		<%=request.getAttribute("kind") %>&nbsp;&nbsp;맛집 정보입니다.
 	</h2>
+	<br><br>
 </div>
 	<!-- <table>
 		<%
@@ -307,7 +323,7 @@ body {
  				
  				<div class="polaroid" style="width:50%">
  					 <a  href="boardView.bo?board_no=${result.board_no }&page=<%=nowPage %>">
-  						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:100%">
+  						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:300px; height:200px;">
   					</a>
 				  	<div class="container">
     						<p>${result.board_subject }</p>
