@@ -158,7 +158,6 @@
     <!-- Content Row -->
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <div class="card-img">
           <div class="card-body" >
           <img src="upload/${list.menu_org_img }" class="card-img" >
           </div>
@@ -184,9 +183,6 @@
 
 <section id="listForm">
 	<form action="reviewWritePro.bo" method="post" enctype="multipart/form-data" name="reviewForm">
-		<input type="text" id="review_content" name="review_content">
-		<input type="submit" value="등록">
-	</form>
 	
 	<table>
 		<%
@@ -248,10 +244,13 @@
 	<%}else{ %>
 		<a href="boardList.bo?page=<%=nowPage+1 %>">[다음]</a>
 	<%} %>	
-</section>
+		<br><input type="text" id="review_content" name="review_content">
+		<input type="submit" value="등록">
+	</form>
 <% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
+</section>
 
 
 

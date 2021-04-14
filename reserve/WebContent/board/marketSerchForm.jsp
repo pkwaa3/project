@@ -244,7 +244,8 @@ body {
 
 		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
   		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
-  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">양식</a></div>
+  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=양식">양식</a></div>
+  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=양식">일식</a></div>
   	</div>
   	</div>
   		
