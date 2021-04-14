@@ -184,7 +184,7 @@ button:hover {
 		width:450px;
 	}
 	#tr_top {
-		background:orange;
+		background:#BEAED4;
 		text-align:center;
 	}
 	#pageList {
@@ -208,15 +208,15 @@ button:hover {
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("owner_id") == null){
 %>
-  <li style="float:right"><a href="index/login.jsp">로그인</a></li>
-  <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
+  <li style="float:right"><a href="login.com">로그인</a></li>
+  <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%
 	} else{
 %>
-		 <li style="float:right"><a href="login.com">로그인</a></li>
-  		 <li style="float:right"><a href="join.com">회원가입</a></li>
-</ul>
+		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
+		</ul>
 <%
 	}
 %>
@@ -233,7 +233,7 @@ button:hover {
   			<li><a href="ownerRegiMarketForm.own?owner_id=<%=session.getAttribute("owner_id") %>">가게 정보 등록</a></li>
   			<li><a href="boardRegInfoForm.bo?owner_id=<%=session.getAttribute("owner_id") %>">메뉴 등록</a></li>
   			<li><a href="ownerRegiMarketList.own?owner_id=<%=session.getAttribute("owner_id") %>">가게 등록 리스트</a></li>
-  			<li><a href="">예약 내역</a></li>
+  			<li><a href="reservationList.own?owner_id=<%=session.getAttribute("owner_id") %>">예약 내역</a></li>
   			<li><a href="ownerDeleteForm.own?owner_id=<%=session.getAttribute("owner_id") %>">회원탈퇴</a></li>
   			
   		</ul>

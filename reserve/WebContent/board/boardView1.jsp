@@ -172,6 +172,8 @@ input[type=text]{
 %>
 </nav>
  
+
+ <jsp:include page="../headOw.jsp"></jsp:include>
  
   <!-- Page Content -->
 <form action="reservation.bo" method="post">
@@ -235,6 +237,7 @@ input[type=text]{
 <br><br><br>
 <div class="review">
 
+
 <section id="listForm">
 	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
 		<input type="hidden" id="board_no" name="board_no" value="<%=board.getBoard_no()%>">
@@ -243,8 +246,13 @@ input[type=text]{
 	</form>
 	<br>
 	<table border="1">
+
+	
+	<table align="center">
+
 		<%
-			if(articleList != null && listCount > 0) {				
+			if(articleList != null && listCount>0) {
+			System.out.println(articleList);
 		%>	
 		<tr>
 			<th>번호</th>
@@ -282,8 +290,10 @@ input[type=text]{
 		</tr>
 		<%} %>
 	</table>
+
 	</section>
 	<br><br><br>
+
 	<section id="pageList">
 	<%if(nowPage1<=1) { %>
 		[이전]&nbsp;
@@ -309,7 +319,17 @@ input[type=text]{
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
 
+
 <br><br><br><br>
+
+<section id="listForm">
+	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
+		<input type="text" id="review_content" name="review_content">
+		<input type="submit" value="등록">
+	</form>
+	</section>
+
+
 
 </div>
 

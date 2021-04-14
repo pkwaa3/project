@@ -42,7 +42,6 @@ public class CartAddAction implements Action {
 		System.out.println(memberNo);
 		System.out.println(img);
 		
-		ArrayList<Cart> list = new ArrayList<Cart>();
 		
 		Cart cart = new Cart();
 		cart.setImg(img);
@@ -52,24 +51,30 @@ public class CartAddAction implements Action {
 		
 		CartAddService cartAddSvc = new CartAddService();
 		int addCart = cartAddSvc.addCart(cart);
-		
+		System.out.println(addCart);
 		if(addCart>0) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('찜목록에 추가되었습니다.');");
-			forward= new ActionForward();
-			forward.setPath("");
-			//out.println("<location.href=boardViewMem.bo?board_no=24&page=1&id=java1>");
-			out.println("<script>");
+			out.println("history.back();");
+			out.println("</script>");
 		}else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('이미 있는 가게입니다.');");
-			//out.println("<location.href=main.com>");
-			out.println("<script>");
+			out.println("alert('찜 실패.');");
+			out.println("history.back();");
+			out.println("</script>");
 		}
+//		else {
+//			response.setContentType("text/html;charset=utf-8");
+//			PrintWriter out = response.getWriter();
+//			out.println("<script>");
+//			out.println("alert('이미 있는 가게입니다.');");
+//			//out.println("<location.href=main.com>");
+//			out.println("<script>");
+//		}
 		
 		
 		

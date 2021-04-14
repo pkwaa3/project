@@ -191,6 +191,7 @@ input[type=text]{
     <!-- Content Row -->
       <div class="col-md-4 mb-5">
         <div class="card h-100">
+          <div class="card-img">
           <div class="card-body" >
           <img src="upload/${list.menu_org_img }" class="card-img" >
           </div>

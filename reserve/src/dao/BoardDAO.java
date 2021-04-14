@@ -313,9 +313,12 @@ public class BoardDAO {
 	public int addCart(Cart cart) {
 		int addCart =0;
 		PreparedStatement pstmt=null;
+		ResultSet rs= null;
 		String sql="";
-		
+		String sql1="";
 		try {
+			
+			
 			sql="insert into cart(member_no,rest_no,restName,img) values(?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, cart.getMember_no());
@@ -324,6 +327,7 @@ public class BoardDAO {
 			pstmt.setString(4, cart.getImg());
 			
 			addCart=pstmt.executeUpdate();
+			
 			
 		}catch(Exception e) {
 			e.printStackTrace();

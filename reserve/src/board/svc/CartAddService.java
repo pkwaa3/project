@@ -21,8 +21,10 @@ public class CartAddService {
 			
 			if(addCart >0) {
 				commit(con);
-			}else {
+			}
+			else {
 				rollback(con);
+				addCart=0;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
