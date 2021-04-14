@@ -1,4 +1,4 @@
-`<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@page import="vo.PageInfo" %>
     <%@page import="vo.Board" %>
@@ -264,7 +264,7 @@ body {
   		
  <p>
 <!-- 게시판 리스트 -->
-<section id="listForm">
+
 <div style="text-align:center">
 	<h2>
 	<br><br>
@@ -273,7 +273,9 @@ body {
 	</h2>
 	<br><br>
 </div>
-	<!-- <table>
+	<!-- 
+	<section id="listForm">
+	<table>
 		<%
 			if(searchList != null && listCount > 0) {				
 		%>	
@@ -308,10 +310,10 @@ body {
 		</tr>
 		<%} %>
 	</table>
-	 -->
+	
 </section>
-
-
+ -->
+	<div style="border:1px solid black; margin:auto; width:1400px; display:block;">
 	<c:if test="${searchList != null }">
 	
 	<table>
@@ -321,7 +323,7 @@ body {
 	
 				 
  				
- 				<div class="polaroid" style="width:50%">
+ 				<div class="polaroid" style="width:300px; margin:20px;">
  					 <a  href="boardView.bo?board_no=${result.board_no }&page=<%=nowPage %>">
   						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:300px; height:200px;">
   					</a>
@@ -345,7 +347,7 @@ body {
 			검색 결과가 없습니다.
 		</div>
 	</c:if>
-
+	</div>
 <p>
 
 
@@ -354,25 +356,26 @@ body {
 	<%if(nowPage<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a href="marketSearch.bo?page=<%=nowPage-1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[이전]</a>&nbsp;
+		<a style="color:black; text-decoration:none;" href="marketSearch.bo?page=<%=nowPage-1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
 		if(a==nowPage) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a href="marketSearch.bo?page=<%=a %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[<%=a %>]
+			<a style="color:black; text-decoration:none;" href="marketSearch.bo?page=<%=a %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
 	<%if(nowPage>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="marketSearch.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
+		<a style="color:black; text-decoration:none;" href="marketSearch.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
+
 </body>
 </html>
