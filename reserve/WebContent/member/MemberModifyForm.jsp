@@ -170,7 +170,7 @@ button:hover {
 <body>
 <nav id="topmenu">
 <ul >
-  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
+  <li><a class="active" href="main.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
@@ -200,6 +200,7 @@ button:hover {
 			<li><a href="reservInfo.mem?member_id=${id }">예약 내역</a></li>
   			<li><a href="memberDeleteForm.mem?member_id=<%=session.getAttribute("id") %>">회원탈퇴</a></li>
   			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>	
+  			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>			
   		</ul>
   	</nav>
   </div>

@@ -47,7 +47,7 @@ nav .active {
   
  <%
 	request.setCharacterEncoding("utf-8");
-	if(session.getAttribute("id") == null){
+	if(session.getAttribute("owner_id") == null){
 %>
   <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
@@ -55,8 +55,8 @@ nav .active {
 <%
 	} else{
 %>
-		<li style="float:right"><a href="memberMyPage.mem"><%=session.getAttribute("id") %>님 환영합니다.</a></li>
-		<li style="float:right"><a href="memberLogout.mem">로그아웃</a></li>
+		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
 		</ul>
 <%
 	}

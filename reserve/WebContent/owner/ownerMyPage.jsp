@@ -130,12 +130,7 @@
   		</ul>
   	</nav>
   </div>
-  <div class="" style="background-color:#ccc;">
-  	아이디 : <%=session.getAttribute("owner_id") %>
-  	비밀번호 : <%=session.getAttribute("owner_pw") %>
-  	아이디 번호 : <%=session.getAttribute("owner_no") %>
-  	가게 번호 : <%=session.getAttribute("rest_no") %>
-  </div>
+  
 </div>
 
 </body>

@@ -177,7 +177,7 @@ button:hover {
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
 %>
-  <li style="float:right"><a href="login.com">로그인</a></li>
+   <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%

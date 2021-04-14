@@ -152,14 +152,16 @@
     </div>
     
 	
+    <div class="row">
 <c:if test="${list != null }" >
 	<c:forEach var="list" items="${list }" varStatus="status" >
     <!-- Content Row -->
-    <div class="row">
       <div class="col-md-4 mb-5">
         <div class="card h-100">
           <div class="card-img">
-          <img src="upload/${list.menu_org_img }" style="width:300px; height:350px; cover;" /></div>
+          <div class="card-body" >
+          <img src="upload/${list.menu_org_img }" class="card-img" >
+          </div>
           <div class="card-footer">
             <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }</a>
           </div>
@@ -211,7 +213,14 @@
 				<%=articleList.get(i).getReview_content() %>
 				
 			</td>
-			<td><%=articleList.get(i).getMember_id() %></td>
+			<td>
+				<%if(articleList.get(i).getOwner_id()!=null) {%>
+					<%=articleList.get(i).getOwner_id() %>
+				<%} else { %>
+					<%=articleList.get(i).getMember_id() %>
+				<%} %>
+			
+			</td>
 			<td><%=articleList.get(i).getReview_date() %></td>
 			
 		</tr>

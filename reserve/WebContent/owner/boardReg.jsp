@@ -318,7 +318,7 @@ button:hover {
     
      <br><br>
     <label for="board_content"><b>가게 설명</b></label><br>
-    <textarea rows="30" cols="100" name="board_content" id="board_content" ></textarea>
+    <textarea rows="20" cols="70" name="board_content" id="board_content" ></textarea>
     
     
     

@@ -72,6 +72,33 @@
 .active {
   background-color: #4CAF50;
 }
+<!-- 리뷰 -->
+.review table {
+  border-collapse: collapse;
+  width: 100%;
+  margin:auto; 
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+.review {
+	text-align:center;
+	margin:auto;
+	
+}
 
 </style>
 </head>
@@ -108,6 +135,8 @@
 	}
 %>
  
+
+ <jsp:include page="../headOw.jsp"></jsp:include>
  
   <!-- Page Content -->
 <form action="reservation.bo" method="post">
@@ -139,23 +168,25 @@
     </div>
     
 	
+<div class="row">
 <c:if test="${list != null }" >
 	<c:forEach var="list" items="${list }" varStatus="status" >
     <!-- Content Row -->
-    <div class="row">
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <div class="card-body"><img src="upload/${list.menu_org_img }" /></div>
+          <div class="card-body" >
+          <img src="upload/${list.menu_org_img }" class="card-img" >
+          </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">${list.menu_name }<br>${list.menu_price }</a>
+            <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }</a>
           </div>
         </div>
-      </div>
       </div>
       
       </c:forEach>
 </c:if>      
 
+      </div>
     </div>
     <!-- /.row -->
 
@@ -167,23 +198,19 @@
 
 <!-- 리뷰  -->
 
-<div>
+<div class="review">
 
-<section id="listForm">
-	<form action="reviewWritePro.bo" method="post" enctype="multipart/form-data" name="reviewForm">
-		<input type="text" id="review_content" name="review_content">
-		<input type="submit" value="등록">
-	</form>
 	
-	<table>
+	<table align="center">
 		<%
-			if(articleList != null && listCount > 0) {				
+			if(articleList != null && listCount>0) {
+			System.out.println(articleList);
 		%>	
-		<tr id="tr_top">
-			<td>번호</td>
-			<td>내용</td>
-			<td>작성자</td>
-			<td>날짜</td>
+		<tr>
+			<th>번호</th>
+			<th>내용</th>
+			<th>작성자</th>
+			<th>날짜</th>
 		</tr>
 		<%
 			for(int i=0; i<articleList.size(); i++) {
@@ -200,13 +227,21 @@
 				<%=articleList.get(i).getReview_content() %>
 				
 			</td>
-			<td><%=articleList.get(i).getMember_id() %></td>
+			<td>
+				<%if(articleList.get(i).getOwner_id()!=null) {%>
+					<%=articleList.get(i).getOwner_id() %>
+				<%} else { %>
+					<%=articleList.get(i).getMember_id() %>
+				<%} %>
+				
+				
+			
+			</td>
 			<td><%=articleList.get(i).getReview_date() %></td>
 			
 		</tr>
 		<%} %>
 	</table>
-	</section>
 	
 	<section id="pageList">
 	<%if(nowPage1<=1) { %>
@@ -233,6 +268,12 @@
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
 
+<section id="listForm">
+	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
+		<input type="text" id="review_content" name="review_content">
+		<input type="submit" value="등록">
+	</form>
+	</section>
 
 
 </div>

@@ -235,7 +235,7 @@ body {
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
 %>
-  <li style="float:right"><a href="login.com">로그인</a></li>
+   <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%
@@ -251,15 +251,15 @@ body {
 	<div style="text-align:center">
 	<div class="box">
 
-		<div id="rcorners2"><a href="marketSearch1.bo?where=서울&menu=<%=request.getAttribute("kind") %>">서울</a></div>
-  		<div id="rcorners2"><a href="marketSearch1.bo?where=대구&menu=<%=request.getAttribute("kind") %>">대구</a></div>
-  		<div id="rcorners2"><a href="marketSearch1.bo?where=부산&menu=<%=request.getAttribute("kind") %>">부산</a></div>
+		<div id="rcorners2"><a href="marketSearchMem1.bo?where=서울&menu=<%=request.getAttribute("kind") %>">서울</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=대구&menu=<%=request.getAttribute("kind") %>">대구</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=부산&menu=<%=request.getAttribute("kind") %>">부산</a></div>
   	</div>
   	<div class="box">
 
-		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
-  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
-  		<div id="rcorners2"><a href="marketSearch1.bo?where=<%=request.getAttribute("local") %>&menu=한식">양식</a></div>
+		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=한식">양식</a></div>
   	</div>
   	</div>
   		
