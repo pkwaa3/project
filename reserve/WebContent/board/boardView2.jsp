@@ -158,7 +158,7 @@
     <div class="row">
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <div class="card-body">
+          <div class="card-img">
           <img src="upload/${list.menu_org_img }" style="width:300px; height:350px; cover;" /></div>
           <div class="card-footer">
             <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }</a>

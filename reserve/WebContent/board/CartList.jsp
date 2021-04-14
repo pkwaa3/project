@@ -173,13 +173,13 @@ button:hover {
 <body>
 <nav id="topmenu">
 <ul >
-   <li><a class="active" href="main.com?id=${id }">Home</a></li>
+   <li><a class="active" href="main.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
 %>
-  <li style="float:right"><a href="index/login.jsp">로그인</a></li>
-  <li style="float:right"><a href="index/login.jsp">회원가입</a></li>
+  <li style="float:right"><a href="login.com">로그인</a></li>
+  <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%
 	} else{
