@@ -265,6 +265,8 @@ table .td{
   
   </div>
 </div>
-
+<div class="footer">
+  <p>Copyright &copy; Your Website 2020</p>
+</div>
 </body>
 </html>

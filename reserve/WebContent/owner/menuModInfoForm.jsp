@@ -171,6 +171,23 @@ button:hover {
   width: 50%; /* Could be more or less, depending on screen size */
   padding:5px;
 }
+.footer {
+  background-color: #343a40 !important;
+  padding: 10px;
+  width:100%;
+  height:30px;
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
+}
 </style>
 <script>
 	var cnt = 1;
@@ -315,6 +332,9 @@ button:hover {
   </div>
 </form>
   </div>
+</div>
+<div class="footer">
+  <p>Copyright &copy; Your Website 2020</p>
 </div>
 
 </body>

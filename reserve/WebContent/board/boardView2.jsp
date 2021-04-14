@@ -169,7 +169,7 @@ input[type=text]{
         <h1 class="font-weight-light">${board.board_subject }</h1><br><input type="hidden" name="restName" id="restName" value="${board.board_subject }" >
        	<br><input type="date" id="date" name="date" value="now()"><br>
        	<br>시간 선택 <input type="time" name="time" id="time" value="12:00" /> <br>
-       	<br>인원수 : <input type="text" name="head" id="head" style="width:50px;" /> 명<br> 
+       	<br>인원수 : <input type="text" name="head" id="head" style="width:50px; height:20px;" /> 명<br> 
        	
         <br><input type="submit" value="예약하기!"> &nbsp;&nbsp; <a href="cartAdd.bo?id=${id }&restName=${board.board_subject}&boardNum=${board.board_no}&img=${board.main_org_img}">찜하기!</a>
       </div>

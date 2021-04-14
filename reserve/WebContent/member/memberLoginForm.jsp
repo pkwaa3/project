@@ -60,12 +60,31 @@ span.psw {
   width: 30%; /* Could be more or less, depending on screen size */
 }
 
+.footer {
+  background-color: #343a40 !important;
+  padding: 10px;
+  width:100%;
+  height:30px;
+  position:fixed;
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{	
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
+}
+
 
 
 </style>
 </head>
 <body>
-  
+  <jsp:include page="../head.jsp"></jsp:include>
   <form class="modal-content" name="memberLoginForm" action="memberLoginProccess.mem" method="post">
  
 
@@ -85,6 +104,8 @@ span.psw {
       <span class="psw"> <a href="memberJoinForm.mem">회원가입</a></span>
     </div>
   </form>
-
+<div class="footer">
+  <p>Copyright &copy; Your Website 2020</p>
+</div>
 </body>
 </html>

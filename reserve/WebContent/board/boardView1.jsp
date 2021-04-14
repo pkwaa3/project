@@ -176,7 +176,7 @@ input[type=text]{
         <h1 class="font-weight-light">${board.board_subject }</h1><br>
        	<br><input type="date" id="date" name="date" value="now()"><br>
        	<br>시간 선택 <input type="time" name="time" id="time" value="12:00" /> <br>
-       	<br>인원수 : <input type="text" name="head" id="head" style="width:50px;" /> 명<br> 
+       	<br>인원수 : <input type="text" name="head" id="head" style="width:50px; height:20px;" /> 명<br> 
        	
         <br><a class="btn btn-primary" href="reservation.bo?member_id="<%=session.getAttribute("member_id") %>>예약하기!</a>
       </div>

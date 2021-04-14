@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><title>:::점장마이페이지|야먹자:::</title></title>
+<title>:::점장마이페이지|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {
@@ -88,6 +88,23 @@
   padding: 10px;
   height: 500px; /* Should be removed. Only for demonstration */
 }
+.footer {
+  background-color: #343a40 !important;
+  padding: 10px;
+  width:100%;
+  height:30px;
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
+}
 </style>
 </head>
 <body>
@@ -130,8 +147,12 @@
   		</ul>
   	</nav>
   </div>
-  
+   <div style="background-color:#ccc; height:500px; text-align:center; ">
+   <h1 style="align:center; text-align:center; padding:200px;">${owner_id }님의 마이페이지 입니다.</h1>
+   </div>
 </div>
-
+<div class="footer">
+  <p>Copyright &copy; Your Website 2020</p>
+</div>
 </body>
 </html>

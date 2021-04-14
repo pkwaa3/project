@@ -195,7 +195,7 @@ body {
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  background-color: #fff;
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -218,9 +218,25 @@ body {
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
+  background-color: #343a40 !important;
   padding: 10px;
-  text-align: center;
+  width:100%;
+  height:100px;
+  
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+  
+  
+}
+.footer p{
+	
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -281,7 +297,7 @@ body {
 </nav>
 <br><br>
 <div class="title">
-<h2>이름</h2>
+<h2>야먹자</h2>
 </div>
 <br><br><br>
 
@@ -339,7 +355,7 @@ body {
 
 <div class="row">
   <div class="column">
-  	<div class="slide">
+  	<div class="slide" style="margin-left:30px;">
     <ul>
       <li><img src="img/slider1.PNG" id="img"></li>
       <li><img src="img/slider2.PNG" id="img"></li>
@@ -367,7 +383,7 @@ body {
   
   </div>
   <div class="column" >
-  	<div class="slide">
+  	<div class="slide" style="margin-right:30px;">
     <ul>
       <li><img src="img/slider1.PNG" id="img"></li>
       <li><img src="img/slider2.PNG" id="img"></li>
@@ -382,8 +398,7 @@ body {
 </div>
 
 <div class="footer">
-
-  <p>Footer</p>
+  <p>Copyright &copy; Your Website 2020</p>
 </div>
 
 </body>

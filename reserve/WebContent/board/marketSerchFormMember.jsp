@@ -206,9 +206,22 @@ body {
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
+  background-color: #343a40 !important;
   padding: 10px;
-  text-align: center;
+  width:100%;
+  height:100px;
+  
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{	
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -222,10 +235,10 @@ body {
 <body>
 <nav id="topmenu">
 <ul >
-  <li><a class="active" href="mainLoginOwner.com">Home</a></li>
+  <li><a class="active" href="main.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
-	if(session.getAttribute("owner_id") == null){
+	if(session.getAttribute("id") == null){
 %>
   <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
@@ -233,8 +246,8 @@ body {
 <%
 	} else{
 %>
-		<li style="float:right"><a href="ownerMyPage.own?owner_id=<%=session.getAttribute("owner_id") %>"><%=session.getAttribute("owner_id") %>님 환영합니다.</a></li>
-		<li style="float:right"><a href="ownerLogout.own">로그아웃</a></li>
+		<li style="float:right"><a href="memberMyPage.mem"><%=session.getAttribute("id") %>님 환영합니다.</a></li>
+		<li style="float:right"><a href="memberLogout.mem">로그아웃</a></li>
 		</ul>
 <%
 	}
@@ -347,25 +360,28 @@ body {
 	<%if(nowPage<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a href="marketSearch.bo?page=<%=nowPage-1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[이전]</a>&nbsp;
+		<a href="marketSearchMem1.bo?page=<%=nowPage-1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
 		if(a==nowPage) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a href="marketSearch.bo?page=<%=a %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[<%=a %>]
+			<a href="marketSearchMem1.bo?page=<%=a %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
 	<%if(nowPage>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="marketSearch.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
+		<a href="marketSearchMem1.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
+<div class="footer">
+  <p>Copyright &copy; Your Website 2020</p>
+</div>
 </body>
 </html>

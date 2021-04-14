@@ -177,19 +177,26 @@ body {
 	height:250px;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 768px) {
   .column {
     width: 100%;
+  	padding: 10px;
+  	height: 300px; /* Should be removed. Only for demonstration */
+  	align:center;
+  	margin-top:50px;
+  	
   }
   
   .column img{
   	width:250px;
   	height:150px;
   }
-}@media (max-width: 1440px) {
+}@media (max-width: 1460px) {
   .column {
-    width: 100%;
+    width: 66.66%;
+  	padding: 10px;
+  	height: 300px; /* Should be removed. Only for demonstration */
+  	align:center;
   }
   
   .column img{
@@ -197,10 +204,28 @@ body {
   	height:300px;
   }
 }
-
+.footer {
+  background-color: #343a40 !important;
+  padding: 10px;
+  width:100%;
+  height:100px;
+  position:fixed;
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{	
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
+}
 </style>
 </head>
 <body>
+
 <ul class="nav">
   <li><a class="active" href="main.com">Home <i class="glyphicon glyphicon-home"></i></a></li>
 <%
@@ -228,7 +253,8 @@ body {
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div class="footer">
-  <p>Footer</p>
+
+  <p>Copyright &copy; Your Website 2020</p>
 </div>
 </body>
 </html>

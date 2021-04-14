@@ -204,9 +204,22 @@ body {
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
+  background-color: #343a40 !important;
   padding: 10px;
-  text-align: center;
+  width:100%;
+  height:100px;
+  
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{	
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -376,6 +389,8 @@ body {
 <% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
-
+<div class="footer">
+  <p>Copyright &copy; Your Website 2020</p>
+</div>
 </body>
 </html>
