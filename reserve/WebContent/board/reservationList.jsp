@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::점주예약정보|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {

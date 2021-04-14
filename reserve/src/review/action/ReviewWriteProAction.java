@@ -18,12 +18,15 @@ public class ReviewWriteProAction implements Action {
 		
 		HttpSession session = request.getSession();
 		ActionForward forward = null;
-		Review review = null;
+		Review review = new Review();
 		
-		System.out.println("123123123123");
+		
 		
 		System.out.println(session.getAttribute("id"));
 		System.out.println(session.getAttribute("owner_id"));
+		System.out.println(request.getParameter("board_no"));
+		System.out.println(request.getParameter("review_content"));
+		
 		review.setMember_id((String)session.getAttribute("member_id"));
 		review.setOwner_id((String)session.getAttribute("owner_id"));
 		review.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
@@ -33,7 +36,7 @@ public class ReviewWriteProAction implements Action {
 		ReviewWriteProService reviewWriteProService = new ReviewWriteProService();
 		boolean isWriteSuccess = reviewWriteProService.registArticle(review);
 		
-		System.out.println(isWriteSuccess+"sdfsdfsdfsdfsf");
+		
 		
 		if(!isWriteSuccess) {
 			response.setContentType("text/html;charset=utf-8");
@@ -45,7 +48,7 @@ public class ReviewWriteProAction implements Action {
 		} else {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("boardViewMem.bo");
+			forward.setPath("boardView.bo");
 		}
 		return forward;
 	}

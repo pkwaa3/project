@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::점장가게목록|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {
@@ -170,6 +170,7 @@ button:hover {
   padding:5px;
 }
 
+/* 리스트 스타일*/
 #registForm {
 		width:500px;
 		height:600px;
@@ -180,9 +181,26 @@ button:hover {
 		text-align:center;
 	}
 	table {
-		margin:auto;
-		width:450px;
-	}
+  border-collapse: collapse;
+  width: 1200px;
+  margin:auto; 
+}
+
+td {
+  text-align: center;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
 	#tr_top {
 		background:orange;
 		text-align:center;
@@ -197,6 +215,12 @@ button:hover {
 		width:500px;
 		text-align:center;
 	}
+	
+	.review {
+	text-align:center;
+	margin:auto;
+	
+}
 </style>
 </head>
 <body>
@@ -241,7 +265,7 @@ button:hover {
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	
+  	<br>
  <section id="listForm">
  <table>
 		<%
@@ -274,8 +298,9 @@ button:hover {
 	<% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %> 	
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
+  
 </div>
 
 </body>

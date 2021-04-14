@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::회원정보수정|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {

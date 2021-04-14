@@ -43,7 +43,7 @@ nav .active {
 <body>
 	<nav>
 	<ul>
-  		<li><a class="active" href="main.com">Home</a></li>
+  		<li><a class="active" href="mainLoginOwner.com">Home</a></li>
   
  <%
 	request.setCharacterEncoding("utf-8");
