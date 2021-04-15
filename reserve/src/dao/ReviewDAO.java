@@ -33,30 +33,45 @@ public class ReviewDAO {
 	//리뷰 글 등록
 	public int insertArticle(Review review) {
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
 		
 		String sql = "";
 		int insertCount = 0;
 		
 		try { 
 			
-			sql="insert into review values(?,?,?,?,now(),?,?,?)";
+			if(review.getMember_id() == null) {
+				
+			sql="insert into review(board_no, owner_id, review_content, review_date, review_re_ref, review_re_lev, review_re_seq) values(?,?,?,now(),?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, review.getBoard_no());
-			pstmt.setString(2, review.getMember_id());
-			pstmt.setString(3, review.getOwner_id());
-			pstmt.setString(4, review.getReview_content());
+			pstmt.setString(2, review.getOwner_id());
+			pstmt.setString(3, review.getReview_content());
+			pstmt.setInt(4, 0);
 			pstmt.setInt(5, 0);
 			pstmt.setInt(6, 0);
-			pstmt.setInt(7, 0);
+			
+			} else {
+				
+				sql="insert into review(board_no, member_id, review_content, review_date, review_re_ref, review_re_lev, review_re_seq) values(?,?,?,now(),?,?,?)";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, review.getBoard_no());
+				pstmt.setString(2, review.getMember_id());
+				pstmt.setString(3, review.getReview_content());
+				pstmt.setInt(4, 0);
+				pstmt.setInt(5, 0);
+				pstmt.setInt(6, 0);	
+				
+			}
 			
 			insertCount = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("boardInsert 에러 : " + e);
 			e.printStackTrace();
 		} finally {
-			close(rs);
+
 			close(pstmt);
 		}
 		return insertCount;
