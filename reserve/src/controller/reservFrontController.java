@@ -17,6 +17,7 @@ import board.action.BoardViewAction;
 import board.action.BoardViewMemAction;
 import board.action.CartAddAction;
 import board.action.CartListAction;
+import board.action.CartViewAction;
 import board.action.MarketSearchAction;
 import board.action.MarketSearchMemAction;
 import board.action.ReservationAction;
@@ -617,6 +618,15 @@ public class reservFrontController extends HttpServlet {
 		else if (command.equals("/join.com")) {
 			forward = new ActionForward();
 			forward.setPath("index/join.jsp");
+		}
+		//카트뷰
+		else if (command.equals("/cartView.bo")) {
+			action = new CartViewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		if (forward != null) {

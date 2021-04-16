@@ -95,7 +95,9 @@ ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
   padding: 10px;
   height: 500px; /* Should be removed. Only for demonstration */
 }
-/* 컨텐츠 */
+
+
+/* 콘텐츠*/
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
@@ -167,6 +169,58 @@ button:hover {
   width: 30%; /* Could be more or less, depending on screen size */
   padding:5px;
 }
+
+/* 리스트 스타일*/
+#registForm {
+		width:500px;
+		height:600px;
+		border:1px solid red;
+		margin:auto;
+	}
+	h2 {
+		text-align:center;
+	}
+	table {
+  border-collapse: collapse;
+  width: 1200px;
+  margin:auto; 
+}
+
+td {
+  text-align: center;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+	#tr_top {
+		background:#4CAF50;
+		text-align:center;
+	}
+	#pageList {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
+	#emptyArea {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
+	
+	.review {
+	text-align:center;
+	margin:auto;
+	
+}
 .footer {
   background-color: #343a40 !important;
   padding: 10px;
@@ -177,8 +231,6 @@ button:hover {
   align:center;
   padding-top:3rem;
   padding-bottom:3rem;
-  
-  
 }
 .footer p{	
 	text-align:center;
@@ -187,18 +239,18 @@ button:hover {
 	align:center;
 	size:1.5em;
 }
-
 </style>
 </head>
 <body>
+
 <nav id="topmenu">
 <ul >
-   <li><a class="active" href="main.com">Home</a></li>
+  <li><a class="active" href="main.com">Home</a></li>
 <%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
 %>
-  <li style="float:right"><a href="login.com">로그인</a></li>
+   <li style="float:right"><a href="login.com">로그인</a></li>
   <li style="float:right"><a href="join.com">회원가입</a></li>
 </ul>
 <%
@@ -222,52 +274,43 @@ button:hover {
   			<li><a href="memberModInfoForm.mem?id=<%=session.getAttribute("id") %>">회원 정보 수정</a></li>
 			<li><a href="reservInfo.mem?member_id=${id }">예약 내역</a></li>
   			<li><a href="memberDeleteForm.mem?member_id=<%=session.getAttribute("id") %>">회원탈퇴</a></li>
-  			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>	
+  			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>
   		</ul>
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  
-  		<form class="modal-content" name="memberModForm" action="memberMod.mem" method="post" >
-	
-	
-	 <div class="container">
-    <h1>찜 목록</h1>
-    <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no") %>" />
-	
-	
-    <label for="id"><b>최대 5개 까지만 조회됩니다.</b></label>
+  	<div style="background-color:#fefefe; width:50%; border: 1px solid #888;margin: 5% auto 15% auto;padding:5px;">
+ <section id="listForm">
+  <h1>예약내역 보기</h1>
+  <label for="id"><b>최근 10개 까지만 조회됩니다.</b></label>
+ <table style=" width:100%;">
 <c:if test="${list ne null }">
-<section id="listForm">
- <table>
 		<tr id="tr_top">
-			<td></td>
-			<td>식당이름</td>
+			<th>식당사진</th>
+			<th>식당이름</th>
 			
 			
 		</tr>
-<c:forEach var="list" items="${list }" begin="0" end="4">		
+<c:forEach var="list" items="${list }" begin="0" end="9">		
 		<tr>
 			<td><img src="upload/${list.img }" style="width:50px; height:50px;" ></td>
-			<td><!-- a href="boardViewInfoMem.bo?rest_no=${list.rest_no }"></a-->${list.restName }</td>
+			<td><!--  >a href="cartView.bo?rest_no=${list.rest_no }"></a-->${list.restName }</td>
 			
 			
 		</tr>
-</c:forEach>	
+</c:forEach>			
 	</table>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
 </section>
+</div>
 </c:if>
 <c:if test="${list eq null }">
-찜 목록 정보가 없다.
+찜 목록이 비어있습니다.
 </c:if>
-   
-    </div>
-  </div>
 
-  
   </div>
-
+</div>
 <div class="footer">
   <p>Copyright &copy; Your Website 2020</p>
 </div>

@@ -230,7 +230,7 @@ table .td{
 	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no") %>" />
 	
 	
-    <label for="id"><b>최근 5개 까지만 조회됩니다.</b></label>
+    <label for="id"><b>최근 10개 까지만 조회됩니다.</b></label>
 <c:if test="${list ne null }">
 <section id="listForm">
  <table>
@@ -242,7 +242,7 @@ table .td{
 			<td>인원수</td>
 			
 		</tr>
-<c:forEach var="list" items="${list }" begin="0" end="4">		
+<c:forEach var="list" items="${list }" begin="0" end="9">		
 		<tr>
 			<td>${list.reserv_no }</td>
 			<td>${list.restName }</td>

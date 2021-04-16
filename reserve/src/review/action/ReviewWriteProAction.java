@@ -46,9 +46,12 @@ public class ReviewWriteProAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		} else {
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("boardView.bo");
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('등록되었습니다.')");
+			out.println("location.reload();");
+			out.println("</script>");
 		}
 		return forward;
 	}

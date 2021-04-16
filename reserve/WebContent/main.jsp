@@ -222,7 +222,8 @@ body {
   padding: 10px;
   width:100%;
   height:100px;
-  position:fixed;
+  
+
   bottom:0;
   align:center;
   padding-top:3rem;
@@ -243,6 +244,9 @@ body {
 @media (max-width: 600px) {
   .column {
     width: 100%;
+  }
+  .column img{
+  	object-fit:fill;
   }
 }
 .title {
@@ -269,8 +273,12 @@ body {
       75% {margin-left:-300%;}
       85% {margin-left:-300%;}
       100% {margin-left:0;}
+	
 
-
+.img{
+	width:550px;
+	object-fit:contain;
+}
 </style>
 
 </head>
@@ -355,15 +363,17 @@ body {
   		
   
 </div>
+<div style="height:100px;">
 
+</div>
 <div class="row">
   <div class="column">
-  	<div class="slide" style="margin-left:30px;">
+  	<div class="slide" style="margin-left:30px; ">
     <ul>
-      <li><img src="img/slider1.PNG" id="img"></li>
-      <li><img src="img/slider2.PNG" id="img"></li>
-      <li><img src="img/slider3.PNG" id="img"></li>
-      <li><img src="img/slider4.PNG" id="img"></li>
+      <li><img src="img/slider1.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/slider2.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/slider3.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/slider4.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
     </ul>
   </div>
   </div>
@@ -373,10 +383,10 @@ body {
 
   <div class="slide">
     <ul>
-      <li><img src="img/slider1.PNG" id="img"></li>
-      <li><img src="img/slider2.PNG" id="img"></li>
-      <li><img src="img/slider3.PNG" id="img"></li>
-      <li><img src="img/slider4.PNG" id="img"></li>
+      <li><img src="img/만두.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/돈까스.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/라면.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/해물찜.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
     </ul>
   </div>
 
@@ -388,18 +398,19 @@ body {
   <div class="column" >
   	<div class="slide" style="margin-right:30px;">
     <ul>
-      <li><img src="img/slider1.PNG" id="img"></li>
-      <li><img src="img/slider2.PNG" id="img"></li>
-      <li><img src="img/slider3.PNG" id="img"></li>
-      <li><img src="img/slider4.PNG" id="img"></li>
+      <li><img src="img/스시.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/족보.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/치킨.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/도시락.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
     </ul>
   </div>
   
   
   </div>
-  <br><br><br><br>
 </div>
+<div style="height:150px;">
 
+</div>
 <div class="footer">
 
   <p>Copyright &copy; Your Website 2020</p>

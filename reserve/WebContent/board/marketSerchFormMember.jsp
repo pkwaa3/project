@@ -326,7 +326,7 @@ body {
 </section>
 	 -->
 	<div style="background-color: #f1f1f1;">
-	<div style=" margin:auto; width:1400px; display:block;">
+	<div style=" margin:auto; width:1400px; display:block; height:1000px;">
 	<c:if test="${searchList != null }">
 	
 	<table>

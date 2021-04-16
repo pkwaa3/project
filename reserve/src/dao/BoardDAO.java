@@ -394,6 +394,62 @@ public class BoardDAO {
 		
 		return list;
 	}
+	//중복검사
+	public int cart(int memberNo, String restName) {
+		int cartOver=0;
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try {
+			sql="select * from cart where restName=? and member_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, restName);
+			pstmt.setInt(2, memberNo);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				cartOver=1;
+			}else {
+				cartOver=0;
+			}
+			
+			System.out.println(cartOver+"1");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return cartOver;
+	}
+	//식당번호로 보드번호찾기
+	public String getNo(int restNo) {
+		String boardNo=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=null;
+		try {
+			sql="select * from board where rest_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, restNo);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			boardNo=rs.getString("board_no");
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return boardNo;
+	}
 
 	
 }
