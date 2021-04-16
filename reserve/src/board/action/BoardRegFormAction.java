@@ -46,9 +46,9 @@ public class BoardRegFormAction implements Action {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('오류');");
-			out.println("<location.href=main.com>");
-			out.println("<script>");
+			out.println("alert('등록된 가게가 없습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
 		}
 			
 		
