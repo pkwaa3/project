@@ -315,12 +315,12 @@ body {
   						</div>
   					</span>
   						<div class="dropdown-content">
-  							<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)"></p>
-  							<p><input class="button" type="button" name="inchoen" id="inchoen" value="인천" onclick="okinchoen(this.form)"></p>
-  							<p><input class="button" type="button" name="daejeon" id="daejeon" value="대전" onclick="okdaejeon(this.form)"></p>
-  							<p><input class="button" type="button" name="gwangju" id="gwangju" value="광주" onclick="okgwangju(this.form)"></p>
-  							<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)"></p>
-  							<p><input class="button" type="button" name="ulsan" id="ulsan" value="울산" onclick="okulsan(this.form)"></p>
+  							<p><input class="button" type="button" name="seoul" id="seoul" value="서울" onclick="okseoul(this.form)">
+  							<input class="button" type="button" name="inchoen" id="inchoen" value="인천" onclick="okinchoen(this.form)"></p>
+  							<p><input class="button" type="button" name="daejeon" id="daejeon" value="대전" onclick="okdaejeon(this.form)">
+  							<input class="button" type="button" name="gwangju" id="gwangju" value="광주" onclick="okgwangju(this.form)"></p>
+  							<p><input class="button" type="button" name="daegu" id="daegu" value="대구" onclick="okdaegu(this.form)">
+  							<input class="button" type="button" name="ulsan" id="ulsan" value="울산" onclick="okulsan(this.form)"></p>
   							<p><input class="button" type="button" name="busan" id="busan" value="부산" onclick="okbusan(this.form)"></p>
   						</div>
   				</div>
@@ -331,14 +331,14 @@ body {
   				  		</div>
   				  	</span>
   				  	<div class="dropdown-content">
-  						<p><input class="button" type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)"></p>
-  						<p><input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
-  						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)"></p>
-  						<p><input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
-  						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)"></p>
-  						<p><input class="button" type="button" name="bunsik" id="bunsik" value="분식" onclick="okbunsik(this.form)"></p>
-  						<p><input class="button" type="button" name="jjimtang" id="jjimtang" value="찜탕" onclick="okjjimtang(this.form)"></p>
-  						<p><input class="button" type="button" name="cafe" id="cafe" value="카페" onclick="okcafe(this.form)"></p>
+  						<p><input class="button" type="button" name="hansik" id="hansik" value="한식" onclick="okhansik(this.form)">
+  						<input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
+  						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)">
+  						<input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
+  						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)">
+  						<input class="button" type="button" name="bunsik" id="bunsik" value="분식" onclick="okbunsik(this.form)"></p>
+  						<p><input class="button" type="button" name="jjimtang" id="jjimtang" value="찜탕" onclick="okjjimtang(this.form)">
+  						<input class="button" type="button" name="cafe" id="cafe" value="카페" onclick="okcafe(this.form)"></p>
   						
   					</div>
   				</div>

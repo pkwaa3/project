@@ -232,10 +232,10 @@ input[type=text]{
 		<input type="submit" value="등록">
 	</form>
 	<br>
-	<table border="1">
+	
 
 	
-	<table align="center">
+	<table >
 
 		<%
 			if(articleList != null && listCount>0) {
@@ -299,7 +299,7 @@ input[type=text]{
 	<%if(nowPage1>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="boardList.bo?page=<%=nowPage+1 %>">[다음]</a>
+		<a href="boardView.bo?board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>

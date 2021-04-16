@@ -202,7 +202,7 @@ th {
   color: white;
 }
 	#tr_top {
-		background:orange;
+		background:#4CAF50;
 		text-align:center;
 	}
 	#pageList {
@@ -283,18 +283,20 @@ th {
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	<br>
+  	<div style="background-color:#fefefe; width:50%; border: 1px solid #888;margin: 5% auto 15% auto;padding:5px;">
+  	
  <section id="listForm">
- <table>
+  <h1>가게 등록리스트</h1>
+ <table style="width:100%;">
 		<%
 			if(restList != null ) {				
 		%>	
 		<tr id="tr_top">
-			<td>순번</td>
-			<td>가게 번호</td>
-			<td>가게 이름</td>
-			<td>지역</td>
-			<td>메뉴 종류</td>
+			<th>순번</th>
+			<th>가게 번호</th>
+			<th>가게 이름</th>
+			<th>지역</th>
+			<th>메뉴 종류</th>
 			
 		</tr>
 		<%
@@ -303,22 +305,22 @@ th {
 		<tr>
 			<td><%= i %>
 			<td><%=restList.get(i).getRest_no() %></td>
-			<td><a href="marketModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
+			<td><a style="color:black; text-decoration:none;" href="marketModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
 			<td><%=restList.get(i).getLocal() %></td>
-			<td><a href="menuModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getKind() %></a></td>
+			<td><a style="color:black; text-decoration:none;" href="menuModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getKind() %></a></td>
 			
 		</tr>
 		<%} %>
 	</table>
-	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>	
 </section>
+</div>
 	
 	<% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %> 	
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 
   </div>
-  
 </div>
 <div class="footer">
   <p>Copyright &copy; Your Website 2020</p>

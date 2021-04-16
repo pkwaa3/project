@@ -170,6 +170,7 @@ button:hover {
   padding:5px;
 }
 
+/* 리스트 스타일*/
 #registForm {
 		width:500px;
 		height:600px;
@@ -180,11 +181,28 @@ button:hover {
 		text-align:center;
 	}
 	table {
-		margin:auto;
-		width:450px;
-	}
+  border-collapse: collapse;
+  width: 1200px;
+  margin:auto; 
+}
+
+td {
+  text-align: center;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
 	#tr_top {
-		background:#BEAED4;
+		background:#4CAF50;
 		text-align:center;
 	}
 	#pageList {
@@ -197,6 +215,12 @@ button:hover {
 		width:500px;
 		text-align:center;
 	}
+	
+	.review {
+	text-align:center;
+	margin:auto;
+	
+}
 .footer {
   background-color: #343a40 !important;
   padding: 10px;
@@ -258,18 +282,19 @@ button:hover {
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  	
+  	<div style="background-color:#fefefe; width:50%; border: 1px solid #888;margin: 5% auto 15% auto;padding:5px;">
  <section id="listForm">
- <table>
+  <h1>예약 내역</h1>
+ <table style=" width:100%;">
 		<%
 			if(restList != null ) {				
 		%>	
 		<tr id="tr_top">
-			<td>순번</td>
-			<td>가게 번호</td>
-			<td>가게 이름</td>
-			<td>지역</td>
-			<td>메뉴 종류</td>
+			<th>순번</th>
+			<th>가게 번호</th>
+			<th>가게 이름</th>
+			<th>지역</th>
+			<th>메뉴 종류</th>
 			
 		</tr>
 		<%
@@ -278,15 +303,17 @@ button:hover {
 		<tr>
 			<td><%= i %>
 			<td><%=restList.get(i).getRest_no() %></td>
-			<td><a href="reservInfoOw.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
+			<td><a style="color:black; text-decoration:none;" href="reservInfoOw.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
 			<td><%=restList.get(i).getLocal() %></td>
 			<td><%=restList.get(i).getKind() %></td>
 			
 		</tr>
 		<%} %>
 	</table>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	
 </section>
+</div>
 	
 	<% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>

@@ -260,6 +260,7 @@ input[type=text]{
 		<%} %>
 	</table>
 	</section>
+	<br><br><br>
 	
 	<section id="pageList">
 	<%if(nowPage1<=1) { %>
@@ -287,6 +288,10 @@ input[type=text]{
 <% } else { %>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
+<br><br><br><br>
+
+
+
 </section>
 
 

@@ -326,7 +326,8 @@ body {
 	
 </section>
  -->
-	<div style="border:1px solid black; margin:auto; width:1400px; display:block;">
+ 	<div style="background-color: #f1f1f1;">
+	<div style=" margin:auto; width:1400px; display:block;">
 	<c:if test="${searchList != null }">
 	
 	<table>
@@ -361,6 +362,7 @@ body {
 		</div>
 	</c:if>
 	</div>
+	</div>
 <p>
 
 
@@ -384,10 +386,10 @@ body {
 		[다음]
 	<%}else{ %>
 		<a style="color:black; text-decoration:none;" href="marketSearch.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
-	<%} %>	
+	<%} %>	<br><br><br>
 </section>
 <% } else { %>
-	<section id="emptyArea">등록된 글이 없습니다.</section>
+	<section id="emptyArea">등록된 글이 없습니다. </section>
 <%} %>
 <div class="footer">
   <p>Copyright &copy; Your Website 2020</p>

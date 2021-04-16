@@ -30,7 +30,7 @@ public class ReviewWriteProAction implements Action {
 		review.setMember_id((String)session.getAttribute("member_id"));
 		review.setOwner_id((String)session.getAttribute("owner_id"));
 		review.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
-		review.setReview_content("review_content");
+		review.setReview_content(request.getParameter("review_content"));
 		
 		
 		ReviewWriteProService reviewWriteProService = new ReviewWriteProService();

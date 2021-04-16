@@ -57,7 +57,7 @@ public class BoardViewAction implements Action {
 		pageInfo.setEnd_page(endPage);
 		pageInfo.setList_count(listCount);
 		pageInfo.setMax_page(maxPage);
-		pageInfo.setPage(Integer.parseInt(page));
+		pageInfo.setPage(reviewPage);
 		pageInfo.setStart_page(startPage);
 		
 		ArrayList<Review> articleList = new ArrayList<>();
