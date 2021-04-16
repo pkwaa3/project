@@ -172,7 +172,6 @@ input[type=text]{
 
         <img class="img-fluid rounded mb-4 mb-lg-0" src="upload/${board.main_org_img } " style="width:900px; height:400px;">
 
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="upload/${board.main_org_img }" style="width:900px; height:400px;">
 
         <input type="hidden" name="img" id="img" value="upload/${board.main_org_img }">
       </div>
