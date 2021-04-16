@@ -224,7 +224,7 @@ input[type=text]{
 <br><br><br>
 <div class="review">
 
-
+<%=board.getBoard_no() %>
 <section id="listForm">
 	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
 		<input type="hidden" id="board_no" name="board_no" value="<%=board.getBoard_no()%>">
@@ -299,7 +299,7 @@ input[type=text]{
 	<%if(nowPage1>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="boardView.bo?board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>">[다음]</a>
+		<a href="boardView.bo?&page=<%=nowPage%>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>

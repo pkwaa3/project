@@ -109,12 +109,13 @@ div.container {
   display: inline-block;
 }
 .box {
-	width: 500px;
+	width: 700px;
     height: 70px;
 	text-align:center;
 	margin:0 auto;
 	border: 2px solid black;
 	display: inline-block;
+	border-radius: 25px;
 	 
 }
 
@@ -257,16 +258,23 @@ body {
 	<div style="text-align:center">
 	<div class="box">
 
-		<div id="rcorners2"><a href="marketSearchMem1.bo?where=서울&menu=<%=request.getAttribute("kind") %>">서울</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=서울&menu=<%=request.getAttribute("kind") %>">서울</a></div>
+		<div id="rcorners2"><a href="marketSearchMem1.bo?where=인천&menu=<%=request.getAttribute("kind") %>">인천</a></div>
+		<div id="rcorners2"><a href="marketSearchMem1.bo?where=대전&menu=<%=request.getAttribute("kind") %>">대전</a></div>
+		<div id="rcorners2"><a href="marketSearchMem1.bo?where=광주&menu=<%=request.getAttribute("kind") %>">광주</a></div>
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=대구&menu=<%=request.getAttribute("kind") %>">대구</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=울산&menu=<%=request.getAttribute("kind") %>">울산</a></div>
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=부산&menu=<%=request.getAttribute("kind") %>">부산</a></div>
   	</div>
   	<div class="box">
 
-		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
+		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=양식">양식</a></div>
-  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=일식">일식</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=양식">일식</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=분식">분식</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=한식">찜탕</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=카페디저트">카페</a></div>
   	</div>
   	</div>
   		
@@ -328,9 +336,9 @@ body {
 	
 				 
  				
- 				<div class="polaroid" style="width:50%">
+ 				<div class="polaroid" style="width:300px; margin:20px;">
  					 <a  href="boardViewMem.bo?board_no=${result.board_no }&page=<%=nowPage %>&id=${id }">
-  						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:100%">
+  						<img src="upload/${result.main_org_img }" id="mainImg" alt="mainImg" style="width:300px; height:200px;">
   					</a>
 				  	<div class="container">
     						<p>${result.board_subject }</p>
@@ -362,21 +370,21 @@ body {
 	<%if(nowPage<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a href="marketSearchMem1.bo?page=<%=nowPage-1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[이전]</a>&nbsp;
+		<a style="color:black; text-decoration:none;" href="marketSearchMem1.bo?page=<%=nowPage-1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
 		if(a==nowPage) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a href="marketSearchMem1.bo?page=<%=a %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[<%=a %>]
+			<a style="color:black; text-decoration:none;" href="marketSearchMem1.bo?page=<%=a %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
 	<%if(nowPage>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="marketSearchMem1.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
+		<a style="color:black; text-decoration:none;" href="marketSearchMem1.bo?page=<%=nowPage+1 %>&where=<%=request.getAttribute("local") %>&menu=<%=request.getAttribute("kind") %>">[다음]</a>
 	<%} %>	<br><br><br>
 </section>
 <% } else { %>
