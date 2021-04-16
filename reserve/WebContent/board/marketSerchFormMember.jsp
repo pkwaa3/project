@@ -271,10 +271,10 @@ body {
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=한식">한식</a></div>
 		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=중식">중식</a></div>
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=양식">양식</a></div>
-  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=양식">일식</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=일식">일식</a></div>
   		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=분식">분식</a></div>
-  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=한식">찜탕</a></div>
-  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=카페디저트">카페</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=찜탕">찜탕</a></div>
+  		<div id="rcorners2"><a href="marketSearchMem1.bo?where=<%=request.getAttribute("local") %>&menu=카페">카페</a></div>
   	</div>
   	</div>
   		
