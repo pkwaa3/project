@@ -201,7 +201,7 @@ input[type=text]{
       <div class="col-md-4 mb-5">
         <div class="card h-100">
           <div class="card-body" >
-          <img src="upload/${list.menu_org_img }" class="card-img" >
+          <img src="upload/${list.menu_org_img }" class="card-img" style="width:300px; height:300px;" >
           </div>
           <div class="card-footer">
             <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }</a>
