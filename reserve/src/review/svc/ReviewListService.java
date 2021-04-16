@@ -9,14 +9,14 @@ import vo.Board;
 import vo.Review;
 
 public class ReviewListService {
-	public int getListCount() {
+	public int getListCount(int board_no) {
 		int listCount = 0;
 		Connection con = null;
 		try {
 			con = getConnection();
 			ReviewDAO reviewDAO = ReviewDAO.getInstance();
 			reviewDAO.setConnection(con);
-			listCount = reviewDAO.selectListCount();
+			listCount = reviewDAO.selectListCount(board_no);
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

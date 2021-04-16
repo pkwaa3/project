@@ -21,11 +21,16 @@
     <%
         	ArrayList<Review> articleList = (ArrayList<Review>)request.getAttribute("articleList");
                     	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+                    	
+                    	
+                    		
                     	int listCount = pageInfo.getList_count();
-                    	int nowPage1 = pageInfo.getPage();
+                    	int nowReviewPage = pageInfo.getPage();
                     	int maxPage = pageInfo.getMax_page();
                     	int startPage = pageInfo.getStart_page();
                     	int endPage = pageInfo.getEnd_page();
+                    	
+                   
         %>
 <!DOCTYPE html>
 <html>
@@ -224,9 +229,10 @@ input[type=text]{
 <br><br><br>
 <div class="review">
 
-<%=board.getBoard_no() %>
 <section id="listForm">
-	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
+	<form action="reviewWritePro.bo?board_no=<%=board.getBoard_no() %>&page=<%=nowPage %>" method="post"  name="reviewForm">
+		<input type="hidden" name="page" value="<%=nowPage %>">
+		<input type="hidden" name="board_no" value="<%=board.getBoard_no() %>">
 		<input type="hidden" id="board_no" name="board_no" value="<%=board.getBoard_no()%>">
 		<input type="text" id="review_content" name="review_content" maxlength='100'>
 		<input type="submit" value="등록">
@@ -282,24 +288,24 @@ input[type=text]{
 	<br><br><br>
 
 	<section id="pageList">
-	<%if(nowPage1<=1) { %>
+	<%if(nowReviewPage<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a href="boardList.bo?page=<%=nowPage1-1 %>">[이전]</a>&nbsp;
+		<a style="color:black; text-decoration:none;" href="boardView.bo?&board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>&reivewPage=<%=nowReviewPage-1 %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
-		if(a==nowPage1) {%>
+		if(a==nowReviewPage) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a href="boardList.bo?page=<%=a %>">[<%=a %>]
+			<a style="color:black; text-decoration:none;" href="boardView.bo?&board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>&reviewPage=<%=a %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
-	<%if(nowPage1>=maxPage) { %>
+	<%if(nowReviewPage>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="boardView.bo?&page=<%=nowPage%>">[다음]</a>
+		<a style="color:black; text-decoration:none;" href="boardView.bo?&board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>&reviewPage=<%=nowReviewPage+1%>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>
@@ -309,12 +315,6 @@ input[type=text]{
 
 <br><br><br><br>
 
-<section id="listForm">
-	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
-		<input type="text" id="review_content" name="review_content">
-		<input type="submit" value="등록">
-	</form>
-	</section>
 
 
 

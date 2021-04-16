@@ -77,13 +77,14 @@ public class ReviewDAO {
 		return insertCount;
 	}
 
-	public int selectListCount() {
+	public int selectListCount(int board_no) {
 		int listCount = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-			pstmt = con.prepareStatement("select count(*) from review");
+			pstmt = con.prepareStatement("select count(*) from review where board_no=?");
+			pstmt.setInt(1, board_no);
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) listCount = rs.getInt(1);
@@ -144,7 +145,7 @@ public class ReviewDAO {
 		ArrayList<Review> articleList = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from review where board_no = ? order by review_re_ref desc, review_re_seq asc limit ?, ?";
+		String sql = "select * from review where board_no = ? order by review_re_ref desc, review_re_seq asc limit ?, ? ";
 		int startrow = (reviewPage - 1) * limit;
 		
 		try {

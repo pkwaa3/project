@@ -47,7 +47,7 @@ public class BoardViewMemAction implements Action {
 			reviewPage = Integer.parseInt(request.getParameter("page"));
 		}
 		ReviewListService reviewListService = new ReviewListService();
-		int listCount = reviewListService.getListCount();
+		int listCount = reviewListService.getListCount(board_no);
 		int maxPage = (int)((double)listCount/limit + 0.95);
 		int startPage = (((int)((double)reviewPage / limitPage + 0.9)) -1) * limitPage + 1;
 		int endPage = startPage + limitPage -1;
