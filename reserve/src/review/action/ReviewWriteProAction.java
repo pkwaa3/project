@@ -20,7 +20,9 @@ public class ReviewWriteProAction implements Action {
 		ActionForward forward = null;
 		Review review = new Review();
 		
-		
+		String board_no = request.getParameter("board_no");
+		String page = request.getParameter("page");
+		System.out.println(request.getParameter("nowPage"));
 		
 		System.out.println(session.getAttribute("id"));
 		System.out.println(session.getAttribute("owner_id"));
@@ -52,6 +54,9 @@ public class ReviewWriteProAction implements Action {
 			out.println("alert('등록되었습니다.')");
 			out.println("location.reload();");
 			out.println("</script>");
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("boardView.bo?board_no="+board_no+"&page="+page);
 		}
 		return forward;
 	}

@@ -45,7 +45,6 @@ import owner.action.marketModInfoProAction;
 import owner.action.ownerJoinAction;
 import owner.action.ownerLoginAction;
 import owner.action.ownerRegiMarketListAction;
-import review.action.ReviewListProAction;
 import review.action.ReviewWriteProAction;
 import vo.ActionForward;
 
@@ -344,19 +343,7 @@ public class reservFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
-		// 리뷰 리스트 프로
-				else if (command.equals("/reviewListPro.bo")) {
-					action = new ReviewListProAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-		
-		
-		
-		
+	
 		
 
 		// ㅈㅇ우

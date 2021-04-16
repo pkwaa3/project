@@ -367,10 +367,10 @@ body {
   <div class="column">
   	<div class="slide" style="margin-left:30px; ">
     <ul>
-      <li><img src="img/slider1.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/slider2.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/slider3.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/slider4.PNG" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/slider1.PNG" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/slider2.PNG" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/slider3.PNG" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/slider4.PNG" style="object-fit:cover; width:600px; height:550px;"></li>
     </ul>
   </div>
   </div>
@@ -380,10 +380,10 @@ body {
 
   <div class="slide">
     <ul>
-      <li><img src="img/만두.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/돈까스.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/라면.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/해물찜.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/만두.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/돈까스.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/라면.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/해물찜.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
     </ul>
   </div>
 
@@ -395,10 +395,10 @@ body {
   <div class="column" >
   	<div class="slide" style="margin-right:30px;">
     <ul>
-      <li><img src="img/스시.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/족보.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/치킨.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
-      <li><img src="img/도시락.jpg" style="object-fit:cover; width:550px; height:550px;"></li>
+      <li><img src="img/스시.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/족보.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/치킨.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/도시락.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
     </ul>
   </div>
   

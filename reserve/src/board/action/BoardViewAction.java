@@ -40,14 +40,14 @@ public class BoardViewAction implements Action {
 		
 		int reviewPage = 1;
 		int limit = 10;
-		int limitPage = 10;
+		int limitPage = 10;	
 		
 		
 		if(request.getParameter("reviewPage") != null) {
-			reviewPage = Integer.parseInt(request.getParameter("page"));
+			reviewPage = Integer.parseInt(request.getParameter("reviewPage"));
 		}
 		ReviewListService reviewListService = new ReviewListService();
-		int listCount = reviewListService.getListCount();
+		int listCount = reviewListService.getListCount(board_no);
 		int maxPage = (int)((double)listCount/limit + 0.95);
 		int startPage = (((int)((double)reviewPage / limitPage + 0.9)) -1) * limitPage + 1;
 		int endPage = startPage + limitPage -1;
@@ -60,6 +60,12 @@ public class BoardViewAction implements Action {
 		pageInfo.setPage(reviewPage);
 		pageInfo.setStart_page(startPage);
 		
+		System.out.println("reviewPage="+reviewPage);
+		System.out.println("listcount="+listCount);
+		System.out.println("maxpage="+maxPage);
+		System.out.println("startPage="+startPage);
+		System.out.println("endpage="+endPage);
+		
 		ArrayList<Review> articleList = new ArrayList<>();
 		articleList = reviewListService.getArticleList(reviewPage, limit, board_no);
 		
@@ -67,7 +73,7 @@ public class BoardViewAction implements Action {
 		request.setAttribute("articleList", articleList);
 		//ActionForward forward = new ActionForward();
 		
-		forward.setPath("boardViewInfo.bo");
+		forward.setPath("boardViewInfo.bo?");
 		
 		
 		return forward;

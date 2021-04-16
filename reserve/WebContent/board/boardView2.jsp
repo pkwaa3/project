@@ -160,7 +160,7 @@ input[type=text]{
 
  
 
- <jsp:include page="../headOw.jsp"></jsp:include>
+ <jsp:include page="../head.jsp"></jsp:include>
  
   <!-- Page Content -->
 <form action="reservation.bo" method="post">
@@ -226,7 +226,7 @@ input[type=text]{
 <br><br><br>
 <div class="review">
 
-<%=board.getBoard_no() %>
+
 <section id="listForm">
 	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
 		<input type="hidden" id="board_no" name="board_no" value="<%=board.getBoard_no()%>">
@@ -311,12 +311,7 @@ input[type=text]{
 
 <br><br><br><br>
 
-<section id="listForm">
-	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
-		<input type="text" id="review_content" name="review_content">
-		<input type="submit" value="등록">
-	</form>
-	</section>
+
 
 
 
