@@ -216,6 +216,7 @@ input[type=text]{
 </c:if>      
 
       </div>
+      
     </div>
     <!-- /.row -->
 
