@@ -44,9 +44,6 @@
 	function okyangsik(f) {
 		document.getElementById("menu").value=f.yangsik.value;
 		}
-	function okilsik(f) {
-		document.getElementById("menu").value=f.ilsik.value;
-		}
 	function okbunsik(f) {
 		document.getElementById("menu").value=f.bunsik.value;
 		}
@@ -346,10 +343,9 @@ body {
   						<input class="button" type="button" name="joongsik" id="joongsik" value="중식" onclick="okjoongsik(this.form)"></p>
   						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)">
   						<input class="button" type="button" name="yangsik" id="yangsik" value="양식" onclick="okyangsik(this.form)"></p>
-  						<p><input class="button" type="button" name="ilsik" id="ilsik" value="일식" onclick="okilsik(this.form)">
-  						<input class="button" type="button" name="bunsik" id="bunsik" value="분식" onclick="okbunsik(this.form)"></p>
-  						<p><input class="button" type="button" name="jjimtang" id="jjimtang" value="찜탕" onclick="okjjimtang(this.form)">
-  						<input class="button" type="button" name="cafe" id="cafe" value="카페" onclick="okcafe(this.form)"></p>
+  						<p><input class="button" type="button" name="bunsik" id="bunsik" value="분식" onclick="okbunsik(this.form)">
+  						<input class="button" type="button" name="jjimtang" id="jjimtang" value="찜탕" onclick="okjjimtang(this.form)"></p>
+  						<p><input class="button" type="button" name="cafe" id="cafe" value="카페" onclick="okcafe(this.form)"></p>
   						
   					</div>
   				</div>
@@ -383,10 +379,10 @@ body {
 
   <div class="slide">
     <ul>
-      <li><img src="img/만두.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
-      <li><img src="img/돈까스.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
-      <li><img src="img/라면.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
-      <li><img src="img/해물찜.jpg" style="object-fit:cover; width:600px; height:550px;"></li>
+      <li><img src="img/만두.jpg" style="object-fit:cover; width:700px; height:550px;"></li>
+      <li><img src="img/돈까스.jpg" style="object-fit:cover; width:700px; height:550px;"></li>
+      <li><img src="img/라면.jpg" style="object-fit:cover; width:700px; height:550px;"></li>
+      <li><img src="img/해물찜.jpg" style="object-fit:cover; width:700px; height:550px;"></li>
     </ul>
   </div>
 

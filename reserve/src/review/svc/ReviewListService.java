@@ -25,22 +25,7 @@ public class ReviewListService {
 		return listCount;
 	}
 
-	public ArrayList<Review> getArticleList(int page, int limit, String board_no) {
-		ArrayList<Review> searchList = null;
-		Connection con = null;
-		try {
-			con = getConnection();
-			ReviewDAO reviewDAO = ReviewDAO.getInstance();
-			reviewDAO.setConnection(con);
-			searchList = reviewDAO.selectSearchList(page, limit, board_no);
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(con);
-		}
-		
-		return searchList;
-	}
+	
 
 	public ArrayList<Review> getArticleList(int reviewPage, int limit, int board_no) {
 		ArrayList<Review> searchList = null;
