@@ -145,9 +145,9 @@ button:hover {
     <p>빈칸을 채워 주세요.</p>
     <hr>
 
-    <label for="owner_id"><b>아이디</b></label>
+    <label for="owner_id"><b>아이디</b></label><input type="button" name="idSearch" id="idsearch" value="검색" onclick="window.open('ownerIdCheck.own','','width=500, height=300')"/>
     <input type="text" placeholder="Enter Id" name="owner_id" id="owner_id" readonly required>
-     <input type="button" name="idSearch" id="idsearch" value="검색" onclick="window.open('ownerIdCheck.own','','width=500, height=300')"/>
+     
 
     <label for="owner_pw"><b>비밀번호</b></label>
     <input type="password" placeholder="Enter Password" name="owner_pw" id="owner_pw" required>

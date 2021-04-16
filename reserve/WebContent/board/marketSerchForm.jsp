@@ -286,6 +286,9 @@ body {
 	</h2>
 	<br><br>
 </div>
+<%
+			if(searchList != null && listCount > 0) {				
+		%>	
 	<!-- 
 	<section id="listForm">
 	<table>
@@ -326,6 +329,7 @@ body {
 	
 </section>
  -->
+ <%} %>
  	<div style="background-color: #f1f1f1;">
 	<div style=" margin:auto; width:1400px; display:block;">
 	<c:if test="${searchList != null }">
@@ -389,7 +393,7 @@ body {
 	<%} %>	<br><br><br>
 </section>
 <% } else { %>
-	<section id="emptyArea">등록된 글이 없습니다. </section>
+	<section id="emptyArea" style="height:1000px; text-align:center;"><br><br><br><br><h1>등록된 글이 없습니다.<h1></h1></section>
 <%} %>
 <div class="footer">
   <p>Copyright &copy; Your Website 2020</p>

@@ -256,9 +256,15 @@ button:hover {
     <span  style="background-color:#f1f1f1; width: 100%; padding: 15px; margin: 5px 0 22px 0;">
     			
     			<input type="checkbox" name="kind" id="hansik" value="한식" checked >한식
-		 		<input type="checkbox" name="kind" id="yangsik" value="양식">양식
 		 		<input type="checkbox" name="kind" id="joongsik" value="중식">중식
-		 		<input type="checkbox" name="kind" id="ilsik" value="일식">일식<p></p></span>
+		 		<input type="checkbox" name="kind" id="ilsik" value="일식">일식
+		 		<input type="checkbox" name="kind" id="yangsik" value="양식">양식
+		 		<input type="checkbox" name="kind" id="bunsik" value="분식">분식
+		 		<input type="checkbox" name="kind" id="jjimtang" value="찜탕">찜탕
+		 		<input type="checkbox" name="kind" id="cafe" value="카페">카페
+		 		
+		 		
+		 		<p></p></span>
    	 
    	<label for="open"><b>오픈시간</b></label><p>
     <input type="number" name="open" id="open" required><p>

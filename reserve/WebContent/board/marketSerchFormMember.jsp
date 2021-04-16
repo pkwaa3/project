@@ -287,6 +287,9 @@ body {
 		<%=request.getAttribute("kind") %>&nbsp;&nbsp;맛집 정보입니다.
 	</h2>
 </div>
+<%
+			if(searchList != null && listCount > 0) {				
+		%>	
 	<!-- <table>
 		<%
 			if(searchList != null && listCount > 0) {				
@@ -322,7 +325,7 @@ body {
 		</tr>
 		<%} %>
 	</table>
-	
+	<%} %>
 </section>
 	 -->
 	<div style="background-color: #f1f1f1;">
@@ -388,7 +391,7 @@ body {
 	<%} %>	<br><br><br>
 </section>
 <% } else { %>
-	<section id="emptyArea">등록된 글이 없습니다.</section>
+	<section id="emptyArea" style="height:1000px; text-align:center;"><br><br><br><br><h1>등록된 글이 없습니다.<h1></h1></section>
 <%} %>
 <div class="footer">
   <p>Copyright &copy; Your Website 2020</p>
