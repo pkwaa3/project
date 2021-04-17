@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><title>:::점장가게등록|야먹자:::</title></title>
+<title>:::점장가게등록|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {

@@ -37,7 +37,7 @@ public class ReservationDAO {
 		PreparedStatement pstmt= null;
 		
 		try {
-			String sql="insert into reservation(member_no,rest_no,date,time,head,restName) values(?,?,?,?,?,?)";
+			String sql="insert into reservation(member_no,rest_no,date,time,head,restName,memberName,memberNum) values(?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1,reservation.getMember_no());
 			pstmt.setInt(2,reservation.getRest_no());
@@ -45,7 +45,8 @@ public class ReservationDAO {
 			pstmt.setString(4,reservation.getTime());
 			pstmt.setString(5,reservation.getHead());
 			pstmt.setString(6, reservation.getRestName());
-			
+			pstmt.setString(7, reservation.getMemberName());
+			pstmt.setString(8,reservation.getMemberNum());
 			
 			insertRe=pstmt.executeUpdate();
 			
@@ -83,7 +84,8 @@ public class ReservationDAO {
 				reservation.setTime(rs.getString("time"));
 				reservation.setHead(rs.getString("head"));
 				reservation.setRestName(rs.getString("restName"));
-				
+				reservation.setMemberName(rs.getString("memberName"));
+				reservation.setMemberNum(rs.getString("memberNum"));
 				list.add(reservation);		
 				
 			}
@@ -122,6 +124,8 @@ public class ReservationDAO {
 				reservation.setTime(rs.getString("time"));
 				reservation.setHead(rs.getString("head"));
 				reservation.setRestName(rs.getString("restName"));
+				reservation.setMemberName(rs.getString("memberName"));
+				reservation.setMemberNum(rs.getString("memberNum"));
 				
 				list.add(reservation);		
 			}

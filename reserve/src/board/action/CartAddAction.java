@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import action.Action;
 import board.svc.CartAddService;
 import board.svc.CartOverlapSvc;
+import board.svc.MemberNoService1;
 import member.svc.MemberNoService;
 import restaurant.svc.RestNoService;
 import vo.ActionForward;
@@ -29,8 +30,8 @@ public class CartAddAction implements Action {
 		String img = request.getParameter("img");
 
 		// 멤버 아이디로 번호 조회
-		MemberNoService memberNoService = new MemberNoService();
-		int memberNo = memberNoService.getMember(id);
+		MemberNoService1 memberNoService = new MemberNoService1();
+		int memberNo = memberNoService.getMemberno(id);
 
 		// 멤버아이디로 중복검사
 		CartOverlapSvc cartOverlapSvc = new CartOverlapSvc();

@@ -9,16 +9,16 @@ import vo.Member;
 
 public class MemberNoService {
 
-	public int getMember(String id) {
+	public Member getMember(String id) {
 		Connection con = null;
-		int memberNo = 0;
+		Member member= null;
 		
 		try {
 			con=getConnection();
 			MemberDAO memberDAO = MemberDAO.getInstance();
 			memberDAO.setConnection(con);
 			
-			memberNo=memberDAO.serchMemberNO(id);
+			member=memberDAO.serchMemberNO(id);
 			
 			
 		}catch(Exception e) {
@@ -28,7 +28,7 @@ public class MemberNoService {
 		}
 		
 		
-		return memberNo;
+		return member;
 	}
 
 }

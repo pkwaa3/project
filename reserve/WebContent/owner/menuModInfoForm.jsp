@@ -309,7 +309,7 @@ button:hover {
     		<% for(int i=0; i<menuList.size(); i++) { %>
     	
     	<tr>		
-			<td>                                       <input type="text" name="menu_no" id="menu_no" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_no() %>"/></td>
+			<td>                                       <input type="hidden" name="menu_no" id="menu_no" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_no() %>"/></td>
     		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_name() %>"/></td>
     		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" value="<%=menuList.get(i).getMenu_price() %>"/>원</td>
     		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img<%=i %>" id="menu_img<%=i %>" name='menu_img"+cnt+"' value="<%=menuList.get(0).getMenu_org_img() %>"/> <br> </td>

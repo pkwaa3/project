@@ -10,6 +10,8 @@ public class Reservation {
 	private String date;
 	private String time;
 	private String head;
+	private String memberName;
+	private String memberNum;
 	
 	public int getReserv_no() {
 		return reserv_no;
@@ -53,6 +55,18 @@ public class Reservation {
 	}
 	public void setRestName(String restName) {
 		this.restName = restName;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public String getMemberNum() {
+		return memberNum;
+	}
+	public void setMemberNum(String memberNum) {
+		this.memberNum = memberNum;
 	}
 	
 	

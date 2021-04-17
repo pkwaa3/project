@@ -194,7 +194,9 @@ th {
   text-align: center;
   padding: 8px;
 }
-
+td a{
+	text-decoration:none;
+}
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
@@ -291,6 +293,7 @@ th {
 			<th>예약날짜</th>
 			<th>예약시간</th>
 			<th>인원수</th>
+			<th></th>
 			
 		</tr>
 <c:forEach var="list" items="${list }" begin="0" end="9">	
@@ -300,6 +303,7 @@ th {
 			<td>${list.date }</td>
 			<td>${list.time }</td>
 			<td>${list.head }</td>
+			<td><a href="reservDelete.bo?reserv_no=${list.reserv_no }">예약취소</a></td>
 			
 		</tr>
 		</c:forEach>

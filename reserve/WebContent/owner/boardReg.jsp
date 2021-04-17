@@ -14,7 +14,7 @@ ArrayList<Restaurant> list = (ArrayList<Restaurant>)request.getAttribute("list")
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>:::메뉴등록|야먹자:::</title>
 <style>
 /*탑 목록*/
 #topmenu {
@@ -290,7 +290,7 @@ button:hover {
 	
     <label for="board_subject"><b>가게선택</b></label><br>
 <%
-	if(list != null){
+	if(list.size() != 0){
 		
 		for(int i=0; i<list.size();i++){
 %>
@@ -309,7 +309,7 @@ button:hover {
 
 %>
 	
-	
+<%if(list.size()!=0){ %>	
 	<br><br><label for="kind"><b>가게주소</b> </label><P> 	
 
     	<input type="text" name="addr" id="addr" value="<%=list.get(0).getAddress() %>" />
@@ -322,7 +322,7 @@ button:hover {
 	<br><br><label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
 			onClick="insRow()" value="메뉴 추가">
     <table id="addTable">
-    		
+<%} %>    		
     	
     	<tr>		
 

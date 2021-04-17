@@ -1,4 +1,4 @@
-package member.action;
+package board.action;
 
 import java.io.PrintWriter;
 
@@ -7,40 +7,39 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
-import member.svc.MemberDeleteService;
+import board.svc.CartDelSvc;
 import vo.ActionForward;
 
-public class MemberDeleteAction implements Action {
+public class CartDelAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward forward =null;
-		HttpSession session = request.getSession();
+		ActionForward forward=null;
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("member_id");
+		String cartNo=request.getParameter("cart_no");
 		
-		String id=request.getParameter("id");
-		String pass=request.getParameter("pass");
+		CartDelSvc cartDelSvc=new CartDelSvc();
+		int cartDel=cartDelSvc.delete(cartNo);
 		
-		System.out.println(id);
-		System.out.println(pass);
-		MemberDeleteService memberDeleteService = new MemberDeleteService();
-		boolean isDeleteSuccess = memberDeleteService.deleteMember(id,pass);
-		
-		if(isDeleteSuccess) {
+		if(cartDel>0) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('회원탈퇴하셨습니다.');");
-			out.println("location.href='main.com';");
+			out.println("alert('찜목록에서 삭제되었습니다.');");
+			out.println("location.href='memberMyPage.mem?member_id="+id+"';");
 			out.println("</script>");
-		} else {
+			
+		}else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('탈퇴실패');");
+			out.println("alert('취소실패. 관리자에게 문의하여주세요');");
 			out.println("history.back();");
 			out.println("</script>");
+			
 		}
-	
+		
 		
 		return forward;
 	}
