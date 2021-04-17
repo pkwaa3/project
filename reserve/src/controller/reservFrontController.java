@@ -319,14 +319,11 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 
-		else if (command.equals("/menuModInfoForm.own")) {
-			action = new MenuModInfoFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		// 마켓 서치 리스트 폼 멤버로
+				else if (command.equals("/menuModInfoFormForm.own")) {
+					forward = new ActionForward();
+					forward.setPath("/owner/menuModInfoForm.jsp");
+				}
 		// 메뉴 정보 수정 프로
 		else if (command.equals("/menuModInfoPro.own")) {
 			action = new MenuModInfoProAction();

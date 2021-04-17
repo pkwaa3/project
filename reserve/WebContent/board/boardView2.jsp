@@ -256,7 +256,7 @@ input[type=text]{
 			for(int i=0; i<articleList.size(); i++) {
 		%>
 		<tr>
-			<td width=50><%=i %></td>
+			<td width=50><%=i +1%></td>
 			<td style="text-align:left;">
 				<%if(articleList.get(i).getReview_re_lev() != 0) {%>
 				<%for(int a=0; a<=articleList.get(i).getReview_re_lev()*2; a++) { %>
@@ -290,21 +290,21 @@ input[type=text]{
 	<%if(nowPage1<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a href="boardList.bo?page=<%=nowPage1-1 %>">[이전]</a>&nbsp;
+		<a style="color:black; text-decoration:none;" href="boardList.bo?page=<%=nowPage1-1 %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
 		if(a==nowPage1) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a href="boardList.bo?page=<%=a %>">[<%=a %>]
+			<a style="color:black; text-decoration:none;" href="boardList.bo?page=<%=a %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
 	<%if(nowPage1>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a href="boardView.bo?&page=<%=nowPage%>">[다음]</a>
+		<a style="color:black; text-decoration:none;" href="boardView.bo?&page=<%=nowPage%>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>

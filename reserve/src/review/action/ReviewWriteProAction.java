@@ -29,6 +29,8 @@ public class ReviewWriteProAction implements Action {
 		System.out.println(request.getParameter("board_no"));
 		System.out.println(request.getParameter("review_content"));
 		
+		if(session.getAttribute("owner_id") != null || session.getAttribute("id") != null) {
+		
 		review.setMember_id((String)session.getAttribute("member_id"));
 		review.setOwner_id((String)session.getAttribute("owner_id"));
 		review.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
@@ -58,6 +60,19 @@ public class ReviewWriteProAction implements Action {
 			forward.setRedirect(true);
 			forward.setPath("boardView.bo?board_no="+board_no+"&page="+page);
 		}
+		
+		} else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('로그인을 하세요')");
+			out.println("history.back();");
+			out.println("</script>");
+			
+		}
+		
+		
+		
 		return forward;
 	}
 

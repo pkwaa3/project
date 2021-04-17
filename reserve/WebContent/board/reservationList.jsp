@@ -301,7 +301,7 @@ th {
 			for(int i=0; i<restList.size(); i++) {
 		%>
 		<tr>
-			<td><%= i %>
+			<td><%= i+1 %>
 			<td><%=restList.get(i).getRest_no() %></td>
 			<td><a style="color:green; text-decoration:none;" href="reservInfoOw.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
 			<td><%=restList.get(i).getLocal() %></td>

@@ -161,7 +161,7 @@ input[type=text]{
 
 <!-- <jsp:include page="../head.jsp"></jsp:include>-->
 
-</nav>
+
 
  
 
@@ -258,7 +258,7 @@ input[type=text]{
 			for(int i=0; i<articleList.size(); i++) {
 		%>
 		<tr>
-			<td width=50><%=i %></td>
+			<td width=50><%=i +1%></td>
 			<td style="text-align:left;">
 				<%if(articleList.get(i).getReview_re_lev() != 0) {%>
 				<%for(int a=0; a<=articleList.get(i).getReview_re_lev()*2; a++) { %>

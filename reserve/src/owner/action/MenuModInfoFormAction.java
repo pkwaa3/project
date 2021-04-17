@@ -35,10 +35,11 @@ public class MenuModInfoFormAction implements Action {
 		menuList = menuModInfoSvc.getMenuModInfo(restNo);
 		request.setAttribute("menuList", menuList);
 		
+		System.out.println(menuList.get(0).getMenu_price());
 		
 			
 			forward = new ActionForward();
-			forward.setPath("/owner/menuModInfoForm.jsp");
+			forward.setPath("/menuModInfoFormForm.own");
 		
 		
 		

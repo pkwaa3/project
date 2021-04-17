@@ -102,7 +102,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
 /* Full-width input fields */
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=file]{
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -165,8 +165,9 @@ button:hover {
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin-left:400px;
   border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 60%; /* Could be more or less, depending on screen size */
   padding:5px;
 }
 .footer {
@@ -204,16 +205,18 @@ button:hover {
 		var oCell1 = oRow.insertCell();
 		var oCell2 = oRow.insertCell();
 		var oCell3 = oRow.insertCell();
+		var oCell4 = oRow.insertCell();
 		//삽입될 폼 태그
-		var frmTag1 = "<tr><td><label for='menu_name'> 상품명 : </label><input type='text' name='menu_name' id='menu_name' style='width:200px;height:10px;'/></td>";
-		var frmTag2 = "<td><label for='menu_price'>가격 : </label><input type='text' name='menu_price' id='menu_price' style='width:200px;height:10px;' />원</td>";
-		var frmTag3 = "<td>사진 등록 : <input type='file' name='menu_img"+cnt+"' id='menu_img"+cnt+"'> </td>";
+		var frmTag1 = "<tr><td><input type='text' name='menu_name' id='menu_name' /></td>";
+		var frmTag2 = "<td><input type='text' name='menu_price' id='menu_price' style='width:200px;' />원</td>";
+		var frmTag3 = "<td><input type='file' name='menu_img"+cnt+"' id='menu_img"+cnt+"'> </td>";
 
-		frmTag3 += "<input type=button value='삭제' onClick='removeRow()' style='cursor:hand'> ";
+		var frmTag4 = "<td><input type=button value='삭제' onClick='removeRow()' style='cursor:hand'></td>";
 		
 		oCell1.innerHTML = frmTag1;
 		oCell2.innerHTML = frmTag2;
 		oCell3.innerHTML = frmTag3;
+		oCell4.innerHTML = frmTag4;
 	}
 	//row삭제
 	function removeRow() {
@@ -288,7 +291,7 @@ button:hover {
 
 
 	
-    <label for="board_subject"><b>가게선택</b></label><br>
+    <label for="board_subject"><b>가게선택</b></label><br><br> 
 <%
 	if(list.size() != 0){
 		
@@ -314,27 +317,35 @@ button:hover {
 
     	<input type="text" name="addr" id="addr" value="<%=list.get(0).getAddress() %>" />
 		
-	<br> 가게 메인이미지 등록 
+	<br> <b>가게 메인이미지 등록</b><br> <br> 
 		<input type="file"  name="main_img" id="main_img" />
 		<input type="hidden" name="menu_name" id="menu_name" value="a"/>
     	<input type="hidden" name="menu_price" id="menu_price" value="1" />
 		
 	<br><br><label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
 			onClick="insRow()" value="메뉴 추가">
-    <table id="addTable">
+    <table id="addTable" style="text-align:center; border-spacing:10px; " >
 <%} %>    		
-    	
     	<tr>		
 
-    		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;"/></td>
-    		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" />원</td>
-    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img" id="menu_img1" /> <br> </td>
+    		<td><label for="menu_name">상품 명 </td>
+    		<td><label for="menu_price">가격  </label></td>
+    		<td><label for="menu_img">사진 등록  </label> <br> </td>
+    		<td></td>
+    		
+		</tr> 
+    	<tr>		
+
+    		<td><input type="text" name="menu_name" id="menu_name" /></td>
+    		<td><input type="text" name="menu_price" id="menu_price" style="width:200px;" />원</td>
+    		<td><input type="file" name="menu_img" id="menu_img1" /></td>
+    		<td></td>
 		</tr>    		
     	
     </table>
     
      <br><br>
-    <label for="board_content"><b>가게 설명</b></label><br>
+    <label for="board_content"><b>가게 설명</b></label><br><br>
     <textarea rows="20" cols="70" name="board_content" id="board_content" ></textarea>
     
     

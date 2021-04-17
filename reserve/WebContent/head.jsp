@@ -6,7 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-nav ul {
+
+/*탑 목록*/
+#topmenu {
+
+}
+#topmenu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,16 +19,16 @@ nav ul {
   background-color: #333;
 }
 
-nav li {
+#topmenu li {
   float: left;
   border-right:1px solid #bbb;
 }
 
-nav li:last-child {
+#topmenu li:last-child {
   border-right: none;
 }
 
-nav li a {
+#topmenu li a {
   display: block;
   color: white;
   text-align: center;
@@ -31,21 +36,20 @@ nav li a {
   text-decoration: none;
 }
 
-nav li a:hover:not(.active) {
+#topmenu li a:hover:not(.active) {
   background-color: #111;
 }
 
-nav .active {
+.active {
   background-color: #4CAF50;
 }
 </style>
 </head>
 <body>
-	<nav>
-	<ul>
-  		<li><a class="active" href="main.com">Home</a></li>
-  
- <%
+<nav id="topmenu">
+<ul >
+  <li><a class="active" href="main.com">Home</a></li>
+<%
 	request.setCharacterEncoding("utf-8");
 	if(session.getAttribute("id") == null){
 %>
@@ -61,8 +65,6 @@ nav .active {
 <%
 	}
 %>
-
-
-	</nav>
+</nav>
 </body>
 </html>
