@@ -308,8 +308,11 @@ body {
 </nav>
 
 <br><br>
+<div style="height:50px;"></div>
+</div>
 <div class="title">
 <font face="TmoneyRoundWindExtraBold"><h1>야먹자</h1></font>
+<div style="height:50px;"></div>
 </div>
 <br><br><br>
 
@@ -409,7 +412,7 @@ body {
   
   </div>
 </div>
-<div style="height:150px;">
+<div style="height:200px;">
 
 </div>
 <div class="footer">
