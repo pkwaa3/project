@@ -61,29 +61,40 @@ public class BoardRegAction implements Action {
 		String[] menuPrice = multi.getParameterValues("menu_price");
 		// String[] menuImg =multi.getParameterValues("menu_img");
 
-		int i = 0;
-
+		int j=menuName.length;
+		int k=1;
 		Enumeration files = multi.getFileNames();
 
 		while (files.hasMoreElements()) {
+			int i = j-k;
 			System.out.println(menuName.length);
 			System.out.println(files.hasMoreElements());
+			System.out.println(i);
 			Menu menu = null;
-			if (i < 1) {
+			if (i == j-1) {
 				String file = (String) files.nextElement();
 				board.setMain_org_img(multi.getOriginalFileName(file));
 				board.setMain_sys_img(multi.getFilesystemName(file));
-			} else {
+				System.out.println(multi.getOriginalFileName(file));
+				System.out.println(menuName[i]);
+				System.out.println(Integer.parseInt(menuPrice[i]));
+			}else if(i<0) {
+				break;
+			}else {
 				menu = new Menu();
-				menu.setMenu_name(menuName[i]);
-				menu.setMenu_price(Integer.parseInt(menuPrice[i]));
+				menu.setMenu_name(menuName[i+1]);
+				menu.setMenu_price(Integer.parseInt(menuPrice[i+1]));
 				String file = (String) files.nextElement();
 				menu.setMenu_org_img(multi.getOriginalFileName(file));
 				menu.setMenu_sys_img(multi.getFilesystemName(file));
+				System.out.println(menuName[i]);
+				System.out.println(Integer.parseInt(menuPrice[i]));
+				System.out.println(multi.getOriginalFileName(file));
+				
 			}
 
 			list.add(menu);
-			i++;
+			k++;
 		}
 //		System.out.println(list.size());
 //		for (int j = 1; j < list.size(); j++) {
