@@ -189,7 +189,7 @@ button:hover {
 }
 </style>
 <script>
-	var cnt = 1;
+	var cnt = 2;
 	var i = 1;
 	var oTbl;
 	//row추가
@@ -207,8 +207,8 @@ button:hover {
 		var oCell3 = oRow.insertCell();
 		var oCell4 = oRow.insertCell();
 		//삽입될 폼 태그
-		var frmTag1 = "<tr><td><input type='text' name='menu_name' id='menu_name' /></td>";
-		var frmTag2 = "<td><input type='text' name='menu_price' id='menu_price' style='width:200px;' />원</td>";
+		var frmTag1 = "<tr><td><label for='menu_name'> 상품명 : </label><input type='text' name='menu_name' id='menu_name' style='width:200px;height:10px;'/></td>";
+		var frmTag2 = "<td><label for='menu_price'>가격 : </label><input type='text' name='menu_price' id='menu_price' style='width:200px;height:10px;' />원</td>";
 		var frmTag3 = "<td><input type='file' name='menu_img"+cnt+"' id='menu_img"+cnt+"'> </td>";
 
 		var frmTag4 = "<td><input type=button value='삭제' onClick='removeRow()' style='cursor:hand'></td>";
@@ -328,17 +328,14 @@ button:hover {
 <%} %>    		
     	<tr>		
 
-    		<td><label for="menu_name">상품 명 </td>
-    		<td><label for="menu_price">가격  </label></td>
-    		<td><label for="menu_img">사진 등록  </label> <br> </td>
+    		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;"/></td>
+    		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" />원</td>
+    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img1" id="menu_img1" /> <br> </td>
     		<td></td>
     		
 		</tr> 
     	<tr>		
 
-    		<td><input type="text" name="menu_name" id="menu_name" /></td>
-    		<td><input type="text" name="menu_price" id="menu_price" style="width:200px;" />원</td>
-    		<td><input type="file" name="menu_img" id="menu_img1" /></td>
     		<td></td>
 		</tr>    		
     	
