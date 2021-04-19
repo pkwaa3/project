@@ -231,7 +231,7 @@ input[type=text]{
 
 
 <section id="listForm">
-	<form action="reviewWritePro.bo" method="post"  name="reviewForm">
+	<form action="reviewWriteMemPro.bo" method="post"  name="reviewForm">
 		<input type="hidden" id="board_no" name="board_no" value="<%=board.getBoard_no()%>">
 		<input type="text" id="review_content" name="review_content" maxlength='100'>
 		<input type="submit" value="등록">

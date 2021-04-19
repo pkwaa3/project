@@ -44,7 +44,7 @@ public class BoardViewMemAction implements Action {
 		
 		
 		if(request.getParameter("reviewPage") != null) {
-			reviewPage = Integer.parseInt(request.getParameter("page"));
+			reviewPage = Integer.parseInt(request.getParameter("reviewPage"));
 		}
 		ReviewListService reviewListService = new ReviewListService();
 		int listCount = reviewListService.getListCount(board_no);
@@ -57,8 +57,14 @@ public class BoardViewMemAction implements Action {
 		pageInfo.setEnd_page(endPage);
 		pageInfo.setList_count(listCount);
 		pageInfo.setMax_page(maxPage);
-		pageInfo.setPage(Integer.parseInt(page));
+		pageInfo.setPage(reviewPage);
 		pageInfo.setStart_page(startPage);
+		
+		System.out.println("reviewPage="+reviewPage);
+		System.out.println("listcount="+listCount);
+		System.out.println("maxpage="+maxPage);
+		System.out.println("startPage="+startPage);
+		System.out.println("endpage="+endPage);
 		
 		ArrayList<Review> articleList = new ArrayList<>();
 		articleList = reviewListService.getArticleList(reviewPage, limit, board_no);

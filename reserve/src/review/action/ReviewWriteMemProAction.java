@@ -11,7 +11,7 @@ import review.svc.ReviewWriteProService;
 import vo.ActionForward;
 import vo.Review;
 
-public class ReviewWriteProAction implements Action {
+public class ReviewWriteMemProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -58,7 +58,7 @@ public class ReviewWriteProAction implements Action {
 			out.println("</script>");
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("boardView.bo?board_no="+board_no+"&page="+page);
+			forward.setPath("boardViewMem.bo?board_no="+board_no+"&page="+page);
 		}
 		
 		} else {
