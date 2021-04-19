@@ -21,7 +21,7 @@
         	ArrayList<Review> articleList = (ArrayList<Review>)request.getAttribute("articleList");
                     	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                     	int listCount = pageInfo.getList_count();
-                    	int nowPage1 = pageInfo.getPage();
+                    	int nowReviewPage = pageInfo.getPage();
                     	int maxPage = pageInfo.getMax_page();
                     	int startPage = pageInfo.getStart_page();
                     	int endPage = pageInfo.getEnd_page();
@@ -290,24 +290,24 @@ input[type=text]{
 	<br><br><br>
 
 	<section id="pageList">
-	<%if(nowPage1<=1) { %>
+	<%if(nowReviewPage<=1) { %>
 		[이전]&nbsp;
 	<% }else { %>
-		<a style="color:black; text-decoration:none;" href="boardList.bo?page=<%=nowPage1-1 %>">[이전]</a>&nbsp;
+		<a style="color:black; text-decoration:none;" href="boardViewMem.bo?board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>&reivewPage=<%=nowReviewPage-1 %>">[이전]</a>&nbsp;
 	<%} %>
 	
 	<%for(int a=startPage; a<=endPage; a++) {
-		if(a==nowPage1) {%>
+		if(a==nowReviewPage) {%>
 			[<%=a %>]
 		<%}else{ %>
-			<a style="color:black; text-decoration:none;" href="boardList.bo?page=<%=a %>">[<%=a %>]
+			<a style="color:black; text-decoration:none;" href="boardViewMem.bo?&board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>&reviewPage=<%=a %>">[<%=a %>]
 			</a>&nbsp;
 		<%} %>
 	<%} %>
-	<%if(nowPage1>=maxPage) { %>
+	<%if(nowReviewPage>=maxPage) { %>
 		[다음]
 	<%}else{ %>
-		<a style="color:black; text-decoration:none;" href="boardView.bo?&page=<%=nowPage%>">[다음]</a>
+		<a style="color:black; text-decoration:none;" href="boardViewMem.bo?&board_no=<%=board.getBoard_no() %>&page=<%=nowPage%>&reviewPage=<%=nowReviewPage+1%>">[다음]</a>
 	<%} %>	
 </section>
 <% } else { %>
