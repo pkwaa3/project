@@ -275,8 +275,9 @@ th {
   		<ul>
   			<li><a href="memberModInfoForm.mem?id=<%=session.getAttribute("id") %>">회원 정보 수정</a></li>
 			<li><a href="reservInfo.mem?member_id=${id }">예약 내역</a></li>
+			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>
   			<li><a href="memberDeleteForm.mem?member_id=<%=session.getAttribute("id") %>">회원탈퇴</a></li>
-  			<li><a href="cartList.bo?member_id=${id }">찜 목록</a></li>
+  			
   		</ul>
   	</nav>
   </div>
