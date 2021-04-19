@@ -313,9 +313,9 @@ button:hover {
 %>
 	
 <%if(list.size()!=0){ %>	
-	<br><br><label for="kind"><b>가게주소</b> </label><P> 	
+	
 
-    	<input type="text" name="addr" id="addr" value="<%=list.get(0).getAddress() %>" />
+    	<input type="hidden" name="addr" id="addr" value="<%=list.get(0).getAddress() %>" /><br>
 		
 	<br> <b>가게 메인이미지 등록</b><br> <br> 
 		<input type="file"  name="main_img" id="main_img" />
