@@ -104,9 +104,12 @@ public class BoardRegAction implements Action {
 		boolean isMeRegSuccess = boardRegService.registArticle(list, rest_no);
 		
 		if (isBoRegSuccess && isMeRegSuccess) {
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("ownerMyPage.own?owner_id=" + id);
+			
+   			PrintWriter out = response.getWriter();
+   			out.println("<script>");
+   			out.println("alert('가게정보 등록 완료');");
+   			out.println("location.href='ownerLoginForm.own?owner_id="+id+"'");
+   			out.println("</script>");
 		} else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();

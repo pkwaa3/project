@@ -33,17 +33,18 @@ public class OwnerModInfoProAction implements Action {
 	    	boolean isModifySuccess = ownerModInfoProSvc.modifyOwnerInfo(owner);
 	    	
 	    	if(isModifySuccess) {
+	    		session.setAttribute("owner_id", owner.getOwner_id());
+				session.setAttribute("owner_pw", owner.getOwner_pw());
 	    		response.setContentType("text/html;charset=utf-8");
 	    		PrintWriter out = response.getWriter();
 	    		out.println("<script>");
 	    		out.println("alert('수정되었습니다.');");
+	    		out.println("location.href='ownerMyPage.own?owner_id="+owner.getOwner_id()+"'");
 	    		out.println("</script>");
 	    		
-	    		session.setAttribute("owner_id", owner.getOwner_id());
-				session.setAttribute("owner_pw", owner.getOwner_pw());
+	    		
 				
-	    		forward = new ActionForward();
-	    		forward.setPath("ownerMyPage.own?owner_id="+owner.getOwner_id());
+	    		
 	    		
 	    		
 	    	} else {
