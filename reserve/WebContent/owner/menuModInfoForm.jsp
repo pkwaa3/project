@@ -97,7 +97,7 @@
   float: left;
   width: 20%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 1200px; /* Should be removed. Only for demonstration */
 }
 /*컨텐트*/
 body {font-family: Arial, Helvetica, sans-serif;}

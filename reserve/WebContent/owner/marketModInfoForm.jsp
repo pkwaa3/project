@@ -92,7 +92,7 @@
   float: left;
   width: 20%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 900px; /* Should be removed. Only for demonstration */
 }
 
 

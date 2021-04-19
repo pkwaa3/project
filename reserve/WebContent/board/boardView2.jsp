@@ -207,7 +207,10 @@ input[type=text]{
           <img src="upload/${list.menu_org_img }" class="card-img" style="width:300px; height:300px;" >
           </div>
           <div class="card-footer">
-            <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }원</a>
+            <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            ${list.menu_price }원</a>
           </div>
         </div>
       </div>

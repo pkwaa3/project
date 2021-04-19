@@ -95,7 +95,7 @@ ArrayList<Restaurant> list = (ArrayList<Restaurant>)request.getAttribute("list")
   float: left;
   width: 20%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 1050px; /* Should be removed. Only for demonstration */
 }
 /*컨텐트*/
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -207,8 +207,8 @@ button:hover {
 		var oCell3 = oRow.insertCell();
 		var oCell4 = oRow.insertCell();
 		//삽입될 폼 태그
-		var frmTag1 = "<tr><td><label for='menu_name'> 상품명 : </label><input type='text' name='menu_name' id='menu_name' style='width:200px;height:10px;'/></td>";
-		var frmTag2 = "<td><label for='menu_price'>가격 : </label><input type='text' name='menu_price' id='menu_price' style='width:200px;height:10px;' />원</td>";
+		var frmTag1 = "<tr><td><input type='text' name='menu_name' id='menu_name' /></td>";
+		var frmTag2 = "<td><input type='text' name='menu_price' id='menu_price' style='width:200px;' />원</td>";
 		var frmTag3 = "<td><input type='file' name='menu_img"+cnt+"' id='menu_img"+cnt+"'> </td>";
 
 		var frmTag4 = "<td><input type=button value='삭제' onClick='removeRow()' style='cursor:hand'></td>";
@@ -284,7 +284,7 @@ button:hover {
 	
 	
 	 <div class="container">
-    <h1>가게 정보</h1>
+    <h1>메뉴 등록</h1>
     <p>빈칸을 채워 주세요.</p>
     <hr>
 	<input type="hidden" name="owner_no" id="owner_no" value="<%=owner.getOwner_no() %>"  />
@@ -325,12 +325,20 @@ button:hover {
 	<br><br><label for="board_content"><b>메뉴등록</b></label> &nbsp;&nbsp;<input name="addButton" type="button" style="cursor: pointer"
 			onClick="insRow()" value="메뉴 추가">
     <table id="addTable" style="text-align:center; border-spacing:10px; " >
-<%} %>    		
+<%} %>    	
+		<tr>		
+
+    		<td><label for="menu_name">상품 명  </label> </td>
+    		<td><label for="menu_price">가격  </label></td>
+    		<td><label for="menu_img">사진 등록  </label> </td>
+    		<td></td>
+    		
+		</tr> 	
     	<tr>		
 
-    		<td><label for="menu_name">상품 명 : </label> <input type="text" name="menu_name" id="menu_name" style="width:200px;height:10px;"/></td>
-    		<td><label for="menu_price">가격 : </label><input type="text" name="menu_price" id="menu_price" style="width:200px;height:10px;" />원</td>
-    		<td><label for="menu_img">사진 등록 : </label><input type="file" name="menu_img1" id="menu_img1" /> <br> </td>
+    		<td> <input type="text" name="menu_name" id="menu_name" /></td>
+    		<td><input type="text" name="menu_price" id="menu_price" style="width:200px;" />원</td>
+    		<td><input type="file" name="menu_img1" id="menu_img1" /> <br> </td>
     		<td></td>
     		
 		</tr> 
@@ -343,7 +351,7 @@ button:hover {
     
      <br><br>
     <label for="board_content"><b>가게 설명</b></label><br><br>
-    <textarea rows="20" cols="70" name="board_content" id="board_content" ></textarea>
+    <textarea rows="20" cols="120" name="board_content" id="board_content" ></textarea>
     
     
     
