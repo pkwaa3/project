@@ -102,7 +102,7 @@ public class BoardRegAction implements Action {
 		// boolean isMeRegSuccess = boardRegService.registArticle(list);
 
 		boolean isMeRegSuccess = boardRegService.registArticle(list, rest_no);
-
+		
 		if (isBoRegSuccess && isMeRegSuccess) {
 			forward = new ActionForward();
 			forward.setRedirect(true);

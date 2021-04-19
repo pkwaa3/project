@@ -33,16 +33,24 @@ public class BoardRegFormAction implements Action {
 		list= boardRegFormService.getRestInfo(owner.getOwner_no());
 		
 		request.setAttribute("list", list);
-		for(int i=0; i<list.size();i++) {
-			
-		}
 		
-		if(list != null) {
+		if(list.size() !=0 ) {
 			
 			forward = new ActionForward();
 			forward.setPath("boardRegForm.bo?owner_id="+id);
+		}else {
+			list=null;
+			forward=null;
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('등록된 가게가 없습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
 		}
 		} else {
+			
+			forward=null;
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");

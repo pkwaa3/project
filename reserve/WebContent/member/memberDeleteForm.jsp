@@ -229,7 +229,7 @@ button:hover {
 	 <div class="container">
     <h1>회원 탈퇴</h1>
     <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no") %>" />
+	<input type="hidden" name="id" id="id" value="<%=session.getAttribute("id") %>" />
 	
 	
     <label for="pw"><b>탈퇴하려면 비밀번호를 입력하세요</b></label>

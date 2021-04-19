@@ -194,6 +194,9 @@ th {
   text-align: center;
   padding: 8px;
 }
+td a{
+	text-decoration:none;
+}
 
 tr:nth-child(even){background-color: #f2f2f2}
 
@@ -288,6 +291,7 @@ th {
 		<tr id="tr_top">
 			<th>식당사진</th>
 			<th>식당이름</th>
+			<th></th>
 			
 			
 		</tr>
@@ -295,6 +299,7 @@ th {
 		<tr>
 			<td><img src="upload/${list.img }" style="width:50px; height:50px;" ></td>
 			<td><!--  >a href="cartView.bo?rest_no=${list.rest_no }"></a-->${list.restName }</td>
+			<td><a href="cartDel.bo?cart_no=${list.cart_no }">찜 삭제</a></td>
 			
 			
 		</tr>

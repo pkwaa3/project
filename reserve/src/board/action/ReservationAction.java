@@ -13,13 +13,14 @@ import member.svc.MemberInfoService;
 import member.svc.MemberNoService;
 import restaurant.svc.RestNoService;
 import vo.ActionForward;
+import vo.Member;
 import vo.Reservation;
 
 public class ReservationAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward forward= null;
+		ActionForward forward= new ActionForward();
 		HttpSession session = request.getSession();
 		String id= (String) session.getAttribute("id");
 		//String board_no=(String)session.getAttribute("board_no");
@@ -45,9 +46,9 @@ public class ReservationAction implements Action {
 	//	Date date = new Date();
 		
 		
-		//멤버 아이디로 번호 조회
+		//멤버 아이디로 멤버 조회
 		MemberNoService memberNoService = new MemberNoService();
-		int memberNo= memberNoService.getMember(id);
+		Member member= memberNoService.getMember(id);
 		
 		
 		//보드번호로 식당번호 조회
@@ -56,23 +57,29 @@ public class ReservationAction implements Action {
 				
 		Reservation reservation = new Reservation();
 		reservation.setDate(date);
-		reservation.setMember_no(memberNo);
+		reservation.setMember_no(member.getMember_no());
 		reservation.setTime(time);
 		reservation.setHead(head);
 		reservation.setRest_no(restNo);
 		reservation.setRestName(restName);
-		System.out.println(memberNo);
-		System.out.println(restNo);
+		reservation.setMemberName(member.getMember_name());
+		reservation.setMemberNum(member.getMember_number());
 		
 		ReservationService reservationService = new ReservationService();
 		boolean reserv = reservationService.reservation(reservation);
 		
 		if(reserv != false) {
-			forward= new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("boardViewMem.bo?board_no="+board_no);
+//			forward= new ActionForward();
+//			forward.setRedirect(true);
+//			forward.setPath("boardViewMem.bo?board_no="+board_no);
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('예약되었습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
 		} else {
-			response.setContentType("utf-8");
+			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('예약실패');");

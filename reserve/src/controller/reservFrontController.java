@@ -16,6 +16,7 @@ import board.action.BoardRegFormAction;
 import board.action.BoardViewAction;
 import board.action.BoardViewMemAction;
 import board.action.CartAddAction;
+import board.action.CartDelAction;
 import board.action.CartListAction;
 import board.action.CartViewAction;
 import board.action.MarketSearchAction;
@@ -24,6 +25,7 @@ import board.action.ReservationAction;
 import board.action.reservationListAction;
 import board.action.MarketSearchMemberAction;
 import board.action.MenuModInfoProAction;
+import board.action.ReservDelAction;
 import board.action.ReservInfoAction;
 import board.action.ReservInfoOwAction;
 import member.action.MemberDeleteAction;
@@ -317,14 +319,11 @@ public class reservFrontController extends HttpServlet {
 			}
 		}
 
-		else if (command.equals("/menuModInfoForm.own")) {
-			action = new MenuModInfoFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		// 마켓 서치 리스트 폼 멤버로
+				else if (command.equals("/menuModInfoFormForm.own")) {
+					forward = new ActionForward();
+					forward.setPath("/owner/menuModInfoForm.jsp");
+				}
 		// 메뉴 정보 수정 프로
 		else if (command.equals("/menuModInfoPro.own")) {
 			action = new MenuModInfoProAction();
@@ -609,6 +608,24 @@ public class reservFrontController extends HttpServlet {
 		//카트뷰
 		else if (command.equals("/cartView.bo")) {
 			action = new CartViewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//예약삭제
+		else if (command.equals("/reservDelete.bo")) {
+			action = new ReservDelAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+//		//찜삭제
+		else if (command.equals("/cartDel.bo")) {
+			action = new CartDelAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

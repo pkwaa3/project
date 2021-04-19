@@ -59,6 +59,12 @@
 
 </script>
 <style>
+@font-face {
+    font-family: 'TmoneyRoundWindExtraBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*탑 목록*/
 #topmenu {
@@ -301,8 +307,11 @@ body {
 %>
 </nav>
 <br><br>
+<div style="height:50px;"></div>
+</div>
 <div class="title">
-<h2>야먹자</h2>
+<font face="TmoneyRoundWindExtraBold"><h1>야먹자</h1></font>
+<div style="height:50px;"></div>
 </div>
 <br><br><br>
 
@@ -401,7 +410,7 @@ body {
   
   </div>
 </div>
-<div style="height:150px;">
+<div style="height:200px;">
 
 </div>
 <div class="footer">

@@ -11,6 +11,7 @@ import board.svc.ReservInfoService;
 
 import member.svc.MemberNoService;
 import vo.ActionForward;
+import vo.Member;
 import vo.Reservation;
 
 public class ReservInfoAction implements Action {
@@ -21,16 +22,16 @@ public class ReservInfoAction implements Action {
 		
 		String id=request.getParameter("member_id");
 		
-		//아이디로 번호조회
-		MemberNoService memberNoService= new MemberNoService();
-		int memberNo = memberNoService.getMember(id);
+		//아이디로 멤버조회
+		MemberNoService memberNoService = new MemberNoService();
+		Member member= memberNoService.getMember(id);
 		
 		
 		ReservInfoService reservInfoSvc= new ReservInfoService();
 		//System.out.println(memberNo);
 		ArrayList<Reservation> list = new ArrayList<Reservation>();
 		//Reservation reserv=reservInfoSvc.getInfo(memberNo);
-		list=reservInfoSvc.getInfo(memberNo);
+		list=reservInfoSvc.getInfo(member.getMember_no());
 		
 		
 		//가게번호로 식당이름 찾기

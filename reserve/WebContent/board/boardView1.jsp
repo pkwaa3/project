@@ -161,7 +161,7 @@ input[type=text]{
 
 <!-- <jsp:include page="../head.jsp"></jsp:include>-->
 
-</nav>
+
 
  
 
@@ -207,7 +207,7 @@ input[type=text]{
           <img src="upload/${list.menu_org_img }" class="card-img" style="width:300px; height:300px;">
           </div>
           <div class="card-footer">
-            <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }</a>
+            <!--  a href="#" class="btn btn-primary btn-sm"-->${list.menu_name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.menu_price }원</a>
           </div>
         </div>
       </div>
@@ -258,7 +258,7 @@ input[type=text]{
 			for(int i=0; i<articleList.size(); i++) {
 		%>
 		<tr>
-			<td width=50><%=i %></td>
+			<td width=50><%=i +1%></td>
 			<td style="text-align:left;">
 				<%if(articleList.get(i).getReview_re_lev() != 0) {%>
 				<%for(int a=0; a<=articleList.get(i).getReview_re_lev()*2; a++) { %>

@@ -450,6 +450,45 @@ public class BoardDAO {
 		
 		return boardNo;
 	}
+	//예약삭제
+	public int delete(String reservNo) {
+		int reservDel=0;
+		PreparedStatement pstmt=null;
+		String sql=null;
+		
+		try {
+			sql="delete from reservation where reserv_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,reservNo);
+			reservDel=pstmt.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return reservDel;
+	}
+	//찜삭제
+	public int deleteCart(String cartNo) {
+		int cartDel = 0;
+		PreparedStatement pstmt=null;
+		String sql=null;
+		try {
+			sql="delete from cart where cart_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, cartNo);
+			cartDel=pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return cartDel;
+	}
 
 	
 }

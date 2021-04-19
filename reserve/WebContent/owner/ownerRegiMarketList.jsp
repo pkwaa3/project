@@ -303,11 +303,11 @@ th {
 			for(int i=0; i<restList.size(); i++) {
 		%>
 		<tr>
-			<td><%= i %>
+			<td><%= i+1 %>
 			<td><%=restList.get(i).getRest_no() %></td>
-			<td><a style="color:black; text-decoration:none;" href="marketModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
+			<td><a style="color:green; text-decoration:none;" href="marketModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getName() %></a></td>
 			<td><%=restList.get(i).getLocal() %></td>
-			<td><a style="color:black; text-decoration:none;" href="menuModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getKind() %></a></td>
+			<td><a style="color:green; text-decoration:none;" href="menuModInfoForm.own?rest_no=<%=restList.get(i).getRest_no() %>"><%=restList.get(i).getKind() %></a></td>
 			
 		</tr>
 		<%} %>

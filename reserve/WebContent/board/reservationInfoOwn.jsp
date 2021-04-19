@@ -94,7 +94,9 @@
   padding: 10px;
   height: 500px; /* Should be removed. Only for demonstration */
 }
-/* 컨텐츠 */
+
+
+/* 콘텐츠*/
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
@@ -166,21 +168,82 @@ button:hover {
   width: 30%; /* Could be more or less, depending on screen size */
   padding:5px;
 }
-table {
+
+/* 리스트 스타일*/
+#registForm {
+		width:500px;
+		height:600px;
+		border:1px solid red;
 		margin:auto;
-		width:350px;
 	}
-table .tr{
-	text-align:center;
-}
-table .td{
-	text-align:center;
+	h2 {
+		text-align:center;
+	}
+	table {
+  border-collapse: collapse;
+  width: 1200px;
+  margin:auto; 
 }
 
+td {
+  text-align: center;
+  padding: 8px;
+}
+th {
+  text-align: center;
+  padding: 8px;
+}
+td a{
+	text-decoration:none;
+}
+tr:nth-child(even){background-color: #f2f2f2}
 
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+	#tr_top {
+		background:#4CAF50;
+		text-align:center;
+	}
+	#pageList {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
+	#emptyArea {
+		margin:auto;
+		width:500px;
+		text-align:center;
+	}
+	
+	.review {
+	text-align:center;
+	margin:auto;
+	
+}
+.footer {
+  background-color: #343a40 !important;
+  padding: 10px;
+  width:100%;
+  height:30px;
+  
+  bottom:0;
+  align:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+.footer p{	
+	text-align:center;
+	margin:0;
+	color:#fff;
+	align:center;
+	size:1.5em;
+}
 </style>
 </head>
 <body>
+
 <nav id="topmenu">
 <ul >
   <li><a class="active" href="mainLoginOwner.com">Home</a></li>
@@ -205,6 +268,7 @@ table .td{
 <div class="header">
 	<h2>마이 페이지</h2><p>
 </div>
+
 <div class="row">
   <div class="column" style="background-color:#aaa;">
   	<nav id="contentList">
@@ -220,49 +284,44 @@ table .td{
   	</nav>
   </div>
   <div class="" style="background-color:#ccc;">
-  
-  		<form class="modal-content" name="memberModForm" action="memberMod.mem" method="post" >
-	
-	
-	 <div class="container">
-    <h1>예약내역 보기</h1>
-    <hr>
-	<input type="hidden" name="owner_no" id="owner_no" value="<%=session.getAttribute("owner_no") %>" />
-	
-	
-    <label for="id"><b>최근 10개 까지만 조회됩니다.</b></label>
-<c:if test="${list ne null }">
-<section id="listForm">
- <table>
+  	<div style="background-color:#fefefe; width:50%; border: 1px solid #888;margin: 5% auto 15% auto;padding:5px;">
+ <section id="listForm">
+  <h1>예약내역 보기</h1>
+  <label for="id"><b>최근 10개 까지만 조회됩니다.</b></label>
+ <table style=" width:100%;">
+		<c:if test="${list ne null }">
 		<tr id="tr_top">
-			<td>예약번호</td>
-			<td>식당이름</td>
-			<td>날짜</td>
-			<td>시간</td>
-			<td>인원수</td>
+			<th>예약번호</th>
+			<th>식당이름</th>
+			<th>날짜</th>
+			<th>시간</th>
+			<th>인원수</th>
+			<th>예약자이름</th>
+			<th>예약자 휴대폰번호</th>
 			
 		</tr>
-<c:forEach var="list" items="${list }" begin="0" end="9">		
+<c:forEach var="list" items="${list }" begin="0" end="9">	
 		<tr>
 			<td>${list.reserv_no }</td>
 			<td>${list.restName }</td>
 			<td>${list.date }</td>
 			<td>${list.time }</td>
 			<td>${list.head }</td>
+			<td>${list.memberName }</td>
+			<td>${list.memberNum }</td>
 			
 		</tr>
-</c:forEach>	
+		</c:forEach>
 	</table>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
 </section>
+</div>
 </c:if>
 <c:if test="${list eq null }">
-예약 정보가 없습니다. 예약해주세오
-</c:if>
-   
-    </div>
-  </div>
-</form>
-  
+찜 목록이 비어있습니다.
+</c:if>	
+
   </div>
 </div>
 <div class="footer">

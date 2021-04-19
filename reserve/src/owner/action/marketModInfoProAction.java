@@ -38,23 +38,22 @@ public class marketModInfoProAction implements Action {
 	    	
 	    	if(isModifySuccess) {
 	    		response.setContentType("text/html;charset=utf-8");
-	    		PrintWriter out = response.getWriter();
-	    		out.println("<script>");
-	    		out.println("alert('수정되었습니다.');");
-	    		out.println("</script>");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('회원탈퇴하셨습니다.');");
+				out.println("location.href='ownerRegiMarketListForm.own?owner_id="+owner_id+"';");
+				out.println("</script>");
 	    		
-	    	
-	    		forward = new ActionForward();
-	    		forward.setPath("ownerRegiMarketListForm.own?owner_id=" +owner_id);
 	    		
 	    		
 	    	} else {
+	    		
 	    		response.setContentType("text/html;charset=utf-8");
-	    		PrintWriter out = response.getWriter();
-	    		out.println("<script>");
-	    		out.println("alert('수정실패하였습니다.');");
-	    		out.println("history.back();");
-	    		out.println("</script>");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('회원탈퇴하셨습니다.');");
+				out.println("history.back();");
+				out.println("</script>");
 	    	}
 		
 		

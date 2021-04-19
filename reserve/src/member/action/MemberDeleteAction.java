@@ -26,11 +26,12 @@ public class MemberDeleteAction implements Action {
 		boolean isDeleteSuccess = memberDeleteService.deleteMember(id,pass);
 		
 		if(isDeleteSuccess) {
-			
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			session.invalidate();
-			forward.setPath("main.com");
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('회원탈퇴하셨습니다.');");
+			out.println("location.href='main.com';");
+			out.println("</script>");
 		} else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();

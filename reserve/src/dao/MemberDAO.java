@@ -156,20 +156,23 @@ public class MemberDAO {
 		return deleteCount;
 	}
 	//멤버 번호 찾기
-	public int serchMemberNO(String id) {
-		int memberNo=0;
+	public Member serchMemberNO(String id) {
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String sql="select member_no from member where member_id=?";
+		Member member= null;
+		String sql="select member_no,member_name,member_number from member where member_id=?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
 			
-			if(rs.next()) 
-				memberNo = rs.getInt("member_no");
-			
+			if(rs.next()) { 
+				member = new Member();
+				member.setMember_no(rs.getInt("member_no"));
+				member.setMember_name(rs.getString("member_name"));
+				member.setMember_number(rs.getString("member_number"));
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -177,6 +180,29 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		
+		return member;
+	}
+
+	public int getMemberNo(String id) {
+		int memberNo=0;
+		PreparedStatement pstmt= null;
+		ResultSet rs =null;
+		String sql=null;
+		
+		try {
+			sql="select * from member where member_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			memberNo=rs.getInt("member_no");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
 		return memberNo;
 	}
 
