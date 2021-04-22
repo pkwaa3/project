@@ -93,7 +93,7 @@
   float: left;
   width: 20%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 400px; /* Should be removed. Only for demonstration */
 }
 
 
@@ -284,7 +284,7 @@ th {
   <div class="" style="background-color:#ccc;">
   	<div style="background-color:#fefefe; width:50%; border: 1px solid #888;margin: 5% auto 15% auto;padding:5px;">
  <section id="listForm">
-  <h1>예약내역 보기</h1>
+  <h1>예약내역</h1>
   <label for="id"><b>최근 10개 까지만 조회됩니다.</b></label>
  <table style=" width:100%;">
 		<c:if test="${list ne null }">

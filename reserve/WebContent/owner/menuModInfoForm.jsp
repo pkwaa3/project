@@ -339,7 +339,7 @@ button:hover {
     
     
     <div class="clearfix">
-      <button type="button" class="cancelbtn">취소</button>
+      <button type="button" class="cancelbtn" onclick="history.back()">뒤로 가기</button>
       <button type="submit" class="signupbtn">수정</button>
     </div>
   </div>

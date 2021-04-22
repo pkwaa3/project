@@ -34,11 +34,23 @@ public class ReviewDAO {
 	public int insertArticle(Review review) {
 		PreparedStatement pstmt = null;
 		
+		ResultSet rs = null;
+		int num = 0;
 		
 		String sql = "";
 		int insertCount = 0;
 		
 		try { 
+			pstmt = con.prepareStatement("select max(review_re_ref) from review where board_no = ?");
+			pstmt.setInt(1, review.getBoard_no());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) 
+				num = rs.getInt(1)+1;
+			
+			else  
+				num=1;
+			
 			
 			if(review.getMember_id() == null) {
 				
@@ -48,7 +60,7 @@ public class ReviewDAO {
 			pstmt.setInt(1, review.getBoard_no());
 			pstmt.setString(2, review.getOwner_id());
 			pstmt.setString(3, review.getReview_content());
-			pstmt.setInt(4, 0);
+			pstmt.setInt(4, num);
 			pstmt.setInt(5, 0);
 			pstmt.setInt(6, 0);
 			
@@ -60,11 +72,12 @@ public class ReviewDAO {
 				pstmt.setInt(1, review.getBoard_no());
 				pstmt.setString(2, review.getMember_id());
 				pstmt.setString(3, review.getReview_content());
-				pstmt.setInt(4, 0);
+				pstmt.setInt(4, num);
 				pstmt.setInt(5, 0);
 				pstmt.setInt(6, 0);	
 				
 			}
+			
 			
 			insertCount = pstmt.executeUpdate();
 		} catch (Exception e) {

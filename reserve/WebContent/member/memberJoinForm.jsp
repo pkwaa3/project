@@ -164,9 +164,9 @@ button:hover {
     <p>빈칸을 채워 주세요.</p>
     <hr>
 
-    <label for="id"><b>아이디</b></label>
+    <label for="id"><b>아이디</b></label>&nbsp;&nbsp;<input type="button" name="idSearch" id="idsearch" value="검색" onclick="window.open('memberIdCheck.mem','','width=500, height=300')"/>
     <input type="text" placeholder="Enter Id" name="id" id="id"  readonly required>
-    <input type="button" name="idSearch" id="idsearch" value="검색" onclick="window.open('memberIdCheck.mem','','width=500, height=300')"/>
+    
 
     <label for="pass"><b>비밀번호</b></label>
     <input type="password" placeholder="Enter Password" name="pass" id="pass" required>
