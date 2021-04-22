@@ -198,6 +198,54 @@ public class OwnerDAO {
 		}
 		return deleteCount;
 	}
+	//아이디로 번호찾기
+	public int getNo(String owner_id) {
+		int ownerNo=0;
+		PreparedStatement pstmt=null;
+		ResultSet rs =null;
+		String sql=null;
+		try {
+			sql="select owner_no from owner where owner_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, owner_id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				ownerNo=rs.getInt("owner_no");
+			}
+		
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return ownerNo;
+	}
+	//가게삭제
+	public int Del(int ownerNo) {
+		int delete = 0;
+		String sql=null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			sql="delete from restaurant where owner_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, ownerNo);
+			
+			delete=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return delete;
+	}
 
 	
 

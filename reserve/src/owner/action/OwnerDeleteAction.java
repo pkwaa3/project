@@ -8,7 +8,9 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import member.svc.MemberDeleteService;
+import owner.svc.OwnerDelSvc;
 import owner.svc.OwnerDeleteService;
+import owner.svc.OwnerNoService;
 import vo.ActionForward;
 
 public class OwnerDeleteAction implements Action {
@@ -21,16 +23,24 @@ public class OwnerDeleteAction implements Action {
 		String owner_id = request.getParameter("owner_id");
 		String owner_pw = request.getParameter("owner_pw");
 		System.out.println(owner_id);
+		//아이디로 번호찾기
+		OwnerNoService ownerNoService = new OwnerNoService();
+		int ownerNo=ownerNoService.getNo(owner_id);
+		
+		//번호로 가게 삭제
+		OwnerDelSvc ownerDelSvc = new OwnerDelSvc();
+		boolean isDel =ownerDelSvc.Del(ownerNo);
 		
 		OwnerDeleteService ownerDeleteService = new OwnerDeleteService();
 		boolean isDeleteSuccess = ownerDeleteService.deleteOwner(owner_id, owner_pw);
 		
 		if(isDeleteSuccess) {
-			
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			session.invalidate();
-			forward.setPath("main.com");
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('탈퇴되었습니다.');");
+			out.println("location.href='main.com';");
+			out.println("</script>");
 		} else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
